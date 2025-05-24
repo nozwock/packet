@@ -8,30 +8,31 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-24 19:29+0530\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-05-24 17:51+0000\n"
+"Last-Translator: honnip <me@honnip.page>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr ""
+msgstr "설정(P)"
 
 #: data/resources/ui/window.blp:12 data/resources/ui/window.blp:394
 msgid "Help"
-msgstr ""
+msgstr "도움말"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "키보드 바로 가기(K)"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr ""
+msgstr "Packet 정보(A)"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:37 data/resources/ui/window.blp:99
@@ -39,11 +40,11 @@ msgstr ""
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr ""
+msgstr "Packet"
 
 #: data/resources/ui/window.blp:51
 msgid "Setting up Packet…"
-msgstr ""
+msgstr "Packet 설정 중…"
 
 #: data/resources/ui/window.blp:100
 msgid "Add, or drop a file to send"
@@ -51,19 +52,19 @@ msgstr ""
 
 #: data/resources/ui/window.blp:103
 msgid "Add Files"
-msgstr ""
+msgstr "파일 추가하기"
 
 #: data/resources/ui/window.blp:158
 msgid "Add File"
-msgstr ""
+msgstr "파일 추가하기"
 
 #: data/resources/ui/window.blp:247
 msgid "Send"
-msgstr ""
+msgstr "보내기"
 
 #: data/resources/ui/window.blp:270
 msgid "Select Recipients"
-msgstr ""
+msgstr "받는 사람 선택"
 
 #: data/resources/ui/window.blp:338
 msgid "Looking for devices…"
@@ -71,11 +72,11 @@ msgstr ""
 
 #: data/resources/ui/window.blp:357
 msgid "Preferences"
-msgstr ""
+msgstr "설정"
 
 #: data/resources/ui/window.blp:362
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 #: data/resources/ui/window.blp:365
 msgid "Device Name"
@@ -91,7 +92,7 @@ msgstr ""
 
 #: data/resources/ui/window.blp:376
 msgid "Advanced"
-msgstr ""
+msgstr "고급"
 
 #: data/resources/ui/window.blp:379
 msgid "Enable Static Network Port"
@@ -140,20 +141,17 @@ msgstr ""
 #: src/utils.rs:133
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "시간"
 
 #: src/utils.rs:135 src/utils.rs:145
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "분"
 
 #: src/utils.rs:147 src/utils.rs:150
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "초"
 
 #: src/widgets/file_card.rs:115
 msgid "Remove"
@@ -184,7 +182,7 @@ msgstr ""
 
 #: src/widgets/receive_transfer.rs:62 src/widgets/recipient_card.rs:308
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/widgets/receive_transfer.rs:159
 msgid "Incoming Transfer"
@@ -196,14 +194,13 @@ msgstr ""
 
 #: src/widgets/receive_transfer.rs:184
 msgid "Accept"
-msgstr ""
+msgstr "수락"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:215
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{} 파일 ({})"
 
 #: src/widgets/receive_transfer.rs:235
 msgid "Preview ({})"
@@ -238,7 +235,7 @@ msgstr ""
 
 #: src/widgets/receive_transfer.rs:509 src/widgets/receive_transfer.rs:628
 msgid "Open"
-msgstr ""
+msgstr "열기"
 
 #: src/widgets/receive_transfer.rs:620
 msgid "{} file received"
@@ -342,7 +339,8 @@ msgstr ""
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
-msgstr ""
+msgstr "Packet을 사용하기 위해 블루투스가 활성화되어 있어야 하며, mDNS가 활성화된 Wi-"
+"Fi 네트워크에 연결되어야 합니다."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:17
 msgid "Home Page"
