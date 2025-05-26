@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-24 19:29+0530\n"
-"PO-Revision-Date: 2025-05-26 02:28+0000\n"
+"PO-Revision-Date: 2025-05-26 08:53+0000\n"
 "Last-Translator: honnip <me@honnip.page>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
@@ -123,11 +123,20 @@ msgid ""
 "Also, ensure Bluetooth is enabled on both devices, as it's often required "
 "for device discovery even over Wi-Fi."
 msgstr ""
+"다른 기기가 검색 가능하고, 이 기기와 동일한 네트워크에 연결되어 있는지 "
+"확인하세요.\n"
+"\n"
+"Android 기기인 경우 공개 설정을 \"모두\"로 설정했는데도 여전히 해당 폴더가 "
+"보이지 않는다면, <b>Files by Google</b> 앱에서 <b>Quick Share</b> 페이지를 "
+"열어 두세요.\n"
+"\n"
+"또한, 두 기기 모두 블루투스가 활성화되어 있는지 확인하세요. Wi-Fi를 통해서도 "
+"기기를 찾기 위해 블루투스가 필요한 경우가 많습니다."
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:144
 msgid "translator-credits"
-msgstr ""
+msgstr "Honnip <me@honnip.page>"
 
 #: src/application.rs:149
 msgid "Similar Projects"
@@ -185,7 +194,7 @@ msgstr "취소"
 
 #: src/widgets/receive_transfer.rs:159
 msgid "Incoming Transfer"
-msgstr ""
+msgstr "전송 요청"
 
 #: src/widgets/receive_transfer.rs:183
 msgid "Decline"
@@ -239,11 +248,11 @@ msgstr "열기"
 #: src/widgets/receive_transfer.rs:620
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "{} 파일 전송됨"
+msgstr[0] "파일 {}개를 받았습니다"
 
 #: src/widgets/recipient_card.rs:220
 msgid "Unavailable"
-msgstr ""
+msgstr "사용 불가"
 
 #: src/widgets/recipient_card.rs:243
 msgid "Queued"
@@ -264,23 +273,23 @@ msgstr "실패함"
 #: src/widgets/recipient_card.rs:545
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "파일 {}개를 전송했습니다"
+msgstr[0] "파일 {}개를 보냈습니다"
 
 #: src/window.rs:681
 msgid "Ready"
-msgstr ""
+msgstr "준비됨"
 
 #: src/window.rs:687
 msgid "Visible as {:?}"
-msgstr ""
+msgstr "{:?}로 표시됩니다"
 
 #: src/window.rs:693
 msgid "Invisible"
-msgstr ""
+msgstr "검색 허용 꺼짐"
 
 #: src/window.rs:699
 msgid "No new devices can share with you"
-msgstr ""
+msgstr "새로운 기기는 이 기기와 공유할 수 없습니다"
 
 #: src/window.rs:732
 msgid "Couldn't open files"
@@ -288,7 +297,7 @@ msgstr "파일을 열 수 없습니다"
 
 #: src/window.rs:965
 msgid "Can't rename device during an active transfer"
-msgstr ""
+msgstr "전송 중에는 기기 이름을 바꿀 수 없습니다"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:4
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -303,15 +312,15 @@ msgstr "그놈;GTK;퀵;니어바이;쉐어;"
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr ""
+msgstr "창 너비"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr ""
+msgstr "창 높이"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr ""
+msgstr "창 최대화 상태"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
@@ -319,7 +328,7 @@ msgstr "기기 이름"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr ""
+msgstr "기기 검색 허용"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
