@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 15:03+0530\n"
-"PO-Revision-Date: 2025-05-21 10:57+0200\n"
+"POT-Creation-Date: 2025-05-26 07:56+0530\n"
+"PO-Revision-Date: 2025-05-26 10:39+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "_Preferences"
 msgstr "_Voorkeuren"
 
-#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:372
+#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:411
 msgid "Help"
 msgstr "Hulp"
 
@@ -37,14 +37,14 @@ msgstr "Over P_acket"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:37 data/resources/ui/window.blp:99
-#: src/application.rs:131 src/main.rs:33
+#: src/application.rs:131 src/main.rs:34
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
 msgstr "Packet"
 
 #: data/resources/ui/window.blp:51
-msgid "Setting up Packet..."
+msgid "Setting up Packet…"
 msgstr "Bezig met instellen…"
 
 #: data/resources/ui/window.blp:100
@@ -67,32 +67,60 @@ msgstr "Versturen"
 msgid "Select Recipients"
 msgstr "Ontvangers kiezen"
 
-#: data/resources/ui/window.blp:351
+#: data/resources/ui/window.blp:340
+msgid "Looking for devices…"
+msgstr "Bezig met zoeken naar apparaten…"
+
+#: data/resources/ui/window.blp:359
 msgid "Preferences"
 msgstr "Voorkeuren"
 
-#: data/resources/ui/window.blp:356
-msgid "Network"
-msgstr "Netwerk"
+#: data/resources/ui/window.blp:364
+msgid "General"
+msgstr "Algemeen"
 
-#: data/resources/ui/window.blp:359
+#: data/resources/ui/window.blp:367
 msgid "Device Name"
 msgstr "Apparaatnaam"
 
-#: data/resources/ui/window.blp:364
+#: data/resources/ui/window.blp:372
 msgid "Visibility"
 msgstr "Zichtbaarheid"
 
-#: data/resources/ui/window.blp:365
+#: data/resources/ui/window.blp:373
 msgid "Whether others can see this device"
 msgstr "Of anderen dit apparaat kunnen vinden"
 
+#: data/resources/ui/window.blp:377
+msgid "Downloads Folder"
+msgstr "Downloadmap"
+
+#: data/resources/ui/window.blp:383
+msgid "Pick downloads folder"
+msgstr "Kies een downloadmap"
+
+#: data/resources/ui/window.blp:393
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: data/resources/ui/window.blp:396
+msgid "Static Network Port"
+msgstr "Statische netwerkpoort"
+
+#: data/resources/ui/window.blp:397
+msgid "Allows whitelisting Packet through a firewall"
+msgstr "Staat toe dat Packet op de witte lijst van firewalls wordt geplaatst"
+
+#: data/resources/ui/window.blp:402
+msgid "Port Number"
+msgstr "Poortnummer"
+
 #. Translators: This is a heading under the help page
-#: data/resources/ui/window.blp:403
+#: data/resources/ui/window.blp:442
 msgid "I don't see the other device"
 msgstr "Ik kan het andere apparaat niet vinden"
 
-#: data/resources/ui/window.blp:414
+#: data/resources/ui/window.blp:453
 msgid ""
 "Make sure the other device is visible and connected to the same network as "
 "this device.\n"
@@ -118,28 +146,28 @@ msgstr ""
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: src/application.rs:149
+#: src/application.rs:151
 msgid "Similar Projects"
 msgstr "Vergelijkbare projecten"
 
-#: src/objects/send_transfer.rs:38 src/objects/send_transfer.rs:46
+#: src/objects/send_transfer.rs:50 src/objects/send_transfer.rs:58
 #: src/widgets/recipient_card.rs:108 src/widgets/recipient_card.rs:147
 msgid "Unknown device"
 msgstr "Onbekend apparaat"
 
-#: src/utils.rs:133
+#: src/utils.rs:144
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "uur"
 msgstr[1] "uur"
 
-#: src/utils.rs:135 src/utils.rs:145
+#: src/utils.rs:146 src/utils.rs:156
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "minuut"
 msgstr[1] "minuten"
 
-#: src/utils.rs:147 src/utils.rs:150
+#: src/utils.rs:158 src/utils.rs:161
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "seconde"
@@ -150,7 +178,7 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:133 src/window.rs:638
+#: src/widgets/file_card.rs:133 src/window.rs:849
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} bestand"
@@ -168,125 +196,125 @@ msgstr "Tekst"
 msgid "Wi-Fi"
 msgstr "Wifi"
 
-#: src/widgets/receive_transfer.rs:38
+#: src/widgets/receive_transfer.rs:59
 msgid "Receiving"
 msgstr "Bezig met ontvangen"
 
-#: src/widgets/receive_transfer.rs:41 src/widgets/recipient_card.rs:308
+#: src/widgets/receive_transfer.rs:62 src/widgets/recipient_card.rs:310
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/widgets/receive_transfer.rs:139
+#: src/widgets/receive_transfer.rs:159
 msgid "Incoming Transfer"
 msgstr "Inkomende overdracht"
 
-#: src/widgets/receive_transfer.rs:163
+#: src/widgets/receive_transfer.rs:183
 msgid "Decline"
 msgstr "Weigeren"
 
-#: src/widgets/receive_transfer.rs:164
+#: src/widgets/receive_transfer.rs:184
 msgid "Accept"
 msgstr "Goedkeuren"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
-#: src/widgets/receive_transfer.rs:195
+#: src/widgets/receive_transfer.rs:215
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
 msgstr[0] "{} bestand ({})"
 msgstr[1] "{} bestanden ({})"
 
-#: src/widgets/receive_transfer.rs:215
+#: src/widgets/receive_transfer.rs:235
 msgid "Preview ({})"
 msgstr "({}) voorvertonen"
 
 #. Translators: This is the pin-code for the transfer
-#: src/widgets/receive_transfer.rs:239 src/widgets/recipient_card.rs:445
+#: src/widgets/receive_transfer.rs:251 src/widgets/recipient_card.rs:442
 msgid "Code: {}"
 msgstr "Code: {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
-#: src/widgets/receive_transfer.rs:347 src/widgets/recipient_card.rs:478
+#: src/widgets/receive_transfer.rs:359 src/widgets/recipient_card.rs:473
 msgid "About {} left"
 msgstr "Nog {} te gaan"
 
-#: src/widgets/receive_transfer.rs:374
+#: src/widgets/receive_transfer.rs:386
 msgid "Unexpected dissconnection"
 msgstr "Verbinding onverwacht onderbroken"
 
-#: src/widgets/receive_transfer.rs:397
+#: src/widgets/receive_transfer.rs:409
 msgid "Transfer cancelled by sender"
 msgstr "Overdracht afgebroken door afzender"
 
-#: src/widgets/receive_transfer.rs:432
+#: src/widgets/receive_transfer.rs:444
 msgid "Copy to clipboard"
 msgstr "Kopiëren naar klembord"
 
-#: src/widgets/receive_transfer.rs:440
+#: src/widgets/receive_transfer.rs:452
 msgid "Save text as file"
 msgstr "Tekst opslaan in bestand"
 
-#: src/widgets/receive_transfer.rs:497 src/widgets/receive_transfer.rs:613
+#: src/widgets/receive_transfer.rs:509 src/widgets/receive_transfer.rs:627
 msgid "Open"
 msgstr "Openen"
 
-#: src/widgets/receive_transfer.rs:594
-msgid "Unimplemented"
-msgstr "Nog niet beschikbaar"
-
-#: src/widgets/receive_transfer.rs:605
+#: src/widgets/receive_transfer.rs:619
 msgid "{} file received"
 msgid_plural "{} files received"
 msgstr[0] "{} bestand ontvangen"
 msgstr[1] "{} bestanden ontvangen"
 
-#: src/widgets/recipient_card.rs:220
+#: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
 msgstr "Niet beschikbaar"
 
-#: src/widgets/recipient_card.rs:243
+#: src/widgets/recipient_card.rs:244
 msgid "Queued"
 msgstr "In wachtrij"
 
-#: src/widgets/recipient_card.rs:289
+#: src/widgets/recipient_card.rs:291
 msgid "Retry"
 msgstr "Opnieuw proberen"
 
-#: src/widgets/recipient_card.rs:439
+#: src/widgets/recipient_card.rs:436
 msgid "Requested"
 msgstr "Aangevraagd"
 
-#: src/widgets/recipient_card.rs:505
+#: src/widgets/recipient_card.rs:499
 msgid "Failed"
 msgstr "Mislukt"
 
-#: src/widgets/recipient_card.rs:545
+#: src/widgets/recipient_card.rs:542
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] "Er is {} bestand verstuurd"
 msgstr[1] "Er zijn {} bestanden verstuurd"
 
-#: src/window.rs:576
+#: src/window.rs:461
+msgid "Can't access Downloads folder"
+msgstr "De downloadmap is ontoegankelijk"
+
+#: src/window.rs:787
 msgid "Ready"
 msgstr "Gereed"
 
-#: src/window.rs:582
+#: src/window.rs:793
 msgid "Visible as {:?}"
 msgstr "Zichtbaar als {:?}"
 
-#: src/window.rs:588
+#: src/window.rs:799
 msgid "Invisible"
 msgstr "Onzichtbaar"
 
-#: src/window.rs:594
+#: src/window.rs:805
 msgid "No new devices can share with you"
 msgstr "Nieuwe apparaten kunnen niets met u delen"
 
-#: src/window.rs:627
+#: src/window.rs:838
 msgid "Couldn't open files"
 msgstr "De bestanden kunnen niet worden geopend"
 
-#: src/window.rs:860
+#: src/window.rs:1071
 msgid "Can't rename device during an active transfer"
 msgstr "De apparaatnaam kan niet worden gewijzigd tijdens een overdracht"
 
@@ -354,16 +382,119 @@ msgstr "Deelverzoek ontvangen"
 msgid "Sent Share Request"
 msgstr "Deelverzoek verstuurd"
 
-#. Translators: These are release notes, don't waste your time translating these, they won't take effect for now.
-#. Sorry, these shouldn't have been included but the tooling around this is very poor currently.
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:43
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:29
+msgid "Sent Share Request (Wide)"
+msgstr "Deelverzoek verstuurd (breed)"
+
+#. Translators: These are release notes, don't waste your time translating these, they won't take effect.
+#. Sorry, only the metainfo summary and description should've been included and not these, but the tooling around this is very poor currently.
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:46
+msgid "Features"
+msgstr "Kenmerken"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:48
+msgid ""
+"Added an option to make Packet use a static port, allowing for whitelisting "
+"of the app in firewalls"
+msgstr ""
+"Nieuw: optie om Packet gebruik te laten maken van een statische poort, zodat "
+"Packet op de witte lijst van firewalls komt te staan"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:49
+msgid "Added an option to set a custom \"Downloads folder\""
+msgstr "Nieuw: optie om een andere downloadmap te kiezen"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:50
+msgid ""
+"Added back the cancel button to the \"Recipient card\" during files being "
+"sent"
+msgstr "Nieuw: de annuleerknop die tijdens het versturen werd getoond is terug"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:52
+msgid "Fixes"
+msgstr "Opgelost: diverse fouten"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:54
+msgid "Prevented the app from crashing on badly formatted locale strings"
+msgstr ""
+"Opgelost: de toepassing crashte bij gebruik van onjuist opgemaakte "
+"vertalingen"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:55
+msgid ""
+"Fixed shared text's starting and ending characters being cut off some times"
+msgstr ""
+"Opgelost: de eerste en laatste tekens van gedeelde tekst werden soms niet "
+"getoond"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:56
+msgid "Fixed Wi-Fi password not being received properly"
+msgstr ""
+"Opgelost: het wifiwachtwoord werd soms niet op de juiste manier ontvangen"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:57
+msgid "Fixed devices with non-ASCII names not being discoverable"
+msgstr "Opgelost: apparaten met namen zonder ascii waren niet zichtbaar"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:58
+msgid ""
+"Fixed recipient's device name not being updated unless the list is refreshed"
+msgstr ""
+"Opgelost: de naam van het ontvangende apparaat werd pas bijgewerkt na het "
+"herladen van de lijst"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:59
+msgid "Fixed duplicated recipient cards being spawned on list refresh"
+msgstr "Opgelost: te veel ontvangerschermen na het herladen van de lijst"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:60
+msgid ""
+"Fixed idle-state recipient cards becoming non-activatable (can't send to) on "
+"selecting some other recipient"
+msgstr ""
+"Opgelost: schermen van ontvangers die inactief waren, waren niet aanklikbaar "
+"meer na het kiezen van een andere ontvanger"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:61
+msgid ""
+"Fixed accent styling not being removed recipient's \"Queued\" status in some "
+"cases"
+msgstr "Opgelost: problemen omtrent de accentstijl in de wachtrij"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:63
+msgid "Translations"
+msgstr "Vertalingen"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:65
+msgid "Updated German translation"
+msgstr "Bijgewerkt: Duitse vertaling"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:72
+msgid "Added Estonian translation"
+msgstr "Nieuw: Estse vertaling"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:73
+msgid "Added Italian translation"
+msgstr "Nieuw: Italiaanse vertaling"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:74
+msgid "Added Turkish translation"
+msgstr "Nieuw: Turkse vertaling"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:81
 msgid "Added Portuguese (Brazil) translation"
 msgstr "Nieuw: Braziliaans-Portugese vertaling"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:44
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:82
 msgid "Added partial German translation"
 msgstr "Nieuw: gedeeltelijke Duitse vertaling"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:50
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:88
 msgid "Added Dutch translation"
 msgstr "Nieuw: Nederlandse vertaling"
+
+#~ msgid "Network"
+#~ msgstr "Netwerk"
+
+#~ msgid "Unimplemented"
+#~ msgstr "Nog niet beschikbaar"
