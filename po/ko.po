@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-24 19:29+0530\n"
-"PO-Revision-Date: 2025-05-25 16:46+0000\n"
+"PO-Revision-Date: 2025-05-26 02:28+0000\n"
 "Last-Translator: honnip <me@honnip.page>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
@@ -48,7 +48,7 @@ msgstr "Packet 설정 중…"
 
 #: data/resources/ui/window.blp:100
 msgid "Add, or drop a file to send"
-msgstr ""
+msgstr "파일을 여기에 끌어다 놓으십시오"
 
 #: data/resources/ui/window.blp:103
 msgid "Add Files"
@@ -84,11 +84,11 @@ msgstr "기기 이름"
 
 #: data/resources/ui/window.blp:370
 msgid "Visibility"
-msgstr ""
+msgstr "검색 허용"
 
 #: data/resources/ui/window.blp:371
 msgid "Whether others can see this device"
-msgstr ""
+msgstr "다른 기기에서 이 기기를 찾을 수 있도록 허용합니다"
 
 #: data/resources/ui/window.blp:376
 msgid "Advanced"
@@ -109,7 +109,7 @@ msgstr "포트"
 #. Translators: This is a heading under the help page
 #: data/resources/ui/window.blp:425
 msgid "I don't see the other device"
-msgstr ""
+msgstr "다른 기기를 찾을 수 없습니다"
 
 #: data/resources/ui/window.blp:436
 msgid ""
