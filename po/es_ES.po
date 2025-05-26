@@ -1,5 +1,5 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Spanish translation
+# Copyright (C) 2025
 # This file is distributed under the same license as the packet package.
 # Axel Matías Sarraillé <axel@cartea.me>, 2025.
 #
@@ -11,13 +11,13 @@ msgstr ""
 "PO-Revision-Date: 2025-05-26 12:58+0200\n"
 "Last-Translator: Axel Matías Sarraillé <axel@cartea.me>\n"
 "Language-Team: Español\n"
-"Language: ES_ES\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Gtranslator 48.0\n"
-"X-DL-Lang: Español\n"
+"X-DL-Lang: Español de España\n"
 "X-DL-Module: \n"
 "X-DL-Branch: \n"
 "X-DL-Domain: \n"
