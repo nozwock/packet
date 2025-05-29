@@ -27,13 +27,63 @@ macro_rules! impl_deref_for_newtype {
 }
 
 pub fn strip_user_home_prefix<P: AsRef<Path>>(path: P) -> PathBuf {
-    if let Some(dirs) = directories::UserDirs::new() {
-        if path.as_ref().starts_with(dirs.home_dir()) {
-            return PathBuf::from("~").join(path.as_ref().strip_prefix(dirs.home_dir()).unwrap());
+    if let Some(home) = dirs::home_dir() {
+        if path.as_ref().starts_with(&home) {
+            return PathBuf::from("~").join(path.as_ref().strip_prefix(&home).unwrap());
         }
     }
 
     path.as_ref().into()
+}
+
+/// Flatpak uses get_user_special_dir to get xdg directories, and so if it fails
+/// due to there being no `XDG_DOWNLOAD_DIR` and `user-dirs.dirs`, Flatpak will simply
+/// refuse to mount xdg-download in the sandbox. Leaving us with nothing.
+///
+/// In that case, simply ask for the download folder from the user.
+pub fn xdg_download_with_fallback() -> PathBuf {
+    /// `$XDG_DATA_HOME/Downloads`
+    fn download_dir_fallback() -> PathBuf {
+        let fallback = dirs::data_dir().unwrap_or_default().join("Downloads");
+        if !std::fs::exists(&fallback).unwrap_or_default() {
+            _ = fs_err::create_dir_all(&fallback).inspect_err(|err| tracing::warn!(%err));
+        }
+
+        fallback
+    }
+
+    match dirs::home_dir() {
+        Some(home_dir) => {
+            let fallback = download_dir_fallback();
+            match dirs::download_dir() {
+                Some(download_dir) => {
+                    if std::fs::exists(&download_dir).unwrap_or_default() {
+                        download_dir
+                    } else {
+                        tracing::warn!(
+                            ?home_dir,
+                            ?download_dir,
+                            ?fallback,
+                            "Found XDG_DOWNLOAD_DIR but it doesn't exist"
+                        );
+                        fallback
+                    }
+                }
+                None => {
+                    tracing::warn!(?home_dir, ?fallback, "Couldn't find XDG_DOWNLOAD_DIR");
+                    fallback
+                }
+            }
+        }
+        None => {
+            let fallback = download_dir_fallback();
+            tracing::warn!(
+                ?fallback,
+                "Couldn't get user's HOME while trying to get XDG_DOWNLOAD_DIR"
+            );
+            fallback
+        }
+    }
 }
 
 const STEPS_TRACK_COUNT: usize = 5;

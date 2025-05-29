@@ -2,6 +2,7 @@ mod application;
 #[rustfmt::skip]
 mod config;
 mod constants;
+mod monitors;
 mod objects;
 mod utils;
 mod widgets;

@@ -12,21 +12,18 @@
   </description>
 
   <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/banner-screenshot.png?raw=true</image>
+      <!-- Trasnlators: These are captions for the screenshots on Flathub -->
+      <caption>Sent Share Request</caption>
+    </screenshot>
     <screenshot>
       <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/packet-main.png?raw=true</image>
-      <caption>Home Page</caption>
+      <caption>Main Page</caption>
     </screenshot>
     <screenshot>
       <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/packet-receive.png?raw=true</image>
       <caption>Received Share Request</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/packet-send.png?raw=true</image>
-      <caption>Sent Share Request</caption>
-    </screenshot>
-    <screenshot type="default">
-      <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/banner-screenshot.png?raw=true</image>
-      <caption>Sent Share Request (Wide)</caption>
     </screenshot>
   </screenshots>
 
@@ -39,10 +36,43 @@
   <content_rating type="oars-1.1" />
 
   <releases>
+    <release version="0.3.0" date="2025-05-29">
+      <description translatable="no">
+        <p>Changes</p>
+        <ul>
+          <li>Added Network and Bluetooth state to the bottom status indicator</li>
+          <li>Added a status page to show any error that occur while setting up Packet</li>
+          <li>Redesigned the help dialog to make the info easier to parse</li>
+          <li>Added a link to the help dialog at the bottom of the "Select Recipients" dialog</li>
+          <li>Added drop shadow to app icon and file type icons in the selected files page, making them easier to discern on light mode</li>
+        </ul>
+        <p>Fixes</p>
+        <ul>
+          <li>Prevented Packet from crashing when xdg-download couldn't be found on a misconfigured system</li>
+          <li>Prevented empty strings to be set as device names, since such names are not discoverable</li>
+          <li>Prevented invalid ports from being set for the static port preference</li>
+          <li>Fixed received files not being available in custom folders like `/tmp`</li>
+          <li>Fixed Packet sometimes waiting a long time before closing</li>
+          <li>Fixed unnecessary looking of mDNS advertisements on a device rename</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.2.1" date="2025-05-26">
+      <description translatable="no">
+        <p>Fixes</p>
+        <ul>
+          <li>Fixed panic on selecting a custom download folder if the app had host access to said path</li>
+          <li>Fixed old download folder being shown instead of xdg-download in the preferences when the app couldn't access it on start</li>
+        </ul>
+        <p>Translations</p>
+        <ul>
+          <li>Added Korean translation</li>
+          <li>Added Spanish translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2025-05-25">
       <description translatable="no">
-        <!-- Translators: These are release notes, don't waste your time translating these, they won't take effect. -->
-        <!-- Sorry, only the metainfo summary and description should've been included and not these, but the tooling around this is very poor currently. -->
         <p>Features</p>
         <ul>
           <li>Added an option to make Packet use a static port, allowing for whitelisting of the app in firewalls</li>

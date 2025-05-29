@@ -12,12 +12,12 @@ gtk = { version = "0.9", package = "gtk4", features = ["v4_18"] }
 adw = { version = "0.7", package = "libadwaita", features = ["v1_7"] }
 tracing = "0.1.37"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-rqs_lib = { git = "https://github.com/nozwock/rquickshare.git", rev = "23d89d85f44611f0bbb1af218e127473a7f955da", default-features = false, features = [
+rqs_lib = { git = "https://github.com/nozwock/rquickshare.git", rev = "9bf563f857ebae543d36bc75187f9b6895748a2a", default-features = false, features = [
     "experimental",
 ] }
 better_default = "1.0.5"
 fs-err = "3.1"
-anyhow = { version = "1.0", features = ["backtrace"] }
+anyhow = { version = "1.0" }
 tokio = { version = "1.45.0", features = [
     "macros",
     "rt",
@@ -30,6 +30,9 @@ tokio = { version = "1.45.0", features = [
 ] }
 whoami = "1.6.0"
 async-channel = "2.3.1"
-directories = "6.0.0"
+dirs = "6.0.0"
 formatx = "0.2.4"
 human_bytes = { version = "0.4.3", default-features = false }
+port_scanner = "0.1.5"
+zbus = "5.7.1"
+futures-lite = "2.6.0"

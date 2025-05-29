@@ -1,0 +1,506 @@
+# Spanish translation
+# Copyright (C) 2025
+# This file is distributed under the same license as the packet package.
+# Axel Matías Sarraillé <axel@cartea.me>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-26 07:56+0530\n"
+"PO-Revision-Date: 2025-05-26 12:58+0200\n"
+"Last-Translator: Axel Matías Sarraillé <axel@cartea.me>\n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Gtranslator 48.0\n"
+"X-DL-Lang: Español de España\n"
+"X-DL-Module: \n"
+"X-DL-Branch: \n"
+"X-DL-Domain: \n"
+
+#: data/resources/ui/window.blp:7
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:411
+msgid "Help"
+msgstr "Ayuda"
+
+#: data/resources/ui/window.blp:17
+msgid "_Keyboard Shortcuts"
+msgstr "_Atajos de teclado"
+
+#: data/resources/ui/window.blp:22
+msgid "_About Packet"
+msgstr "_Acerca de Packet"
+
+#. Translators: The name should remain untranslated
+#: data/resources/ui/window.blp:37 data/resources/ui/window.blp:99
+#: src/application.rs:131 src/main.rs:34
+#: data/io.github.nozwock.Packet.desktop.in.in:3
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
+msgid "Packet"
+msgstr "Packet"
+
+#: data/resources/ui/window.blp:51
+msgid "Setting up Packet…"
+msgstr "Configurando Packet..."
+
+#: data/resources/ui/window.blp:100
+msgid "Add, or drop a file to send"
+msgstr "Añade o suelta aquí un archivo para enviarlo"
+
+#: data/resources/ui/window.blp:103
+msgid "Add Files"
+msgstr "Añadir archivos"
+
+#: data/resources/ui/window.blp:158
+msgid "Add File"
+msgstr "Añadir archivo"
+
+#: data/resources/ui/window.blp:247
+msgid "Send"
+msgstr "Enviar"
+
+#: data/resources/ui/window.blp:270
+msgid "Select Recipients"
+msgstr "Elige a dónde enviarlo"
+
+#: data/resources/ui/window.blp:340
+msgid "Looking for devices…"
+msgstr "Buscando dispositivos..."
+
+#: data/resources/ui/window.blp:359
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: data/resources/ui/window.blp:364
+msgid "General"
+msgstr "General"
+
+#: data/resources/ui/window.blp:367
+msgid "Device Name"
+msgstr "Nombre del dispositivo"
+
+#: data/resources/ui/window.blp:372
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: data/resources/ui/window.blp:373
+msgid "Whether others can see this device"
+msgstr "Si otras personas pueden ver este dispositivo"
+
+#: data/resources/ui/window.blp:377
+msgid "Downloads Folder"
+msgstr "Carpeta de descargas"
+
+#: data/resources/ui/window.blp:383
+msgid "Pick downloads folder"
+msgstr "Elige una carpeta para las descargas"
+
+#: data/resources/ui/window.blp:393
+msgid "Advanced"
+msgstr "Avanazado"
+
+#: data/resources/ui/window.blp:396
+msgid "Static Network Port"
+msgstr "Puerto de red estático"
+
+#: data/resources/ui/window.blp:397
+msgid "Allows whitelisting Packet through a firewall"
+msgstr "Permite añadir Packet a una lista blanca del cortafuegos"
+
+#: data/resources/ui/window.blp:402
+msgid "Port Number"
+msgstr "Puerto"
+
+#. Translators: This is a heading under the help page
+#: data/resources/ui/window.blp:442
+msgid "I don't see the other device"
+msgstr "No veo el otro dispositivo"
+
+#: data/resources/ui/window.blp:453
+msgid ""
+"Make sure the other device is visible and connected to the same network as "
+"this device.\n"
+"\n"
+"If it's an Android device and you still don't see it despite setting "
+"visibility to \"Everyone\", try opening the <b>Quick Share</b> page from the "
+"<b>Google Files</b> app and leave it open.\n"
+"\n"
+"Also, ensure Bluetooth is enabled on both devices, as it's often required "
+"for device discovery even over Wi-Fi."
+msgstr ""
+"Asegúrate de que el otro dispositivo es visible y está conectado a la misma "
+"red que este.\n"
+"Si es un dispositivo Android y no lo ves a pesar de haber seleccionado "
+"\"Todo el mundo\" en las opciones de visibilidad, intenta abriendo la página "
+"de <b>Quick Share</b> desde la app <b>Archivos de Google</b> y mantenla "
+"abierta.\n"
+"Además, asegúrate de que el Bluetooth está activado en ambos dispositivos, "
+"ya que a menudo es necesario para encontrarlos aunque estés usando la "
+"conexión Wi-Fi."
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.rs:144
+msgid "translator-credits"
+msgstr "Créditos de la traducción"
+
+#: src/application.rs:151
+msgid "Similar Projects"
+msgstr "Proyectos parecidos"
+
+#: src/objects/send_transfer.rs:50 src/objects/send_transfer.rs:58
+#: src/widgets/recipient_card.rs:108 src/widgets/recipient_card.rs:147
+msgid "Unknown device"
+msgstr "Dispositivo desconocido"
+
+#: src/utils.rs:144
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "hora"
+msgstr[1] "horas"
+
+#: src/utils.rs:146 src/utils.rs:156
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minuto"
+msgstr[1] "minutos"
+
+#: src/utils.rs:158 src/utils.rs:161
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "segundo"
+msgstr[1] "segundos"
+
+#: src/widgets/file_card.rs:115
+msgid "Remove"
+msgstr "Borrar"
+
+#. Translators: An e.g. "4 Files"
+#: src/widgets/file_card.rs:133 src/window.rs:849
+msgid "{} File"
+msgid_plural "{} Files"
+msgstr[0] "{} Archivo"
+msgstr[1] "{} Archivos"
+
+#: src/widgets/receive_transfer.rs:20
+msgid "Link"
+msgstr "Enlace"
+
+#: src/widgets/receive_transfer.rs:21
+msgid "Text"
+msgstr "Texto"
+
+#: src/widgets/receive_transfer.rs:22
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/receive_transfer.rs:59
+msgid "Receiving"
+msgstr "Recbiendo"
+
+#: src/widgets/receive_transfer.rs:62 src/widgets/recipient_card.rs:310
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/widgets/receive_transfer.rs:159
+msgid "Incoming Transfer"
+msgstr "Transferencia entrante"
+
+#: src/widgets/receive_transfer.rs:183
+msgid "Decline"
+msgstr "Rechazar"
+
+#: src/widgets/receive_transfer.rs:184
+msgid "Accept"
+msgstr "aceptar"
+
+#. Translators: An e.g. "6 Files (42.3MB)"
+#: src/widgets/receive_transfer.rs:215
+msgid "{} file ({})"
+msgid_plural "{} files ({})"
+msgstr[0] "{} Archivo ({})"
+msgstr[1] "{} Archivos ({})"
+
+#: src/widgets/receive_transfer.rs:235
+msgid "Preview ({})"
+msgstr "Previsualizar ({})"
+
+#. Translators: This is the pin-code for the transfer
+#: src/widgets/receive_transfer.rs:251 src/widgets/recipient_card.rs:442
+msgid "Code: {}"
+msgstr "Código: {}"
+
+#. Translators: {} will be replaced with an estimated remaining time string
+#. e.g. "About 4 minutes 32 seconds left"
+#: src/widgets/receive_transfer.rs:359 src/widgets/recipient_card.rs:473
+msgid "About {} left"
+msgstr "Quedan {} aproximadamente"
+
+#: src/widgets/receive_transfer.rs:386
+msgid "Unexpected dissconnection"
+msgstr "Conexión interrumpida inesperadamente"
+
+#: src/widgets/receive_transfer.rs:409
+msgid "Transfer cancelled by sender"
+msgstr "Transferencia cancelado por el emisor"
+
+#: src/widgets/receive_transfer.rs:444
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapeles"
+
+#: src/widgets/receive_transfer.rs:452
+msgid "Save text as file"
+msgstr "Guardar texto como archivo"
+
+#: src/widgets/receive_transfer.rs:509 src/widgets/receive_transfer.rs:627
+msgid "Open"
+msgstr "Abrir"
+
+#: src/widgets/receive_transfer.rs:619
+msgid "{} file received"
+msgid_plural "{} files received"
+msgstr[0] "{} archivo recibido"
+msgstr[1] "{} archivos recibidos"
+
+#: src/widgets/recipient_card.rs:221
+msgid "Unavailable"
+msgstr "No disponible"
+
+#: src/widgets/recipient_card.rs:244
+msgid "Queued"
+msgstr "En cola"
+
+#: src/widgets/recipient_card.rs:291
+msgid "Retry"
+msgstr "Reintentar"
+
+#: src/widgets/recipient_card.rs:436
+msgid "Requested"
+msgstr "Solicitado"
+
+#: src/widgets/recipient_card.rs:499
+msgid "Failed"
+msgstr "Falló"
+
+#: src/widgets/recipient_card.rs:542
+msgid "Sent {} file"
+msgid_plural "Sent {} files"
+msgstr[0] "Enviar {} archivo"
+msgstr[1] "Enviar {} archivos"
+
+#: src/window.rs:461
+msgid "Can't access Downloads folder"
+msgstr "No se puede acceder a la carpeta de descargas"
+
+#: src/window.rs:787
+msgid "Ready"
+msgstr "Preparado"
+
+#: src/window.rs:793
+msgid "Visible as {:?}"
+msgstr "Visible como {:?}"
+
+#: src/window.rs:799
+msgid "Invisible"
+msgstr "Oculto"
+
+#: src/window.rs:805
+msgid "No new devices can share with you"
+msgstr "Ningún dispositivo nuevo puede compartir contigo"
+
+#: src/window.rs:838
+msgid "Couldn't open files"
+msgstr "No se puedieron abrir los archivos"
+
+#: src/window.rs:1071
+msgid "Can't rename device during an active transfer"
+msgstr "No se puede renombrar el dispositivo si hay una transferencia activa"
+
+#: data/io.github.nozwock.Packet.desktop.in.in:4
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
+msgid "Share files easily"
+msgstr "Comparte archivos con facilidad"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.nozwock.Packet.desktop.in.in:10
+msgid "Gnome;GTK;Quick;Nearby;Share;"
+msgstr "Gnome;GTK;Quick;Nearby;Share;"
+
+#. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
+#: data/io.github.nozwock.Packet.gschema.xml.in:7
+msgid "Window width"
+msgstr "Ancho de la ventana"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:11
+msgid "Window height"
+msgstr "Alto de la ventana"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:15
+msgid "Window maximized state"
+msgstr "Estado de maximización de la ventana"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:19
+msgid "Device name"
+msgstr "Nombre del dispositivo"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:23
+msgid "Device visibility"
+msgstr "Visibilidad del dispositivo"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:27
+msgid "Download folder"
+msgstr "Carpeta de descargas"
+
+#. Trasnlators: The metainfo strings are for Flathub and aren't a priority
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
+msgid ""
+"Send and receive files wirelessly with Android devices using Quick Share or "
+"another device with Packet installed."
+msgstr ""
+"Envía y recibe archivos inalámbricamente con dispositivos Android usando "
+"Quick Share o con otros dispositivos que tengan Packet instalado."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
+msgid ""
+"Packet requires Bluetooth to be enabled and the devices to be connected to a "
+"Wi-Fi network with mDNS."
+msgstr ""
+"Packet necesita que el Bluetooth esté activado y una conexión Wi-FI con mDNS."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:17
+msgid "Home Page"
+msgstr "Página de inicio"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:21
+msgid "Received Share Request"
+msgstr "Solicitud de transferencia recibida"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:25
+msgid "Sent Share Request"
+msgstr "Enviar solicitud de transferencia"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:29
+msgid "Sent Share Request (Wide)"
+msgstr "Enviar solicitud de transferencia (amplia)"
+
+#. Translators: These are release notes, don't waste your time translating these, they won't take effect.
+#. Sorry, only the metainfo summary and description should've been included and not these, but the tooling around this is very poor currently.
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:46
+msgid "Features"
+msgstr "Funciones"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:48
+msgid ""
+"Added an option to make Packet use a static port, allowing for whitelisting "
+"of the app in firewalls"
+msgstr ""
+"Añadida la opción de hacer que Packet use un puerto estático, permitiendo "
+"añadir la app a la lista blanca del cortafuegos."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:49
+msgid "Added an option to set a custom \"Downloads folder\""
+msgstr "Añadida la opción de elegir una carpeta de descargas personalizada."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:50
+msgid ""
+"Added back the cancel button to the \"Recipient card\" during files being "
+"sent"
+msgstr ""
+"Reintroducido el botón de cancelar a la \"Tarjeta del destinatario\" "
+"mientras se envían los archivos."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:52
+msgid "Fixes"
+msgstr "Correciones"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:54
+msgid "Prevented the app from crashing on badly formatted locale strings"
+msgstr ""
+"Se previene que la app se cierre a causa de cadenas locales mal formateadas"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:55
+msgid ""
+"Fixed shared text's starting and ending characters being cut off some times"
+msgstr ""
+"Arreglado que se cortaran los caracteres iniciales y finales del texto "
+"compartido"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:56
+msgid "Fixed Wi-Fi password not being received properly"
+msgstr ""
+"Corregido el fallo por el que las contraseñas Wi-Fe no se recibían "
+"correctamente"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:57
+msgid "Fixed devices with non-ASCII names not being discoverable"
+msgstr ""
+"Corregido que los dispositivos con caracteres no-ASCII en su nombre no eran "
+"descubribles"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:58
+msgid ""
+"Fixed recipient's device name not being updated unless the list is refreshed"
+msgstr ""
+"Los nombres de los dispositivos de destino ahora se actualizan sin necesidad "
+"de refrescar la lista"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:59
+msgid "Fixed duplicated recipient cards being spawned on list refresh"
+msgstr ""
+"Arreglado el fallo por el que se duplicaban las tarjetas de dispositivos de "
+"destino al refrescar"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:60
+msgid ""
+"Fixed idle-state recipient cards becoming non-activatable (can't send to) on "
+"selecting some other recipient"
+msgstr ""
+"Se ha corregido el fallo por el que las tarjetas de destinatario en estado "
+"inactivo no eran activables (no se puede enviar a) al seleccionar otro "
+"destinatario."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:61
+msgid ""
+"Fixed accent styling not being removed recipient's \"Queued\" status in some "
+"cases"
+msgstr ""
+"Se ha corregido el problema por el que, en algunos casos, el estilo de los "
+"acentos no se eliminaba del estado «En cola» del destinatario."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:63
+msgid "Translations"
+msgstr "Traducciones"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:65
+msgid "Updated German translation"
+msgstr "Actualizada traducción al alemán"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:72
+msgid "Added Estonian translation"
+msgstr "Añadida traducción al Estonio"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:73
+msgid "Added Italian translation"
+msgstr "Añadida traducción al Italiano"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:74
+msgid "Added Turkish translation"
+msgstr "Añadida traducción al Turco"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:81
+msgid "Added Portuguese (Brazil) translation"
+msgstr "Añadida traducción al portugués de Brasil"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:82
+msgid "Added partial German translation"
+msgstr "Añadida traducción parcial al alemán"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:88
+msgid "Added Dutch translation"
+msgstr "Añadida traducción al holandés"

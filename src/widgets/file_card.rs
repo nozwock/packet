@@ -95,6 +95,7 @@ pub fn create_file_card(
             &get_mimetype_icon_name(&model_item, false).unwrap_or("application-x-generic".into()),
         )
         .pixel_size(48)
+        .css_classes(["icon-dropshadow"])
         .build();
     root_box.append(&file_avatar);
 

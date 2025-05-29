@@ -29,41 +29,82 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
     width-request: 360;
     height-request: 294;
 
-    Stack root_stack {
-        transition-type: crossfade;
+    Adw.ToastOverlay toast_overlay {
+        Stack root_stack {
+            transition-type: crossfade;
 
-        StackPage {
-            name: "loading_service_page";
-            title: _("Packet");
+            StackPage {
+                name: "loading_service_page";
+                title: _("Packet");
 
-            child: Adw.ToolbarView {
-                [top]
-                Adw.HeaderBar {
-                    [end]
-                    Button {
-                        icon-name: "help-about-symbolic";
-                        action-name: "app.about";
+                child: Adw.ToolbarView {
+                    [top]
+                    Adw.HeaderBar {
+                        [end]
+                        Button {
+                            icon-name: "help-about-symbolic";
+                            action-name: "app.about";
+                        }
                     }
-                }
 
-                Adw.StatusPage {
-                    vexpand: true;
-                    title: _("Setting up Packet…");
+                    Adw.StatusPage loading_rqs_status_page {
+                        vexpand: true;
+                        title: _("Setting up Packet…");
 
-                    Adw.Spinner {
-                        height-request: 64;
+                        paintable: Adw.SpinnerPaintable {
+                            widget: loading_rqs_status_page;
+                        };
                     }
-                }
-            };
-        }
+                };
+            }
 
-        StackPage {
-            name: "main_page";
+            StackPage {
+                name: "rqs_error_status_page";
+                title: _("Packet");
 
-            child: Adw.ToolbarView {
-                extend-content-to-top-edge: true;
+                child: Adw.ToolbarView {
+                    [top]
+                    Adw.HeaderBar {
+                        [start]
+                        Button rqs_error_copy_button {
+                            icon-name: "edit-copy-symbolic";
+                            tooltip-text: _("Copy error report");
+                        }
 
-                Adw.ToastOverlay toast_overlay {
+                        [end]
+                        MenuButton {
+                            icon-name: "open-menu-symbolic";
+                            menu-model: primary_menu;
+                            primary: true;
+                        }
+                    }
+
+                    Adw.StatusPage {
+                        // Translators: This is the title of the status page where some error occurred while trying to setup Packet
+                        icon-name: "dialog-error-symbolic";
+                        title: _("Couldn't Set Up");
+                        description: _("An error occurred while trying to setup Packet");
+                        vexpand: true;
+
+                        Button rqs_error_retry_button {
+                            halign: center;
+                            label: _("Try Again");
+
+                            styles [
+                                "pill",
+                                "accent",
+                            ]
+                        }
+                    }
+                };
+            }
+
+            StackPage {
+                name: "main_page";
+
+                child: Adw.ToolbarView {
+                    extend-content-to-top-edge: true;
+
                     Box {
                         orientation: vertical;
                         hexpand: true;
@@ -98,6 +139,10 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                                             icon-name: "io.github.nozwock.Packet";
                                             title: _("Packet");
                                             description: _("Add, or drop a file to send");
+
+                                            styles [
+                                                "icon-dropshadow",
+                                            ]
 
                                             child: Button main_add_files_button {
                                                 label: _("Add Files");
@@ -183,6 +228,12 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                         Adw.Clamp {
                             maximum-size: 550;
 
+                            [end]
+                            Button {
+                                icon-name: "help-about-symbolic";
+                                action-name: "app.about";
+                            }
+
                             Box bottom_bar {
                                 orientation: vertical;
                                 valign: end;
@@ -260,8 +311,8 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                             }
                         }
                     }
-                }
-            };
+                };
+            }
         }
     }
 }
@@ -317,7 +368,7 @@ Adw.Dialog select_recipients_dialog {
                     Box {
                         orientation: vertical;
                         margin-top: 12;
-                        margin-bottom: 24;
+                        margin-bottom: 12;
                         margin-start: 24;
                         margin-end: 24;
                         spacing: 12;
@@ -336,13 +387,21 @@ Adw.Dialog select_recipients_dialog {
                             }
 
                             Label {
-                                halign: center;
+                                justify: center;
                                 label: _("Looking for devices…");
                             }
                         }
 
+                        LinkButton recipients_help_button {
+                            // `visibility` is set when ListBox is empty
+                            valign: end;
+                            halign: center;
+                            label: _("Can't see the other device?");
+                        }
+
                         ListBox recipient_listbox {
                             selection-mode: none;
+                            margin-bottom: 12;
 
                             styles [
                                 "boxed-list",
@@ -380,7 +439,7 @@ Adw.PreferencesDialog preferences_dialog {
                 Button download_folder_pick_button {
                     valign: center;
                     icon-name: "folder-symbolic";
-                    tooltip-text: _("Pick downloads folder");
+                    tooltip-text: _("Pick download folder");
 
                     styles [
                         "flat",
@@ -394,7 +453,8 @@ Adw.PreferencesDialog preferences_dialog {
 
             Adw.ExpanderRow static_port_expander {
                 title: _("Static Network Port");
-                subtitle: _("Allows whitelisting Packet through a firewall");
+                // Translators: For whitelisting of the app.
+                subtitle: _("For whitelisting through a firewall");
                 show-enable-switch: true;
                 enable-expansion: false;
 
@@ -416,45 +476,101 @@ Adw.Dialog help_dialog {
         Adw.HeaderBar {}
 
         ScrolledWindow {
+            hscrollbar-policy: never;
             propagate-natural-height: true;
             propagate-natural-width: true;
 
             Adw.Clamp {
-                maximum-size: 550;
-                tightening-threshold: 550;
+                maximum-size: 360;
+                tightening-threshold: 360;
+                margin-top: 12;
+                margin-bottom: 24;
+                margin-start: 32;
+                margin-end: 32;
 
                 Box {
                     orientation: vertical;
-                    margin-top: 24;
-                    margin-bottom: 24;
-                    margin-start: 24;
-                    margin-end: 24;
                     spacing: 12;
-                    halign: center;
-                    valign: center;
+                    hexpand: true;
+
+                    Label {
+                        label: _("Can't see the other device?");
+                        justify: center;
+                        wrap: true;
+                        margin-bottom: 12;
+
+                        styles [
+                            "title-4",
+                        ]
+                    }
 
                     Box {
-                        orientation: vertical;
-                        spacing: 4;
+                        spacing: 16;
+                        hexpand: true;
 
-                        Label {
-                            // Translators: This is a heading under the help page
-                            label: _("I don't see the other device");
-                            xalign: 0;
-                            justify: left;
-                            wrap: true;
-                            // Don't use h/v-align on Labels, use x/y-align instead
+                        Image {
+                            icon-name: "radiowaves-1-symbolic";
+                            icon-size: large;
+                            valign: center;
+
                             styles [
-                                "heading",
+                                "accent",
                             ]
                         }
 
                         Label {
-                            label: _("Make sure the other device is visible and connected to the same network as this device.\n\nIf it's an Android device and you still don't see it despite setting visibility to \"Everyone\", try opening the <b>Quick Share</b> page from the <b>Google Files</b> app and leave it open.\n\nAlso, ensure Bluetooth is enabled on both devices, as it's often required for device discovery even over Wi-Fi.");
-                            xalign: 0;
-                            justify: left;
+                            label: _("Make sure both devices are connected to the same Wi-Fi network and have Bluetooth turned on");
                             wrap: true;
+                            hexpand: true;
+                            justify: left;
+                            xalign: 0;
+                        }
+                    }
+
+                    Box {
+                        spacing: 16;
+                        hexpand: true;
+
+                        Image {
+                            icon-name: "eye-looking-symbolic";
+                            icon-size: large;
+                            valign: center;
+
+                            styles [
+                                "accent",
+                            ]
+                        }
+
+                        Label {
+                            label: _("Make sure the device is set to be visible to all nearby devices");
+                            wrap: true;
+                            hexpand: true;
+                            justify: left;
+                            xalign: 0;
+                        }
+                    }
+
+                    Box {
+                        spacing: 16;
+                        hexpand: true;
+
+                        Image {
+                            icon-name: "folder-visiting-symbolic";
+                            icon-size: large;
+                            valign: center;
+
+                            styles [
+                                "accent",
+                            ]
+                        }
+
+                        Label {
+                            label: _("For an Android device, try opening the <b>Quick Share</b> page in the <b>Files by Google</b> app");
                             use-markup: true;
+                            wrap: true;
+                            hexpand: true;
+                            justify: left;
+                            xalign: 0;
                         }
                     }
                 }

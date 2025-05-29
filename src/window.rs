@@ -1,22 +1,23 @@
 use std::cell::{Cell, RefCell};
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::rc::Rc;
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
+use anyhow::{anyhow, Context};
 use formatx::formatx;
 use gettextrs::{gettext, ngettext};
-use gtk::gio::{FileQueryInfoFlags, FILE_ATTRIBUTE_STANDARD_SIZE};
+use gtk::gio::FILE_ATTRIBUTE_STANDARD_SIZE;
 use gtk::glib::clone;
 use gtk::{gdk, gio, glib};
+use tokio::sync::watch;
 
 use crate::application::PacketApplication;
 use crate::config::{APP_ID, PROFILE};
-use crate::constants::XDP_XATTR_HOST_PATH;
 use crate::objects::TransferState;
 use crate::objects::{self, SendRequestState};
-use crate::utils::strip_user_home_prefix;
-use crate::{tokio_runtime, widgets};
+use crate::utils::{strip_user_home_prefix, xdg_download_with_fallback};
+use crate::{monitors, tokio_runtime, widgets};
 
 #[derive(Debug)]
 pub enum LoopingTaskHandle {
@@ -50,6 +51,12 @@ mod imp {
 
         #[template_child]
         pub root_stack: TemplateChild<gtk::Stack>,
+
+        #[template_child]
+        pub rqs_error_copy_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub rqs_error_retry_button: TemplateChild<gtk::Button>,
+        pub rqs_error: Rc<RefCell<Option<anyhow::Error>>>,
 
         #[template_child]
         pub toast_overlay: TemplateChild<adw::ToastOverlay>,
@@ -111,10 +118,23 @@ mod imp {
         pub recipient_listbox: TemplateChild<gtk::ListBox>,
         #[template_child]
         pub loading_recipients_box: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub recipients_help_button: TemplateChild<gtk::LinkButton>,
         #[default(gio::ListStore::new::<SendRequestState>())]
         pub recipient_model: gio::ListStore,
 
         pub send_transfers_id_cache: Arc<Mutex<HashMap<String, SendRequestState>>>,
+
+        #[default(gio::NetworkMonitor::default())]
+        pub network_monitor: gio::NetworkMonitor,
+        pub dbus_system_conn: Rc<RefCell<Option<zbus::Connection>>>,
+        // Would do unwrap_or_default anyways, so keeping it as just bool
+        pub network_state: Rc<Cell<bool>>,
+        pub bluetooth_state: Rc<Cell<bool>>,
+
+        // FIXME: use this to receive network state on send/receive transfers, to cancel them
+        // on connection loss
+        pub network_state_sender: Arc<Mutex<Option<tokio::sync::broadcast::Sender<bool>>>>,
 
         // RQS State
         pub rqs: Arc<Mutex<Option<rqs_lib::RQS>>>,
@@ -159,6 +179,7 @@ mod imp {
             obj.setup_gactions();
             obj.setup_preferences();
             obj.setup_ui();
+            obj.setup_connection_monitors();
             obj.setup_rqs_service();
         }
     }
@@ -175,6 +196,10 @@ mod imp {
             }
 
             // Abort all looping tasks before closing
+            tracing::info!(
+                count = self.looping_async_tasks.borrow().len(),
+                "Cancelling looping tasks"
+            );
             while let Some(join_handle) = self.looping_async_tasks.borrow_mut().pop() {
                 match join_handle {
                     LoopingTaskHandle::Tokio(join_handle) => join_handle.abort(),
@@ -188,13 +213,10 @@ mod imp {
                 self.rqs,
                 async move {
                     {
+                        tracing::info!("Stopping RQS service");
                         let mut rqs_guard = rqs.lock().await;
                         if let Some(rqs) = rqs_guard.as_mut() {
-                            // FIXME: Put a timeout here on closing RQS.
-                            // Only wait for a few seconds
-                            // Seems to take a long time in VM for some reason
                             rqs.stop().await;
-                            tracing::info!("Stopped RQS service");
                         }
                     }
 
@@ -267,12 +289,7 @@ impl PacketApplicationWindow {
             imp.settings
                 .set_string(
                     "download-folder",
-                    directories::UserDirs::new()
-                        .unwrap()
-                        .download_dir()
-                        .unwrap()
-                        .to_str()
-                        .unwrap(),
+                    xdg_download_with_fallback().to_str().unwrap(),
                 )
                 .unwrap();
         }
@@ -319,7 +336,18 @@ impl PacketApplicationWindow {
             })
             .build();
 
-        self.add_action_entries([preferences_dialog, received_files, help_dialog]);
+        let pick_download_folder = gio::ActionEntry::builder("pick-download-folder")
+            .activate(move |win: &Self, _, _| {
+                win.pick_download_folder();
+            })
+            .build();
+
+        self.add_action_entries([
+            preferences_dialog,
+            received_files,
+            help_dialog,
+            pick_download_folder,
+        ]);
     }
 
     fn get_device_name_state(&self) -> glib::GString {
@@ -358,6 +386,129 @@ impl PacketApplicationWindow {
             }
         }
 
+        let prev_validation_state = Rc::new(Cell::new(None));
+        let changed_signal_handle = Rc::new(RefCell::new(None));
+        imp.device_name_entry.connect_apply(clone!(
+            #[weak(rename_to = this)]
+            self,
+            #[weak]
+            prev_validation_state,
+            move |entry| {
+                entry.remove_css_class("success");
+                prev_validation_state.set(None);
+
+                let device_name = entry.text();
+                let is_name_already_set = this.get_device_name_state() == device_name;
+                if !is_name_already_set {
+                    tracing::info!(?device_name, "Setting device name");
+
+                    {
+                        let imp = this.imp();
+
+                        // Since transfers from this device to other devices will be affected,
+                        // we won't proceed if they exist
+                        if this.is_no_file_being_send() {
+                            imp.preferences_dialog.close();
+
+                            this.set_device_name_state(&device_name).unwrap();
+
+                            glib::spawn_future_local(clone!(
+                                #[weak]
+                                this,
+                                #[weak]
+                                imp,
+                                async move {
+                                    _ = this.restart_rqs_service().await;
+
+                                    // Restart mDNS discovery if it was on before the RQS service restart
+                                    this.start_mdns_discovery(Some(imp.is_mdns_discovery_on.get()));
+                                }
+                            ));
+                        } else {
+                            // Although this should be unreacable with the current design, since
+                            // the dialog locks out the user during an ongoing transfer and
+                            // the user can't open preferences whatsoever in that state
+
+                            imp.device_name_entry.set_show_apply_button(false);
+                            imp.device_name_entry
+                                .set_text(&this.get_device_name_state());
+                            imp.device_name_entry.set_show_apply_button(true);
+
+                            tracing::debug!("Active transfers found, can't rename device name");
+
+                            imp.toast_overlay.add_toast(
+                                adw::Toast::builder()
+                                    .title(&gettext(
+                                        "Can't rename device during an active transfer",
+                                    ))
+                                    .build(),
+                            );
+                        }
+                    }
+
+                    this.bottom_bar_status_indicator_ui_update(
+                        this.imp().device_visibility_switch.is_active(),
+                    );
+                }
+            }
+        ));
+        let _changed_signal_handle = imp.device_name_entry.connect_changed(clone!(
+            #[strong]
+            changed_signal_handle,
+            #[strong]
+            prev_validation_state,
+            move |obj| {
+                set_entry_validation_state(
+                    &obj,
+                    // Empty device names are not discoverable from other devices, they'll be
+                    // filtered out as malformed.
+                    !obj.text().trim().is_empty(),
+                    &prev_validation_state,
+                    changed_signal_handle.borrow().as_ref().unwrap(),
+                );
+            }
+        ));
+        *changed_signal_handle.as_ref().borrow_mut() = Some(_changed_signal_handle);
+
+        /// `signal_handle` is the handle for the `changed` signal handler
+        /// where this function should be called.
+        ///
+        /// Reset `prev_validation_state` to `None` in the `apply` signal.
+        fn set_entry_validation_state(
+            entry: &adw::EntryRow,
+            is_valid: bool,
+            prev_validation_state: &Rc<Cell<Option<bool>>>,
+            signal_handle: &glib::signal::SignalHandlerId,
+        ) {
+            if is_valid {
+                if prev_validation_state.get().is_none()
+                    || !prev_validation_state.get().unwrap_or(true)
+                {
+                    // To emit `changed` only on valid/invalid state change,
+                    // and not when the entry is valid and was valid previously
+                    prev_validation_state.set(Some(true));
+
+                    entry.add_css_class("success");
+                    entry.remove_css_class("error");
+
+                    entry.set_show_apply_button(true);
+                    entry.block_signal(&signal_handle);
+                    // `show-apply-button` becomes visible on `::changed` signal on
+                    // the GtkText child of the AdwEntryRow, not the root widget itself.
+                    // Hence, the GtkEditable delegate.
+                    entry.delegate().unwrap().emit_by_name::<()>("changed", &[]);
+                    entry.unblock_signal(&signal_handle);
+                }
+            } else {
+                prev_validation_state.set(Some(false));
+
+                entry.remove_css_class("success");
+                entry.add_css_class("error");
+
+                entry.set_show_apply_button(false);
+            }
+        }
+
         imp.static_port_expander
             .connect_enable_expansion_notify(clone!(
                 #[weak]
@@ -367,167 +518,202 @@ impl PacketApplicationWindow {
                         #[weak]
                         obj,
                         async move {
+                            let port_number = imp.settings.int("static-port-number");
                             if obj.enables_expansion()
-                                && Some(imp.settings.int("static-port-number") as u32)
+                                && Some(port_number as u32)
                                     != imp.rqs.lock().await.as_ref().unwrap().port_number
                             {
+                                tracing::info!(port_number, "Setting custom static port");
+
                                 // FIXME: maybe just make the widget insensitive
                                 // for the duration of the service restart instead
                                 imp.preferences_dialog.close();
 
-                                imp.obj().restart_rqs_service();
+                                _ = imp.obj().restart_rqs_service().await;
                             }
                         }
                     ));
                 }
             ));
 
-        let is_prev_entry_valid = Rc::new(Cell::new(None));
+        let prev_validation_state = Rc::new(Cell::new(None));
+        let changed_signal_handle = Rc::new(RefCell::new(None));
         imp.static_port_entry.connect_apply(clone!(
             #[weak]
             imp,
             #[weak]
-            is_prev_entry_valid,
+            prev_validation_state,
+            #[weak]
+            changed_signal_handle,
             move |obj| {
                 obj.remove_css_class("success");
-                is_prev_entry_valid.set(None);
+                prev_validation_state.set(None);
 
-                // FIXME: check if port is available, or...
-                // maybe not, just have an error status page
-                // for when the rqs service fails to start
-                // for whatever reason
+                let port_number = {
+                    let port_number = obj.text().as_str().parse::<u16>();
+                    tracing::info!(?port_number, "Setting custom static port");
+
+                    port_number.unwrap()
+                };
+
+                if port_scanner::local_port_available(port_number) {
+                    imp.settings
+                        .set_int("static-port-number", port_number.into())
+                        .unwrap();
+
+                    imp.preferences_dialog.close();
+
+                    imp.obj().restart_rqs_service();
+                }
+                else if Some(port_number as u32) == imp.rqs.blocking_lock().as_ref().unwrap().port_number {
+                    // Don't do anything if port is already set
+                }
+                else {
+                    tracing::info!(port_number, "Port number isn't available");
+
+                    // To prevent the apply button from showing after setting the text
+                    obj.block_signal(&changed_signal_handle.borrow().as_ref().unwrap());
+                    imp.static_port_entry.set_show_apply_button(false);
+                    imp.static_port_entry
+                        .set_text(&imp.settings.int("static-port-number").to_string());
+                    imp.static_port_entry.set_show_apply_button(true);
+                    obj.unblock_signal(&changed_signal_handle.borrow().as_ref().unwrap());
+
+                    let info_dialog = adw::AlertDialog::builder()
+                        .heading(&gettext("Invalid Port"))
+                        .body(
+                            &formatx!(
+                                gettext(
+                                    "The chosen static port \"{}\" is not available. Try a different port above 1024."
+                                ),
+                                port_number
+                            )
+                            .unwrap_or_default(),
+                        )
+                        .default_response("ok")
+                        .build();
+                    info_dialog.add_response("ok", &gettext("_Ok"));
+                    info_dialog.set_response_appearance("ok", adw::ResponseAppearance::Suggested);
+                    info_dialog.present(
+                        imp.obj()
+                            .root()
+                            .and_downcast_ref::<PacketApplicationWindow>(),
+                    );
+                };
+            }
+        ));
+        let _changed_signal_handle = imp.static_port_entry.connect_changed(clone!(
+            #[strong]
+            changed_signal_handle,
+            #[strong]
+            prev_validation_state,
+            move |obj| {
+                let parsed_port_number = obj.text().as_str().parse::<u16>();
+                set_entry_validation_state(
+                    &obj,
+                    parsed_port_number.is_ok() && parsed_port_number.unwrap() > 1024,
+                    &prev_validation_state,
+                    changed_signal_handle.borrow().as_ref().unwrap(),
+                );
+            }
+        ));
+        *changed_signal_handle.as_ref().borrow_mut() = Some(_changed_signal_handle);
+
+        // Check if we still have access to the set "Downloads Folder"
+        {
+            let download_folder = imp.settings.string("download-folder");
+            let download_folder_exists = std::fs::exists(&download_folder).unwrap_or_default();
+
+            if !download_folder_exists {
+                let fallback = xdg_download_with_fallback();
+
+                tracing::warn!(
+                    ?download_folder,
+                    ?fallback,
+                    "Couldn't access Downloads folder. Resetting to fallback"
+                );
+
+                // Fallback for when user doesn't select a download folder when prompted
                 imp.settings
-                    .set_int(
-                        "static-port-number",
-                        obj.text().as_str().parse::<u16>().unwrap().into(),
-                    )
+                    .set_string("download-folder", fallback.to_str().unwrap())
                     .unwrap();
 
-                imp.preferences_dialog.close();
-
-                imp.obj().restart_rqs_service();
+                imp.toast_overlay.add_toast(
+                    adw::Toast::builder()
+                        .title(&gettext("Can't access Downloads folder"))
+                        .button_label(&gettext("Pick Folder"))
+                        .action_name("win.pick-download-folder")
+                        .build(),
+                );
             }
-        ));
-
-        let signal_handle = Rc::new(RefCell::new(None));
-        let _handle = imp.static_port_entry.connect_changed(clone!(
-            #[strong]
-            signal_handle,
-            #[strong]
-            is_prev_entry_valid,
-            move |obj| {
-                if obj.text().as_str().parse::<u16>().is_ok() {
-                    if is_prev_entry_valid.get().is_none()
-                        || !is_prev_entry_valid.get().unwrap_or(true)
-                    {
-                        // To emit `changed` only on valid/invalid state change,
-                        // and not when the entry is valid and was valid previously
-                        is_prev_entry_valid.set(Some(true));
-
-                        obj.add_css_class("success");
-                        obj.remove_css_class("error");
-
-                        obj.set_show_apply_button(true);
-                        obj.block_signal(&signal_handle.borrow().as_ref().unwrap());
-                        // `show-apply-button` becomes visible on `::changed` signal on
-                        // the GtkText child of the AdwEntryRow, not the root widget itself.
-                        // Hence, the GtkEditable delegate.
-                        obj.delegate().unwrap().emit_by_name::<()>("changed", &[]);
-                        obj.unblock_signal(&signal_handle.borrow().as_ref().unwrap());
-                    }
-                } else {
-                    is_prev_entry_valid.set(Some(false));
-
-                    obj.remove_css_class("success");
-                    obj.add_css_class("error");
-
-                    obj.set_show_apply_button(false);
-                }
-            }
-        ));
-        *signal_handle.as_ref().borrow_mut() = Some(_handle);
-
-        // Check if we still have access to set "Downloads Folder"
-        let downloads_folder = imp.settings.string("download-folder");
-        let downloads_folder_exists = std::fs::exists(&downloads_folder).unwrap_or_default();
-
-        if !downloads_folder_exists {
-            tracing::warn!(
-                ?downloads_folder,
-                "Can't access Downloads folder. Resetting to default"
-            );
-
-            imp.toast_overlay
-                .add_toast(adw::Toast::new(&gettext("Can't access Downloads folder")));
-
-            imp.settings
-                .set_string(
-                    "download-folder",
-                    directories::UserDirs::new()
-                        .unwrap()
-                        .download_dir()
-                        .unwrap()
-                        .to_str()
-                        .unwrap(),
-                )
-                .unwrap();
         }
 
-        imp.download_folder_row
-            .set_subtitle(&strip_user_home_prefix(&downloads_folder).to_string_lossy());
-
+        imp.download_folder_row.set_subtitle(
+            &strip_user_home_prefix(&imp.settings.string("download-folder")).to_string_lossy(),
+        );
         imp.download_folder_pick_button.connect_clicked(clone!(
             #[weak]
             imp,
             move |_| {
-                glib::spawn_future_local(clone!(
-                    #[weak]
-                    imp,
-                    async move {
-                        if let Ok(file) = gtk::FileDialog::new()
-                            .select_folder_future(
-                                imp.obj()
-                                    .root()
-                                    .and_downcast_ref::<PacketApplicationWindow>(),
-                            )
-                            .await
-                        {
-                            let fileinfo = file
-                                .query_info(
-                                    XDP_XATTR_HOST_PATH,
-                                    FileQueryInfoFlags::NONE,
-                                    gio::Cancellable::NONE,
-                                )
-                                .unwrap();
+                imp.obj().pick_download_folder();
+            }
+        ));
+    }
 
-                            let file_path = file.path().unwrap();
-                            let host_file_path =
-                                fileinfo.attribute_as_string(XDP_XATTR_HOST_PATH).unwrap();
-                            let host_path_exists =
-                                std::fs::exists(&host_file_path).unwrap_or_default();
+    fn pick_download_folder(&self) {
+        let imp = self.imp();
 
-                            let folder_path = if host_path_exists {
-                                &host_file_path
-                            } else {
-                                file_path.to_str().unwrap()
-                            };
+        glib::spawn_future_local(clone!(
+            #[weak]
+            imp,
+            async move {
+                if let Ok(file) = gtk::FileDialog::new()
+                    .select_folder_future(
+                        imp.obj()
+                            .root()
+                            .and_downcast_ref::<PacketApplicationWindow>(),
+                    )
+                    .await
+                {
+                    // TODO: Maybe format the display path in the preferences?
+                    // `Sandbox: Music` or `Music` instead of `/run/user/1000/_/Music` (for mounted paths)
+                    // This would require storing the display string in gschema however
+                    //
+                    // Check whether it's a sandbox path or not by matching the path
+                    // against the xattr host path, if it doesn't match, it's sandbox
+                    //
+                    // Flatpak metadata is available from `/.flatpak-info`, which contains info
+                    // about host filesystem paths being available to the app, and much more.
 
-                            imp.download_folder_row.set_subtitle(
-                                strip_user_home_prefix(&folder_path).to_str().unwrap(),
-                            );
+                    // Path provided is host path if the app has been granted host access to it via
+                    // --filesystem. Otherwise, it's a mounted path.
+                    //
+                    // Now, there's an issue with the vscode-flatpak extension where while running
+                    // the app through it, the path given by FileChooser is always a mounted path.
+                    // Leaving this note here so as to not base our logic on this wrong behaviour.
+                    let folder_path = file.path().unwrap();
 
-                            imp.settings
-                                .set_string("download-folder", &folder_path)
-                                .unwrap();
-                            imp.rqs
-                                .lock()
-                                .await
-                                .as_mut()
-                                .unwrap()
-                                .set_download_path(Some(PathBuf::from(&folder_path)));
-                        };
-                    }
-                ));
+                    let display_path = strip_user_home_prefix(&folder_path);
+
+                    tracing::debug!(
+                        ?folder_path,
+                        ?display_path,
+                        "Selected custom downloads folder"
+                    );
+
+                    imp.download_folder_row
+                        .set_subtitle(&display_path.to_string_lossy());
+
+                    imp.settings
+                        .set_string("download-folder", folder_path.to_str().unwrap())
+                        .unwrap();
+                    imp.rqs
+                        .lock()
+                        .await
+                        .as_mut()
+                        .unwrap()
+                        .set_download_path(Some(folder_path));
+                };
             }
         ));
     }
@@ -535,9 +721,42 @@ impl PacketApplicationWindow {
     fn setup_ui(&self) {
         self.setup_bottom_bar();
 
+        self.setup_status_pages();
         self.setup_main_page();
         self.setup_manage_files_page();
         self.setup_recipient_page();
+    }
+
+    fn setup_status_pages(&self) {
+        let imp = self.imp();
+
+        let clipboard = self.clipboard();
+        imp.rqs_error_copy_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                // TODO: Replace the copy button with an info button that
+                // opens up a dialog with the option to copy or save the
+                // app log, and a link to the issues page.
+                clipboard.set_text(
+                    &imp.rqs_error
+                        .borrow()
+                        .as_ref()
+                        .map(|e| format!("{e:#}"))
+                        .unwrap_or_default(),
+                );
+                imp.toast_overlay.add_toast(adw::Toast::new(&gettext(
+                    "Copied error report to clipboard",
+                )));
+            }
+        ));
+        imp.rqs_error_retry_button.connect_clicked(clone!(
+            #[weak(rename_to = this)]
+            self,
+            move |_| {
+                this.restart_rqs_service();
+            }
+        ));
     }
 
     fn setup_main_page(&self) {
@@ -688,11 +907,33 @@ impl PacketApplicationWindow {
             move |model, _, _, _| {
                 if model.n_items() == 0 {
                     imp.loading_recipients_box.set_visible(true);
+                    imp.recipients_help_button.set_visible(true);
                     imp.recipient_listbox.set_visible(false);
                 } else {
                     imp.loading_recipients_box.set_visible(false);
+                    imp.recipients_help_button.set_visible(false);
                     imp.recipient_listbox.set_visible(true);
                 }
+            }
+        ));
+
+        imp.recipients_help_button
+            .action_set_enabled("menu.popup", false);
+        imp.recipients_help_button
+            .action_set_enabled("clipboard.copy", false);
+        imp.recipients_help_button.connect_activate_link(clone!(
+            #[weak]
+            imp,
+            #[upgrade_or]
+            true.into(),
+            move |_| {
+                imp.help_dialog.present(
+                    imp.obj()
+                        .root()
+                        .and_downcast_ref::<PacketApplicationWindow>(),
+                );
+
+                true.into()
             }
         ));
 
@@ -744,46 +985,14 @@ impl PacketApplicationWindow {
         ));
     }
 
-    fn setup_bottom_bar(&self) {
+    fn bottom_bar_status_indicator_ui_update(&self, is_visible: bool) {
         let imp = self.imp();
 
-        // Switch bottom bar layout b/w "Selected Files" page and other pages
-        imp.main_nav_view.connect_visible_page_notify(clone!(
-            #[weak]
-            imp,
-            move |obj| {
-                if let Some(tag) = obj.visible_page_tag() {
-                    match tag.as_str() {
-                        "manage_files_nav_page" => {
-                            imp.bottom_bar_status.set_halign(gtk::Align::Start);
-                            imp.bottom_bar_status_top.set_halign(gtk::Align::Start);
-                            imp.bottom_bar_spacer.set_visible(true);
-                            imp.manage_files_send_button.set_visible(true);
-                        }
-                        _ => {
-                            imp.bottom_bar_status.set_halign(gtk::Align::Center);
-                            imp.bottom_bar_status_top.set_halign(gtk::Align::Center);
-                            imp.bottom_bar_spacer.set_visible(false);
-                            imp.manage_files_send_button.set_visible(false);
-                        }
-                    }
-                }
-            }
-        ));
+        let network_state = imp.network_state.get();
+        let bluetooth_state = imp.bluetooth_state.get();
 
-        imp.device_name_entry.connect_apply(clone!(
-            #[weak(rename_to = this)]
-            self,
-            move |entry| {
-                entry.set_editable(false);
-                this.set_device_name(entry.text().as_str());
-                visibility_toggle_ui_update(&this.imp().device_visibility_switch, this.imp());
-                entry.set_editable(true);
-            }
-        ));
-
-        fn visibility_toggle_ui_update(obj: &adw::SwitchRow, imp: &imp::PacketApplicationWindow) {
-            if obj.is_active() {
+        if network_state && bluetooth_state {
+            if is_visible {
                 imp.bottom_bar_title.set_label(&gettext("Ready"));
                 imp.bottom_bar_title.add_css_class("accent");
                 imp.bottom_bar_image.set_icon_name(Some("visible-symbolic"));
@@ -804,14 +1013,62 @@ impl PacketApplicationWindow {
                 imp.bottom_bar_caption
                     .set_label(&gettext("No new devices can share with you"));
             };
-        }
+        } else {
+            imp.bottom_bar_image
+                .set_icon_name(Some("cross-small-circle-outline-symbolic"));
+            imp.bottom_bar_title.set_label(&gettext("Disconnected"));
+            imp.bottom_bar_image.remove_css_class("accent");
+            imp.bottom_bar_title.remove_css_class("accent");
 
-        visibility_toggle_ui_update(&imp.device_visibility_switch.get(), &imp);
+            if !network_state && !bluetooth_state {
+                imp.bottom_bar_caption
+                    .set_label(&gettext("Connect to Wi-Fi and turn on Bluetooth"));
+            } else if !network_state && bluetooth_state {
+                imp.bottom_bar_caption
+                    .set_label(&gettext("Connect to Wi-Fi"));
+            } else if network_state && !bluetooth_state {
+                imp.bottom_bar_caption
+                    .set_label(&gettext("Turn on Bluetooth"));
+            }
+        }
+    }
+
+    fn setup_bottom_bar(&self) {
+        let imp = self.imp();
+
+        // Switch bottom bar layout b/w "Selected Files" page and other pages
+        imp.main_nav_view.connect_visible_page_notify(clone!(
+            #[weak]
+            imp,
+            move |obj| {
+                if let Some(tag) = obj.visible_page_tag() {
+                    match tag.as_str() {
+                        "manage_files_nav_page" => {
+                            imp.bottom_bar_status.set_halign(gtk::Align::Start);
+                            imp.bottom_bar_status_top.set_halign(gtk::Align::Start);
+                            imp.bottom_bar_caption.set_xalign(0.);
+                            imp.bottom_bar_spacer.set_visible(true);
+                            imp.manage_files_send_button.set_visible(true);
+                        }
+                        _ => {
+                            imp.bottom_bar_status.set_halign(gtk::Align::Center);
+                            imp.bottom_bar_status_top.set_halign(gtk::Align::Center);
+                            imp.bottom_bar_caption.set_xalign(0.5);
+                            imp.bottom_bar_spacer.set_visible(false);
+                            imp.manage_files_send_button.set_visible(false);
+                        }
+                    }
+                }
+            }
+        ));
+
+        self.bottom_bar_status_indicator_ui_update(imp.device_visibility_switch.is_active());
         imp.device_visibility_switch.connect_active_notify(clone!(
             #[weak]
             imp,
             move |obj| {
-                visibility_toggle_ui_update(&obj, &imp);
+                imp.obj()
+                    .bottom_bar_status_indicator_ui_update(obj.is_active());
 
                 let visibility = if obj.is_active() {
                     rqs_lib::Visibility::Visible
@@ -931,10 +1188,14 @@ impl PacketApplicationWindow {
             .collect::<Vec<_>>()
     }
 
-    fn start_mdns_discovery(&self, force: Option<()>) {
+    fn start_mdns_discovery(&self, force: Option<bool>) {
         let imp = self.imp();
 
-        if !imp.is_mdns_discovery_on.get() || force.is_some() {
+        if (force.is_some() && force.unwrap_or_default())
+            || (force.is_none() && !imp.is_mdns_discovery_on.get())
+        {
+            tracing::info!(?force, "Starting mDNS discovery task");
+
             tokio_runtime().spawn(clone!(
                 #[weak(rename_to = mdns_discovery_broadcast_tx)]
                 imp.mdns_discovery_broadcast_tx,
@@ -954,7 +1215,12 @@ impl PacketApplicationWindow {
                                 .unwrap()
                                 .clone(),
                         )
-                        .inspect_err(|err| tracing::error!(%err));
+                        .inspect_err(|err| {
+                            tracing::error!(
+                                err = format!("{err:#}"),
+                                "Failed to start mDNS discovery task"
+                            )
+                        });
                 }
             ));
 
@@ -1007,74 +1273,7 @@ impl PacketApplicationWindow {
         true
     }
 
-    fn set_device_name(&self, name: &str) {
-        let imp = self.imp();
-
-        // Since transfers from this device to other devices will be affected,
-        // we won't proceed if they exist
-        if self.is_no_file_being_send() {
-            // FIXME: Show a progress dialog conveying service restart?
-
-            self.set_device_name_state(name).unwrap();
-
-            let name = name.to_string();
-            let (tx, rx) = async_channel::bounded(1);
-            tokio_runtime().spawn(clone!(
-                #[weak(rename_to = rqs)]
-                imp.rqs,
-                async move {
-                    let (file_sender, ble_receiver) = {
-                        let mut guard = rqs.lock().await;
-                        let rqs = guard.as_mut().expect("State must be set");
-
-                        rqs.set_device_name(name);
-
-                        rqs.stop().await;
-                        rqs.run().await.unwrap()
-                    };
-
-                    tx.send((file_sender, ble_receiver)).await.unwrap();
-                }
-            ));
-            glib::spawn_future_local(clone!(
-                #[weak]
-                imp,
-                async move {
-                    let (file_sender, ble_receiver) = rx.recv().await.unwrap();
-
-                    *imp.file_sender.lock().await = Some(file_sender);
-                    *imp.ble_receiver.lock().await = Some(ble_receiver);
-
-                    // Restart mDNS discovery if it was on before the RQS service restart
-                    imp.obj()
-                        .start_mdns_discovery(imp.is_mdns_discovery_on.get().then_some(()));
-
-                    tracing::debug!("RQS service has been reset");
-
-                    // FIXME: Show a toast for device name change success?
-                }
-            ));
-        } else {
-            // Although this should no longer be possible with the current design,
-            // since the dialog locks out the user during an ongoing transfer and
-            // the userc can't open preferences whatsoever in that state
-
-            imp.device_name_entry.set_show_apply_button(false);
-            imp.device_name_entry
-                .set_text(&self.get_device_name_state());
-            imp.device_name_entry.set_show_apply_button(true);
-
-            tracing::debug!("Active transfers found, can't rename device name");
-
-            imp.toast_overlay.add_toast(
-                adw::Toast::builder()
-                    .title(&gettext("Can't rename device during an active transfer"))
-                    .build(),
-            );
-        }
-    }
-
-    fn restart_rqs_service(&self) {
+    fn restart_rqs_service(&self) -> glib::JoinHandle<()> {
         glib::spawn_future_local(clone!(
             #[weak(rename_to = this)]
             self,
@@ -1083,15 +1282,19 @@ impl PacketApplicationWindow {
                     .root_stack
                     .set_visible_child_name("loading_service_page");
                 _ = this.stop_rqs_service().await;
-                this.setup_rqs_service();
+                _ = this.setup_rqs_service().await;
             }
-        ));
+        ))
     }
 
     fn stop_rqs_service(&self) -> tokio::task::JoinHandle<()> {
         let imp = self.imp();
 
         // Abort all looping tasks before closing
+        tracing::info!(
+            count = imp.looping_async_tasks.borrow().len(),
+            "Cancelling looping tasks"
+        );
         while let Some(join_handle) = imp.looping_async_tasks.borrow_mut().pop() {
             match join_handle {
                 LoopingTaskHandle::Tokio(join_handle) => join_handle.abort(),
@@ -1116,7 +1319,107 @@ impl PacketApplicationWindow {
         handle
     }
 
-    fn setup_rqs_service(&self) {
+    fn setup_connection_monitors(&self) {
+        let imp = self.imp();
+
+        let (tx, mut network_rx) = watch::channel(false);
+        imp.network_monitor
+            .connect_network_changed(move |monitor, _| {
+                _ = tx.send(monitor.is_network_available());
+            });
+
+        glib::spawn_future_local(clone!(
+            #[weak(rename_to = this)]
+            self,
+            #[weak(rename_to = dbus_system_conn)]
+            imp.dbus_system_conn,
+            async move {
+                let conn = {
+                    let conn = zbus::Connection::system().await;
+                    *dbus_system_conn.borrow_mut() = conn.clone().ok();
+                    conn.unwrap()
+                };
+
+                let bluetooth_initial_state = monitors::is_bluetooth_powered(&conn)
+                    .await
+                    .map_err(|err| {
+                        anyhow!(err).context("Failed to get initial Bluetooth powered state")
+                    })
+                    .inspect_err(|err| {
+                        tracing::warn!(fallback = false, "{err:#}",);
+                    })
+                    .unwrap_or_default();
+                let (tx, mut bluetooth_rx) = watch::channel(bluetooth_initial_state);
+                glib::spawn_future(async move {
+                    if let Err(err) = monitors::spawn_bluetooth_power_monitor_task(conn, tx)
+                        .await
+                        .map_err(|err| anyhow!(err))
+                    {
+                        tracing::error!(
+                            "{:#}",
+                            err.context("Failed to spawn the Bluetooth powered state monitor task")
+                        );
+                    };
+                });
+
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    this,
+                    async move {
+                        enum ChangedState {
+                            Network,
+                            Bluetooth,
+                        }
+
+                        let imp = this.imp();
+
+                        imp.bluetooth_state.set(bluetooth_initial_state);
+
+                        #[allow(unused)]
+                        let mut is_state_changed = None;
+
+                        loop {
+                            tokio::select! {
+                                _ = network_rx.changed() => {
+
+                                    let v = *network_rx.borrow();
+
+                                    // Since we get spammed with network change events
+                                    // even though the state hasn't changed from before
+                                    //
+                                    // This also helps keep the logs to a minimum
+                                    is_state_changed = (imp.network_state.get() != v).then_some(ChangedState::Network);
+
+                                    imp.network_state.set(v) ;
+                                }
+                                _ = bluetooth_rx.changed() => {
+                                    is_state_changed = Some(ChangedState::Bluetooth);
+
+                                    imp.bluetooth_state.set(*bluetooth_rx.borrow());
+                                    tracing::info!(bluetooth_state = imp.bluetooth_state.get(), "Bluetooth powered state changed");
+                                }
+                            };
+
+                            if is_state_changed.is_some() {
+                                if let Some(ChangedState::Network) = is_state_changed {
+                                    tracing::info!(
+                                        network_state = imp.network_state.get(),
+                                        "Network state changed"
+                                    );
+                                }
+
+                                this.bottom_bar_status_indicator_ui_update(
+                                    imp.device_visibility_switch.is_active(),
+                                );
+                            }
+                        }
+                    }
+                ));
+            }
+        ));
+    }
+
+    fn setup_rqs_service(&self) -> glib::JoinHandle<()> {
         let imp = self.imp();
 
         let (tx, rx) = async_channel::bounded(1);
@@ -1133,7 +1436,13 @@ impl PacketApplicationWindow {
             .boolean("enable-static-port")
             .then(|| imp.settings.int("static-port-number") as u32);
         tokio_runtime().spawn(async move {
-            tracing::info!(?download_path, "Starting RQS service");
+            tracing::info!(
+                ?device_name,
+                visibility = ?is_device_visible,
+                ?download_path,
+                ?static_port,
+                "Starting RQS service"
+            );
 
             let mut rqs = rqs_lib::RQS::new(
                 if is_device_visible {
@@ -1146,28 +1455,40 @@ impl PacketApplicationWindow {
                 Some(device_name.to_string()),
             );
 
-            let (file_sender, ble_receiver) = rqs.run().await.unwrap();
-
-            tx.send((rqs, file_sender, ble_receiver)).await.unwrap();
+            let rqs_run_result = rqs.run().await;
+            tx.send((rqs, rqs_run_result)).await.unwrap();
         });
-        glib::spawn_future_local(clone!(
+        let rqs_init_handle = glib::spawn_future_local(clone!(
             #[weak]
             imp,
             async move {
-                let (rqs, file_sender, ble_receiver) = rx.recv().await.unwrap();
-                *imp.rqs.lock().await = Some(rqs);
-                *imp.file_sender.lock().await = Some(file_sender);
-                *imp.ble_receiver.lock().await = Some(ble_receiver);
+                let (rqs, rqs_run_result) = rx.recv().await.unwrap();
 
+                tracing::debug!("Fetched RQS instance after run()");
+                *imp.rqs.lock().await = Some(rqs);
                 let (mdns_discovery_broadcast_tx, _) =
                     tokio::sync::broadcast::channel::<rqs_lib::EndpointInfo>(10);
                 *imp.mdns_discovery_broadcast_tx.lock().await = Some(mdns_discovery_broadcast_tx);
 
-                tracing::debug!("Fetched RQS instance after run()");
+                match rqs_run_result {
+                    Ok((file_sender, ble_receiver)) => {
+                        *imp.file_sender.lock().await = Some(file_sender);
+                        *imp.ble_receiver.lock().await = Some(ble_receiver);
 
-                imp.root_stack.get().set_visible_child_name("main_page");
+                        imp.root_stack.get().set_visible_child_name("main_page");
 
-                spawn_rqs_receiver_tasks(&imp);
+                        spawn_rqs_receiver_tasks(&imp);
+                    }
+                    Err(err) => {
+                        let err = err.context("Failed to setup Packet");
+                        tracing::error!("{err:#}");
+                        imp.rqs_error.borrow_mut().replace(err);
+
+                        imp.root_stack
+                            .get()
+                            .set_visible_child_name("rqs_error_status_page");
+                    }
+                };
             }
         ));
 
@@ -1194,7 +1515,7 @@ impl PacketApplicationWindow {
                                 // send_request_notification(name, channel_msg.id.clone());
                             }
                             Err(err) => {
-                                tracing::error!(%err)
+                                tracing::error!("{err:#}")
                             }
                         };
                     }
@@ -1337,7 +1658,10 @@ impl PacketApplicationWindow {
                                 tx.send(endpoint_info).await.unwrap();
                             }
                             Err(err) => {
-                                tracing::error!(%err,"MDNS discovery error");
+                                tracing::error!(
+                                    err = format!("{err:#}"),
+                                    "mDNS discovery receiver"
+                                );
                             }
                         }
                     }
@@ -1404,7 +1728,10 @@ impl PacketApplicationWindow {
                                 tracing::debug!(?visibility, "Visibility change");
                             }
                             Err(err) => {
-                                tracing::error!(%err,"Visibility watcher error");
+                                tracing::error!(
+                                    err = format!("{err:#}"),
+                                    "Visibility watcher receiver"
+                                );
                             }
                         }
                     }
@@ -1442,5 +1769,7 @@ impl PacketApplicationWindow {
             //     }
             // ));
         }
+
+        rqs_init_handle
     }
 }
