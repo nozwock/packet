@@ -1,7 +1,4 @@
-<div align="center">
-<img src="data/icons/io.github.nozwock.Packet.svg" /> 
-<h2>Packet</h2>
-</div>
+# <img src="data/icons/io.github.nozwock.Packet.svg" /> Packet
 
 A partial implementation of Google's Quick Share protocol that lets you send and receive files wirelessly from Android devices using Quick Share, or another device with Packet.
 
@@ -11,11 +8,9 @@ A partial implementation of Google's Quick Share protocol that lets you send and
 
 ## Installation
 
-<div align="center">
 <a href="https://flathub.org/apps/details/io.github.nozwock.Packet">
 <img src="https://flathub.org/api/badge?svg&locale=en&dark" width="190px" />
 </a>
-</div>
 
 #### Nightly
 Nightly Flatpak builds are available from [here][nightly-build].
@@ -34,7 +29,7 @@ If you'd like to help translate Packet to your native language, you can do so us
 
 In Flatpak, folder access is temporary and resets after a session restart because static access can't be requested. To set a permanent downloads folder, grant access in advance using Flatseal or run:
 
-```bash
+```sh
 flatpak override --user io.github.nozwock.Packet --filesystem='/path/to/your/folder/here'
 ```
 
