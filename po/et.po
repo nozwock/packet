@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-06-06 22:31+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/packet/main/et/"
@@ -63,6 +63,11 @@ msgstr "Packeti seadistamisel tekkis viga"
 msgid "Try Again"
 msgstr "Proovi uuesti"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Põhivaade"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Lisa valijast või lohista siia saadetavad failid"
@@ -70,6 +75,10 @@ msgstr "Lisa valijast või lohista siia saadetavad failid"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Lisa faile"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -211,7 +220,8 @@ msgid "Remove"
 msgstr "Eemalda"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} fail"
@@ -280,12 +290,6 @@ msgstr "Päring aegus"
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
 msgstr "{} soovib jagada {}"
-
-#: src/widgets/receive_transfer.rs:422
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} fail"
-msgstr[1] "{} faili"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -492,13 +496,14 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Saadetud jagamispäring"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Põhivaade"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Vastuvõetud jagamispäring"
+
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} fail"
+#~ msgstr[1] "{} faili"
 
 #~ msgid "Home Page"
 #~ msgstr "Avaleht"
