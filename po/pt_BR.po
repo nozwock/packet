@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-06-01 00:19+0000\n"
 "Last-Translator: Tarcísio Surdi <tarcisio.surdi@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -63,6 +63,11 @@ msgstr "Um erro ocorreu durante a configuração inicial do Packet"
 msgid "Try Again"
 msgstr "Tentar novamente"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Página principal"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Adicione ou solte um arquivo para enviar"
@@ -70,6 +75,10 @@ msgstr "Adicione ou solte um arquivo para enviar"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Adicionar arquivos"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -211,7 +220,8 @@ msgid "Remove"
 msgstr "Remover"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} Arquivo"
@@ -284,15 +294,6 @@ msgstr "Solicitado"
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
 msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} arquivo ({})"
-msgstr[1] "{} arquivos ({})"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -498,13 +499,17 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Enviado pedido de compartilhamento"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Página principal"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Solicitação de compartilhamento recebida"
+
+#, fuzzy
+#~| msgid "{} file ({})"
+#~| msgid_plural "{} files ({})"
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} arquivo ({})"
+#~ msgstr[1] "{} arquivos ({})"
 
 #~ msgid "Network"
 #~ msgstr "Rede"
