@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
-"PO-Revision-Date: 2025-06-01 09:05+0000\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
+"PO-Revision-Date: 2025-06-07 08:57+0000\n"
 "Last-Translator: honnip <me@honnip.page>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
@@ -62,6 +62,11 @@ msgstr "Packet을 설정하는 동안 문제가 발생했습니다"
 msgid "Try Again"
 msgstr "다시 시도하기"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "메인 페이지"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "파일을 여기에 끌어다 놓으십시오"
@@ -69,6 +74,10 @@ msgstr "파일을 여기에 끌어다 놓으십시오"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "파일 추가하기"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -120,19 +129,19 @@ msgstr "다운로드 폴더를 선택하세요"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "백그라운드에서 실행"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "백그라운드에서 실행할 수 있도록 허용합니다"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "자동 시작"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "로그인할 때 자동으로 시작합니다"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -157,11 +166,11 @@ msgid ""
 "Bluetooth turned on"
 msgstr ""
 "두 기기가 동일한 Wi-Fi 네트워크에 연결되어 있고 블루투스가 활성화되어 있는지 "
-"확인하세요"
+"확인하십시오"
 
 #: data/resources/ui/window.blp:557
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr "주변의 모든 기기에 보이도록 설정되어 있는지 확인하세요"
+msgstr "주변의 모든 기기에 보이도록 설정되어 있는지 확인하십시오"
 
 #: data/resources/ui/window.blp:580
 msgid ""
@@ -169,7 +178,7 @@ msgid ""
 "<b>Files by Google</b> app"
 msgstr ""
 "안드로이드 기기의 경우, <b>Files by Google</b> 앱에서 <b>Quick Share</b> 페이"
-"지를 열어보세요"
+"지를 여십시오"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:167
@@ -205,7 +214,8 @@ msgid "Remove"
 msgstr "삭제"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} 파일"
@@ -236,10 +246,8 @@ msgid "Incoming Transfer"
 msgstr "전송 요청"
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "받는 중"
+msgstr "받는 중..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
@@ -265,25 +273,15 @@ msgid "Code: {}"
 msgstr "PIN: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "요청함"
+msgstr "요청 시간이 초과되었습니다"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} 파일 ({})"
+msgstr "{} 님이 {}를 공유하려고 합니다"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -314,11 +312,11 @@ msgstr "열기"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "\"{}\"를 받았습니다"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -352,11 +350,11 @@ msgstr[0] "파일 {}개를 보냈습니다"
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet을 백그라운드에서 실행할 수 없습니다"
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet을 로그인할 때 실행할 수 없습니다"
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
@@ -371,7 +369,7 @@ msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
-"선택한 포트 \"{}\"를 사용할 수 없습니다. 1024보다 큰 포트를 시도해 보세요."
+"선택한 포트 \"{}\"를 사용할 수 없습니다. 1024보다 큰 포트를 시도해 보십시오."
 
 #: src/window.rs:745
 msgid "_Ok"
@@ -387,7 +385,7 @@ msgstr "폴더 선택"
 
 #: src/window.rs:821
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet이 백그라운드에서 실행하려고 합니다"
 
 #: src/window.rs:969
 msgid "Copied error report to clipboard"
@@ -486,13 +484,13 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "보낸 공유 요청"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "메인 페이지"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "받은 공유 요청"
+
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "파일 {}개"
 
 #~ msgid ""
 #~ "Make sure the other device is visible and connected to the same network "
