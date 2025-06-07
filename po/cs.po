@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-05-31 15:54+0000\n"
 "Last-Translator: \"Margaret K.\" <magstheidiot@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/packet/main/cs/>\n"
@@ -62,6 +62,11 @@ msgstr "Při nastavení programu Packet byla zjištěna chyba"
 msgid "Try Again"
 msgstr "Zkusit znovu"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Hlavní Stránka"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Přidejte, nebo přetáhněte soubor k odeslání"
@@ -69,6 +74,10 @@ msgstr "Přidejte, nebo přetáhněte soubor k odeslání"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Přidat Soubory"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -211,7 +220,8 @@ msgid "Remove"
 msgstr "Odstranit"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "Soubor"
@@ -286,16 +296,6 @@ msgstr "Vyžádáno"
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
 msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} soubor ({})"
-msgstr[1] "{} soubory ({})"
-msgstr[2] "{} souborů ({})"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -499,10 +499,15 @@ msgstr "Packet vyžaduje zapnuté Bluetooth a sdílené Wi-Fi připojení s mDNS
 msgid "Sent Share Request"
 msgstr "Odesláno vyžádání k sdílení"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Hlavní Stránka"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Obdrženo vyžádání o sdílení"
+
+#, fuzzy
+#~| msgid "{} file ({})"
+#~| msgid_plural "{} files ({})"
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} soubor ({})"
+#~ msgstr[1] "{} soubory ({})"
+#~ msgstr[2] "{} souborů ({})"

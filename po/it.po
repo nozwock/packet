@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-05-29 16:38+0000\n"
 "Last-Translator: luca <luchiluc@live.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/packet/main/it/"
@@ -65,6 +65,11 @@ msgstr "Si è verificato un errore durante la configurazione di Packet"
 msgid "Try Again"
 msgstr "Riprova"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Pagina principale"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Aggiungi o rilascia un file da inviare"
@@ -73,6 +78,10 @@ msgstr "Aggiungi o rilascia un file da inviare"
 #, fuzzy
 msgid "Add Files"
 msgstr "Aggiungi file"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -217,7 +226,8 @@ msgid "Remove"
 msgstr "Rimuovi"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} File"
@@ -290,15 +300,6 @@ msgstr "Richiesto"
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
 msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} file ({})"
-msgstr[1] "{} files ({})"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -505,13 +506,17 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Inviata richiesta di condivisione"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Pagina principale"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Ricevuta richiesta di condivisione"
+
+#, fuzzy
+#~| msgid "{} file ({})"
+#~| msgid_plural "{} files ({})"
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} file ({})"
+#~ msgstr[1] "{} files ({})"
 
 #~ msgid "Network"
 #~ msgstr "Rete"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-06-07 10:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -63,6 +63,11 @@ msgstr "Er is een fout opgetreden tijdens het instellen van Packet"
 msgid "Try Again"
 msgstr "Opnieuw proberen"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Hoofdpagina"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Voeg bestanden toe of sleep ze hierheen"
@@ -70,6 +75,10 @@ msgstr "Voeg bestanden toe of sleep ze hierheen"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Bestanden toevoegen"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -209,8 +218,8 @@ msgid "Remove"
 msgstr "Verwijderen"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
-#, rust-format
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} bestand"
@@ -255,20 +264,17 @@ msgstr "Goedkeuren"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
-#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
 msgstr[0] "{} bestand ({})"
 msgstr[1] "{} bestanden ({})"
 
 #: src/widgets/receive_transfer.rs:327
-#, rust-format
 msgid "Preview ({})"
 msgstr "({}) voorvertonen"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
-#, rust-format
 msgid "Code: {}"
 msgstr "Code: {}"
 
@@ -280,21 +286,12 @@ msgstr "Verzoek is verlopen"
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
-#, rust-format
 msgid "{} wants to share {}"
 msgstr "{} wil {} delen"
-
-#: src/widgets/receive_transfer.rs:422
-#, rust-format
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} bestand"
-msgstr[1] "{} bestanden"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
-#, rust-format
 msgid "About {} left"
 msgstr "Nog {} te gaan"
 
@@ -320,7 +317,6 @@ msgid "Open"
 msgstr "Openen"
 
 #: src/widgets/receive_transfer.rs:759
-#, rust-format
 msgid "Received \"{}\""
 msgstr "‘{}’ is ontvangen"
 
@@ -329,7 +325,6 @@ msgid "Copy"
 msgstr "Kopiëren"
 
 #: src/widgets/receive_transfer.rs:789
-#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
 msgstr[0] "{} bestand ontvangen"
@@ -356,7 +351,6 @@ msgid "Failed"
 msgstr "Mislukt"
 
 #: src/widgets/recipient_card.rs:542
-#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] "Er is {} bestand verstuurd"
@@ -379,7 +373,6 @@ msgid "Invalid Port"
 msgstr "Ongeldig poortnummer"
 
 #: src/window.rs:737
-#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
@@ -412,7 +405,6 @@ msgid "Ready"
 msgstr "Gereed"
 
 #: src/window.rs:1222
-#, rust-format
 msgid "Visible as {:?}"
 msgstr "Zichtbaar als {:?}"
 
@@ -501,13 +493,14 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Deelverzoek verstuurd"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Hoofdpagina"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Deelverzoek ontvangen"
+
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} bestand"
+#~ msgstr[1] "{} bestanden"
 
 #~ msgid ""
 #~ "Make sure the other device is visible and connected to the same network "

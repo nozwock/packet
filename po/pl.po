@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
-"PO-Revision-Date: 2025-06-01 19:18+0000\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
+"PO-Revision-Date: 2025-06-07 08:57+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/packet/main/pl/>\n"
 "Language: pl\n"
@@ -63,6 +63,11 @@ msgstr "Wystąpił problem podczas ustawiania programu"
 msgid "Try Again"
 msgstr "Spróbuj ponownie"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Strona główna"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Dodaj, lub upuść plik do wysłania"
@@ -70,6 +75,10 @@ msgstr "Dodaj, lub upuść plik do wysłania"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Dodaj pliki"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -121,19 +130,19 @@ msgstr "Wybierz katalog pobierania"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Działanie w tle"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Zezwól na działanie programu w tle"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Automatyczne uruchamianie"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Automatyczne uruchamianie programu po zalogowaniu"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -213,7 +222,8 @@ msgid "Remove"
 msgstr "Usuń"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} plik"
@@ -246,10 +256,8 @@ msgid "Incoming Transfer"
 msgstr "Przychodzący transfer"
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "Odbieranie"
+msgstr "Odbieranie..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
@@ -277,27 +285,15 @@ msgid "Code: {}"
 msgstr "Kod: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "Wymagany"
+msgstr "Upłynął czas żądania"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} plik ({})"
-msgstr[1] "{} pliki ({})"
-msgstr[2] "{} plików ({})"
+msgstr "{} chce udostępnić {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -328,11 +324,11 @@ msgstr "Otwórz"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "Odebrano \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Skopiuj"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -370,11 +366,11 @@ msgstr[2] "Wysłano {} plików"
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Udostępnianie nie może działać w tle"
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Udostępnianie nie może być uruchomione po zalogowaniu"
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
@@ -406,7 +402,7 @@ msgstr "Wybierz katalog"
 
 #: src/window.rs:821
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Udostępnianie chce działać w tle"
 
 #: src/window.rs:969
 msgid "Copied error report to clipboard"
@@ -505,10 +501,12 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Wysłano żądanie udostępnienia"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Strona główna"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Odebrano żądanie udostępnienia"
+
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} plik {}"
+#~ msgstr[1] "{} pliki {}"
+#~ msgstr[2] "{} plików {}"
