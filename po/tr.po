@@ -55,11 +55,11 @@ msgstr "Hata raporunu kopyala"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Yapılandırılamadı"
+msgstr "Kurulamadı"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Packet yapılandırılırken bir hata oluştu"
+msgstr "Packet kurulurken bir hata oluştu"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
@@ -126,19 +126,19 @@ msgstr "İndirme klasörü seç"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Arka planda çalıştır"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Arka planda çalışmasına izin ver"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Otomatik Başlat"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Oturum açılınca otomatik başlat"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -146,37 +146,42 @@ msgstr "Gelişmiş"
 
 #: data/resources/ui/window.blp:467
 msgid "Static Network Port"
-msgstr ""
+msgstr "Sabit Ağ Bağlantı Portu"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:469
 msgid "For whitelisting through a firewall"
-msgstr ""
+msgstr "Güvenlik ağında beyaz listelemek için"
 
 #: data/resources/ui/window.blp:474
 msgid "Port Number"
-msgstr ""
+msgstr "Port Numarası"
 
 #: data/resources/ui/window.blp:534
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
+"İki cihazın da aynı Wi-Fi ağına bağlı olduğuna emin ol"
+"ve Bluetooth'u etkinleştir."
 
 #: data/resources/ui/window.blp:557
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr ""
+msgstr "Cihazınızın diğer cihazlara görünür olduğuna emin olunuz"
 
 #: data/resources/ui/window.blp:580
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
+"Android cihazınızda <b>Quick Share</b> sayfasını "
+"<b>Google'ın Dosyalar</b> uygulamasından açınız"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:167
 msgid "translator-credits"
 msgstr "Serhat Sivrikaya"
+"Levent Zengin"
 
 #: src/application.rs:174
 msgid "Similar Projects"
@@ -218,7 +223,7 @@ msgstr[1] "{} Dosya"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Bağlantı"
+msgstr "Bağlan"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
@@ -239,7 +244,7 @@ msgstr "İptal"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Gelen Aktarma"
+msgstr "Gelen Gönderi"
 
 #: src/widgets/receive_transfer.rs:194
 #, fuzzy
@@ -282,7 +287,7 @@ msgstr "İstek gönderildi"
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} sizinle {} paylaşmak istiyor"
 
 #: src/widgets/receive_transfer.rs:422
 #, fuzzy
@@ -300,12 +305,12 @@ msgid "About {} left"
 msgstr "Yaklaşık {} kaldı"
 
 #: src/widgets/receive_transfer.rs:519
-msgid "Unexpected dissconnection"
-msgstr "Beklenmedik kesinti"
+msgid "Unexpected disconnection"
+msgstr "Beklenmedik bağlantı kesikliği"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Aktarma gönderen tarafından iptal edildi"
+msgstr "Gönderi gönderen tarafından iptal edildi"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
@@ -313,7 +318,7 @@ msgstr "Panoya kopyala"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Metni dosyaya kaydet"
+msgstr "Metin dosyası olarak kaydet"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
@@ -322,11 +327,11 @@ msgstr "Aç"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "\"{}\" geldi"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -336,7 +341,7 @@ msgstr[1] "{} dosya alındı"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "Mevcut değil"
+msgstr "Çevrimdışı"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
@@ -362,49 +367,51 @@ msgstr[1] "{} dosya gönderildi"
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet arka planda çalışamıyor"
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet oturum girişi sonrası çalışamıyor"
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
-msgstr "Aktarma devam ederken cihaz yeniden adlandırılamaz"
+msgstr "Gönderme işlemi devam ederken cihaz yeniden adlandırılamaz"
 
 #: src/window.rs:733
 msgid "Invalid Port"
-msgstr ""
+msgstr "Geçersiz Port"
 
 #: src/window.rs:737
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
+"Seçtiğiniz sabit port \"{}\" şuan çevrimdışı. Önerilen portu deneyiniz "
+"1024."
 
 #: src/window.rs:745
 msgid "_Ok"
-msgstr ""
+msgstr "_Tamam"
 
 #: src/window.rs:793
 #, fuzzy
 #| msgid "Download folder"
 msgid "Can't access Downloads folder"
-msgstr "İndirme klasörü"
+msgstr "İndirme klasörüne erişilemiyor"
 
 #: src/window.rs:794
 msgid "Pick Folder"
-msgstr ""
+msgstr "Dosya Seç"
 
 #: src/window.rs:821
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet arka planda çalışmak istiyor"
 
 #: src/window.rs:969
 #, fuzzy
 #| msgid "Copy to clipboard"
 msgid "Copied error report to clipboard"
-msgstr "Panoya kopyala"
+msgstr "Hata raporu panoya kopyalandı"
 
 #: src/window.rs:1216
 msgid "Ready"
@@ -412,7 +419,7 @@ msgstr "Hazır"
 
 #: src/window.rs:1222
 msgid "Visible as {:?}"
-msgstr "{:?} olarak görünür"
+msgstr "{:?} olarak görünüyor"
 
 #: src/window.rs:1228
 msgid "Invisible"
@@ -424,19 +431,19 @@ msgstr "Yeni cihazlar sizinle paylaşamaz"
 
 #: src/window.rs:1239
 msgid "Disconnected"
-msgstr ""
+msgstr "Bağlantı Kesildi"
 
 #: src/window.rs:1245
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr ""
+msgstr "Wi-Fi ağına bağlanın ve Bluetooth'u etkinleştir"
 
 #: src/window.rs:1248
 msgid "Connect to Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi ağına bağlan"
 
 #: src/window.rs:1251
 msgid "Turn on Bluetooth"
-msgstr ""
+msgstr "Bluetooth'u etkinleştir"
 
 #: src/window.rs:1315
 msgid "Couldn't open files"
@@ -501,7 +508,7 @@ msgstr "Paylaşım İsteği Gönderildi"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr ""
+msgstr "Ana Sayfa"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
