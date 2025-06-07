@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-07 04:00+0530\n"
-"PO-Revision-Date: 2025-05-29 19:05+0200\n"
+"PO-Revision-Date: 2025-06-07 10:50+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -121,19 +121,19 @@ msgstr "Kies een downloadmap"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Uitvoeren op achtergrond"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Sta toe dat Packet op de achtergrond draait"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Automatisch opstarten"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Start Packet automatisch op na het opstarten"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -210,6 +210,7 @@ msgstr "Verwijderen"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/window.rs:1326
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} bestand"
@@ -241,10 +242,8 @@ msgid "Incoming Transfer"
 msgstr "Inkomende overdracht"
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "Bezig met ontvangen"
+msgstr "Bezig met ontvangen…"
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
@@ -256,45 +255,46 @@ msgstr "Goedkeuren"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
 msgstr[0] "{} bestand ({})"
 msgstr[1] "{} bestanden ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
 msgstr "({}) voorvertonen"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
 msgstr "Code: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "Aangevraagd"
+msgstr "Verzoek is verlopen"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} wil ‘{}’ delen"
 
 #: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
+#, rust-format
 msgid "{} file"
 msgid_plural "{} files"
-msgstr[0] "{} bestand ({})"
-msgstr[1] "{} bestanden ({})"
+msgstr[0] "{} bestand"
+msgstr[1] "{} bestanden"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
 msgstr "Nog {} te gaan"
 
@@ -320,14 +320,16 @@ msgid "Open"
 msgstr "Openen"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr ""
+msgstr "‘{}’ is ontvangen"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Kopiëren"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
 msgstr[0] "{} bestand ontvangen"
@@ -354,6 +356,7 @@ msgid "Failed"
 msgstr "Mislukt"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] "Er is {} bestand verstuurd"
@@ -361,11 +364,11 @@ msgstr[1] "Er zijn {} bestanden verstuurd"
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet kan niet op de achtergrond worden uitgevoerd"
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet kan niet automatisch worden opgestart"
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
@@ -376,6 +379,7 @@ msgid "Invalid Port"
 msgstr "Ongeldig poortnummer"
 
 #: src/window.rs:737
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
@@ -397,7 +401,7 @@ msgstr "Kies een map"
 
 #: src/window.rs:821
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet wil op de achtergrond draaien"
 
 #: src/window.rs:969
 msgid "Copied error report to clipboard"
@@ -408,6 +412,7 @@ msgid "Ready"
 msgstr "Gereed"
 
 #: src/window.rs:1222
+#, rust-format
 msgid "Visible as {:?}"
 msgstr "Zichtbaar als {:?}"
 
