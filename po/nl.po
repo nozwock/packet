@@ -282,7 +282,7 @@ msgstr "Verzoek is verlopen"
 #: src/widgets/receive_transfer.rs:417
 #, rust-format
 msgid "{} wants to share {}"
-msgstr "{} wil ‘{}’ delen"
+msgstr "{} wil {} delen"
 
 #: src/widgets/receive_transfer.rs:422
 #, rust-format
