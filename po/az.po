@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 04:00+0530\n"
+"POT-Creation-Date: 2025-06-07 14:52+0530\n"
 "PO-Revision-Date: 2025-06-01 09:25+0000\n"
 "Last-Translator: Matin <matinhuseynzade@gmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/packet/main/"
@@ -63,6 +63,11 @@ msgstr "Packet quraşdırılarkən bir xəta meydana gəldi"
 msgid "Try Again"
 msgstr "Təkrar Cəhd Edin"
 
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Ana Səhifə"
+
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
 msgstr "Göndərmək üçün fayl əlavə edin"
@@ -70,6 +75,10 @@ msgstr "Göndərmək üçün fayl əlavə edin"
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
 msgstr "Faylları Əlavə Edin"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -209,7 +218,8 @@ msgid "Remove"
 msgstr "Sil"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/window.rs:1326
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1326
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} Fayl"
@@ -282,15 +292,6 @@ msgstr "Tələb Göndərildi"
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
 msgstr ""
-
-#: src/widgets/receive_transfer.rs:422
-#, fuzzy
-#| msgid "{} file ({})"
-#| msgid_plural "{} files ({})"
-msgid "{} file"
-msgid_plural "{} files"
-msgstr[0] "{} fayl ({})"
-msgstr[1] "{} fayl ({})"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -496,10 +497,14 @@ msgstr ""
 msgid "Sent Share Request"
 msgstr "Paylaşmaq Tələbi Göndərildi"
 
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
-msgid "Main Page"
-msgstr "Ana Səhifə"
-
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Paylaşma Tələbi Qəbul Edildi"
+
+#, fuzzy
+#~| msgid "{} file ({})"
+#~| msgid_plural "{} files ({})"
+#~ msgid "{} file"
+#~ msgid_plural "{} files"
+#~ msgstr[0] "{} fayl ({})"
+#~ msgstr[1] "{} fayl ({})"
