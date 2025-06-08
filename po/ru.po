@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-07 14:52+0530\n"
-"PO-Revision-Date: 2025-06-06 12:32+0000\n"
+"PO-Revision-Date: 2025-06-08 14:10+0000\n"
 "Last-Translator: Кирилл <09plf5@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgstr "Добавить файлы"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Страница выбранных файлов"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
