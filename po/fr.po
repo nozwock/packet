@@ -129,19 +129,19 @@ msgstr "Choisissez un dossier pour les téléchargements"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Exécution en arrière-plan"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Autoriser l’exécution en arrière-plan"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Démarrage automatique"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Démarrer automatiquement lors de la connexion"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -363,11 +363,11 @@ msgstr[1] "{} fichiers envoyés"
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet ne peut pas s’exécuter en arrière-plan"
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet ne peut pas se lancer automatiquement à la connexion"
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
@@ -411,7 +411,7 @@ msgstr "Prêt"
 
 #: src/window.rs:1222
 msgid "Visible as {:?}"
-msgstr "Visible comme {:?}"
+msgstr "Visible en tant que {:?}"
 
 #: src/window.rs:1228
 msgid "Invisible"
