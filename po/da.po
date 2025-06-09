@@ -8,33 +8,30 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-07 14:52+0530\n"
-"PO-Revision-Date: 2025-06-08 14:10+0000\n"
-"Last-Translator: Кирилл <09plf5@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/>"
-"\n"
-"Language: ru\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Настройки"
+msgstr ""
 
 #: data/resources/ui/window.blp:12 data/resources/ui/window.blp:483
 msgid "Help"
-msgstr "Справка"
+msgstr ""
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Комбинации клавиш"
+msgstr ""
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_О приложении"
+msgstr ""
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -42,447 +39,440 @@ msgstr "_О приложении"
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr "Packet"
+msgstr ""
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Подготовка Packet…"
+msgstr ""
 
 #: data/resources/ui/window.blp:71
 msgid "Copy error report"
-msgstr "Копировать отчёт об ошибке"
+msgstr ""
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Не удалось настроить"
+msgstr ""
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Возникла проблема при подготовке Packet"
+msgstr ""
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "Попробовать снова"
+msgstr ""
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "Главная страница"
+msgstr ""
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "Добавьте или перетащите файл для отправки"
+msgstr ""
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "Добавить файлы"
+msgstr ""
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr "Страница выбранных файлов"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "Добавить файл"
+msgstr ""
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "Отправить"
+msgstr ""
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "Выберите получателей"
+msgstr ""
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "Поиск устройств…"
+msgstr ""
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:509
 msgid "Can't see the other device?"
-msgstr "Не видите другие устройства?"
+msgstr ""
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "Настройки"
+msgstr ""
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "Общие"
+msgstr ""
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "Имя устройства"
+msgstr ""
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "Видимость"
+msgstr ""
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Видят ли другие это устройство"
+msgstr ""
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Папка загрузок"
+msgstr ""
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "Выберите папку загрузок"
+msgstr ""
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "Запускать в фоне"
+msgstr ""
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr "Разрешить запуск в фоне"
+msgstr ""
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "Авто запуск"
+msgstr ""
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr "Запускать при входе в систему"
+msgstr ""
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Продвинутые"
+msgstr ""
 
 #: data/resources/ui/window.blp:467
 msgid "Static Network Port"
-msgstr "Статический сетевой порт"
+msgstr ""
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:469
 msgid "For whitelisting through a firewall"
-msgstr "Для добавления в белый список через брандмауэр"
+msgstr ""
 
 #: data/resources/ui/window.blp:474
 msgid "Port Number"
-msgstr "Номер порта"
+msgstr ""
 
 #: data/resources/ui/window.blp:534
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Убедитесь, что оба устройства подключены к той же Wi-Fi сети и имеют "
-"включённый Bluetooth"
 
 #: data/resources/ui/window.blp:557
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
-"Убедитесь что на устройстве установлена видимость для всех устройств "
-"поблизости"
 
 #: data/resources/ui/window.blp:580
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"На устройстве Android, попробуйте открыть страницу <b>Быстрая отправка</b> в "
-"приложении <b>Файлы</b> (Files от Google)"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:167
 msgid "translator-credits"
 msgstr ""
-"Grigoriy Gorbovskoy <gbowsky@vk.com>\n"
-"Aleksandr Melman <Alexmelman88@gmail.com>\n"
-"Kirill Fish <ultimatefish16@gmail.com>"
 
 #: src/application.rs:174
 msgid "Similar Projects"
-msgstr "Похожие проекты"
+msgstr ""
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "Неизвестное устройство"
+msgstr ""
 
 #: src/utils.rs:244
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "час"
-msgstr[1] "часа"
-msgstr[2] "часов"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/utils.rs:246 src/utils.rs:256
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "минута"
-msgstr[1] "минуты"
-msgstr[2] "минут"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/utils.rs:258 src/utils.rs:261
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "секунда"
-msgstr[1] "секунды"
-msgstr[2] "секунд"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "Удалить"
+msgstr ""
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1326
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} Файл"
-msgstr[1] "{} Файла"
-msgstr[2] "{} Файлов"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Ссылка"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "Текст"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
-msgstr "Wi-Fi"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "Получение"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Отменить"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Входящая передача"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr "Получение..."
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "Отклонить"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "Принять"
+msgstr ""
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} файл ({})"
-msgstr[1] "{} файла ({})"
-msgstr[2] "{} файлов ({})"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
-msgstr "Предпросмотр ({})"
+msgstr ""
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
-msgstr "Код: {}"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:404
 msgid "Request timed out"
-msgstr "Запрос истёк"
+msgstr ""
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr "{} хочет отправить {}"
+msgstr ""
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
-msgstr "Осталось примерно {}"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "Внезапное разъединение"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Передача отменена отправителем"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "Копировать в буфер обмена"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Сохранить текст как файл"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "Открыть"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr "Получено \"{}\""
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "Скопировать"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "Получен {} файл"
-msgstr[1] "Получено {} файла"
-msgstr[2] "Получено {} файлов"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "Недоступно"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "В очереди"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "Повторить"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Запрошено"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr "Неудачно"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "Отправлен {} файл"
-msgstr[1] "Отправлено {} файла"
-msgstr[2] "Отправлено {} файлов"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/window.rs:491 src/window.rs:877
 msgid "Packet cannot run in the background"
-msgstr "Packet не может запускаться в фоне"
+msgstr ""
 
 #: src/window.rs:527
 msgid "Packet cannot run at login"
-msgstr "Packet не может запускаться при входе в систему"
+msgstr ""
 
 #: src/window.rs:592
 msgid "Can't rename device during an active transfer"
-msgstr "Невозможно переименовать устройство во время активной передачи"
+msgstr ""
 
 #: src/window.rs:733
 msgid "Invalid Port"
-msgstr "Неправильный порт"
+msgstr ""
 
 #: src/window.rs:737
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
-"Выбранный статичный порт \"{}\" недоступен. Попробуйте другой порт, "
-"начинающийся от 1024."
 
 #: src/window.rs:745
 msgid "_Ok"
-msgstr "_Ок"
+msgstr ""
 
 #: src/window.rs:793
 msgid "Can't access Downloads folder"
-msgstr "Не удалось получить доступ к папке Загрузки"
+msgstr ""
 
 #: src/window.rs:794
 msgid "Pick Folder"
-msgstr "Выберите папку"
+msgstr ""
 
 #: src/window.rs:821
 msgid "Packet wants to run in the background"
-msgstr "Packet хочет запускаться в фоне"
+msgstr ""
 
 #: src/window.rs:969
 msgid "Copied error report to clipboard"
-msgstr "Отчёт об ошибке скопирован в буфер обмена"
+msgstr ""
 
 #: src/window.rs:1216
 msgid "Ready"
-msgstr "Готово"
+msgstr ""
 
 #: src/window.rs:1222
+#, rust-format
 msgid "Visible as {:?}"
-msgstr "Видно как {:?}"
+msgstr ""
 
 #: src/window.rs:1228
 msgid "Invisible"
-msgstr "Невидно"
+msgstr ""
 
 #: src/window.rs:1234
 msgid "No new devices can share with you"
-msgstr "Новые устройства не смогут делиться с вами"
+msgstr ""
 
 #: src/window.rs:1239
 msgid "Disconnected"
-msgstr "Отключено"
+msgstr ""
 
 #: src/window.rs:1245
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Подключитесь к Wi-Fi и включите Bluetooth"
+msgstr ""
 
 #: src/window.rs:1248
 msgid "Connect to Wi-Fi"
-msgstr "Подключитесь к Wi-Fi"
+msgstr ""
 
 #: src/window.rs:1251
 msgid "Turn on Bluetooth"
-msgstr "Включите Bluetooth"
+msgstr ""
 
 #: src/window.rs:1315
 msgid "Couldn't open files"
-msgstr "Не удалось открыть файлы"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Легко делитесь файлами"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;GTK;Quick;Nearby;Share;Быстрая;Отправка;Обмен;Файлами;"
+msgstr ""
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "Ширина окна"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "Высота окна"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "Развёрнутое состояние окна"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "Имя устройства"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "Видимость устройства"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Папка загрузок"
+msgstr ""
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -490,28 +480,18 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Отправляйте и получайте файлы по сети с устройствами Android, используя "
-"Быструю отправку, или другим устройством с установленным Packet."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"Для Packet необходим включенный Bluetooth и mDNS для поиска устройств "
-"подключенных к сети Wi-Fi."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "Отправлен запрос на передачу"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Получен запрос на передачу"
-
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "{} файл"
-#~ msgstr[1] "{} файла"
-#~ msgstr[2] "{} файлов"
+msgstr ""
