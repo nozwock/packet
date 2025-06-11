@@ -1148,6 +1148,9 @@ impl PacketApplicationWindow {
         let imp = self.imp();
 
         while let Ok(files) = rx.recv().await {
+            // Bring the app window to focus
+            self.present();
+
             let success = self.handle_added_files_to_send(
                 &imp.manage_files_model,
                 files
