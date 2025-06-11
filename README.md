@@ -66,4 +66,4 @@ To use the Nautilus plugin, install the required packages:
 [neardrop]: https://github.com/grishka/NearDrop/
 [rquickshare]: https://github.com/Martichou/rquickshare/
 [flathub]: https://flathub.org/apps/details/io.github.nozwock.Packet
-[flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Packet&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
+[flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Installs&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
