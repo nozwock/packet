@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 14:52+0530\n"
-"PO-Revision-Date: 2025-06-06 22:31+0000\n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"PO-Revision-Date: 2025-06-09 06:44+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/packet/main/et/"
 ">\n"
@@ -19,12 +19,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
+#: data/resources/ui/shortcuts.blp:11
+#, fuzzy
+#| msgid "General"
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Üldised"
+
+#: data/resources/ui/shortcuts.blp:14
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "_Klaviatuuri kiirklahvid"
+
+#: data/resources/ui/shortcuts.blp:19
+#, fuzzy
+#| msgid "Help"
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Abiteave"
+
+#: data/resources/ui/shortcuts.blp:24
+#, fuzzy
+#| msgid "Preferences"
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "Eelistused"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Eelistused"
 
-#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:483
-msgid "Help"
+#: data/resources/ui/window.blp:12
+#, fuzzy
+#| msgid "Help"
+msgid "_Help"
 msgstr "Abiteave"
 
 #: data/resources/ui/window.blp:17
@@ -37,7 +72,7 @@ msgstr "_Rakenduse teave: Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:154 src/main.rs:35
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
@@ -48,8 +83,10 @@ msgid "Setting up Packet…"
 msgstr "Packet on seadistamisel…"
 
 #: data/resources/ui/window.blp:71
-msgid "Copy error report"
-msgstr "Kopeeri veaaruanne"
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy Log"
+msgstr "Kopeeri"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -78,7 +115,7 @@ msgstr "Lisa faile"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Valitud failide leht"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -96,7 +133,7 @@ msgstr "Vali vastuvõtjad"
 msgid "Looking for devices…"
 msgstr "Otsin seadmeid…"
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:509
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
 msgstr "Kas teine seade pole nähtav?"
 
@@ -149,19 +186,31 @@ msgid "Advanced"
 msgstr "Täiendavad seadistused"
 
 #: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr ""
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr ""
+
+#: data/resources/ui/window.blp:474
 msgid "Static Network Port"
 msgstr "Staatiline võrguport"
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:469
+#: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
 msgstr "Võimaldab sul seadistada päringute lubamist läbi tulemüüri"
 
-#: data/resources/ui/window.blp:474
+#: data/resources/ui/window.blp:481
 msgid "Port Number"
 msgstr "Pordi number"
 
-#: data/resources/ui/window.blp:534
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "Abiteave"
+
+#: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
@@ -169,13 +218,13 @@ msgstr ""
 "Palun kontrolli, et mõlemad seadmed on ühendatud samasse WiFi võrku ning "
 "Bluetooth on sisse lülitatud"
 
-#: data/resources/ui/window.blp:557
+#: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
 "Palun kontrolli, et see seade on nähtav kõigile lähikonnas asuvatele "
 "seadmetele"
 
-#: data/resources/ui/window.blp:580
+#: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -184,32 +233,40 @@ msgstr ""
 "<b>Google'i failihalduris (Files by Google)</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:167
+#: src/application.rs:253
 msgid "translator-credits"
 msgstr "Priit Jõerüüt 2025"
 
-#: src/application.rs:174
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr ""
+
+#: src/application.rs:262
 msgid "Similar Projects"
 msgstr "Sarnased projektid"
+
+#: src/application.rs:282 src/window.rs:1231
+msgid "Failed to retrieve the logs"
+msgstr ""
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
 msgstr "Tundmatu seade"
 
-#: src/utils.rs:244
+#: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "tund"
 msgstr[1] "tundi"
 
-#: src/utils.rs:246 src/utils.rs:256
+#: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "minut"
 msgstr[1] "minutit"
 
-#: src/utils.rs:258 src/utils.rs:261
+#: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "sekund"
@@ -221,7 +278,7 @@ msgstr "Eemalda"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1326
+#: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} fail"
@@ -358,23 +415,27 @@ msgid_plural "Sent {} files"
 msgstr[0] "Saatsin {} faili"
 msgstr[1] "Saatsin {} faili"
 
-#: src/window.rs:491 src/window.rs:877
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr ""
+
+#: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
 msgstr "Packet käivitamine taustal ei õnnestu"
 
-#: src/window.rs:527
+#: src/window.rs:635
 msgid "Packet cannot run at login"
 msgstr "Packet käivitamine sisselogimisel ei õnnestu"
 
-#: src/window.rs:592
+#: src/window.rs:700
 msgid "Can't rename device during an active transfer"
 msgstr "Pooleli ülekande ajal polnud võimalik seadme nime muuta"
 
-#: src/window.rs:733
+#: src/window.rs:841
 msgid "Invalid Port"
 msgstr "Vigane port"
 
-#: src/window.rs:737
+#: src/window.rs:845
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
@@ -382,61 +443,109 @@ msgstr ""
 "Valitud staatline port „{}“ pole kasutatav. Proovi mõnda muud porti, mille "
 "number on suurem, kui 1024."
 
-#: src/window.rs:745
+#: src/window.rs:853
 msgid "_Ok"
 msgstr "S_obib"
 
-#: src/window.rs:793
+#: src/window.rs:901
 msgid "Can't access Downloads folder"
 msgstr "Allalaadimiste kaustale puudub ligipääs"
 
-#: src/window.rs:794
+#: src/window.rs:902
 msgid "Pick Folder"
 msgstr "Vali kaust"
 
-#: src/window.rs:821
+#: src/window.rs:929
 msgid "Packet wants to run in the background"
 msgstr "Packet soovib töötada taustal"
 
-#: src/window.rs:969
-msgid "Copied error report to clipboard"
-msgstr "Veateade on kopeeritud lõikelauale"
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr ""
 
-#: src/window.rs:1216
+#: src/window.rs:1064
+msgid "Done"
+msgstr ""
+
+#: src/window.rs:1080
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr ""
+
+#: src/window.rs:1096
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr ""
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr ""
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr ""
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr ""
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr ""
+
+#: src/window.rs:1238
+#, fuzzy
+#| msgid "Copy to clipboard"
+msgid "Copied log to clipboard"
+msgstr "Kopeeri lõikelauale"
+
+#: src/window.rs:1506
 msgid "Ready"
 msgstr "Valmis"
 
-#: src/window.rs:1222
+#: src/window.rs:1513
 msgid "Visible as {:?}"
 msgstr "Nähtav kui {:?}"
 
-#: src/window.rs:1228
+#: src/window.rs:1519
 msgid "Invisible"
 msgstr "Nähtamatu"
 
-#: src/window.rs:1234
+#: src/window.rs:1525
 msgid "No new devices can share with you"
 msgstr "Ükski uus seade ei saa enam faile jagada"
 
-#: src/window.rs:1239
+#: src/window.rs:1530
 msgid "Disconnected"
 msgstr "Ühendus on katkestatud"
 
-#: src/window.rs:1245
+#: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr "Ühenda WiFi võrku ja lülita Bluetooth sisse"
 
-#: src/window.rs:1248
+#: src/window.rs:1539
 msgid "Connect to Wi-Fi"
 msgstr "Ühenda WiFi-võrkku"
 
-#: src/window.rs:1251
+#: src/window.rs:1542
 msgid "Turn on Bluetooth"
 msgstr "Lülita Bluetooth sisse"
 
-#: src/window.rs:1315
+#: src/window.rs:1615
 msgid "Couldn't open files"
 msgstr "Faile polnud võimalik avada"
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+#, fuzzy
+#| msgid "Setting up Packet…"
+msgid "Send with Packet"
+msgstr "Packet on seadistamisel…"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -499,6 +608,12 @@ msgstr "Saadetud jagamispäring"
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Vastuvõetud jagamispäring"
+
+#~ msgid "Copy error report"
+#~ msgstr "Kopeeri veaaruanne"
+
+#~ msgid "Copied error report to clipboard"
+#~ msgstr "Veateade on kopeeritud lõikelauale"
 
 #~ msgid "{} file"
 #~ msgid_plural "{} files"
