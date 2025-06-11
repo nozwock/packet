@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-10 19:49+0530\n"
+"POT-Creation-Date: 2025-06-11 13:32+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:236 src/main.rs:36
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
@@ -72,7 +72,7 @@ msgid "Setting up Packet…"
 msgstr ""
 
 #: data/resources/ui/window.blp:71
-msgid "Copy error report"
+msgid "Copy Log"
 msgstr ""
 
 #: data/resources/ui/window.blp:85
@@ -214,12 +214,20 @@ msgid ""
 msgstr ""
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:249
+#: src/application.rs:253
 msgid "translator-credits"
 msgstr ""
 
-#: src/application.rs:256
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr ""
+
+#: src/application.rs:262
 msgid "Similar Projects"
+msgstr ""
+
+#: src/application.rs:282 src/window.rs:1232
+msgid "Failed to retrieve the logs"
 msgstr ""
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
@@ -251,7 +259,7 @@ msgstr ""
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1570
+#: src/window.rs:1625
 #, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
@@ -397,129 +405,129 @@ msgid_plural "Sent {} files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/window.rs:497
+#: src/window.rs:508
 msgid "Couldn't update the Nautilus plugin"
 msgstr ""
 
-#: src/window.rs:589 src/window.rs:975
+#: src/window.rs:600 src/window.rs:986
 msgid "Packet cannot run in the background"
 msgstr ""
 
-#: src/window.rs:625
+#: src/window.rs:636
 msgid "Packet cannot run at login"
 msgstr ""
 
-#: src/window.rs:690
+#: src/window.rs:701
 msgid "Can't rename device during an active transfer"
 msgstr ""
 
-#: src/window.rs:831
+#: src/window.rs:842
 msgid "Invalid Port"
 msgstr ""
 
-#: src/window.rs:835
+#: src/window.rs:846
 #, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
 
-#: src/window.rs:843
+#: src/window.rs:854
 msgid "_Ok"
 msgstr ""
 
-#: src/window.rs:891
+#: src/window.rs:902
 msgid "Can't access Downloads folder"
 msgstr ""
 
-#: src/window.rs:892
+#: src/window.rs:903
 msgid "Pick Folder"
 msgstr ""
 
-#: src/window.rs:919
+#: src/window.rs:930
 msgid "Packet wants to run in the background"
 msgstr ""
 
-#: src/window.rs:1052
+#: src/window.rs:1061
 msgid "Plugin Installed"
 msgstr ""
 
-#: src/window.rs:1056
+#: src/window.rs:1065
 msgid "Done"
 msgstr ""
 
-#: src/window.rs:1072
+#: src/window.rs:1081
 #, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
 
-#: src/window.rs:1088
+#: src/window.rs:1097
 #, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
 
-#: src/window.rs:1103
+#: src/window.rs:1112
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
 
-#: src/window.rs:1113
+#: src/window.rs:1122
 msgid "Installation Failed"
 msgstr ""
 
-#: src/window.rs:1117
+#: src/window.rs:1126
 msgid "Close"
 msgstr ""
 
-#: src/window.rs:1131
+#: src/window.rs:1140
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
 
-#: src/window.rs:1215
-msgid "Copied error report to clipboard"
+#: src/window.rs:1239
+msgid "Copied log to clipboard"
 msgstr ""
 
-#: src/window.rs:1452
+#: src/window.rs:1507
 msgid "Ready"
 msgstr ""
 
-#: src/window.rs:1459
+#: src/window.rs:1514
 #, rust-format
 msgid "Visible as {:?}"
 msgstr ""
 
-#: src/window.rs:1465
+#: src/window.rs:1520
 msgid "Invisible"
 msgstr ""
 
-#: src/window.rs:1471
+#: src/window.rs:1526
 msgid "No new devices can share with you"
 msgstr ""
 
-#: src/window.rs:1476
+#: src/window.rs:1531
 msgid "Disconnected"
 msgstr ""
 
-#: src/window.rs:1482
+#: src/window.rs:1537
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:1485
+#: src/window.rs:1540
 msgid "Connect to Wi-Fi"
 msgstr ""
 
-#: src/window.rs:1488
+#: src/window.rs:1543
 msgid "Turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:1561
+#: src/window.rs:1616
 msgid "Couldn't open files"
 msgstr ""
 
