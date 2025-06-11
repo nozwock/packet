@@ -18,6 +18,7 @@ use tokio_util::sync::CancellationToken;
 
 use crate::application::PacketApplication;
 use crate::config::{APP_ID, PROFILE};
+use crate::constants::packet_log_path;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
@@ -1211,20 +1212,42 @@ impl PacketApplicationWindow {
         imp.rqs_error_copy_button.connect_clicked(clone!(
             #[weak]
             imp,
-            move |_| {
-                // TODO: Replace the copy button with an info button that
-                // opens up a dialog with the option to copy or save the
-                // app log, and a link to the issues page.
-                clipboard.set_text(
-                    &imp.rqs_error
-                        .borrow()
-                        .as_ref()
-                        .map(|e| format!("{e:#}"))
-                        .unwrap_or_default(),
-                );
-                imp.toast_overlay.add_toast(adw::Toast::new(&gettext(
-                    "Copied error report to clipboard",
-                )));
+            move |button| {
+                button.set_sensitive(false);
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    imp,
+                    #[weak]
+                    button,
+                    #[weak]
+                    clipboard,
+                    async move {
+                        let logs = tokio_runtime()
+                            .spawn_blocking(move || -> anyhow::Result<_> {
+                                Ok(fs_err::read_to_string(packet_log_path())?)
+                            })
+                            .await
+                            .map_err(|err| anyhow::anyhow!(err))
+                            .and_then(|it| it)
+                            .map_err(|err| err.context(gettext("Failed to retrieve the logs")))
+                            .inspect_err(|err| tracing::warn!("{err:#}"));
+
+                        match logs {
+                            Ok(logs) => {
+                                clipboard.set_text(&logs);
+                                imp.toast_overlay.add_toast(adw::Toast::new(&gettext(
+                                    "Copied log to clipboard",
+                                )));
+                            }
+                            Err(err) => {
+                                imp.toast_overlay
+                                    .add_toast(adw::Toast::new(&err.to_string()));
+                            }
+                        };
+
+                        button.set_sensitive(true);
+                    }
+                ));
             }
         ));
         imp.rqs_error_retry_button.connect_clicked(clone!(
