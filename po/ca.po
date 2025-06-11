@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 14:52+0530\n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
 "PO-Revision-Date: 2025-05-31 07:20+0000\n"
 "Last-Translator: Alan Mena Comaleras <alanmena+weblate@pm.me>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/packet/main/ca/"
@@ -19,12 +19,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
+#: data/resources/ui/shortcuts.blp:11
+#, fuzzy
+#| msgid "General"
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/resources/ui/shortcuts.blp:14
+#, fuzzy
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "_Dreceres del teclat"
+
+#: data/resources/ui/shortcuts.blp:19
+#, fuzzy
+#| msgid "Help"
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Ajuda"
+
+#: data/resources/ui/shortcuts.blp:24
+#, fuzzy
+#| msgid "Preferences"
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "Preferències"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Preferències"
 
-#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:483
-msgid "Help"
+#: data/resources/ui/window.blp:12
+#, fuzzy
+#| msgid "Help"
+msgid "_Help"
 msgstr "Ajuda"
 
 #: data/resources/ui/window.blp:17
@@ -37,7 +72,7 @@ msgstr "_Sobre el Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:154 src/main.rs:35
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
@@ -48,8 +83,8 @@ msgid "Setting up Packet…"
 msgstr "Configurant el Packet…"
 
 #: data/resources/ui/window.blp:71
-msgid "Copy error report"
-msgstr "Copia l'informe d'error"
+msgid "Copy Log"
+msgstr ""
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -96,7 +131,7 @@ msgstr "Selecciona els destinataris"
 msgid "Looking for devices…"
 msgstr "Buscant dispositius…"
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:509
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
 msgstr "No pots veure l'altre dispositiu?"
 
@@ -149,19 +184,31 @@ msgid "Advanced"
 msgstr "Avançat"
 
 #: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr ""
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr ""
+
+#: data/resources/ui/window.blp:474
 msgid "Static Network Port"
 msgstr "Port de xarxa estàtic"
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:469
+#: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
 msgstr ""
 
-#: data/resources/ui/window.blp:474
+#: data/resources/ui/window.blp:481
 msgid "Port Number"
 msgstr "Port"
 
-#: data/resources/ui/window.blp:534
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "Ajuda"
+
+#: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
@@ -169,13 +216,13 @@ msgstr ""
 "Assegura't que els dos dispositius estan connectats a la mateixa xarxa i "
 "tenen el Bluetooth encès"
 
-#: data/resources/ui/window.blp:557
+#: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
 "Assegura't que el dispositiu està configurat com a visible a tots els "
 "dispositius propers"
 
-#: data/resources/ui/window.blp:580
+#: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -184,32 +231,40 @@ msgstr ""
 "l'aplicació <b>Files by Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:167
+#: src/application.rs:253
 msgid "translator-credits"
 msgstr "Alan Mena Comaleras"
 
-#: src/application.rs:174
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr ""
+
+#: src/application.rs:262
 msgid "Similar Projects"
 msgstr "Projectes similars"
+
+#: src/application.rs:282 src/window.rs:1231
+msgid "Failed to retrieve the logs"
+msgstr ""
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
 msgstr "Dispositiu desconegut"
 
-#: src/utils.rs:244
+#: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "hora"
 msgstr[1] "hores"
 
-#: src/utils.rs:246 src/utils.rs:256
+#: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "minut"
 msgstr[1] "minuts"
 
-#: src/utils.rs:258 src/utils.rs:261
+#: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "segon"
@@ -221,7 +276,7 @@ msgstr "Eliminar"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1326
+#: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} Fitxer"
@@ -362,23 +417,27 @@ msgid_plural "Sent {} files"
 msgstr[0] "S'ha enviat {} fitxer"
 msgstr[1] "S'han enviat {} fitxers"
 
-#: src/window.rs:491 src/window.rs:877
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr ""
+
+#: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
 msgstr ""
 
-#: src/window.rs:527
+#: src/window.rs:635
 msgid "Packet cannot run at login"
 msgstr ""
 
-#: src/window.rs:592
+#: src/window.rs:700
 msgid "Can't rename device during an active transfer"
 msgstr "No es pot reanomenar el dispositiu durant una transferència activa"
 
-#: src/window.rs:733
+#: src/window.rs:841
 msgid "Invalid Port"
 msgstr "Port invàlid"
 
-#: src/window.rs:737
+#: src/window.rs:845
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
@@ -386,61 +445,109 @@ msgstr ""
 "El port estàtic escollit \"{}\" no està disponible. Prova un altre port "
 "superior a 1024."
 
-#: src/window.rs:745
+#: src/window.rs:853
 msgid "_Ok"
 msgstr "_Ok"
 
-#: src/window.rs:793
+#: src/window.rs:901
 msgid "Can't access Downloads folder"
 msgstr "No es pot accedir a la carpeta de baixades"
 
-#: src/window.rs:794
+#: src/window.rs:902
 msgid "Pick Folder"
 msgstr "Escull una carpeta"
 
-#: src/window.rs:821
+#: src/window.rs:929
 msgid "Packet wants to run in the background"
 msgstr ""
 
-#: src/window.rs:969
-msgid "Copied error report to clipboard"
-msgstr "S'ha copiat el registre d'error al porta-retalls"
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr ""
 
-#: src/window.rs:1216
+#: src/window.rs:1064
+msgid "Done"
+msgstr ""
+
+#: src/window.rs:1080
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr ""
+
+#: src/window.rs:1096
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr ""
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr ""
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr ""
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr ""
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr ""
+
+#: src/window.rs:1238
+#, fuzzy
+#| msgid "Copy to clipboard"
+msgid "Copied log to clipboard"
+msgstr "Copia al porta-retalls"
+
+#: src/window.rs:1506
 msgid "Ready"
 msgstr "Preparat"
 
-#: src/window.rs:1222
+#: src/window.rs:1513
 msgid "Visible as {:?}"
 msgstr "Visible com a {:?}"
 
-#: src/window.rs:1228
+#: src/window.rs:1519
 msgid "Invisible"
 msgstr "Invisible"
 
-#: src/window.rs:1234
+#: src/window.rs:1525
 msgid "No new devices can share with you"
 msgstr ""
 
-#: src/window.rs:1239
+#: src/window.rs:1530
 msgid "Disconnected"
 msgstr "Desconnectat"
 
-#: src/window.rs:1245
+#: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr "Connectat a la Wi-Fi i engega el Bluetooth"
 
-#: src/window.rs:1248
+#: src/window.rs:1539
 msgid "Connect to Wi-Fi"
 msgstr "Connecta't a la Wi-Fi"
 
-#: src/window.rs:1251
+#: src/window.rs:1542
 msgid "Turn on Bluetooth"
 msgstr "Engega el Bluetooth"
 
-#: src/window.rs:1315
+#: src/window.rs:1615
 msgid "Couldn't open files"
 msgstr "No s'han pogut obrir els fitxers"
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+#, fuzzy
+#| msgid "Setting up Packet…"
+msgid "Send with Packet"
+msgstr "Configurant el Packet…"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -501,6 +608,12 @@ msgstr ""
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "Sol·licitud de transferència rebuda"
+
+#~ msgid "Copy error report"
+#~ msgstr "Copia l'informe d'error"
+
+#~ msgid "Copied error report to clipboard"
+#~ msgstr "S'ha copiat el registre d'error al porta-retalls"
 
 #, fuzzy
 #~| msgid "{} file ({})"
