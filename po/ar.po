@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 14:52+0530\n"
-"PO-Revision-Date: 2025-06-06 12:32+0000\n"
-"Last-Translator: Ahmed Najmawi <iramosu@protonmail.com>\n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"PO-Revision-Date: 2025-06-11 08:04+0000\n"
+"Last-Translator: yousef mohamed <oandygames.ygames@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/packet/main/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -19,37 +19,64 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
+#: data/resources/ui/shortcuts.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "عام"
+
+#: data/resources/ui/shortcuts.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "عرض اختصارات لوحة المفاتيح"
+
+#: data/resources/ui/shortcuts.blp:19
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "عرض المساعدة"
+
+#: data/resources/ui/shortcuts.blp:24
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "فتح التفضيلات"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "مغادرة"
+
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "ال_تفضيلات"
+msgstr "_التفضيلات"
 
-#: data/resources/ui/window.blp:12 data/resources/ui/window.blp:483
-msgid "Help"
-msgstr "مساعدة"
+#: data/resources/ui/window.blp:12
+msgid "_Help"
+msgstr "_مساعدة"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "ا_ختصارات لوحة المفاتيح"
+msgstr "_اختصارات لوحة المفاتيح"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_عَنْ «باكت»"
+msgstr "_عَنْ \"باكيت\""
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:154 src/main.rs:35
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr "باكت"
+msgstr "باكيت"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "يُعد «باكت»…"
+msgstr "يُعد \"باكيت\"…"
 
 #: data/resources/ui/window.blp:71
-msgid "Copy error report"
-msgstr "انسخ تقرير الخطأ"
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy Log"
+msgstr "انسخ"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -57,7 +84,7 @@ msgstr "تعذَّر الإعداد"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "حصل خطأ أثناء إعداد «باكت»"
+msgstr "حصل خطأ أثناء إعداد \"باكيت\""
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
@@ -78,7 +105,7 @@ msgstr "أضِف ملفات"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "صفحة الملفات المختارة"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -96,7 +123,7 @@ msgstr "حدِّ المستلمين"
 msgid "Looking for devices…"
 msgstr "يبحث عن أجهزة…"
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:509
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
 msgstr "لم يعثر على أجهزة أخرى؟"
 
@@ -149,29 +176,41 @@ msgid "Advanced"
 msgstr "متقدم"
 
 #: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr "اضافة مدير الملفات الخاص ب جنوم Nautilus"
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr "الدمج مع قائمة ملفات Nautilus"
+
+#: data/resources/ui/window.blp:474
 msgid "Static Network Port"
 msgstr "منفذ الشبكة الساكن"
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:469
+#: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
 msgstr "يسمح بإضافته للقائمة البيضاء من خلال جدار ناري"
 
-#: data/resources/ui/window.blp:474
+#: data/resources/ui/window.blp:481
 msgid "Port Number"
 msgstr "رقم المنفذ"
 
-#: data/resources/ui/window.blp:534
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "مساعدة"
+
+#: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr "تأكد من أن الجهازين متصلان بنفس شبكة واي فاي وأن بلوتوث مشغَّل"
 
-#: data/resources/ui/window.blp:557
+#: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr "تأكد من ضبط الجهاز ليكون مرئيًا لجميع الأجهزة القريبة"
 
-#: data/resources/ui/window.blp:580
+#: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -180,22 +219,30 @@ msgstr ""
 "أندرويد"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:167
+#: src/application.rs:253
 msgid "translator-credits"
 msgstr ""
-"Yousef Mohamed\n"
+"يوسف محمد <yousef.impo@gmail.com>\n"
 "أحمد النجماوي <iramosu@protonmail.com>"
 
-#: src/application.rs:174
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr ""
+
+#: src/application.rs:262
 msgid "Similar Projects"
 msgstr "مشاريع مشابهة"
+
+#: src/application.rs:282 src/window.rs:1231
+msgid "Failed to retrieve the logs"
+msgstr ""
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
 msgstr "جهاز مجهول"
 
-#: src/utils.rs:244
+#: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "ساعة"
@@ -205,7 +252,7 @@ msgstr[3] "ساعات"
 msgstr[4] "ساعة"
 msgstr[5] "ساعة"
 
-#: src/utils.rs:246 src/utils.rs:256
+#: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "دقيقة"
@@ -215,7 +262,7 @@ msgstr[3] "دقائق"
 msgstr[4] "دقيقة"
 msgstr[5] "دقيقة"
 
-#: src/utils.rs:258 src/utils.rs:261
+#: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "ثانية"
@@ -231,7 +278,7 @@ msgstr "أزِل"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1326
+#: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "لا ملفات"
@@ -384,83 +431,138 @@ msgstr[3] "أُرسلت {} ملفات"
 msgstr[4] "أُرسل {} ملفًا"
 msgstr[5] "أُرسل {} ملف"
 
-#: src/window.rs:491 src/window.rs:877
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr "تعذّر تحديث إضافة مدير المفات Nautilus"
+
+#: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "تعذَّر تشغيل «باكت» في الخلفية"
+msgstr "تعذَّر تشغيل \"باكيت\" في الخلفية"
 
-#: src/window.rs:527
+#: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "تعذَّر تشغيل «باكت» عند الولوج"
+msgstr "تعذَّر تشغيل \"باكيت\" عند تسجيل الدخول"
 
-#: src/window.rs:592
+#: src/window.rs:700
 msgid "Can't rename device during an active transfer"
 msgstr "تعذَّرت إعادة تسمية الجهاز أثناء عملية نقل نشطة"
 
-#: src/window.rs:733
+#: src/window.rs:841
 msgid "Invalid Port"
 msgstr "منفذ غير صالح"
 
-#: src/window.rs:737
+#: src/window.rs:845
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr "المنفذ الساكن «{}» غير متاح. جرِّب منفذًا آخر أعلى من 1024."
 
-#: src/window.rs:745
+#: src/window.rs:853
 msgid "_Ok"
 msgstr "_حسنًا"
 
-#: src/window.rs:793
+#: src/window.rs:901
 msgid "Can't access Downloads folder"
 msgstr "تعذَّر الوصول إلى مجلد التنزيلات"
 
-#: src/window.rs:794
+#: src/window.rs:902
 msgid "Pick Folder"
 msgstr "انتقِ مجلدًا"
 
-#: src/window.rs:821
+#: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "يرغب «باكت» بالتشغيل في الخلفية"
+msgstr "يرغب \"باكيت\" بالتشغيل في الخلفية"
 
-#: src/window.rs:969
-msgid "Copied error report to clipboard"
-msgstr "نُسخ تقرير الخطأ إلى الحافظة"
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr "تم تثبيت الإضافة"
 
-#: src/window.rs:1216
+#: src/window.rs:1064
+msgid "Done"
+msgstr "تم"
+
+#: src/window.rs:1080
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr "تم تثبيت الإضافة بنجاح، ولكنها تتطلب الحزم التالية لتعمل: {}"
+
+#: src/window.rs:1096
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr ""
+"اسماء الحزم ممكن ان تخلتف من توزية الي اخري زر <a {}>هذا الرابط</a> "
+"للمعلومات."
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr ""
+"عد الانتهاء من ذلك, اعد تشغيل مدير الملفات Nautilus (مثلاً، عن طريق تسجيل "
+"الخروج ثم الدخول مرة أخرى) لقراءة الاضافة."
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr "فشل التثبيت"
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr "اغلاق"
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr ""
+"فشل تثبيت الإضافة. تأكد من ان المجلد موجود ويمكن لـ \"باكيت\" الوصول إليه:"
+
+#: src/window.rs:1238
+#, fuzzy
+#| msgid "Copy to clipboard"
+msgid "Copied log to clipboard"
+msgstr "انسخ إلى الحافظة"
+
+#: src/window.rs:1506
 msgid "Ready"
 msgstr "جاهز"
 
-#: src/window.rs:1222
+#: src/window.rs:1513
 msgid "Visible as {:?}"
 msgstr "مرئي كـ{:?}"
 
-#: src/window.rs:1228
+#: src/window.rs:1519
 msgid "Invisible"
 msgstr "مخفي"
 
-#: src/window.rs:1234
+#: src/window.rs:1525
 msgid "No new devices can share with you"
 msgstr "لا أجهزة جديدة يمكنها المشاركة معك"
 
-#: src/window.rs:1239
+#: src/window.rs:1530
 msgid "Disconnected"
 msgstr "قطع الاتصال"
 
-#: src/window.rs:1245
+#: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr "اتصل بواي فاي وشغِّل بلوتوث"
 
-#: src/window.rs:1248
+#: src/window.rs:1539
 msgid "Connect to Wi-Fi"
 msgstr "اتصل بواي فاي"
 
-#: src/window.rs:1251
+#: src/window.rs:1542
 msgid "Turn on Bluetooth"
 msgstr "شغِّل بلوتوث"
 
-#: src/window.rs:1315
+#: src/window.rs:1615
 msgid "Couldn't open files"
 msgstr "تعذَّر فتح الملفات"
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+msgid "Send with Packet"
+msgstr "ارسل بأستخدام \"باكيت\""
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -470,7 +572,7 @@ msgstr "شارك الملفات بسهولة"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "جنوم;جتك;مشاركة;قريب;سريع;Packet;"
+msgstr "جنوم;GTK;مشاركة;قريب;سريع;Packet;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
@@ -504,14 +606,14 @@ msgid ""
 "another device with Packet installed."
 msgstr ""
 "أرسِل واستقبل الملفات لاسلكيًا مع أجهزة أندرويد مستعملًا Quick Share أو مع جهاز "
-"آخر نُصِّب «باكت» عليه."
+"آخر نُصِّب \"باكيت\" عليه."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"يتطلب «باكت» تفعيل بلوتوث وأن تكون الأجهزة متصلة بشبكة واي فاي ذات mDNS."
+"يتطلب \"باكيت\" تفعيل بلوتوث وأن تكون الأجهزة متصلة بشبكة واي فاي ذات mDNS."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
@@ -521,6 +623,12 @@ msgstr "أرسل طلب المشاركة"
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
 msgstr "استلم طلب المشاركة"
+
+#~ msgid "Copy error report"
+#~ msgstr "انسخ تقرير الخطأ"
+
+#~ msgid "Copied error report to clipboard"
+#~ msgstr "نُسخ تقرير الخطأ إلى الحافظة"
 
 #~ msgid "{} file"
 #~ msgid_plural "{} files"

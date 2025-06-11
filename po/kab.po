@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-05-31 07:20+0000\n"
-"Last-Translator: Alan Mena Comaleras <alanmena+weblate@pm.me>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/packet/main/ca/"
+"PO-Revision-Date: 2025-06-10 10:52+0000\n"
+"Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Kabyle <https://hosted.weblate.org/projects/packet/main/kab/"
 ">\n"
-"Language: ca\n"
+"Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
@@ -24,28 +24,28 @@ msgstr ""
 #| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
-msgstr "General"
+msgstr "Amatu"
 
 #: data/resources/ui/shortcuts.blp:14
 #, fuzzy
 #| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Dreceres del teclat"
+msgstr "Inegzumen n unasiw (_K)"
 
 #: data/resources/ui/shortcuts.blp:19
 #, fuzzy
 #| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Ajuda"
+msgstr "Tallalt"
 
 #: data/resources/ui/shortcuts.blp:24
 #, fuzzy
 #| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Preferències"
+msgstr "Ismenyifen"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
@@ -54,21 +54,21 @@ msgstr ""
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Preferències"
+msgstr "_Ismenyifen"
 
 #: data/resources/ui/window.blp:12
 #, fuzzy
 #| msgid "Help"
 msgid "_Help"
-msgstr "Ajuda"
+msgstr "Tallalt"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Dreceres del teclat"
+msgstr "Inegzumen n unasiw (_K)"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_Sobre el Packet"
+msgstr "Ɣef Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -80,108 +80,110 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Configurant el Packet…"
+msgstr "Asesteb n Packet…"
 
 #: data/resources/ui/window.blp:71
+#, fuzzy
+#| msgid "Copy"
 msgid "Copy Log"
-msgstr ""
+msgstr "Nɣel"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "No s'ha pogut configurar"
+msgstr "Yegguma ad yettwasesteb"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Ha ocorregut un error mentre es configurava el Packet"
+msgstr "Tella-d tuccḍa lawan n usesteb n Packet"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "Torna-ho a intentar"
+msgstr "Ɛreḍ tikkelt-nniḍen"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "Pàgina principal"
+msgstr "Asebter agejdan"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "Afegeix, o arrossega aquí un fitxer per enviar-lo"
+msgstr "Rnu, neɣ zuɣer afaylu i tuzna"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "Afegeix fitxers"
+msgstr "Rnu ifuyla"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Asebter n yifuyla yettwafernen"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "Afegeix fitxer"
+msgstr "Rnu afaylu"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "Enviar"
+msgstr "Tuzna"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "Selecciona els destinataris"
+msgstr "Fren iɣerwaḍen"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "Buscant dispositius…"
+msgstr "Anadi ɣef yibenkan…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr "No pots veure l'altre dispositiu?"
+msgstr "Ur yezmir ara ad iwali ibenk niḍen?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "Preferències"
+msgstr "Ismenyifen"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "General"
+msgstr "Amatu"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "Nom del dispositiu"
+msgstr "Isem n yibenk"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "Visibilitat"
+msgstr "Tawalit"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Si altres persones poden veure aquest dispositiu"
+msgstr "Ma yella wiyyaḍ zemren ad walin ibenk-a"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Carpeta de baixades"
+msgstr "Akaram n isadaren"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "Escull"
+msgstr "Fren akaram i yisadaren"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Selkem deg ugilal"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Sireg aselkem deg ugilal"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Sekker s wudem awurman"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Senker s wudem awurman lawan n tuqqna"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Avançat"
+msgstr "Talqayt"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
@@ -193,7 +195,7 @@ msgstr ""
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr "Port de xarxa estàtic"
+msgstr "Tawwurt n uzeṭṭa tudmist"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
@@ -202,38 +204,36 @@ msgstr ""
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr "Port"
+msgstr "Uṭṭun n tewwurt"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
-msgstr "Ajuda"
+msgstr "Tallalt"
 
 #: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Assegura't que els dos dispositius estan connectats a la mateixa xarxa i "
-"tenen el Bluetooth encès"
+"Ɣur-k ad ilin sin ibenkan-nni ttwaqnan ɣer yiwen n uẓeṭṭa n Wi-Fi yerna llan "
+"sɛan Bluetooth yeldi gar-asen"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr ""
-"Assegura't que el dispositiu està configurat com a visible a tots els "
-"dispositius propers"
+msgstr "Ḍmen ibenk yettusbadu ad iban i meṛṛa ibenkan uqriben"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"Per a un dispositiu Android, intenta obrir la pàgina <b>Quick Share</b> en "
-"l'aplicació <b>Files by Google</b>"
+"I yibenk n Android, ɛreḍ ad teldiḍ asebter <b>Quick Share</b> deg usnas "
+"<b>Files by Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "Alan Mena Comaleras"
+msgstr "Athmane MOKRAOUI"
 
 #: src/application.rs:258
 msgid "Loading logs..."
@@ -241,7 +241,7 @@ msgstr ""
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "Projectes similars"
+msgstr "Isenfaren yettemcabin"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
@@ -250,45 +250,45 @@ msgstr ""
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "Dispositiu desconegut"
+msgstr "Ibenk arussin"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "hora"
-msgstr[1] "hores"
+msgstr[0] "asrag"
+msgstr[1] "isragen"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "minut"
-msgstr[1] "minuts"
+msgstr[0] "Tasdat"
+msgstr[1] "Tisdatin"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "segon"
-msgstr[1] "segons"
+msgstr[0] "tasint"
+msgstr[1] "tasinin"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Kkes"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} Fitxer"
-msgstr[1] "{} Fitxers"
+msgstr[0] "{} n ufaylu"
+msgstr[1] "{} n ifuyla"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Enllaç"
+msgstr "Aseɣwen"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "Text"
+msgstr "Aḍris"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
@@ -296,126 +296,122 @@ msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "Rebent"
+msgstr "Armas"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Cancel·lar"
+msgstr "Semmet"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Transferència entrant"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "Rebent"
+msgstr "Armas..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "Denegar"
+msgstr "Agwi"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "Acceptar"
+msgstr "Qbel"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} fitxer ({})"
-msgstr[1] "{} fitxers ({})"
+msgstr[0] "{} n ufaylu ({})"
+msgstr[1] "{} n yifuyla ({})"
 
 #: src/widgets/receive_transfer.rs:327
 msgid "Preview ({})"
-msgstr "Previsualitzar ({})"
+msgstr "Taskant ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
 msgid "Code: {}"
-msgstr "Codi: {}"
+msgstr "Tangalt: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "Sol·licitat"
+msgstr "Iɛedda wakud n ussuter"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} yebɣa ad yebḍu {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
 msgid "About {} left"
-msgstr "Manquen {} aproximadament"
+msgstr "Ɣef {} i yezrin"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "Desconnexió inesperada"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Transferència cancel·lada pel remitent"
+msgstr "Yettwasefsex uwelleh sɣur umazan"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "Copia al porta-retalls"
+msgstr "Nɣel ɣef afus"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Guardar text com a fitxer"
+msgstr "Sekles aḍris amzun d afaylu"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "Obrir"
+msgstr "Ldi"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "Yettwarmes \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Nɣel"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "{} fitxer rebut"
-msgstr[1] "{} fitxers rebuts"
+msgstr[0] "{} ufaylu i yettwaremsen"
+msgstr[1] "{} yifuyla i yettwaremsen"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "No disponible"
+msgstr "Ur yewjid ara"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "En cua"
+msgstr "Yettwarna ar udras"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "Reintentar"
+msgstr "Ɛref̣ tikelt-nniḍen"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Sol·licitat"
+msgstr "Yettwasra"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr ""
+msgstr "Yecceḍ"
 
 #: src/widgets/recipient_card.rs:542
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "S'ha enviat {} fitxer"
-msgstr[1] "S'han enviat {} fitxers"
+msgstr[0] "Azen {} ufaylu"
+msgstr[1] "Azen {} yifuyla"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
@@ -423,43 +419,41 @@ msgstr ""
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet yegguma ad yeddu deg ugilal"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet ur yezmir ad yeddu lawan n tuqqna"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "No es pot reanomenar el dispositiu durant una transferència activa"
+msgstr "Ur yezmir ara ad issenfel isem n yibenk lawan n urmad n uwelleh"
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr "Port invàlid"
+msgstr "Tawwurt tarameɣtut"
 
 #: src/window.rs:845
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
-"El port estàtic escollit \"{}\" no està disponible. Prova un altre port "
-"superior a 1024."
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "_Ok"
+msgstr "_Ih"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "No es pot accedir a la carpeta de baixades"
+msgstr "Ur yezmir ara ad yekcem ɣer ukaram n yisadaren"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "Escull una carpeta"
+msgstr "Fren akaram"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet yesra ad yeddu deg ugilal"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
@@ -505,85 +499,84 @@ msgstr ""
 #, fuzzy
 #| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Copia al porta-retalls"
+msgstr "Nɣel ɣef afus"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr "Preparat"
+msgstr "Iwjed"
 
 #: src/window.rs:1513
 msgid "Visible as {:?}"
-msgstr "Visible com a {:?}"
+msgstr "Yettban am {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr "Invisible"
+msgstr "D udrig"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr ""
+msgstr "Ulac ibenkan imaynuten i izemren ad bḍun yid-k⋅m"
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr "Desconnectat"
+msgstr "Ur yeqqin ara"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Connectat a la Wi-Fi i engega el Bluetooth"
+msgstr "Qqer ar Wi-fi rnu rmed Bluetooth"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "Connecta't a la Wi-Fi"
+msgstr "Qqen ar Wi-Fi"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "Engega el Bluetooth"
+msgstr "Rmed Bluetooth"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr "No s'han pogut obrir els fitxers"
+msgstr "Yegguma ad yeldi ifuyla"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 #, fuzzy
 #| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Configurant el Packet…"
+msgstr "Asesteb n Packet…"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Comparteix fitxers fàcilment"
+msgstr "Bḍu isefka s tefses"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
-#, fuzzy
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;GTK;Quick;Nearby;Share;"
+msgstr "Gnome;GTK;Uzrib;Uqrib;Bḍu;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "Ample de la finestra"
+msgstr "Teɣzi n usfaylu"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "Alçada de la finestra"
+msgstr "Tehri n usfaylu"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr ""
+msgstr "Addad n usfaylu ameqqran"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "Nom del dispositiu"
+msgstr "Isem n yibenk"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "Visibilitat del dispositiu"
+msgstr "Timeẓriwt n yibenk"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Descarrega carpeta"
+msgstr "Akaram u yisadaren"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -591,8 +584,6 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Envia i rep fitxers sense fils amb dispositius Android fent servir Quick "
-"Share o un altre dispositiu amb Packet instal·lat."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
@@ -603,22 +594,14 @@ msgstr ""
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr ""
+msgstr "Yettwazen ussuter n beṭṭu"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Sol·licitud de transferència rebuda"
+msgstr "Yettwarmes ussuter n beṭṭu"
 
 #~ msgid "Copy error report"
-#~ msgstr "Copia l'informe d'error"
+#~ msgstr "Nɣel aneqqis n tuccḍa"
 
 #~ msgid "Copied error report to clipboard"
-#~ msgstr "S'ha copiat el registre d'error al porta-retalls"
-
-#, fuzzy
-#~| msgid "{} file ({})"
-#~| msgid_plural "{} files ({})"
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "{} fitxer ({})"
-#~ msgstr[1] "{} fitxers ({})"
+#~ msgstr "Yettwanɣel uneqqis n tuccḍæ ɣer tecfawt"
