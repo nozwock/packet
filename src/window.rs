@@ -72,7 +72,6 @@ mod imp {
         pub rqs_error_copy_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub rqs_error_retry_button: TemplateChild<gtk::Button>,
-        pub rqs_error: Rc<RefCell<Option<anyhow::Error>>>,
 
         #[template_child]
         pub toast_overlay: TemplateChild<adw::ToastOverlay>,
@@ -2087,7 +2086,6 @@ impl PacketApplicationWindow {
                 {
                     let err = err.context("Failed to setup Packet");
                     tracing::error!("{err:#}");
-                    _imp.rqs_error.borrow_mut().replace(err);
 
                     _imp.root_stack
                         .get()
