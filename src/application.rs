@@ -7,6 +7,8 @@ use adw::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
 
 use crate::config::{APP_ID, PKGDATADIR, PROFILE, VERSION};
+use crate::constants::packet_log_path;
+use crate::tokio_runtime;
 use crate::window::PacketApplicationWindow;
 
 type AsyncChannel<T> = (async_channel::Sender<T>, async_channel::Receiver<T>);
@@ -238,19 +240,23 @@ impl PacketApplication {
             .application_icon(APP_ID)
             .version(VERSION)
             .developer_name("nozwock")
+            // Legal section
+            .license_type(gtk::License::Gpl30)
+            // Details section
+            .website("https://github.com/nozwock/packet")
+            // Credits and Acknowledgements section
             // format: "Name https://example.com" or "Name <email@example.com>"
             .developers(["nozwock https://github.com/nozwock"])
             .designers(["Dominik Baran https://gitlab.gnome.org/wallaby"])
-            .license_type(gtk::License::Gpl30)
-            .issue_url("https://github.com/nozwock/packet/issues")
-            .website("https://github.com/nozwock/packet")
             .translator_credits(gettext(
                 // Translators: Replace "translator-credits" with your names, one name per line
                 "translator-credits",
             ))
+            // Troubleshooting section
+            .issue_url("https://github.com/nozwock/packet/issues")
+            .debug_info_filename("packet.log")
+            .debug_info(&gettext("Loading logs..."))
             .build();
-
-        // TODO: Add a troubleshoot section where the user can get a copy of the logs
 
         dialog.add_acknowledgement_section(
             Some(&gettext("Similar Projects")),
@@ -259,6 +265,27 @@ impl PacketApplication {
                 "rquickshare https://github.com/Martichou/rquickshare/",
             ],
         );
+
+        // One issue with this approach is that the logs in the dialog will not
+        // be updated unless the dialog is repopened.
+        glib::spawn_future_local(clone!(
+            #[weak]
+            dialog,
+            async move {
+                let logs = tokio_runtime()
+                    .spawn_blocking(move || -> anyhow::Result<_> {
+                        Ok(fs_err::read_to_string(packet_log_path())?)
+                    })
+                    .await
+                    .map_err(|err| anyhow::anyhow!(err))
+                    .and_then(|it| it)
+                    .map_err(|err| err.context(gettext("Failed to retrieve the logs")))
+                    .inspect_err(|err| tracing::warn!("{err:#}"))
+                    .unwrap_or_else(|err| format!("{err:#}"));
+
+                dialog.set_debug_info(&logs);
+            }
+        ));
 
         dialog.present(Some(&self.main_window()));
     }

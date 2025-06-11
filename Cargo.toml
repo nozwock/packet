@@ -42,3 +42,4 @@ ashpd = { version = "0.11.0", default-features = false, features = [
 ] }
 futures-timer = "3.0.3"
 tokio-util = "0.7.15"
+tracing-appender = "0.2.3"
