@@ -1,0 +1,608 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the packet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: packet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"PO-Revision-Date: 2025-06-10 16:19+0000\n"
+"Last-Translator: Ricardo Santos <ricardo.beijos@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/packet/main/"
+"pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.12-dev\n"
+
+#: data/resources/ui/shortcuts.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Gerais"
+
+#: data/resources/ui/shortcuts.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostrar atalhos"
+
+#: data/resources/ui/shortcuts.blp:19
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Mostrar Ajuda"
+
+#: data/resources/ui/shortcuts.blp:24
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "Abrir as Definições"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Fechar o Packet"
+
+#: data/resources/ui/window.blp:7
+msgid "_Preferences"
+msgstr "_Definições"
+
+#: data/resources/ui/window.blp:12
+msgid "_Help"
+msgstr "_Ajuda"
+
+#: data/resources/ui/window.blp:17
+msgid "_Keyboard Shortcuts"
+msgstr "_Atalhos do teclado"
+
+#: data/resources/ui/window.blp:22
+msgid "_About Packet"
+msgstr "_Acerca do Packet"
+
+#. Translators: The name should remain untranslated
+#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: data/io.github.nozwock.Packet.desktop.in.in:2
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
+msgid "Packet"
+msgstr "Packet"
+
+#: data/resources/ui/window.blp:52
+msgid "Setting up Packet…"
+msgstr "A configurar o Packet…"
+
+#: data/resources/ui/window.blp:71
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy Log"
+msgstr "Copiar"
+
+#: data/resources/ui/window.blp:85
+msgid "Couldn't Set Up"
+msgstr "Não foi possível configurar"
+
+#: data/resources/ui/window.blp:86
+msgid "An error occurred while trying to setup Packet"
+msgstr "Ocorreu um erro ao tentar configurar o Packet"
+
+#: data/resources/ui/window.blp:91
+msgid "Try Again"
+msgstr "Tente outra vez"
+
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "Menu principal"
+
+#: data/resources/ui/window.blp:141
+msgid "Add, or drop a file to send"
+msgstr "Adicione ou arraste um ficheiro para enviar"
+
+#: data/resources/ui/window.blp:148
+msgid "Add Files"
+msgstr "Adicionar ficheiros"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr "Página de ficheiros selecionados"
+
+#: data/resources/ui/window.blp:203
+msgid "Add File"
+msgstr "Adicionar ficheiro"
+
+#: data/resources/ui/window.blp:298
+msgid "Send"
+msgstr "Enviar"
+
+#: data/resources/ui/window.blp:321
+msgid "Select Recipients"
+msgstr "Selecionar destinatários"
+
+#: data/resources/ui/window.blp:391
+msgid "Looking for devices…"
+msgstr "A procurar dispositivos…"
+
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+msgid "Can't see the other device?"
+msgstr "Não consegue localizar o outro dispositivo?"
+
+#: data/resources/ui/window.blp:418
+msgid "Preferences"
+msgstr "Definições"
+
+#: data/resources/ui/window.blp:423
+msgid "General"
+msgstr "Gerais"
+
+#: data/resources/ui/window.blp:426
+msgid "Device Name"
+msgstr "Identificação do dispositivo"
+
+#: data/resources/ui/window.blp:431
+msgid "Visibility"
+msgstr "Visibilidade"
+
+#: data/resources/ui/window.blp:432
+msgid "Whether others can see this device"
+msgstr "Permitir que outros vejam este dispositivo"
+
+#: data/resources/ui/window.blp:436
+msgid "Downloads Folder"
+msgstr "Pasta de transferências"
+
+#: data/resources/ui/window.blp:442
+msgid "Pick download folder"
+msgstr "Selecione a pasta de transferências"
+
+#: data/resources/ui/window.blp:453
+msgid "Run in Background"
+msgstr "Executar em segundo plano"
+
+#: data/resources/ui/window.blp:454
+msgid "Allow running in the background"
+msgstr "Permitir a execução em segundo plano"
+
+#: data/resources/ui/window.blp:458
+msgid "Auto Start"
+msgstr "Inicialização automática"
+
+#: data/resources/ui/window.blp:459
+msgid "Start automatically at login"
+msgstr "Inicialização automática depois de iniciar sessão"
+
+#: data/resources/ui/window.blp:464
+msgid "Advanced"
+msgstr "Avançadas"
+
+#: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr "Plugin para o Nautilus"
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr "Integrar no menu de contexto do Nautilus"
+
+#: data/resources/ui/window.blp:474
+msgid "Static Network Port"
+msgstr "Porta de rede estática"
+
+#. Translators: For whitelisting of the app.
+#: data/resources/ui/window.blp:476
+msgid "For whitelisting through a firewall"
+msgstr "Permitir execução através da firewall"
+
+#: data/resources/ui/window.blp:481
+msgid "Port Number"
+msgstr "Número da porta"
+
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "Ajuda"
+
+#: data/resources/ui/window.blp:541
+msgid ""
+"Make sure both devices are connected to the same Wi-Fi network and have "
+"Bluetooth turned on"
+msgstr ""
+"Ambos os dispositivos precisam de estar ligados á mesma rede Wi-Fi e ter o "
+"Bluetooth ligado"
+
+#: data/resources/ui/window.blp:564
+msgid "Make sure the device is set to be visible to all nearby devices"
+msgstr "O dispositivo precisa de estar visível para todos nas proximidades"
+
+#: data/resources/ui/window.blp:587
+msgid ""
+"For an Android device, try opening the <b>Quick Share</b> page in the "
+"<b>Files by Google</b> app"
+msgstr ""
+"Selecione a opção de partilha <b>Quick Share</b> no programa <b>Files do "
+"Google</b> em dispositivos Android"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.rs:253
+msgid "translator-credits"
+msgstr "Ricardo Santos"
+
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr ""
+
+#: src/application.rs:262
+msgid "Similar Projects"
+msgstr "Projetos semelhantes"
+
+#: src/application.rs:282 src/window.rs:1231
+msgid "Failed to retrieve the logs"
+msgstr ""
+
+#: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
+#: src/widgets/recipient_card.rs:147
+msgid "Unknown device"
+msgstr "Dispositivo desconhecido"
+
+#: src/utils.rs:291
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "hora"
+msgstr[1] "horas"
+
+#: src/utils.rs:293 src/utils.rs:303
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minuto"
+msgstr[1] "minutos"
+
+#: src/utils.rs:305 src/utils.rs:308
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "segundo"
+msgstr[1] "segundos"
+
+#: src/widgets/file_card.rs:116
+msgid "Remove"
+msgstr "Remover"
+
+#. Translators: An e.g. "4 Files"
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1624
+msgid "{} File"
+msgid_plural "{} Files"
+msgstr[0] "{} Ficheiro"
+msgstr[1] "{} Ficheiros"
+
+#: src/widgets/receive_transfer.rs:23
+msgid "Link"
+msgstr "Link"
+
+#: src/widgets/receive_transfer.rs:24
+msgid "Text"
+msgstr "Texto"
+
+#: src/widgets/receive_transfer.rs:25
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/receive_transfer.rs:64
+msgid "Receiving"
+msgstr "A receber"
+
+#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
+#: src/widgets/recipient_card.rs:310
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
+msgid "Incoming Transfer"
+msgstr "A receber transferência"
+
+#: src/widgets/receive_transfer.rs:194
+msgid "Receiving..."
+msgstr "A receber..."
+
+#: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
+msgid "Decline"
+msgstr "Recusar"
+
+#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
+msgid "Accept"
+msgstr "Aceitar"
+
+#. Translators: An e.g. "6 Files (42.3MB)"
+#: src/widgets/receive_transfer.rs:308
+msgid "{} file ({})"
+msgid_plural "{} files ({})"
+msgstr[0] "{} ficheiro ({})"
+msgstr[1] "{} ficheiros ({})"
+
+#: src/widgets/receive_transfer.rs:327
+msgid "Preview ({})"
+msgstr "Pré visualização ({})"
+
+#. Translators: This is the pin-code for the transfer
+#: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+msgid "Code: {}"
+msgstr "Código para a transferência: {}"
+
+#: src/widgets/receive_transfer.rs:404
+msgid "Request timed out"
+msgstr "O pedido expirou"
+
+#. Translators: This is when some device is sharing files or text
+#. e.g. (Someone's Phone wants to share 4 files)
+#. e.g. (Someone's Phone wants to share "lorem ipsum ...")
+#: src/widgets/receive_transfer.rs:417
+msgid "{} wants to share {}"
+msgstr "{} quer partilhar {}"
+
+#. Translators: {} will be replaced with an estimated remaining time string
+#. e.g. "About 4 minutes 32 seconds left"
+#: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+msgid "About {} left"
+msgstr "Faltam cerca de {} para terminar"
+
+#: src/widgets/receive_transfer.rs:519
+msgid "Unexpected dissconnection"
+msgstr "Ligação perdida"
+
+#: src/widgets/receive_transfer.rs:552
+msgid "Transfer cancelled by sender"
+msgstr "A transferência foi cancelada pelo remetente"
+
+#: src/widgets/receive_transfer.rs:599
+msgid "Copy to clipboard"
+msgstr "Copiar para a área de transferência"
+
+#: src/widgets/receive_transfer.rs:607
+msgid "Save text as file"
+msgstr "Guardar texto como ficheiro"
+
+#: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
+#: src/widgets/receive_transfer.rs:813
+msgid "Open"
+msgstr "Abrir"
+
+#: src/widgets/receive_transfer.rs:759
+msgid "Received \"{}\""
+msgstr "Recebido \"{}\""
+
+#: src/widgets/receive_transfer.rs:774
+msgid "Copy"
+msgstr "Copiar"
+
+#: src/widgets/receive_transfer.rs:789
+msgid "{} file received"
+msgid_plural "{} files received"
+msgstr[0] "{} ficheiro recebido"
+msgstr[1] "{} ficheiros recebidos"
+
+#: src/widgets/recipient_card.rs:221
+msgid "Unavailable"
+msgstr "Indisponível"
+
+#: src/widgets/recipient_card.rs:244
+msgid "Queued"
+msgstr "Em fila"
+
+#: src/widgets/recipient_card.rs:291
+msgid "Retry"
+msgstr "Tente outra vez"
+
+#: src/widgets/recipient_card.rs:436
+msgid "Requested"
+msgstr "Pedido"
+
+#: src/widgets/recipient_card.rs:499
+msgid "Failed"
+msgstr "Falha no envio"
+
+#: src/widgets/recipient_card.rs:542
+msgid "Sent {} file"
+msgid_plural "Sent {} files"
+msgstr[0] "Foi enviado {} ficheiro"
+msgstr[1] "Foram enviados {} ficheiros"
+
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr "Não foi possível atualizar o Plugin para o Nautilus"
+
+#: src/window.rs:599 src/window.rs:985
+msgid "Packet cannot run in the background"
+msgstr "Não foi possível executar o Packet em segundo plano"
+
+#: src/window.rs:635
+msgid "Packet cannot run at login"
+msgstr "Não foi possível executar o Packet depois de iniciar sessão"
+
+#: src/window.rs:700
+msgid "Can't rename device during an active transfer"
+msgstr "Não é possível renomear o dispositivo durante uma transferência"
+
+#: src/window.rs:841
+msgid "Invalid Port"
+msgstr "Porta errada"
+
+#: src/window.rs:845
+msgid ""
+"The chosen static port \"{}\" is not available. Try a different port above "
+"1024."
+msgstr ""
+"A porta escolhida \"{}\" não está disponível. Escolha uma maior que 1024."
+
+#: src/window.rs:853
+msgid "_Ok"
+msgstr "_Ok"
+
+#: src/window.rs:901
+msgid "Can't access Downloads folder"
+msgstr "Não foi possível aceder á pasta de transferências"
+
+#: src/window.rs:902
+msgid "Pick Folder"
+msgstr "Escolha a Pasta"
+
+#: src/window.rs:929
+msgid "Packet wants to run in the background"
+msgstr "Packet precisa de ser executado em segundo plano"
+
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr "O Plugin foi instalado"
+
+#: src/window.rs:1064
+msgid "Done"
+msgstr "Feito"
+
+#: src/window.rs:1080
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr ""
+"O plugin foi instalado, mas para funcionar corretamente requer a instalação "
+"do seguintes pacotes: {}"
+
+#: src/window.rs:1096
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr ""
+"Os pacotes necessários podem variar consoante a versão do Linux, para mais "
+"informações visite <a {}>este link</a> ."
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr ""
+"Depois da instalação do plugin, reinicie o Nautilus (ex: reiniciar a sessão) "
+"para que a integração fique completa."
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr "Erro na instalação"
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr "Fechar"
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr ""
+"Erro na instalação do Plugin, certifique-se que a seguinte localização "
+"existe e que o Packet a pode aceder:"
+
+#: src/window.rs:1238
+#, fuzzy
+#| msgid "Copy to clipboard"
+msgid "Copied log to clipboard"
+msgstr "Copiar para a área de transferência"
+
+#: src/window.rs:1506
+msgid "Ready"
+msgstr "Preparado para enviar"
+
+#: src/window.rs:1513
+msgid "Visible as {:?}"
+msgstr "Visivel como {:?}"
+
+#: src/window.rs:1519
+msgid "Invisible"
+msgstr "Invisível"
+
+#: src/window.rs:1525
+msgid "No new devices can share with you"
+msgstr "Sem partilhas de dispositivos novos"
+
+#: src/window.rs:1530
+msgid "Disconnected"
+msgstr "Desligado"
+
+#: src/window.rs:1536
+msgid "Connect to Wi-Fi and turn on Bluetooth"
+msgstr "Ligue-se a uma rede Wi-Fi e ao Bluetooth também"
+
+#: src/window.rs:1539
+msgid "Connect to Wi-Fi"
+msgstr "Ligue-se a uma rede Wi-Fi"
+
+#: src/window.rs:1542
+msgid "Turn on Bluetooth"
+msgstr "Ligue o Bluetooth"
+
+#: src/window.rs:1615
+msgid "Couldn't open files"
+msgstr "Não foi possível abrir os ficheiros"
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+msgid "Send with Packet"
+msgstr "Enviar através do Packet"
+
+#: data/io.github.nozwock.Packet.desktop.in.in:3
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
+msgid "Share files easily"
+msgstr "Partilhe ficheiros facilmente"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.nozwock.Packet.desktop.in.in:9
+msgid "Gnome;GTK;Quick;Nearby;Share;"
+msgstr "Gnome;GTK;Quick;Nearby;Share;"
+
+#. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
+#: data/io.github.nozwock.Packet.gschema.xml.in:7
+msgid "Window width"
+msgstr "Largura da janela"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:11
+msgid "Window height"
+msgstr "Altura da janela"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:15
+msgid "Window maximized state"
+msgstr "Janela no estado maximizado"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:19
+msgid "Device name"
+msgstr "Nome do dispositivo"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:23
+msgid "Device visibility"
+msgstr "Visibilidade do dispositivo"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:27
+msgid "Download folder"
+msgstr "Pasta de transferências"
+
+#. Trasnlators: The metainfo strings are for Flathub and aren't a priority
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
+msgid ""
+"Send and receive files wirelessly with Android devices using Quick Share or "
+"another device with Packet installed."
+msgstr ""
+"Envie e receba ficheiros entre dispositivos Android através do QuickShare ou "
+"do Packet sem utilizar cabos."
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
+msgid ""
+"Packet requires Bluetooth to be enabled and the devices to be connected to a "
+"Wi-Fi network with mDNS."
+msgstr ""
+"O Packet precisa que o Bluetooth esteja ligado e que os dispositivos estejam "
+"ligado a uma rede Wi-Fi que suporte o protocolo mDNS."
+
+#. Trasnlators: These are captions for the screenshots on Flathub
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
+msgid "Sent Share Request"
+msgstr "Pedido de transferência enviado"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
+msgid "Received Share Request"
+msgstr "Pedido de transferência recebido"
+
+#~ msgid "Copy error report"
+#~ msgstr "Copiar relatório de erro"
+
+#~ msgid "Copied error report to clipboard"
+#~ msgstr "O relatório do erro foi copiado para a área de transferência"
