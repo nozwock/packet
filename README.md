@@ -31,6 +31,12 @@ If you'd like to help translate Packet to your native language, you can do so us
 
 Your firewall may be blocking Packet's port. Enable *Static Port* in Preferences and allow it through the firewall. See issue [#35](https://github.com/nozwock/packet/issues/35).
 
+#### "Couldn't open files"
+
+This error occurs if the file is invalid (e.g. empty) or, on Flatpak, if you're sending files (via the Nautilus plugin) from a location Packet can't access.
+
+Consider granting "All system files" access via Flatseal to allow sending from any location. See [Downloads folder keeps resetting](#downloads-folder-keeps-resetting) for details.
+
 #### Downloads folder keeps resetting
 
 In Flatpak, folder access is temporary and resets after a session restart because static access can't be requested. To set a permanent downloads folder, grant access in advance using Flatseal or run:
