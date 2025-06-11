@@ -5,8 +5,7 @@
       <p>Changes</p>
       <ul>
         <li>Added a new option to send files directly from Nautilus via the context menu. You may need to adjust
-        filesystem permissions, visit <a href="https://github.com/nozwock/packet?tab=readme-ov-file#couldnt-open-files">
-        here</a> for more details.</li>
+        filesystem permissions, refer to the 'Couldn't open files' section in the project's README for details.</li>
         <li>Application logs are now accessible under About &gt; Troubleshooting, making it easier to include logs when
         reporting issues.</li>
         <li>Updated keyboard shortcut indicators in the Shortcuts dialog.</li>
