@@ -460,6 +460,16 @@ impl PacketApplicationWindow {
             )
             .build();
 
+        // TODO: The value of many preference options are only validated in the
+        // UI, not outside of it.
+        //
+        // Incase the users modifies the setting value outside of the app to
+        // something invalid, might want to take such a scenario into
+        // consideration.
+        //
+        // For example the port value with non-numeric value, display name with
+        // non-UTF8 bytes, etc.
+
         let device_name = &self.get_device_name_state();
         let device_name_entry = imp.device_name_entry.get();
         {
@@ -1304,6 +1314,9 @@ impl PacketApplicationWindow {
             }
         ));
 
+        // TODO: Improve keyboard accessibility, make elements that can't be
+        // activated non-focusable
+
         imp.manage_files_listbox.bind_model(
             Some(&imp.manage_files_model),
             clone!(
@@ -1313,8 +1326,26 @@ impl PacketApplicationWindow {
                 adw::Bin::new().into(),
                 move |model| {
                     let model_item = model.downcast_ref::<gio::File>().unwrap();
-                    widgets::create_file_card(&imp.obj(), &imp.manage_files_model, model_item)
-                        .into()
+                    let widget =
+                        widgets::create_file_card(&imp.obj(), &imp.manage_files_model, model_item);
+
+                    // TODO: Set activatable/focusable to false since they're
+                    // not being used here.
+                    //
+                    // The rows are also adds unnecessary steps in keyboard
+                    // navigation.
+                    //
+                    // Setting parent's property like this seemingly makes the
+                    // process crash silently
+                    //
+                    // widget.connect_parent_notify(|obj| {
+                    //     if let Some(row) = obj.parent().and_downcast_ref::<gtk::ListBoxRow>() {
+                    //         row.set_focusable(false);
+                    //         row.set_activatable(false);
+                    //     }
+                    // });
+
+                    widget.into()
                 }
             ),
         );
