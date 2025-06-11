@@ -2024,8 +2024,6 @@ impl PacketApplicationWindow {
     fn setup_rqs_service(&self) -> glib::JoinHandle<()> {
         let imp = self.imp();
 
-        let (tx, rx) = async_channel::bounded(1);
-
         let is_device_visible = imp.settings.boolean("device-visibility");
         let device_name = self.get_device_name_state();
         let download_path = imp
@@ -2037,60 +2035,64 @@ impl PacketApplicationWindow {
             .settings
             .boolean("enable-static-port")
             .then(|| imp.settings.int("static-port-number") as u32);
-        tokio_runtime().spawn(async move {
-            tracing::info!(
-                ?device_name,
-                visibility = ?is_device_visible,
-                ?download_path,
-                ?static_port,
-                "Starting RQS service"
-            );
-
-            let mut rqs = rqs_lib::RQS::new(
-                if is_device_visible {
-                    rqs_lib::Visibility::Visible
-                } else {
-                    rqs_lib::Visibility::Invisible
-                },
-                static_port,
-                Some(download_path),
-                Some(device_name.to_string()),
-            );
-
-            let rqs_run_result = rqs.run().await;
-            tx.send((rqs, rqs_run_result)).await.unwrap();
-        });
         let rqs_init_handle = glib::spawn_future_local(clone!(
             #[weak]
             imp,
             async move {
-                let (rqs, rqs_run_result) = rx.recv().await.unwrap();
+                let _imp = imp.clone();
+                if let Err(err) = async move || -> anyhow::Result<()> {
+                    let (rqs, run_result) = tokio_runtime()
+                        .spawn(async move {
+                            tracing::info!(
+                                ?device_name,
+                                visibility = ?is_device_visible,
+                                ?download_path,
+                                ?static_port,
+                                "Starting RQS service"
+                            );
 
-                tracing::debug!("Fetched RQS instance after run()");
-                *imp.rqs.lock().await = Some(rqs);
-                let (mdns_discovery_broadcast_tx, _) =
-                    tokio::sync::broadcast::channel::<rqs_lib::EndpointInfo>(10);
-                *imp.mdns_discovery_broadcast_tx.lock().await = Some(mdns_discovery_broadcast_tx);
+                            let mut rqs = rqs_lib::RQS::new(
+                                if is_device_visible {
+                                    rqs_lib::Visibility::Visible
+                                } else {
+                                    rqs_lib::Visibility::Invisible
+                                },
+                                static_port,
+                                Some(download_path),
+                                Some(device_name.to_string()),
+                            );
 
-                match rqs_run_result {
-                    Ok((file_sender, ble_receiver)) => {
-                        *imp.file_sender.lock().await = Some(file_sender);
-                        *imp.ble_receiver.lock().await = Some(ble_receiver);
+                            let run_result = rqs.run().await;
+                            (rqs, run_result)
+                        })
+                        .await?;
 
-                        imp.root_stack.get().set_visible_child_name("main_page");
+                    *imp.rqs.lock().await = Some(rqs);
+                    let (mdns_discovery_broadcast_tx, _) =
+                        tokio::sync::broadcast::channel::<rqs_lib::EndpointInfo>(10);
+                    *imp.mdns_discovery_broadcast_tx.lock().await =
+                        Some(mdns_discovery_broadcast_tx);
 
-                        spawn_rqs_receiver_tasks(&imp);
-                    }
-                    Err(err) => {
-                        let err = err.context("Failed to setup Packet");
-                        tracing::error!("{err:#}");
-                        imp.rqs_error.borrow_mut().replace(err);
+                    let (file_sender, ble_receiver) = run_result?;
+                    *imp.file_sender.lock().await = Some(file_sender);
+                    *imp.ble_receiver.lock().await = Some(ble_receiver);
 
-                        imp.root_stack
-                            .get()
-                            .set_visible_child_name("rqs_error_status_page");
-                    }
-                };
+                    imp.root_stack.get().set_visible_child_name("main_page");
+
+                    spawn_rqs_receiver_tasks(&imp);
+
+                    Ok(())
+                }()
+                .await
+                {
+                    let err = err.context("Failed to setup Packet");
+                    tracing::error!("{err:#}");
+                    _imp.rqs_error.borrow_mut().replace(err);
+
+                    _imp.root_stack
+                        .get()
+                        .set_visible_child_name("rqs_error_status_page");
+                }
             }
         ));
 
