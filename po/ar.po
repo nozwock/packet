@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-11 08:04+0000\n"
-"Last-Translator: yousef mohamed <oandygames.ygames@gmail.com>\n"
+"PO-Revision-Date: 2025-06-11 16:48+0000\n"
+"Last-Translator: Muhammad Bahaa <muhammad.bahaa1@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/packet/main/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "فتح التفضيلات"
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "مغادرة"
+msgstr "خروج"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
@@ -58,7 +58,7 @@ msgstr "_اختصارات لوحة المفاتيح"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_عَنْ \"باكيت\""
+msgstr "_حول Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -66,17 +66,15 @@ msgstr "_عَنْ \"باكيت\""
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr "باكيت"
+msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "يُعد \"باكيت\"…"
+msgstr "يتم إعداد Packet…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "انسخ"
+msgstr "نسخ السجل"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -84,11 +82,11 @@ msgstr "تعذَّر الإعداد"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "حصل خطأ أثناء إعداد \"باكيت\""
+msgstr "حصل خطأ أثناء إعداد Packet"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "أعد المحاولة"
+msgstr "إعادة المحاولة"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
@@ -101,7 +99,7 @@ msgstr "أضِف أو أسقط ملفًا لإرساله"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "أضِف ملفات"
+msgstr "إضافة ملفات"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
@@ -109,19 +107,19 @@ msgstr "صفحة الملفات المختارة"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "أضِف ملفًا"
+msgstr "إضافة ملف"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "أرسِل"
+msgstr "إرسال"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "حدِّ المستلمين"
+msgstr "حدد المستلمين"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "يبحث عن أجهزة…"
+msgstr "يتم البحث عن أجهزة…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
@@ -153,11 +151,11 @@ msgstr "مجلد التنزيلات"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "انتقِ مجلد التنزيلات"
+msgstr "اختيار مجلد التنزيل"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "شغِّل في الخلفية"
+msgstr "تشغيل في الخلفية"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
@@ -165,11 +163,11 @@ msgstr "اسمح بالتشغيل في الخلفية"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "البدأ الآلي"
+msgstr "البدء التلقائي"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr "يبدأه آليًا عند الولوج"
+msgstr "البدء تلقائيا عند تسجيل الدخول"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
@@ -177,7 +175,7 @@ msgstr "متقدم"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr "اضافة مدير الملفات الخاص ب جنوم Nautilus"
+msgstr "اضافة Nautilus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
@@ -190,7 +188,7 @@ msgstr "منفذ الشبكة الساكن"
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "يسمح بإضافته للقائمة البيضاء من خلال جدار ناري"
+msgstr "يسمح بإضافته للقائمة البيضاء من خلال الجدار الناري"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
@@ -204,7 +202,7 @@ msgstr "مساعدة"
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
-msgstr "تأكد من أن الجهازين متصلان بنفس شبكة واي فاي وأن بلوتوث مشغَّل"
+msgstr "تأكد من أن الجهازين متصلان بنفس شبكة الوايفاي وأن بلوتوث قيد التشغيل"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
@@ -215,7 +213,7 @@ msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"جرب فتح صفحة <b>Quick Share</b> في تطبيق <b>الملفات من جوجل</b> على أجهزة "
+"جرب فتح صفحة <b>Quick Share</b> في تطبيق <b>Files by Google</b> على أجهزة "
 "أندرويد"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
@@ -223,11 +221,12 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "يوسف محمد <yousef.impo@gmail.com>\n"
-"أحمد النجماوي <iramosu@protonmail.com>"
+"أحمد النجماوي <iramosu@protonmail.com>\n"
+"محمد بهاء <muhammad.bahaa1@gmail.com>"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "جارٍ تحميل السجلات..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -235,7 +234,7 @@ msgstr "مشاريع مشابهة"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "فشل في استرداد السجلات"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -274,7 +273,7 @@ msgstr[5] "ثانية"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "أزِل"
+msgstr "إزالة"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
@@ -290,7 +289,7 @@ msgstr[5] "{} ملف"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "وصلة"
+msgstr "ربط"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
@@ -298,7 +297,7 @@ msgstr "نص"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
-msgstr "واي فاي"
+msgstr "وايفاي"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
@@ -307,7 +306,7 @@ msgstr "يستلم"
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "ألغِ"
+msgstr "إلغاء"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
@@ -315,15 +314,15 @@ msgstr "نقل قادم"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr "يستلم…"
+msgstr "يتم الاستلام…"
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "ارفض"
+msgstr "رفض"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "اقبل"
+msgstr "قبول"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
@@ -338,7 +337,7 @@ msgstr[5] "{} ملف ({})"
 
 #: src/widgets/receive_transfer.rs:327
 msgid "Preview ({})"
-msgstr "عاين ({})"
+msgstr "معاينة ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
@@ -368,28 +367,28 @@ msgstr "انقطع الاتصال بشكل غير متوقع"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "ألغي النقل من قِبل المرسل"
+msgstr "تم إلغاء النقل من قِبل المرسل"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "انسخ إلى الحافظة"
+msgstr "النسخ إلى الحافظة"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "احفظ النص كملف"
+msgstr "حفظ النص كملف"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "افتح"
+msgstr "فتح"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr "استُلم «{}»"
+msgstr "تم استلام «{}»"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "انسخ"
+msgstr "نسخ"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -411,11 +410,11 @@ msgstr "في قائمة الانتظار"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "أعِد المحاولة"
+msgstr "إعادة المحاولة"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "طُلب"
+msgstr "تم الطلب"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
@@ -425,27 +424,27 @@ msgstr "فشل"
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] "لم تُرسل ملفات"
-msgstr[1] "أُرسل ملف"
-msgstr[2] "أُرسل ملفان"
-msgstr[3] "أُرسلت {} ملفات"
-msgstr[4] "أُرسل {} ملفًا"
-msgstr[5] "أُرسل {} ملف"
+msgstr[1] "تم إرسال ملف"
+msgstr[2] "تم إرسال ملفان"
+msgstr[3] "تم إرسال {} ملفات"
+msgstr[4] "تم إرسال {} ملف"
+msgstr[5] "تم إرسال {} ملف"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr "تعذّر تحديث إضافة مدير المفات Nautilus"
+msgstr "تعذّر تحديث إضافة Nautilus"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "تعذَّر تشغيل \"باكيت\" في الخلفية"
+msgstr "لا يمكن لـPacket أن يعمل في الخلفية"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "تعذَّر تشغيل \"باكيت\" عند تسجيل الدخول"
+msgstr "لا يمكن لـPacket أن يعمل عند تسجيل الدخول"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "تعذَّرت إعادة تسمية الجهاز أثناء عملية نقل نشطة"
+msgstr "لا يمكن إعادة تسمية الجهاز أثناء عملية نقل نشطة"
 
 #: src/window.rs:841
 msgid "Invalid Port"
@@ -463,15 +462,15 @@ msgstr "_حسنًا"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "تعذَّر الوصول إلى مجلد التنزيلات"
+msgstr "لا يمكن الوصول إلى مجلد التنزيلات"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "انتقِ مجلدًا"
+msgstr "اختيار مجلد"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "يرغب \"باكيت\" بالتشغيل في الخلفية"
+msgstr "يرغب Packet بالتشغيل في الخلفية"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
@@ -485,23 +484,23 @@ msgstr "تم"
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
-msgstr "تم تثبيت الإضافة بنجاح، ولكنها تتطلب الحزم التالية لتعمل: {}"
+msgstr "تم تثبيت الإضافة بنجاح، ولكنها تتطلب الحزم التالية لكي تعمل: {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
-"اسماء الحزم ممكن ان تخلتف من توزية الي اخري زر <a {}>هذا الرابط</a> "
-"للمعلومات."
+"اسماء الحزم ممكن ان تختلف من توزية الي أخرى، زر <a {}>هذا الرابط</a> "
+"للتفاصيل."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
-"عد الانتهاء من ذلك, اعد تشغيل مدير الملفات Nautilus (مثلاً، عن طريق تسجيل "
-"الخروج ثم الدخول مرة أخرى) لقراءة الاضافة."
+"عند الانتهاء من ذلك، قم بإعادة تشغيل Nautilus (مثلاً، عن طريق تسجيل الخروج ثم "
+"الدخول مرة أخرى) لتحميل الاضافة."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
@@ -509,20 +508,19 @@ msgstr "فشل التثبيت"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr "اغلاق"
+msgstr "إغلاق"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
-"فشل تثبيت الإضافة. تأكد من ان المجلد موجود ويمكن لـ \"باكيت\" الوصول إليه:"
+"فشل تثبيت الإضافة. تأكد من أن المسار التالي موجود ويمكن الوصول إليه بواسطة "
+"Packet:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "انسخ إلى الحافظة"
+msgstr "تم نسخ السجل إلى الحافظة"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -546,15 +544,15 @@ msgstr "قطع الاتصال"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "اتصل بواي فاي وشغِّل بلوتوث"
+msgstr "اتصل بالوايفاي وقم بتشغيل البلوتوث"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "اتصل بواي فاي"
+msgstr "اتصل بالوايفاي"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "شغِّل بلوتوث"
+msgstr "تشغيل البلوتوث"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
@@ -562,7 +560,7 @@ msgstr "تعذَّر فتح الملفات"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "ارسل بأستخدام \"باكيت\""
+msgstr "إرسال باستخدام Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -572,12 +570,12 @@ msgstr "شارك الملفات بسهولة"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "جنوم;GTK;مشاركة;قريب;سريع;Packet;"
+msgstr "Gnome;GTK;Quick;Nearby;Share;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "عُرض النافذة"
+msgstr "عرض النافذة"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
@@ -605,24 +603,24 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"أرسِل واستقبل الملفات لاسلكيًا مع أجهزة أندرويد مستعملًا Quick Share أو مع جهاز "
-"آخر نُصِّب \"باكيت\" عليه."
+"أرسِل واستقبل الملفات لاسلكيًا مع أجهزة أندرويد بإستخدام Quick Share أو مع "
+"جهاز آخر مثبت عليه Packet."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"يتطلب \"باكيت\" تفعيل بلوتوث وأن تكون الأجهزة متصلة بشبكة واي فاي ذات mDNS."
+"يتطلب Packet تفعيل بلوتوث وأن تكون الأجهزة متصلة بشبكة وايفاي ذات mDNS."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "أرسل طلب المشاركة"
+msgstr "تم إرسال طلب المشاركة"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "استلم طلب المشاركة"
+msgstr "تم استلام طلب المشاركة"
 
 #~ msgid "Copy error report"
 #~ msgstr "انسخ تقرير الخطأ"
