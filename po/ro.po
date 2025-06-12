@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-05 15:58+0000\n"
+"PO-Revision-Date: 2025-06-11 16:48+0000\n"
 "Last-Translator: syu <76390419+driedpampas@users.noreply.github.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/packet/main/ro/"
 ">\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/resources/ui/shortcuts.blp:14
 #, fuzzy
@@ -49,7 +49,7 @@ msgstr "_Preferințe"
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Închide"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
@@ -83,7 +83,7 @@ msgstr "Se configurează Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr ""
+msgstr "Copiază jurnalul"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -100,7 +100,7 @@ msgstr "Încearcă din nou"
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr ""
+msgstr "Pagina principală"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
@@ -132,11 +132,11 @@ msgstr "Se caută dispozitive…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr ""
+msgstr "Nu poți vedea celălalt dispozitiv?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr ""
+msgstr "Preferințe"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
@@ -144,11 +144,11 @@ msgstr ""
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr ""
+msgstr "Numele dispozitivului"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr ""
+msgstr "Vizibilitate"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
@@ -180,7 +180,7 @@ msgstr ""
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr ""
+msgstr "Avansat"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
@@ -245,7 +245,7 @@ msgstr ""
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr ""
+msgstr "Dispozitiv necunoscut"
 
 #: src/utils.rs:291
 msgid "hour"
