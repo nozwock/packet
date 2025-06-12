@@ -33,13 +33,20 @@ jobs:
         run: sudo apt-get install -y libxml2-utils pandoc
       - name: Extract release notes
         run: |
-          {
-            echo 'RELEASE_NOTES<<EOF'
-            xmllint --xpath '//release[1]/description' data/io.github.nozwock.Packet.releases.xml.in.in \
-              | xmllint --format - \
-              | pandoc -f html -t markdown --wrap=none
-            echo EOF
-          } >> "$GITHUB_ENV"
+          changelog_version=$(xmllint --xpath 'string(//release[1]/@version)' data/io.github.nozwock.Packet.releases.xml.in.in)
+          echo "Changelog version: $changelog_version"
+          echo "Git tag: ${{ github.ref_name }}"
+          if [ "$changelog_version" = "${{ github.ref_name }}" ]; then
+            {
+              echo 'RELEASE_NOTES<<EOF'
+              xmllint --xpath '//release[1]/description' data/io.github.nozwock.Packet.releases.xml.in.in \
+                | xmllint --format - \
+                | pandoc -f html -t markdown --wrap=none
+              echo EOF
+            } >> "$GITHUB_ENV"
+          else
+            echo "RELEASE_NOTES=" >> "$GITHUB_ENV"
+          fi
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
