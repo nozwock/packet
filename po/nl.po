@@ -8,58 +8,48 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-10 14:12+0000\n"
-"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"PO-Revision-Date: 2025-06-12 11:29+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/packet/main/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Poedit 3.6\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Algemeen"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Sneltoetsen"
+msgstr "Sneltoetsen tonen"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Hulp"
+msgstr "Hulpvenster openen"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Voorkeuren"
+msgstr "Voorkeuren openen"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Afsluiten"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Voorkeuren"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Hulp"
+msgstr "_Hulp"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -82,10 +72,8 @@ msgid "Setting up Packet…"
 msgstr "Bezig met instellen…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Kopiëren"
+msgstr "Logboek kopiëren"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -186,11 +174,11 @@ msgstr "Geavanceerd"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Nautilus-plug-in"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Voeg acties toe aan het Nautilus-bestandsmenu"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -236,7 +224,7 @@ msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Bezig met laden van logboek…"
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -244,7 +232,7 @@ msgstr "Vergelijkbare projecten"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Het logboek kan niet worden opgehaald"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -276,6 +264,7 @@ msgstr "Verwijderen"
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
 msgstr[0] "{} bestand"
@@ -320,17 +309,20 @@ msgstr "Goedkeuren"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
 msgstr[0] "{} bestand ({})"
 msgstr[1] "{} bestanden ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
 msgstr "({}) voorvertonen"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
 msgstr "Code: {}"
 
@@ -342,12 +334,14 @@ msgstr "Verzoek is verlopen"
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
 msgstr "{} wil {} delen"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
 msgstr "Nog {} te gaan"
 
@@ -373,6 +367,7 @@ msgid "Open"
 msgstr "Openen"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
 msgstr "‘{}’ is ontvangen"
 
@@ -381,6 +376,7 @@ msgid "Copy"
 msgstr "Kopiëren"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
 msgstr[0] "{} bestand ontvangen"
@@ -407,6 +403,7 @@ msgid "Failed"
 msgstr "Mislukt"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] "Er is {} bestand verstuurd"
@@ -414,7 +411,7 @@ msgstr[1] "Er zijn {} bestanden verstuurd"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "De Nautilus-plug-in kan niet worden bijgewerkt"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -433,6 +430,7 @@ msgid "Invalid Port"
 msgstr "Ongeldig poortnummer"
 
 #: src/window.rs:845
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
@@ -458,55 +456,63 @@ msgstr "Packet wil op de achtergrond draaien"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Plug-in geïnstalleerd"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Gereed"
 
 #: src/window.rs:1080
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"De plug-in is geïnstalleerd, maar is afhankelijk van deze pakketten: {}"
 
 #: src/window.rs:1096
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Pakketnamen kunnen per distributie verschillen - open voor meer informatie "
+"<a {}>deze link</a>."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Na de installatie dient Nautilus herstart te worden, bijvoorbeeld door af en "
+"aan te melden."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installatie mislukt"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"De plug-in kan niet worden geïnstalleerd. Zorg dat deze map bestaat en "
+"toegankelijk is:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Kopiëren naar klembord"
+msgstr "Logboek gekopieerd naar klembord"
 
 #: src/window.rs:1506
 msgid "Ready"
 msgstr "Gereed"
 
 #: src/window.rs:1513
+#, rust-format
 msgid "Visible as {:?}"
 msgstr "Zichtbaar als {:?}"
 
@@ -539,10 +545,8 @@ msgid "Couldn't open files"
 msgstr "De bestanden kunnen niet worden geopend"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Bezig met instellen…"
+msgstr "Versturen met Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
