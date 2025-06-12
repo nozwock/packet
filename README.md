@@ -76,4 +76,4 @@ Packet follows the [GNOME Code of Conduct][gnome-coc].
 [rquickshare]: https://github.com/Martichou/rquickshare/
 [flathub]: https://flathub.org/apps/details/io.github.nozwock.Packet
 [flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Installs&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
-[gnome-coc]: https://gitlab.gnome.org/World/amberol/-/blob/main/code-of-conduct.md
+[gnome-coc]: https://conduct.gnome.org/
