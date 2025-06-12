@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.5.1" date="2025-06-12">
+    <description translatable="no">
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed Nautilus plugin crashing on systems that don't have `flatpak` installed</li>
+      </ul>
+      <p>Translations</p>
+      <ul>
+        <li>Updated Portuguese translation</li>
+        <li>Updated Portuguese (Brazil) translation</li>
+        <li>Updated German translation</li>
+        <li>Updated Russian translation</li>
+        <li>Updated Romanian translation</li>
+        <li>Updated Occitan translation</li>
+        <li>Updated Polish translation</li>
+        <li>Updated Arabic translation</li>
+        <li>Updated Korean translation</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.5.0" date="2025-06-11">
     <description translatable="no">
       <p>Changes</p>
