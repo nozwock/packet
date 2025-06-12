@@ -42,6 +42,7 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                     Adw.HeaderBar {
                         [end]
                         Button {
+                            tooltip-text: _("About");
                             icon-name: "help-about-symbolic";
                             action-name: "app.about";
                         }
@@ -335,6 +336,7 @@ Adw.Dialog select_recipients_dialog {
         Adw.HeaderBar {
             [start]
             Button select_recipient_refresh_button {
+                tooltip-text: _("Refresh");
                 icon-name: "view-refresh-symbolic";
                 valign: center;
 
