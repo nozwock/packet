@@ -65,6 +65,9 @@ To use the Nautilus plugin, install the required packages:
 - [NearDrop][neardrop] for reverse-engineering the closed-source Quick Share implementation in Android's GMS.
 - [rquickshare] for their internal Rust implementation of the Quick Share protocol.
 
+## Code of Conduct
+Packet follows the [GNOME Code of Conduct][gnome-coc].
+
 [nightly-build]: https://nightly.link/nozwock/packet/workflows/ci/main?preview
 [translation-platform]: https://hosted.weblate.org/engage/packet/
 [translation-status-widget]: https://hosted.weblate.org/widget/packet/multi-auto.svg
@@ -73,3 +76,4 @@ To use the Nautilus plugin, install the required packages:
 [rquickshare]: https://github.com/Martichou/rquickshare/
 [flathub]: https://flathub.org/apps/details/io.github.nozwock.Packet
 [flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Installs&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
+[gnome-coc]: https://gitlab.gnome.org/World/amberol/-/blob/main/code-of-conduct.md
