@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-11 08:04+0000\n"
+"PO-Revision-Date: 2025-06-11 16:48+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/packet/main/oc/"
 ">\n"
@@ -73,10 +73,8 @@ msgid "Setting up Packet…"
 msgstr "Parametratge de Packet…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Copiar"
+msgstr "Copiar los logs"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -229,7 +227,7 @@ msgstr "Quentin PAGÈS"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Cargament dels logs..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -237,7 +235,7 @@ msgstr "Projèctes similars"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Fracàs de la recuperacion dels logs"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -407,7 +405,7 @@ msgstr[1] "{} fichièrs enviats"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Actualizacion impossibla de l'empeuton de Nautilus"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -451,7 +449,7 @@ msgstr "Packet vòl s'executar a la dobertura de session"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Empeuton installat"
 
 #: src/window.rs:1064
 msgid "Done"
@@ -462,18 +460,24 @@ msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"L'empeuton es estat installat corrèctament, mas requerís los paquets seguent "
+"per foncionat : {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Lo nom dels paquets pòdon cambiar segon las distribucions, consultatz <b {}> "
+"aqueste lo ligam</a> per mai de detalhs."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Un còp fach, relançatz Nautilus (per exemple en vos desconnectant de la "
+"session e en tornant) per cargar l'empeuton."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
@@ -488,12 +492,12 @@ msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Fracàs de l'installacion de l'empeuton. Asseguratz-vos que lo repertòri "
+"seguent existisca e siá accessible a Packet :"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Copiar al quichapapièrs"
+msgstr "Copiats al quichapapièrs"
 
 #: src/window.rs:1506
 msgid "Ready"
