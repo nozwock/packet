@@ -31,7 +31,7 @@ def init_i18n() -> gettext.NullTranslations | gettext.GNUTranslations:
         flatpak_info = subprocess.run(
             ["flatpak", "info", "-l", APP_ID], capture_output=True, check=True
         )
-    except (FileNotFoundError, subprocess.CalledProcessError):
+    except Exception:
         pass
 
     if flatpak_info:
