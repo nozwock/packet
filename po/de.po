@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-10 10:52+0000\n"
-"Last-Translator: BennetK <bennetkrzenzck@pm.me>\n"
+"PO-Revision-Date: 2025-06-12 02:09+0000\n"
+"Last-Translator: Jonas Eisele <jonas@thiele-eisele.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/packet/main/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -19,47 +19,37 @@ msgstr ""
 "X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Allgemein"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Tastaturkürzel"
+msgstr "Tastenkürzel"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Hilfe"
+msgstr "Hilfe anzeigen"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Einstellungen"
+msgstr "Öffne Einstellungen"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Beenden"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Einstellungen"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Hilfe"
+msgstr "_Hilfe"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -82,10 +72,8 @@ msgid "Setting up Packet…"
 msgstr "Packet einrichten…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Kopieren"
+msgstr "Protokoll kopieren"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -186,11 +174,11 @@ msgstr "Erweitert"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Nautilus Erweiterung"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "In Nautilus-Dateimenü integrieren"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -238,7 +226,7 @@ msgstr "Pascal Dietrich (Cameo007)"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Protokolle laden..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -246,7 +234,7 @@ msgstr "Ähnliche Projekte"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Protokolle konnten nicht abgerufen werden"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -416,7 +404,7 @@ msgstr[1] "{} Dateien gesendet"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Nautilus Erweiterung konnte nicht aktualisiert werden"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -461,49 +449,55 @@ msgstr "Packet möchte im Hintergrund laufen"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Erweiterung installiert"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Die Erweiterung wurde erfolgreich installiert, braucht aber folgende Pakete, "
+"um zu funktionieren {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Die Namen der Pakete können variieren, besuche <a {}>diesen Link</a> für "
+"mehr Details."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Wenn der Prozess beendet ist, starte Nautilus neu (z.B. indem du dich ab- "
+"und wieder anmeldest) um die Erweiterung zu laden."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installation fehlgeschlagen"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Installation der Erweiterung fehlgeschlagen. Bitte stelle sicher, dass der "
+"folgende Pfad existiert und Packet Zugriff darauf hat:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "In die Zwischenablage kopieren"
+msgstr "Log in die Zwischenablage kopiert"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -542,10 +536,8 @@ msgid "Couldn't open files"
 msgstr "Konnte Dateien nicht öffnen"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Packet einrichten…"
+msgstr "Mit Packet senden"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7

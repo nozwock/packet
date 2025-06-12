@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-11 08:04+0000\n"
+"PO-Revision-Date: 2025-06-12 02:09+0000\n"
 "Last-Translator: honnip <me@honnip.page>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
@@ -72,10 +72,8 @@ msgid "Setting up Packet…"
 msgstr "Packet 설정 중…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "복사"
+msgstr "로그 복사"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -226,7 +224,7 @@ msgstr "Honnip <me@honnip.page>"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "로그 로딩 중..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -234,7 +232,7 @@ msgstr "비슷한 프로젝트"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "로그를 가져오지 못했습니다"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -486,10 +484,8 @@ msgstr ""
 "있는지 확인하십시오:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "클립보드에 복사하기"
+msgstr "클립보드에 복사했습니다"
 
 #: src/window.rs:1506
 msgid "Ready"

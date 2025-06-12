@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-10 16:19+0000\n"
+"PO-Revision-Date: 2025-06-11 16:48+0000\n"
 "Last-Translator: Ricardo Santos <ricardo.beijos@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/packet/main/"
 "pt/>\n"
@@ -73,10 +73,8 @@ msgid "Setting up Packet…"
 msgstr "A configurar o Packet…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Copiar"
+msgstr "Copiar registo"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -227,7 +225,7 @@ msgstr "Ricardo Santos"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "A carregar o histórico de registos..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -235,7 +233,7 @@ msgstr "Projetos semelhantes"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Não foi possível carregar o histórico de registos"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -495,10 +493,8 @@ msgstr ""
 "existe e que o Packet a pode aceder:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Registo copiado para a área de transferência"
 
 #: src/window.rs:1506
 msgid "Ready"

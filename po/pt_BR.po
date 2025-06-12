@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-11 08:04+0000\n"
+"PO-Revision-Date: 2025-06-12 02:09+0000\n"
 "Last-Translator: Tarcísio Surdi <tarcisio.surdi@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "packet/main/pt_BR/>\n"
@@ -75,10 +75,8 @@ msgid "Setting up Packet…"
 msgstr "Configurando o Packet…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Copiar"
+msgstr "Copiar relatório"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -231,7 +229,7 @@ msgstr "John Peter Sa"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Carregando relatórios..."
 
 #: src/application.rs:262
 msgid "Similar Projects"

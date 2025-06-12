@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-08 14:10+0000\n"
+"PO-Revision-Date: 2025-06-12 02:10+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/packet/main/pl/>\n"
 "Language: pl\n"
@@ -20,51 +20,41 @@ msgstr ""
 "X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Ogólne"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Skróty klawiszowe"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Pomoc"
+msgstr "Pokaż Pomoc"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Preferencje"
+msgstr "Otwórz Preferencje"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Wyjdź"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Preferencje"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Pomoc"
+msgstr "_Pomoc"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "_Skróty klawiszowe"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
@@ -83,10 +73,8 @@ msgid "Setting up Packet…"
 msgstr "Ustawienia…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Skopiuj"
+msgstr "Skopiuj dziennik"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -187,11 +175,11 @@ msgstr "Zaawansowane"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Wtyczka programu Pliki"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Integracja z menu programu Pliki"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -238,7 +226,7 @@ msgstr "Tłumacze"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Ładowanie dzienników..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -246,7 +234,7 @@ msgstr "Podobny projekt"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Błąd podczas pozyskiwania dzienników"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -423,7 +411,7 @@ msgstr[2] "Wysłano {} plików"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Nie można zaktualizować wtyczki programu Pliki"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -467,49 +455,55 @@ msgstr "Udostępnianie chce działać w tle"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Wtyczka zainstalowana"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Gotowe"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Pomyślnie zainstalowano wtyczkę, ale wymaga ona następujących pakietów do "
+"działania: {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Nazwa pakietów może zależeć od dystrybucji, odwiedź <a {}>this link</a>, aby "
+"uzyskać więcej szczegółów."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Po ukończeniu, uruchom ponownie program Pliki (np. wylogowując się, i "
+"logując się ponownie), aby załadować wtyczkę."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Błąd podczas instalacji"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Błąd podczas instalacji. Upewnij się, że żądany katalog istnieje, oraz jest "
+"dostępny przez program Udostępnianie:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Skopiuj do schowka"
+msgstr "Skopiowano dziennik do schowka"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -548,10 +542,8 @@ msgid "Couldn't open files"
 msgstr "Nie można otworzyć plików"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Ustawienia…"
+msgstr "Wyślij za pomocą programu Udostępnianie"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
