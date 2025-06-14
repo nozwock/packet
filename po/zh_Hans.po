@@ -8,10 +8,11 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 09:57+0000\n"
-"Last-Translator: honnip <me@honnip.page>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
-"Language: ko\n"
+"PO-Revision-Date: 2025-06-14 10:57+0000\n"
+"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/packet/main/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,43 +22,43 @@ msgstr ""
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "일반"
+msgstr "常规"
 
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "키보드 바로 가기 표시"
+msgstr "显示快捷键"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "도움말 표시"
+msgstr "显示帮助"
 
 #: data/resources/ui/shortcuts.blp:24
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "설정 표시"
+msgstr "打开偏好设置"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "끝내기"
+msgstr "退出"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "설정(_P)"
+msgstr "偏好设置 (_P)"
 
 #: data/resources/ui/window.blp:12
 msgid "_Help"
-msgstr "도움말(_H)"
+msgstr "帮助 (_H)"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "키보드 바로 가기(_K)"
+msgstr "键盘快捷键 (_K)"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "Packet 정보(_A)"
+msgstr "关于 Packet(_A)"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -69,209 +70,207 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Packet 설정 중…"
+msgstr "正在设置 Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr "로그 복사"
+msgstr "复制日志"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "설정할 수 없음"
+msgstr "无法设置"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Packet을 설정하는 동안 문제가 발생했습니다"
+msgstr "在尝试设置 Packet 时发生错误"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "다시 시도하기"
+msgstr "重试"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "메인 페이지"
+msgstr "主页"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "파일을 여기에 끌어다 놓으십시오"
+msgstr "添加或拖放文件以发送"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "파일 추가하기"
+msgstr "添加文件"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr "선택한 파일 페이지"
+msgstr "已选择的文件页面"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "파일 추가하기"
+msgstr "添加文件"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "보내기"
+msgstr "发送"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "받는 사람 선택"
+msgstr "选择接收者"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "기기 찾는 중…"
+msgstr "正在寻找设备…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr "다른 기기가 보이지 않나요?"
+msgstr "看不到其它设备？"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "설정"
+msgstr "偏好设置"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "일반"
+msgstr "常规"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "기기 이름"
+msgstr "设备名称"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "검색 허용"
+msgstr "可见性"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "다른 기기에서 이 기기를 찾을 수 있도록 허용합니다"
+msgstr "其他人是否可以看到此设备"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "다운로드 폴더"
+msgstr "下载文件夹"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "다운로드 폴더를 선택하세요"
+msgstr "选择下载文件夹"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "백그라운드에서 실행"
+msgstr "在后台运行"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr "백그라운드에서 실행할 수 있도록 허용합니다"
+msgstr "允许在后台运行"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "자동 시작"
+msgstr "自动启动"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr "로그인할 때 자동으로 시작합니다"
+msgstr "登录时自动启动"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "고급"
+msgstr "高级"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr "노틸러스 플러그인"
+msgstr "Nautilus 插件"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr "노틸러스 파일 메뉴와 통합합니다"
+msgstr "与 Nautilus 文件菜单集成"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr "네트워크 포트 고정"
+msgstr "静态网络端口"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "방화벽이 있는 환경에서 Packet을 허용 목록에 추가하기 위함입니다"
+msgstr "用于通过防火墙白名单"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr "포트"
+msgstr "端口号"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
-msgstr "도움말"
+msgstr "帮助"
 
 #: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
-msgstr ""
-"두 기기가 동일한 Wi-Fi 네트워크에 연결되어 있고 블루투스가 활성화되어 있는지 "
-"확인하십시오"
+msgstr "确保两个设备都连接到同一 Wi-Fi 网络并开启蓝牙"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr "주변의 모든 기기에 보이도록 설정되어 있는지 확인하십시오"
+msgstr "确保设备设置为对所有附近设备可见"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
-msgstr ""
-"안드로이드 기기의 경우, <b>Files by Google</b> 앱에서 <b>Quick Share</b> 페이"
-"지를 여십시오"
+msgstr "对于 Android 设备，尝试在 <b>Files by Google</b> 应用中打开 <b>Quick Share</"
+"b> 页面"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "Honnip <me@honnip.page>"
+msgstr "Poesty Li"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr "로그 로딩 중..."
+msgstr "加载日志中…"
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "비슷한 프로젝트"
+msgstr "类似项目"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr "로그를 가져오지 못했습니다"
+msgstr "获取日志失败"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "알 수 없는 기기"
+msgstr "未知设备"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "시간"
+msgstr[0] "小时"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "분"
+msgstr[0] "分钟"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "초"
+msgstr[0] "秒"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "삭제"
+msgstr "移除"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} 파일"
+msgstr[0] "{} 文件"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "링크"
+msgstr "链接"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "텍스트"
+msgstr "文本"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
@@ -279,345 +278,312 @@ msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "받는 중"
+msgstr "接收中"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "취소"
+msgstr "取消"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "전송 요청"
+msgstr "传入传输"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr "받는 중..."
+msgstr "接收中…"
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "거절"
+msgstr "拒绝"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "수락"
+msgstr "接受"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} 파일 ({})"
+msgstr[0] "{} 文件 ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
-msgstr "미리 보기 ({})"
+msgstr "预览 ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
-msgstr "PIN: {}"
+msgstr "代码：{}"
 
 #: src/widgets/receive_transfer.rs:404
 msgid "Request timed out"
-msgstr "요청 시간이 초과되었습니다"
+msgstr "请求超时"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr "{} 님이 {}를 공유하려고 합니다"
+msgstr "{} 想要分享 {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
-msgstr "약 {} 남음"
+msgstr "剩余 {}"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "예기치 않게 연결이 끊어졌습니다"
+msgstr "意外断开连接"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "보낸 사람이 전송을 취소했습니다"
+msgstr "传输被发送方取消"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "클립보드에 복사하기"
+msgstr "复制到剪贴板"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "텍스트를 파일로 저장하기"
+msgstr "将文本保存为文件"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "열기"
+msgstr "打开"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr "\"{}\"를 받았습니다"
+msgstr "已收到 \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "복사"
+msgstr "复制"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "파일 {}개를 받았습니다"
+msgstr[0] "已收到 {} 文件"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "사용 불가"
+msgstr "不可用"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "대기 중"
+msgstr "排队中"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "다시 시도"
+msgstr "重试"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "요청함"
+msgstr "已请求"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr "실패함"
+msgstr "失败"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "파일 {}개를 보냈습니다"
+msgstr[0] "已发送 {} 文件"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr "노틸러스 플러그인을 업데이트할 수 없습니다"
+msgstr "无法更新 Nautilus 插件"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "Packet을 백그라운드에서 실행할 수 없습니다"
+msgstr "Packet 不能在后台运行"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "Packet을 로그인할 때 실행할 수 없습니다"
+msgstr "Packet 不能在登录时运行"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "전송 중에는 기기 이름을 바꿀 수 없습니다"
+msgstr "在传输进行中时无法重命名设备"
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr "잘못된 포트"
+msgstr "端口无效"
 
 #: src/window.rs:845
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
-msgstr ""
-"선택한 포트 \"{}\"를 사용할 수 없습니다. 1024보다 큰 포트를 시도해 보십시오."
+msgstr "所选的静态端口 \"{}\" 不可用。请尝试使用 1024 以上的不同端口。"
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "예(_O)"
+msgstr "确定(_O)"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "다운로드 폴더에 접근할 수 없습니다"
+msgstr "无法访问下载文件夹"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "폴더 선택"
+msgstr "选择文件夹"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "Packet이 백그라운드에서 실행하려고 합니다"
+msgstr "Packet 想在后台运行"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr "플러그인이 설치되었습니다"
+msgstr "插件已安装"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr "완료"
+msgstr "完成"
 
 #: src/window.rs:1080
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
-msgstr ""
-"플러그인이 성공적으로 설치되었지만, 작동하려면 다음 패키지가 필요합니다: {}"
+msgstr "插件已成功安装，但需要以下软件包才能正常工作：{}"
 
 #: src/window.rs:1096
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
-msgstr ""
-"패키지 이름은 배포판에 따라 다를 수 있습니다. 자세한 내용은 <a {}>이 링크</a>"
-"에서 확인하십시오."
+msgstr "软件包名称可能因发行版而异，详情请访问 <a {}>此链接</a>。"
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
-msgstr ""
-"모든 작업을 완료하고 노틸러스를 다시 시작하여 (예: 로그아웃하고 다시 로그인) "
-"플러그인을 불러오십시오."
+msgstr "完成后，重启 Nautilus（例如，注销后重新登录）以加载插件。"
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr "설치에 실패했습니다"
+msgstr "安装失败"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr "닫기"
+msgstr "关闭"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
-msgstr ""
-"플러그인 설치에 실패했습니다. 다음 디렉터리가 존재하고 Packet에서 접근할 수 "
-"있는지 확인하십시오:"
+msgstr "插件安装失败。请确保以下目录存在且可被 Packet 访问："
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
-msgstr "클립보드에 복사했습니다"
+msgstr "已将日志复制到剪贴板"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr "준비됨"
+msgstr "准备就绪"
 
 #: src/window.rs:1513
+#, rust-format
 msgid "Visible as {:?}"
-msgstr "{:?}로 표시됩니다"
+msgstr "显示为 {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr "검색 허용 꺼짐"
+msgstr "不可见"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr "새로운 기기는 이 기기와 공유할 수 없습니다"
+msgstr "没有新设备可以与你共享"
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr "연결 해제됨"
+msgstr "已断开连接"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Wi-Fi에 연결하고 블루투스를 활성화하십시오"
+msgstr "连接到 Wi-Fi 并开启蓝牙"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "Wi-Fi에 연결하십시오"
+msgstr "连接到 Wi-Fi"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "블루투스를 활성화하십시오"
+msgstr "开启蓝牙"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr "파일을 열 수 없습니다"
+msgstr "无法打开文件"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "Packet으로 보내기"
+msgstr "使用 Packet 发送"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "파일을 쉽게 공유하세요"
+msgstr "轻松共享文件"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;그놈;GTK;Quick;퀵;Nearby;니어바이;Share;쉐어;"
+msgstr "Gnome;GTK;快速;附近;共享;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "창 너비"
+msgstr "窗口宽度"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "창 높이"
+msgstr "窗口高度"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "창 최대화 상태"
+msgstr "窗口最大化状态"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "기기 이름"
+msgstr "设备名称"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "기기 검색 허용"
+msgstr "设备可见性"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "다운로드 폴더"
+msgstr "下载文件夹"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
 msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
-msgstr ""
-"Quick Share를 사용하여 Android 기기나 Packet이 설치된 다른 기기와 무선으로 파"
-"일을 주고받으세요."
+msgstr "使用 Quick Share 或已安装 Packet 的其他设备，通过无线方式与 Android "
+"设备发送和接收文件。"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
-msgstr ""
-"Packet을 사용하기 위해 블루투스가 활성화되어 있어야 하며, mDNS가 활성화된 Wi-"
-"Fi 네트워크에 연결되어야 합니다."
+msgstr "Packet 需要启用蓝牙，并且设备连接到具有 mDNS 的 Wi-Fi 网络。"
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "보낸 공유 요청"
+msgstr "已发送共享请求"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "받은 공유 요청"
-
-#~ msgid "Copy error report"
-#~ msgstr "오류 보고서 복사하기"
-
-#~ msgid "Copied error report to clipboard"
-#~ msgstr "오류 보고서를 클립보드에 복사했습니다"
-
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "파일 {}개"
-
-#~ msgid ""
-#~ "Make sure the other device is visible and connected to the same network "
-#~ "as this device.\n"
-#~ "\n"
-#~ "If it's an Android device and you still don't see it despite setting "
-#~ "visibility to \"Everyone\", try opening the <b>Quick Share</b> page from "
-#~ "the <b>Google Files</b> app and leave it open.\n"
-#~ "\n"
-#~ "Also, ensure Bluetooth is enabled on both devices, as it's often required "
-#~ "for device discovery even over Wi-Fi."
-#~ msgstr ""
-#~ "다른 기기가 검색 가능하고, 이 기기와 동일한 네트워크에 연결되어 있는지 확"
-#~ "인하세요.\n"
-#~ "\n"
-#~ "Android 기기인 경우 공개 설정을 \"모두\"로 설정했는데도 여전히 해당 폴더"
-#~ "가 보이지 않는다면, <b>Files by Google</b> 앱에서 <b>Quick Share</b> 페이"
-#~ "지를 열어 두세요.\n"
-#~ "\n"
-#~ "또한, 두 기기 모두 블루투스가 활성화되어 있는지 확인하세요. Wi-Fi를 통해서"
-#~ "도 기기를 찾기 위해 블루투스가 필요한 경우가 많습니다."
-
-#~ msgid "Home Page"
-#~ msgstr "웹사이트"
+msgstr "已接收共享请求"
