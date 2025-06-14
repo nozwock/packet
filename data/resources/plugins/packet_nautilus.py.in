@@ -23,7 +23,14 @@ def log(*vals: Any):
 # TODO: Maybe have a separate gettext package for plugin scripts that gets
 # copied over alongside the script. Seems more robust?
 def init_i18n() -> gettext.NullTranslations | gettext.GNUTranslations:
-    locale_dirs: List[Path | None] = [None]  # None for system default locale dir
+    locale_dirs: List[Path | None] = [
+        # `None` is for system default locale dir `/usr/share/locale`. Though it may not always be this path, it depends
+        # on the environment
+        None,
+        # Path based on meson's DESTDIR, it's here largely for nixpkg. For Flatpak, this path will be useless as it'll
+        # be a mounted path like `/app/share/locale`, which is obviously not available from the extension script
+        Path("@LOCALE_DIR@"),
+    ]
     (lang, enc) = locale.getlocale()
 
     flatpak_info = None
