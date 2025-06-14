@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use anyhow::Context;
 
 use crate::{
-    config::PKGDATADIR,
+    config::{DATADIR, PKGDATADIR},
     utils::{is_file_same, xdg_data_dirs},
 };
 
@@ -117,6 +117,15 @@ impl FileBasedPlugin for NautilusPlugin {
 
     fn install_dir(&self) -> Option<PathBuf> {
         let mut base_dirs = xdg_data_dirs();
+
+        // In some package formats (like nixpkg), the paths that we're looking into for the nautilus-python directory
+        // may not be enough, so here is another one based on the DESTDIR (e.g., `DESTDIR/share`) that's set during the
+        // meson build.
+        //
+        // Here is a snippet where the package maintainers are manually symlinking the plugin script to the required
+        // directory since the app is not able to figure it out by itself.
+        // https://github.com/NixOS/nixpkgs/pull/416076/files#diff-2b073efb0973697970f4ba24dec07b65f7aea950aa3f48ba4f2d4a92827ac998R74-R76
+        base_dirs.insert(0, PathBuf::from(DATADIR));
 
         // https://gitlab.gnome.org/GNOME/nautilus-python/-/tree/master#running-extensions
         if let Some(data_home_dir) = std::env::var_os("XDG_DATA_HOME")
