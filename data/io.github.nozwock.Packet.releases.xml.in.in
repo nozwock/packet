@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.5.2" date="2025-06-14">
+    <url type="details">https://github.com/nozwock/packet/compare/0.5.1...0.5.2</url>
+    <description translatable="no">
+      <p>Translations</p>
+      <ul>
+        <li>Added Chinese (Simplified Han script) translation</li>
+        <li>Updated Arabic translation</li>
+        <li>Updated Spanish translation</li>
+        <li>Updated French translation</li>
+        <li>Updated Dutch translation</li>
+        <li>Updated Korean translation</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.5.1" date="2025-06-12">
     <description translatable="no">
       <p>Fixes</p>
