@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 02:09+0000\n"
+"PO-Revision-Date: 2025-06-12 09:57+0000\n"
 "Last-Translator: honnip <me@honnip.page>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/packet/main/ko/>\n"
 "Language: ko\n"
@@ -26,7 +26,7 @@ msgstr "일반"
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "키보드 바로 가기"
+msgstr "키보드 바로 가기 표시"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
