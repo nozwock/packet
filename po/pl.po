@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 02:10+0000\n"
+"PO-Revision-Date: 2025-06-13 16:02+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/packet/main/pl/>\n"
 "Language: pl\n"
@@ -27,7 +27,7 @@ msgstr "Ogólne"
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "Pokaż Skróty klawiszowe"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
