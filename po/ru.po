@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 02:10+0000\n"
+"PO-Revision-Date: 2025-06-12 11:06+0000\n"
 "Last-Translator: NickSkier <nikita.vasiliev.02@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/"
-">\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -416,7 +416,7 @@ msgstr[2] "Отправлено {} файлов"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Не удалось обновить плагин Nautilus"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -460,29 +460,34 @@ msgstr "Packet хочет запускаться в фоне"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Плагин установлен"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Плагин был успешно установлен, но требуются следующие пакеты для работы: {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Имена пакетов могут варьироваться в зависимости от дистрибутива, посетите <a "
+"{}> эту ссылку </a> для получения подробной информации."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Как только это будет сделано, перезапустите Nautilus (например, выйдя из "
+"системы и войдя и обратно), чтобы загрузить плагин."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
