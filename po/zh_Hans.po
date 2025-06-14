@@ -1,0 +1,589 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the packet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: packet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"PO-Revision-Date: 2025-06-14 10:57+0000\n"
+"Last-Translator: Poesty Li <poesty7450@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/packet/main/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
+
+#: data/resources/ui/shortcuts.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "常规"
+
+#: data/resources/ui/shortcuts.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "显示快捷键"
+
+#: data/resources/ui/shortcuts.blp:19
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "显示帮助"
+
+#: data/resources/ui/shortcuts.blp:24
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "打开偏好设置"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "退出"
+
+#: data/resources/ui/window.blp:7
+msgid "_Preferences"
+msgstr "偏好设置 (_P)"
+
+#: data/resources/ui/window.blp:12
+msgid "_Help"
+msgstr "帮助 (_H)"
+
+#: data/resources/ui/window.blp:17
+msgid "_Keyboard Shortcuts"
+msgstr "键盘快捷键 (_K)"
+
+#: data/resources/ui/window.blp:22
+msgid "_About Packet"
+msgstr "关于 Packet(_A)"
+
+#. Translators: The name should remain untranslated
+#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: data/io.github.nozwock.Packet.desktop.in.in:2
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
+msgid "Packet"
+msgstr "Packet"
+
+#: data/resources/ui/window.blp:52
+msgid "Setting up Packet…"
+msgstr "正在设置 Packet…"
+
+#: data/resources/ui/window.blp:71
+msgid "Copy Log"
+msgstr "复制日志"
+
+#: data/resources/ui/window.blp:85
+msgid "Couldn't Set Up"
+msgstr "无法设置"
+
+#: data/resources/ui/window.blp:86
+msgid "An error occurred while trying to setup Packet"
+msgstr "在尝试设置 Packet 时发生错误"
+
+#: data/resources/ui/window.blp:91
+msgid "Try Again"
+msgstr "重试"
+
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr "主页"
+
+#: data/resources/ui/window.blp:141
+msgid "Add, or drop a file to send"
+msgstr "添加或拖放文件以发送"
+
+#: data/resources/ui/window.blp:148
+msgid "Add Files"
+msgstr "添加文件"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr "已选择的文件页面"
+
+#: data/resources/ui/window.blp:203
+msgid "Add File"
+msgstr "添加文件"
+
+#: data/resources/ui/window.blp:298
+msgid "Send"
+msgstr "发送"
+
+#: data/resources/ui/window.blp:321
+msgid "Select Recipients"
+msgstr "选择接收者"
+
+#: data/resources/ui/window.blp:391
+msgid "Looking for devices…"
+msgstr "正在寻找设备…"
+
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+msgid "Can't see the other device?"
+msgstr "看不到其它设备？"
+
+#: data/resources/ui/window.blp:418
+msgid "Preferences"
+msgstr "偏好设置"
+
+#: data/resources/ui/window.blp:423
+msgid "General"
+msgstr "常规"
+
+#: data/resources/ui/window.blp:426
+msgid "Device Name"
+msgstr "设备名称"
+
+#: data/resources/ui/window.blp:431
+msgid "Visibility"
+msgstr "可见性"
+
+#: data/resources/ui/window.blp:432
+msgid "Whether others can see this device"
+msgstr "其他人是否可以看到此设备"
+
+#: data/resources/ui/window.blp:436
+msgid "Downloads Folder"
+msgstr "下载文件夹"
+
+#: data/resources/ui/window.blp:442
+msgid "Pick download folder"
+msgstr "选择下载文件夹"
+
+#: data/resources/ui/window.blp:453
+msgid "Run in Background"
+msgstr "在后台运行"
+
+#: data/resources/ui/window.blp:454
+msgid "Allow running in the background"
+msgstr "允许在后台运行"
+
+#: data/resources/ui/window.blp:458
+msgid "Auto Start"
+msgstr "自动启动"
+
+#: data/resources/ui/window.blp:459
+msgid "Start automatically at login"
+msgstr "登录时自动启动"
+
+#: data/resources/ui/window.blp:464
+msgid "Advanced"
+msgstr "高级"
+
+#: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr "Nautilus 插件"
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr "与 Nautilus 文件菜单集成"
+
+#: data/resources/ui/window.blp:474
+msgid "Static Network Port"
+msgstr "静态网络端口"
+
+#. Translators: For whitelisting of the app.
+#: data/resources/ui/window.blp:476
+msgid "For whitelisting through a firewall"
+msgstr "用于通过防火墙白名单"
+
+#: data/resources/ui/window.blp:481
+msgid "Port Number"
+msgstr "端口号"
+
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "帮助"
+
+#: data/resources/ui/window.blp:541
+msgid ""
+"Make sure both devices are connected to the same Wi-Fi network and have "
+"Bluetooth turned on"
+msgstr "确保两个设备都连接到同一 Wi-Fi 网络并开启蓝牙"
+
+#: data/resources/ui/window.blp:564
+msgid "Make sure the device is set to be visible to all nearby devices"
+msgstr "确保设备设置为对所有附近设备可见"
+
+#: data/resources/ui/window.blp:587
+msgid ""
+"For an Android device, try opening the <b>Quick Share</b> page in the "
+"<b>Files by Google</b> app"
+msgstr "对于 Android 设备，尝试在 <b>Files by Google</b> 应用中打开 <b>Quick Share</"
+"b> 页面"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.rs:253
+msgid "translator-credits"
+msgstr "Poesty Li"
+
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr "加载日志中…"
+
+#: src/application.rs:262
+msgid "Similar Projects"
+msgstr "类似项目"
+
+#: src/application.rs:282 src/window.rs:1231
+msgid "Failed to retrieve the logs"
+msgstr "获取日志失败"
+
+#: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
+#: src/widgets/recipient_card.rs:147
+msgid "Unknown device"
+msgstr "未知设备"
+
+#: src/utils.rs:291
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "小时"
+
+#: src/utils.rs:293 src/utils.rs:303
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "分钟"
+
+#: src/utils.rs:305 src/utils.rs:308
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "秒"
+
+#: src/widgets/file_card.rs:116
+msgid "Remove"
+msgstr "移除"
+
+#. Translators: An e.g. "4 Files"
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1624
+#, rust-format
+msgid "{} File"
+msgid_plural "{} Files"
+msgstr[0] "{} 文件"
+
+#: src/widgets/receive_transfer.rs:23
+msgid "Link"
+msgstr "链接"
+
+#: src/widgets/receive_transfer.rs:24
+msgid "Text"
+msgstr "文本"
+
+#: src/widgets/receive_transfer.rs:25
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/receive_transfer.rs:64
+msgid "Receiving"
+msgstr "接收中"
+
+#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
+#: src/widgets/recipient_card.rs:310
+msgid "Cancel"
+msgstr "取消"
+
+#: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
+msgid "Incoming Transfer"
+msgstr "传入传输"
+
+#: src/widgets/receive_transfer.rs:194
+msgid "Receiving..."
+msgstr "接收中…"
+
+#: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
+msgid "Decline"
+msgstr "拒绝"
+
+#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
+msgid "Accept"
+msgstr "接受"
+
+#. Translators: An e.g. "6 Files (42.3MB)"
+#: src/widgets/receive_transfer.rs:308
+#, rust-format
+msgid "{} file ({})"
+msgid_plural "{} files ({})"
+msgstr[0] "{} 文件 ({})"
+
+#: src/widgets/receive_transfer.rs:327
+#, rust-format
+msgid "Preview ({})"
+msgstr "预览 ({})"
+
+#. Translators: This is the pin-code for the transfer
+#: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
+msgid "Code: {}"
+msgstr "代码：{}"
+
+#: src/widgets/receive_transfer.rs:404
+msgid "Request timed out"
+msgstr "请求超时"
+
+#. Translators: This is when some device is sharing files or text
+#. e.g. (Someone's Phone wants to share 4 files)
+#. e.g. (Someone's Phone wants to share "lorem ipsum ...")
+#: src/widgets/receive_transfer.rs:417
+#, rust-format
+msgid "{} wants to share {}"
+msgstr "{} 想要分享 {}"
+
+#. Translators: {} will be replaced with an estimated remaining time string
+#. e.g. "About 4 minutes 32 seconds left"
+#: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
+msgid "About {} left"
+msgstr "剩余 {}"
+
+#: src/widgets/receive_transfer.rs:519
+msgid "Unexpected dissconnection"
+msgstr "意外断开连接"
+
+#: src/widgets/receive_transfer.rs:552
+msgid "Transfer cancelled by sender"
+msgstr "传输被发送方取消"
+
+#: src/widgets/receive_transfer.rs:599
+msgid "Copy to clipboard"
+msgstr "复制到剪贴板"
+
+#: src/widgets/receive_transfer.rs:607
+msgid "Save text as file"
+msgstr "将文本保存为文件"
+
+#: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
+#: src/widgets/receive_transfer.rs:813
+msgid "Open"
+msgstr "打开"
+
+#: src/widgets/receive_transfer.rs:759
+#, rust-format
+msgid "Received \"{}\""
+msgstr "已收到 \"{}\""
+
+#: src/widgets/receive_transfer.rs:774
+msgid "Copy"
+msgstr "复制"
+
+#: src/widgets/receive_transfer.rs:789
+#, rust-format
+msgid "{} file received"
+msgid_plural "{} files received"
+msgstr[0] "已收到 {} 文件"
+
+#: src/widgets/recipient_card.rs:221
+msgid "Unavailable"
+msgstr "不可用"
+
+#: src/widgets/recipient_card.rs:244
+msgid "Queued"
+msgstr "排队中"
+
+#: src/widgets/recipient_card.rs:291
+msgid "Retry"
+msgstr "重试"
+
+#: src/widgets/recipient_card.rs:436
+msgid "Requested"
+msgstr "已请求"
+
+#: src/widgets/recipient_card.rs:499
+msgid "Failed"
+msgstr "失败"
+
+#: src/widgets/recipient_card.rs:542
+#, rust-format
+msgid "Sent {} file"
+msgid_plural "Sent {} files"
+msgstr[0] "已发送 {} 文件"
+
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr "无法更新 Nautilus 插件"
+
+#: src/window.rs:599 src/window.rs:985
+msgid "Packet cannot run in the background"
+msgstr "Packet 不能在后台运行"
+
+#: src/window.rs:635
+msgid "Packet cannot run at login"
+msgstr "Packet 不能在登录时运行"
+
+#: src/window.rs:700
+msgid "Can't rename device during an active transfer"
+msgstr "在传输进行中时无法重命名设备"
+
+#: src/window.rs:841
+msgid "Invalid Port"
+msgstr "端口无效"
+
+#: src/window.rs:845
+#, rust-format
+msgid ""
+"The chosen static port \"{}\" is not available. Try a different port above "
+"1024."
+msgstr "所选的静态端口 \"{}\" 不可用。请尝试使用 1024 以上的不同端口。"
+
+#: src/window.rs:853
+msgid "_Ok"
+msgstr "确定(_O)"
+
+#: src/window.rs:901
+msgid "Can't access Downloads folder"
+msgstr "无法访问下载文件夹"
+
+#: src/window.rs:902
+msgid "Pick Folder"
+msgstr "选择文件夹"
+
+#: src/window.rs:929
+msgid "Packet wants to run in the background"
+msgstr "Packet 想在后台运行"
+
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr "插件已安装"
+
+#: src/window.rs:1064
+msgid "Done"
+msgstr "完成"
+
+#: src/window.rs:1080
+#, rust-format
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr "插件已成功安装，但需要以下软件包才能正常工作：{}"
+
+#: src/window.rs:1096
+#, rust-format
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr "软件包名称可能因发行版而异，详情请访问 <a {}>此链接</a>。"
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr "完成后，重启 Nautilus（例如，注销后重新登录）以加载插件。"
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr "安装失败"
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr "关闭"
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr "插件安装失败。请确保以下目录存在且可被 Packet 访问："
+
+#: src/window.rs:1238
+msgid "Copied log to clipboard"
+msgstr "已将日志复制到剪贴板"
+
+#: src/window.rs:1506
+msgid "Ready"
+msgstr "准备就绪"
+
+#: src/window.rs:1513
+#, rust-format
+msgid "Visible as {:?}"
+msgstr "显示为 {:?}"
+
+#: src/window.rs:1519
+msgid "Invisible"
+msgstr "不可见"
+
+#: src/window.rs:1525
+msgid "No new devices can share with you"
+msgstr "没有新设备可以与你共享"
+
+#: src/window.rs:1530
+msgid "Disconnected"
+msgstr "已断开连接"
+
+#: src/window.rs:1536
+msgid "Connect to Wi-Fi and turn on Bluetooth"
+msgstr "连接到 Wi-Fi 并开启蓝牙"
+
+#: src/window.rs:1539
+msgid "Connect to Wi-Fi"
+msgstr "连接到 Wi-Fi"
+
+#: src/window.rs:1542
+msgid "Turn on Bluetooth"
+msgstr "开启蓝牙"
+
+#: src/window.rs:1615
+msgid "Couldn't open files"
+msgstr "无法打开文件"
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+msgid "Send with Packet"
+msgstr "使用 Packet 发送"
+
+#: data/io.github.nozwock.Packet.desktop.in.in:3
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
+msgid "Share files easily"
+msgstr "轻松共享文件"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.nozwock.Packet.desktop.in.in:9
+msgid "Gnome;GTK;Quick;Nearby;Share;"
+msgstr "Gnome;GTK;快速;附近;共享;"
+
+#. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
+#: data/io.github.nozwock.Packet.gschema.xml.in:7
+msgid "Window width"
+msgstr "窗口宽度"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:11
+msgid "Window height"
+msgstr "窗口高度"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:15
+msgid "Window maximized state"
+msgstr "窗口最大化状态"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:19
+msgid "Device name"
+msgstr "设备名称"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:23
+msgid "Device visibility"
+msgstr "设备可见性"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:27
+msgid "Download folder"
+msgstr "下载文件夹"
+
+#. Trasnlators: The metainfo strings are for Flathub and aren't a priority
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
+msgid ""
+"Send and receive files wirelessly with Android devices using Quick Share or "
+"another device with Packet installed."
+msgstr "使用 Quick Share 或已安装 Packet 的其他设备，通过无线方式与 Android "
+"设备发送和接收文件。"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
+msgid ""
+"Packet requires Bluetooth to be enabled and the devices to be connected to a "
+"Wi-Fi network with mDNS."
+msgstr "Packet 需要启用蓝牙，并且设备连接到具有 mDNS 的 Wi-Fi 网络。"
+
+#. Trasnlators: These are captions for the screenshots on Flathub
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
+msgid "Sent Share Request"
+msgstr "已发送共享请求"
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
+msgid "Received Share Request"
+msgstr "已接收共享请求"
