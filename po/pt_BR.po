@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 02:09+0000\n"
+"PO-Revision-Date: 2025-06-15 03:47+0000\n"
 "Last-Translator: Tarcísio Surdi <tarcisio.surdi@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "packet/main/pt_BR/>\n"
@@ -20,8 +20,6 @@ msgstr ""
 "X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Geral"
@@ -149,7 +147,7 @@ msgstr "Se outras pessoas podem ver este dispositivo"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Pasta de download"
+msgstr "Pasta de downloads"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
@@ -237,7 +235,7 @@ msgstr "Projetos semelhantes"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Não foi possível recuperar os relatórios"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -498,10 +496,8 @@ msgstr ""
 "e está acessível ao Packet:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Relatório copiado para a área de transferência"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -541,7 +537,7 @@ msgstr "Não foi possível abrir os arquivos"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "Enviar com o Packet…"
+msgstr "Enviar com o Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
