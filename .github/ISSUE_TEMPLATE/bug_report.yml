@@ -16,14 +16,22 @@ body:
     attributes:
       label: Logs
       description: |
-        Run the application with the following command and upload the log here (drag & drop or paste):
+        You can get the application logs in one of two ways:
 
-        **Flatpak:**
+        1. **From the App:**
+          Go to **About > Troubleshooting** to view or export logs.
+
+        2. **From the Terminal:**
+          Run the command below, then upload the generated `packet.log` file here (you can drag & drop or paste it).
+
+        **For Flatpak:**
+
         ```
         flatpak run io.github.nozwock.Packet | tee packet.log
         ```
 
-        **Non-Flatpak:**
+        **For Non-Flatpak:**
+
         ```
         export RUST_LOG=packet=debug,rqs_lib=debug
         packet | tee packet.log
@@ -51,5 +59,6 @@ body:
       placeholder: |
         Example:
         - Distro: Fedora 42
+        - Installation Method: AUR
     validations:
       required: false
