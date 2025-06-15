@@ -1,0 +1,589 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the packet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: packet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"PO-Revision-Date: 2025-06-15 04:33+0000\n"
+"Last-Translator: Ega <ega8642@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/packet/main/"
+"id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
+
+#: data/resources/ui/shortcuts.blp:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Umum"
+
+#: data/resources/ui/shortcuts.blp:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tampilkan Pintasan"
+
+#: data/resources/ui/shortcuts.blp:19
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Tampilkan Bantuan"
+
+#: data/resources/ui/shortcuts.blp:24
+msgctxt "shortcut window"
+msgid "Open Preferences"
+msgstr "Buka Preferensi"
+
+#: data/resources/ui/shortcuts.blp:29
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Keluar"
+
+#: data/resources/ui/window.blp:7
+msgid "_Preferences"
+msgstr "_Preferensi"
+
+#: data/resources/ui/window.blp:12
+msgid "_Help"
+msgstr "Ba_ntuan"
+
+#: data/resources/ui/window.blp:17
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan Ti_k"
+
+#: data/resources/ui/window.blp:22
+msgid "_About Packet"
+msgstr "Tent_ang Packet"
+
+#. Translators: The name should remain untranslated
+#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
+#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: data/io.github.nozwock.Packet.desktop.in.in:2
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
+msgid "Packet"
+msgstr "Packet"
+
+#: data/resources/ui/window.blp:52
+msgid "Setting up Packet…"
+msgstr ""
+
+#: data/resources/ui/window.blp:71
+msgid "Copy Log"
+msgstr "Salin Log"
+
+#: data/resources/ui/window.blp:85
+msgid "Couldn't Set Up"
+msgstr ""
+
+#: data/resources/ui/window.blp:86
+msgid "An error occurred while trying to setup Packet"
+msgstr "Galat saat mencoba menyetel Packet"
+
+#: data/resources/ui/window.blp:91
+msgid "Try Again"
+msgstr "Coba Lagi"
+
+#: data/resources/ui/window.blp:120
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+msgid "Main Page"
+msgstr ""
+
+#: data/resources/ui/window.blp:141
+msgid "Add, or drop a file to send"
+msgstr "Tambah, atau jatuhkan berkas untuk dikirim"
+
+#: data/resources/ui/window.blp:148
+msgid "Add Files"
+msgstr "Tambah Berkas"
+
+#: data/resources/ui/window.blp:163
+msgid "Selected Files Page"
+msgstr ""
+
+#: data/resources/ui/window.blp:203
+msgid "Add File"
+msgstr "Tambah Berkas"
+
+#: data/resources/ui/window.blp:298
+msgid "Send"
+msgstr "Kirim"
+
+#: data/resources/ui/window.blp:321
+msgid "Select Recipients"
+msgstr "Pilih Penerima"
+
+#: data/resources/ui/window.blp:391
+#, fuzzy
+msgid "Looking for devices…"
+msgstr "Mencari Perangkat…"
+
+#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+msgid "Can't see the other device?"
+msgstr "Tidak dapat melihat perangkat lain?"
+
+#: data/resources/ui/window.blp:418
+msgid "Preferences"
+msgstr "Preferensi"
+
+#: data/resources/ui/window.blp:423
+msgid "General"
+msgstr "Umum"
+
+#: data/resources/ui/window.blp:426
+msgid "Device Name"
+msgstr "Nama Perangkat"
+
+#: data/resources/ui/window.blp:431
+msgid "Visibility"
+msgstr "Visibilitas"
+
+#: data/resources/ui/window.blp:432
+msgid "Whether others can see this device"
+msgstr "Apakah orang lain dapat melihat perangkat ini"
+
+#: data/resources/ui/window.blp:436
+msgid "Downloads Folder"
+msgstr "Folder Unduhan"
+
+#: data/resources/ui/window.blp:442
+msgid "Pick download folder"
+msgstr "Pilih Folder Unduhan"
+
+#: data/resources/ui/window.blp:453
+msgid "Run in Background"
+msgstr "Jalan di latar belakang"
+
+#: data/resources/ui/window.blp:454
+msgid "Allow running in the background"
+msgstr "Perbolehkan untuk jalan di latar belakang"
+
+#: data/resources/ui/window.blp:458
+msgid "Auto Start"
+msgstr ""
+
+#: data/resources/ui/window.blp:459
+msgid "Start automatically at login"
+msgstr "Mulai otomatis saat log masuk"
+
+#: data/resources/ui/window.blp:464
+msgid "Advanced"
+msgstr "Tingkat Lanjut"
+
+#: data/resources/ui/window.blp:467
+msgid "Nautilus Plugin"
+msgstr "Pengaya Nautilus"
+
+#: data/resources/ui/window.blp:468
+msgid "Integrate with Nautilus file menu"
+msgstr "Intergrasikan dengan menu berkas Nautilus"
+
+#: data/resources/ui/window.blp:474
+msgid "Static Network Port"
+msgstr "Porta Jaringan Statik"
+
+#. Translators: For whitelisting of the app.
+#: data/resources/ui/window.blp:476
+msgid "For whitelisting through a firewall"
+msgstr ""
+
+#: data/resources/ui/window.blp:481
+msgid "Port Number"
+msgstr "Nomor Porta"
+
+#: data/resources/ui/window.blp:490
+msgid "Help"
+msgstr "Bantuan"
+
+#: data/resources/ui/window.blp:541
+msgid ""
+"Make sure both devices are connected to the same Wi-Fi network and have "
+"Bluetooth turned on"
+msgstr ""
+
+#: data/resources/ui/window.blp:564
+msgid "Make sure the device is set to be visible to all nearby devices"
+msgstr ""
+
+#: data/resources/ui/window.blp:587
+msgid ""
+"For an Android device, try opening the <b>Quick Share</b> page in the "
+"<b>Files by Google</b> app"
+msgstr ""
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.rs:253
+msgid "translator-credits"
+msgstr ""
+
+#: src/application.rs:258
+msgid "Loading logs..."
+msgstr "Memuat Log..."
+
+#: src/application.rs:262
+msgid "Similar Projects"
+msgstr "Ega Natha <ega8642@gmail.com>"
+
+#: src/application.rs:282 src/window.rs:1231
+#, fuzzy
+msgid "Failed to retrieve the logs"
+msgstr "Galat untuk mengambil log"
+
+#: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
+#: src/widgets/recipient_card.rs:147
+msgid "Unknown device"
+msgstr "Perangkat Tak dikenal"
+
+#: src/utils.rs:291
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "jam"
+
+#: src/utils.rs:293 src/utils.rs:303
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "menit"
+
+#: src/utils.rs:305 src/utils.rs:308
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "detik"
+
+#: src/widgets/file_card.rs:116
+msgid "Remove"
+msgstr "Buang"
+
+#. Translators: An e.g. "4 Files"
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/window.rs:1624
+#, rust-format
+msgid "{} File"
+msgid_plural "{} Files"
+msgstr[0] "{} Berkas"
+
+#: src/widgets/receive_transfer.rs:23
+msgid "Link"
+msgstr "Tautan"
+
+#: src/widgets/receive_transfer.rs:24
+msgid "Text"
+msgstr "Teks"
+
+#: src/widgets/receive_transfer.rs:25
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/receive_transfer.rs:64
+msgid "Receiving"
+msgstr "Menerima"
+
+#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
+#: src/widgets/recipient_card.rs:310
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
+msgid "Incoming Transfer"
+msgstr ""
+
+#: src/widgets/receive_transfer.rs:194
+msgid "Receiving..."
+msgstr "Menerima..."
+
+#: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
+msgid "Decline"
+msgstr "Tolak"
+
+#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
+msgid "Accept"
+msgstr "Terima"
+
+#. Translators: An e.g. "6 Files (42.3MB)"
+#: src/widgets/receive_transfer.rs:308
+#, rust-format
+msgid "{} file ({})"
+msgid_plural "{} files ({})"
+msgstr[0] "{} berkas ({})"
+
+#: src/widgets/receive_transfer.rs:327
+#, rust-format
+msgid "Preview ({})"
+msgstr "Pratinjau ({})"
+
+#. Translators: This is the pin-code for the transfer
+#: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
+msgid "Code: {}"
+msgstr "Kode: {}"
+
+#: src/widgets/receive_transfer.rs:404
+msgid "Request timed out"
+msgstr "Waktu permintaan habis"
+
+#. Translators: This is when some device is sharing files or text
+#. e.g. (Someone's Phone wants to share 4 files)
+#. e.g. (Someone's Phone wants to share "lorem ipsum ...")
+#: src/widgets/receive_transfer.rs:417
+#, rust-format
+msgid "{} wants to share {}"
+msgstr "{} ingin membagikan {}"
+
+#. Translators: {} will be replaced with an estimated remaining time string
+#. e.g. "About 4 minutes 32 seconds left"
+#: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
+msgid "About {} left"
+msgstr "Sekitar {} lagi"
+
+#: src/widgets/receive_transfer.rs:519
+msgid "Unexpected dissconnection"
+msgstr ""
+
+#: src/widgets/receive_transfer.rs:552
+msgid "Transfer cancelled by sender"
+msgstr "Transfer dibatalkan oleh pengirim"
+
+#: src/widgets/receive_transfer.rs:599
+msgid "Copy to clipboard"
+msgstr "Salin ke papan klip"
+
+#: src/widgets/receive_transfer.rs:607
+msgid "Save text as file"
+msgstr "Simpan teks sebagai berkas"
+
+#: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
+#: src/widgets/receive_transfer.rs:813
+msgid "Open"
+msgstr "Buka"
+
+#: src/widgets/receive_transfer.rs:759
+#, rust-format
+msgid "Received \"{}\""
+msgstr "Menerima \"{}\""
+
+#: src/widgets/receive_transfer.rs:774
+msgid "Copy"
+msgstr "Salin"
+
+#: src/widgets/receive_transfer.rs:789
+#, rust-format
+msgid "{} file received"
+msgid_plural "{} files received"
+msgstr[0] "{} berkas diterima"
+
+#: src/widgets/recipient_card.rs:221
+msgid "Unavailable"
+msgstr "Tidak tersedia"
+
+#: src/widgets/recipient_card.rs:244
+msgid "Queued"
+msgstr "Antrean"
+
+#: src/widgets/recipient_card.rs:291
+msgid "Retry"
+msgstr "Coba lagi"
+
+#: src/widgets/recipient_card.rs:436
+msgid "Requested"
+msgstr ""
+
+#: src/widgets/recipient_card.rs:499
+msgid "Failed"
+msgstr "Gagal"
+
+#: src/widgets/recipient_card.rs:542
+#, rust-format
+msgid "Sent {} file"
+msgid_plural "Sent {} files"
+msgstr[0] "Terkirim {} berkas"
+
+#: src/window.rs:507
+msgid "Couldn't update the Nautilus plugin"
+msgstr ""
+
+#: src/window.rs:599 src/window.rs:985
+msgid "Packet cannot run in the background"
+msgstr "Packet tidak dapat jalan di latar belakang"
+
+#: src/window.rs:635
+msgid "Packet cannot run at login"
+msgstr "Packet tidak dapat jalan pada saat log masuk"
+
+#: src/window.rs:700
+msgid "Can't rename device during an active transfer"
+msgstr ""
+
+#: src/window.rs:841
+msgid "Invalid Port"
+msgstr "Porta tidak valid"
+
+#: src/window.rs:845
+#, fuzzy, rust-format
+msgid ""
+"The chosen static port \"{}\" is not available. Try a different port above "
+"1024."
+msgstr "Porta \"{}\" yang dipilih tidak tersedia. Coba porta lain diatas 1024."
+
+#: src/window.rs:853
+msgid "_Ok"
+msgstr "_Oke"
+
+#: src/window.rs:901
+msgid "Can't access Downloads folder"
+msgstr "Tidak dapat mengakses folder Unduhan"
+
+#: src/window.rs:902
+msgid "Pick Folder"
+msgstr "Pilih Folder"
+
+#: src/window.rs:929
+msgid "Packet wants to run in the background"
+msgstr "Packet ingin jalan di latar belakang"
+
+#: src/window.rs:1060
+msgid "Plugin Installed"
+msgstr "Pengaya Terinstal"
+
+#: src/window.rs:1064
+msgid "Done"
+msgstr ""
+
+#: src/window.rs:1080
+#, rust-format
+msgid ""
+"The plugin was installed successfully, but requires the following packages "
+"to function: {}"
+msgstr ""
+
+#: src/window.rs:1096
+#, rust-format
+msgid ""
+"Package names may vary by distribution, visit <a {}>this link</a> for "
+"details."
+msgstr ""
+
+#: src/window.rs:1111
+msgid ""
+"Once that's done, restart Nautilus (e.g., by logging out and back in) to "
+"load the plugin."
+msgstr ""
+
+#: src/window.rs:1121
+msgid "Installation Failed"
+msgstr ""
+
+#: src/window.rs:1125
+msgid "Close"
+msgstr ""
+
+#: src/window.rs:1139
+msgid ""
+"Plugin installation failed. Make sure the following directory exists and is "
+"accessible by Packet:"
+msgstr ""
+
+#: src/window.rs:1238
+msgid "Copied log to clipboard"
+msgstr "Log tersalin ke papan klip"
+
+#: src/window.rs:1506
+msgid "Ready"
+msgstr "Siap"
+
+#: src/window.rs:1513
+#, rust-format
+msgid "Visible as {:?}"
+msgstr "Terlihat sebagai {:?}"
+
+#: src/window.rs:1519
+msgid "Invisible"
+msgstr "Tak Terlihat"
+
+#: src/window.rs:1525
+msgid "No new devices can share with you"
+msgstr ""
+
+#: src/window.rs:1530
+msgid "Disconnected"
+msgstr "Terputus"
+
+#: src/window.rs:1536
+msgid "Connect to Wi-Fi and turn on Bluetooth"
+msgstr "Sambungkan ke Wi-Fi dan nyalakan Bluetooth"
+
+#: src/window.rs:1539
+msgid "Connect to Wi-Fi"
+msgstr "Sambungkan ke Wi-Fi"
+
+#: src/window.rs:1542
+msgid "Turn on Bluetooth"
+msgstr ""
+
+#: src/window.rs:1615
+msgid "Couldn't open files"
+msgstr ""
+
+#: data/resources/plugins/packet_nautilus.py.in:113
+msgid "Send with Packet"
+msgstr ""
+
+#: data/io.github.nozwock.Packet.desktop.in.in:3
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
+msgid "Share files easily"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.github.nozwock.Packet.desktop.in.in:9
+msgid "Gnome;GTK;Quick;Nearby;Share;"
+msgstr ""
+
+#. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
+#: data/io.github.nozwock.Packet.gschema.xml.in:7
+msgid "Window width"
+msgstr ""
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:11
+msgid "Window height"
+msgstr ""
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:15
+msgid "Window maximized state"
+msgstr ""
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:19
+msgid "Device name"
+msgstr "Nama perangkat"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:23
+msgid "Device visibility"
+msgstr "Visibilitas perangkat"
+
+#: data/io.github.nozwock.Packet.gschema.xml.in:27
+msgid "Download folder"
+msgstr "Folder unduhan"
+
+#. Trasnlators: The metainfo strings are for Flathub and aren't a priority
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
+msgid ""
+"Send and receive files wirelessly with Android devices using Quick Share or "
+"another device with Packet installed."
+msgstr ""
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
+msgid ""
+"Packet requires Bluetooth to be enabled and the devices to be connected to a "
+"Wi-Fi network with mDNS."
+msgstr ""
+
+#. Trasnlators: These are captions for the screenshots on Flathub
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
+msgid "Sent Share Request"
+msgstr ""
+
+#: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
+msgid "Received Share Request"
+msgstr ""
