@@ -8,57 +8,57 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-15 03:47+0000\n"
-"Last-Translator: Tarcísio Surdi <tarcisio.surdi@pm.me>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"packet/main/pt_BR/>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2025-06-15 04:33+0000\n"
+"Last-Translator: Ega <ega8642@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/packet/main/"
+"id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Geral"
+msgstr "Umum"
 
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Exibir Atalhos"
+msgstr "Tampilkan Pintasan"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Exibir Ajuda"
+msgstr "Tampilkan Bantuan"
 
 #: data/resources/ui/shortcuts.blp:24
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Abrir Preferências"
+msgstr "Buka Preferensi"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Sair"
+msgstr "Keluar"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Preferências"
+msgstr "_Preferensi"
 
 #: data/resources/ui/window.blp:12
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "Ba_ntuan"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Atalhos de teclado"
+msgstr "Pintasan Papan Ti_k"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_Sobre o Packet"
+msgstr "Tent_ang Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -70,215 +70,208 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Configurando o Packet…"
+msgstr ""
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr "Copiar relatório"
+msgstr "Salin Log"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Não foi possível realizar a configuração inicial"
+msgstr ""
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Um erro ocorreu durante a configuração inicial do Packet"
+msgstr "Galat saat mencoba menyetel Packet"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "Tentar novamente"
+msgstr "Coba Lagi"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "Página principal"
+msgstr ""
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "Adicione ou solte um arquivo para enviar"
+msgstr "Tambah, atau jatuhkan berkas untuk dikirim"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "Adicionar arquivos"
+msgstr "Tambah Berkas"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr "Página de arquivos selecionados"
+msgstr ""
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "Adicionar arquivo"
+msgstr "Tambah Berkas"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "Enviar"
+msgstr "Kirim"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "Selecionar destinatários"
+msgstr "Pilih Penerima"
 
 #: data/resources/ui/window.blp:391
+#, fuzzy
 msgid "Looking for devices…"
-msgstr "Buscando dispositivos…"
+msgstr "Mencari Perangkat…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr "Não encontra outros dispositivos?"
+msgstr "Tidak dapat melihat perangkat lain?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "Preferências"
+msgstr "Preferensi"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "Geral"
+msgstr "Umum"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "Nome do dispositivo"
+msgstr "Nama Perangkat"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "Visibilidade"
+msgstr "Visibilitas"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Se outras pessoas podem ver este dispositivo"
+msgstr "Apakah orang lain dapat melihat perangkat ini"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Pasta de downloads"
+msgstr "Folder Unduhan"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "Escolha uma pasta de download"
+msgstr "Pilih Folder Unduhan"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "Executar em segundo plano"
+msgstr "Jalan di latar belakang"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr "Permitir execução em segundo plano"
+msgstr "Perbolehkan untuk jalan di latar belakang"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "Início automático"
+msgstr ""
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr "Iniciar automaticamente junto à sessão"
+msgstr "Mulai otomatis saat log masuk"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Avançado"
+msgstr "Tingkat Lanjut"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr "Plugin do Nautilus"
+msgstr "Pengaya Nautilus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr "Integrar ao menu de arquivos do Nautilus"
+msgstr "Intergrasikan dengan menu berkas Nautilus"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr "Porta de Rede Estática"
+msgstr "Porta Jaringan Statik"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "Permitir aplicativo através do firewall"
+msgstr ""
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr "Número da porta"
+msgstr "Nomor Porta"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
-msgstr "Ajuda"
+msgstr "Bantuan"
 
 #: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Certifique-se de que ambos os dispositivos estejam conectados a mesma rede "
-"Wi-Fi e com o Bluetooth ligado"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
-"Certifique-se de que seu dispositivo está configurado como visível para "
-"todos os dispositivos próximos"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"Para aparelhos Android, tente abrir a página <b>Quick Share</b> no "
-"aplicativo <b>Arquivos de Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "John Peter Sa"
+msgstr ""
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr "Carregando relatórios..."
+msgstr "Memuat Log..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "Projetos semelhantes"
+msgstr "Ega Natha <ega8642@gmail.com>"
 
 #: src/application.rs:282 src/window.rs:1231
+#, fuzzy
 msgid "Failed to retrieve the logs"
-msgstr "Não foi possível recuperar os relatórios"
+msgstr "Galat untuk mengambil log"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "Dispositivo desconhecido"
+msgstr "Perangkat Tak dikenal"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "hora"
-msgstr[1] "horas"
+msgstr[0] "jam"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "minuto"
-msgstr[1] "minutos"
+msgstr[0] "menit"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "segundo"
-msgstr[1] "segundos"
+msgstr[0] "detik"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "Remover"
+msgstr "Buang"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} Arquivo"
-msgstr[1] "{} Arquivos"
+msgstr[0] "{} Berkas"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Link"
+msgstr "Tautan"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "Texto"
+msgstr "Teks"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
@@ -286,293 +279,292 @@ msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "Recebendo"
+msgstr "Menerima"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Batal"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Transferência de entrada"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr "Recebendo..."
+msgstr "Menerima..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "Declínio"
+msgstr "Tolak"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "Aceitar"
+msgstr "Terima"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} arquivo ({})"
-msgstr[1] "{} arquivos ({})"
+msgstr[0] "{} berkas ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
-msgstr "Visualizar ({})"
+msgstr "Pratinjau ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
-msgstr "Código: {}"
+msgstr "Kode: {}"
 
 #: src/widgets/receive_transfer.rs:404
 msgid "Request timed out"
-msgstr "A solicitação expirou"
+msgstr "Waktu permintaan habis"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr "{} quer compartilhar {}"
+msgstr "{} ingin membagikan {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
-msgstr "Cerca de {} restantes"
+msgstr "Sekitar {} lagi"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "Desconexão inesperada"
+msgstr ""
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Transferência cancelada pelo remetente"
+msgstr "Transfer dibatalkan oleh pengirim"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Salin ke papan klip"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Salvar texto como arquivo"
+msgstr "Simpan teks sebagai berkas"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "Abrir"
+msgstr "Buka"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr "Você recebeu \"{}\""
+msgstr "Menerima \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Salin"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "{} arquivo recebido"
-msgstr[1] "{} arquivos recebidos"
+msgstr[0] "{} berkas diterima"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "Indisponível"
+msgstr "Tidak tersedia"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "Na fila"
+msgstr "Antrean"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "Tentar novamente"
+msgstr "Coba lagi"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Solicitado"
+msgstr ""
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr "Fracassado"
+msgstr "Gagal"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "Arquivo {} enviado"
-msgstr[1] "Arquivos {} enviados"
+msgstr[0] "Terkirim {} berkas"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr "Não foi possível atualizar o plugin do Nautilus"
+msgstr ""
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "O Packet não pode executar em segundo plano"
+msgstr "Packet tidak dapat jalan di latar belakang"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "O Packet não pode iniciar junto à sessão"
+msgstr "Packet tidak dapat jalan pada saat log masuk"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "Não é possível renomear o dispositivo durante uma transferência ativa"
+msgstr ""
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr "Porta inválida"
+msgstr "Porta tidak valid"
 
 #: src/window.rs:845
+#, fuzzy, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
-msgstr ""
-"A porta estática escolhida \"{}\" está indisponível. Tente uma porta "
-"diferente acima de 1024."
+msgstr "Porta \"{}\" yang dipilih tidak tersedia. Coba porta lain diatas 1024."
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "_Ok"
+msgstr "_Oke"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "Não foi possível acessar a pasta de downloads"
+msgstr "Tidak dapat mengakses folder Unduhan"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "Escolha uma pasta"
+msgstr "Pilih Folder"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "O Packet quer executar em segundo plano"
+msgstr "Packet ingin jalan di latar belakang"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr "Plugin instalado"
+msgstr "Pengaya Terinstal"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr "Concluído"
+msgstr ""
 
 #: src/window.rs:1080
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
-"O plugin foi instalado com sucesso, mas requer os seguintes pacotes para "
-"funcionar: {}"
 
 #: src/window.rs:1096
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
-"Os nomes dos pacotes podem variar conforme a distribuição, visite <a {}>esse "
-"link</a> para detalhes."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
-"Assim que isso estiver pronto, reinicie o Nautilus (ex., encerrando a sessão "
-"e logando-se novamente) para carregar o plugin."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr "A instalação falhou"
+msgstr ""
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr "Fechar"
+msgstr ""
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
-"A instalação do plugin falhou. Certifique-se de que a pasta a seguir existe "
-"e está acessível ao Packet:"
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
-msgstr "Relatório copiado para a área de transferência"
+msgstr "Log tersalin ke papan klip"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr "Preparar"
+msgstr "Siap"
 
 #: src/window.rs:1513
+#, rust-format
 msgid "Visible as {:?}"
-msgstr "Visível como {:?}"
+msgstr "Terlihat sebagai {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr "Invisível"
+msgstr "Tak Terlihat"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr "Nenhum novo dispositivo pode compartilhar com você"
+msgstr ""
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr "Desconectado"
+msgstr "Terputus"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Conecte-se ao Wi-Fi e ative o Bluetooth"
+msgstr "Sambungkan ke Wi-Fi dan nyalakan Bluetooth"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "Conecte-se ao Wi-Fi"
+msgstr "Sambungkan ke Wi-Fi"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "Ative o Bluetooth"
+msgstr ""
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr "Não foi possível abrir os arquivos"
+msgstr ""
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "Enviar com o Packet"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Compartilhe arquivos facilmente"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;GTK;Quick;Nearby;Share;"
+msgstr ""
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "Largura da janela"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "Altura da janela"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "Estado maximizado da janela"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "Nome do dispositivo"
+msgstr "Nama perangkat"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "Visibilidade do dispositivo"
+msgstr "Visibilitas perangkat"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Pasta de download"
+msgstr "Folder unduhan"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -580,71 +572,18 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Envie e receba arquivos sem fio com dispositivos Android usando o Quick "
-"Share ou outro dispositivo com o Packet instalado."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"O pacote requer que o Bluetooth esteja habilitado e que os dispositivos "
-"estejam conectados a uma rede Wi-Fi com mDNS."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "Enviado pedido de compartilhamento"
+msgstr ""
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Solicitação de compartilhamento recebida"
-
-#~ msgid "Copy error report"
-#~ msgstr "Copiar relatório de erro"
-
-#~ msgid "Copied error report to clipboard"
-#~ msgstr "Relatório de erro copiado para a área de transferência"
-
-#, fuzzy
-#~| msgid "{} file ({})"
-#~| msgid_plural "{} files ({})"
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "{} arquivo ({})"
-#~ msgstr[1] "{} arquivos ({})"
-
-#~ msgid "Network"
-#~ msgstr "Rede"
-
-#~ msgid ""
-#~ "Make sure the other device is visible and connected to the same network "
-#~ "as this device.\n"
-#~ "\n"
-#~ "If it's an Android device and you still don't see it despite setting "
-#~ "visibility to \"Everyone\", try opening the <b>Quick Share</b> page from "
-#~ "the <b>Google Files</b> app and leave it open.\n"
-#~ "\n"
-#~ "Also, ensure Bluetooth is enabled on both devices, as it's often required "
-#~ "for device discovery even over Wi-Fi."
-#~ msgstr ""
-#~ "Certifique-se de que o outro dispositivo esteja visível e conectado à "
-#~ "mesma rede que este.\n"
-#~ "\n"
-#~ "Se for um dispositivo Android e você ainda não o vir, mesmo com a "
-#~ "visibilidade definida como \"Todos\", tente abrir a página do "
-#~ "<b>Compartilhamento rápido</b> no aplicativo <b>Arquivos do Google</b> e "
-#~ "deixe-a aberta.\n"
-#~ "\n"
-#~ "Além disso, certifique-se de que o Bluetooth esteja ativado em ambos os "
-#~ "dispositivos, pois ele geralmente é necessário para a descoberta de "
-#~ "dispositivos, mesmo via Wi-Fi."
-
-#~ msgid "Unimplemented"
-#~ msgstr "Não implementado"
-
-#~ msgid "Home Page"
-#~ msgstr "Página inicial"
-
-#~ msgid "Added Dutch translation"
-#~ msgstr "Adicionada tradução holandesa"
+msgstr ""
