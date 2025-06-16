@@ -1481,7 +1481,14 @@ impl PacketApplicationWindow {
 
                         tracing::debug!(
                             endpoint_info = %obj.endpoint_info(),
-                            last_state = ?(obj.transfer_state(), &obj.event().unwrap().msg.as_client().unwrap().state),
+                            last_state = ?(
+                                obj.transfer_state(),
+                                &obj.event()
+                                    .as_ref()
+                                    .and_then(|it| it.msg.as_client())
+                                    .as_ref()
+                                    .map(|msg| &msg.state),
+                            ),
                             model_item_pos = actual_pos,
                             was_model_item_cached = removed_model_item.is_some(),
                             "Removed recipient card"
