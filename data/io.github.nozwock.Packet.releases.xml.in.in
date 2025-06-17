@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.5.3" date="2025-06-17">
+    <description translatable="no">
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed Packet crashing on refreshing the recipient list</li>
+      </ul>
+      <p>Translations</p>
+      <ul>
+        <li>Added Indonesian translation</li>
+        <li>Added Finnish translation</li>
+        <li>Updated Portuguese (Brazil) translation</li>
+        <li>Updated Estonian translation</li>
+        <li>Updated French translation</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.5.2" date="2025-06-14">
     <url type="details">https://github.com/nozwock/packet/compare/0.5.1...0.5.2</url>
     <description translatable="no">
