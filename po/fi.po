@@ -1,18 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the packet package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-17 09:25+0000\n"
-"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/packet/main/et/>"
+"PO-Revision-Date: 2025-06-17 12:49+0000\n"
+"Last-Translator: Onni Mäkitalo <makitalo.onni@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/packet/main/fi/>"
 "\n"
-"Language: et\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,43 +22,43 @@ msgstr ""
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Üldised"
+msgstr "Yleiset"
 
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Näita klaviatuuri kiirklahve"
+msgstr "Pikanäppäimet"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Näita abiteavet"
+msgstr "Näytä ohje"
 
 #: data/resources/ui/shortcuts.blp:24
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Ava eelistused"
+msgstr "Näytä asetukset"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Välju"
+msgstr "Lopeta"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Eelistused"
+msgstr "_Asetukset"
 
 #: data/resources/ui/window.blp:12
 msgid "_Help"
-msgstr "_Abiteave"
+msgstr "_Apua"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Klaviatuuri kiirklahvid"
+msgstr "_Pikanäppäimet"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_Rakenduse teave: Packet"
+msgstr "_Tietoja - Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -70,510 +70,520 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Packet on seadistamisel…"
+msgstr "Packetia valmistellaan…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr "Kopeeri logi"
+msgstr "Kopioi loki"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Algseadistamine ei õnnestunud"
+msgstr "Käyttöönotto epäonnistui"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Packeti seadistamisel tekkis viga"
+msgstr "Packetin määrityksessä tapahtui virhe"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "Proovi uuesti"
+msgstr "Yritä uudelleen"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "Põhivaade"
+msgstr "Etusivu"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "Lisa valijast või lohista siia saadetavad failid"
+msgstr "Lisää tai pudota tiedosto lähetettäväksi"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "Lisa faile"
+msgstr "Lisää tiedostoja"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr "Valitud failide leht"
+msgstr "Valitut tiedostot"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "Lisa fail"
+msgstr "Lisää tiedosto"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "Saada"
+msgstr "Lähetä"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "Vali vastuvõtjad"
+msgstr "Valitse vastaanottajat"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "Otsin seadmeid…"
+msgstr "Etsitään laitteita…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr "Kas teine seade pole nähtav?"
+msgstr "Eikö toinen laite näy?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "Eelistused"
+msgstr "Asetukset"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "Üldised"
+msgstr "Yleiset"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "Seadme nimi"
+msgstr "Laitteen nimi"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "Nähtavus"
+msgstr "Näkyvyys"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Kas muud kasutajad saavad seda seadet näha"
+msgstr "Näkevätkö muut tämän laitteen"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Allalaadimiste kaust"
+msgstr "Latauskansio"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "Vali kaust allalaadimiste jaoks"
+msgstr "Valitse latauskansio"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "Käivita rakendus taustal"
+msgstr "Suorita taustalla"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr "Võimalda rakenduse töötamist taustateenusena"
+msgstr "Salli suorittaminen taustalla"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "Käivita automaatselt"
+msgstr "Käynnistä automaattisesti"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr "Sisselogimisel käivita rakendus automaatselt"
+msgstr "Käynnistä sovellus kirjautumisen yhteydessä"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Täiendavad seadistused"
+msgstr "Lisäasetukset"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr "Nautiluse lisamoodul"
+msgstr "Nautiluksen laajennus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr "Lõiming Nautiluse failimenüüga"
+msgstr "Integroi nautiluksen tiedostovalikkoon"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr "Staatiline võrguport"
+msgstr "Staattinen verkkoportti"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "Võimaldab sul seadistada päringute lubamist läbi tulemüüri"
+msgstr "Mahdollistaa pyyntöjen lähettämisen palomuurin läpi"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr "Pordi number"
+msgstr "Portti"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
-msgstr "Abiteave"
+msgstr "Apua"
 
 #: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Palun kontrolli, et mõlemad seadmed on ühendatud samasse WiFi võrku ning "
-"Bluetooth on sisse lülitatud"
+"Varmista, että molemmat laitteet on kytketty samaan Wi-Fi-verkkoon ja "
+"Bluetooth on päällä"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr ""
-"Palun kontrolli, et see seade on nähtav kõigile lähikonnas asuvatele "
-"seadmetele"
+msgstr "Vatmista, että laite näkyy kaikille lähellä oleville"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"Androidi seadmes proovi avada <b>Kiirjagamise (Quick Share)</b> leht "
-"<b>Google'i failihalduris (Files by Google)</b>"
+"Android-laitteella kokeile avata <b> Quick Share </b> -sivu <b>Files by "
+"Google </b> -sovelluksessa"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "Priit Jõerüüt 2025"
+msgstr "Onni Mäkitalo"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr "Laadin logisid..."
+msgstr "Ladataan lokeja..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "Sarnased projektid"
+msgstr "Samanlaiset projektit"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr "Logide laadimine ei õnnestunud"
+msgstr "Lokien nouto epäonnistui"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "Tundmatu seade"
+msgstr "Tuntematon laite"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "tund"
-msgstr[1] "tundi"
+msgstr[0] "tunti"
+msgstr[1] "tuntia"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "minut"
-msgstr[1] "minutit"
+msgstr[0] "minuutti"
+msgstr[1] "minuuttia"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "sekund"
-msgstr[1] "sekundit"
+msgstr[0] "sekunti"
+msgstr[1] "sekuntia"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "Eemalda"
+msgstr "Poista"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} fail"
-msgstr[1] "{} faili"
+msgstr[0] "{} tiedosto"
+msgstr[1] "{} tiedostoa"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Link"
+msgstr "Linkki"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "Tekst"
+msgstr "Teksti"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
-msgstr "WiFi"
+msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "Võtan vastu"
+msgstr "Vastaanotetaan"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Katkesta"
+msgstr "Peruuta"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Saabuv ülekanne"
+msgstr "Saapuva siirto"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr "Võtan vastu..."
+msgstr "Vastaanotetaan..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "Keeldu"
+msgstr "Hylkää"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "Nõustu"
+msgstr "Hyväksy"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} fail ({})"
-msgstr[1] "{} faili ({})"
+msgstr[0] "{} tiedosto ({})"
+msgstr[1] "{} tiedostoa ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
-msgstr "Eelvaade ({})"
+msgstr "Esikatselu ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
-msgstr "Kood: {}"
+msgstr "Koodi: {}"
 
 #: src/widgets/receive_transfer.rs:404
 msgid "Request timed out"
-msgstr "Päring aegus"
+msgstr "Pyyntö aikakatkaistiin"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr "{} soovib jagada {}"
+msgstr "{} haluaa jakaa {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
-msgstr "Jäänud veel umbes {}"
+msgstr "Noin {} jäljellä"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "Ühenduse ootamatu katkemine"
+msgstr "Yhteys katkesi yllättäen"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Saatja on katkestanud ülekande"
+msgstr "Lähettääjä perui siirron"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "Kopeeri lõikelauale"
+msgstr "Kopioi leikepöydälle"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Salvesta tekst failina"
+msgstr "Tallenna tiedostona"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "Ava"
+msgstr "Avaa"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr "Vastu võetud: {}"
+msgstr "Vastaanotettu \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "Kopeeri"
+msgstr "Kopioi"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "{} fail on vastu võetud"
-msgstr[1] "{} faili on vastu võetud"
+msgstr[0] "{} tiedosto vastaanotettu"
+msgstr[1] "{} tiedostoa vastaanotettu"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "Pole saadaval"
+msgstr "Ei saatavilla"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "Lisatud järjekorda"
+msgstr "Jonossa"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "Proovi uuesti"
+msgstr "Yritä uudelleen"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Päring saadetud"
+msgstr "Pyydetty"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr "Ebaõnnestunud"
+msgstr "Epäonnistui"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "Saatsin {} faili"
-msgstr[1] "Saatsin {} faili"
+msgstr[0] "Lähetetty {} tiedosto"
+msgstr[1] "Lähetetty {} tiedostoa"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr "Nautiluse lisamooduli uuendamine ei õnnestunud"
+msgstr "Nautiluksen laajennuksen päivitys epäonnistui"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "Packet käivitamine taustal ei õnnestu"
+msgstr "Packetia ei voida suorittaa taustalla"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "Packet käivitamine sisselogimisel ei õnnestu"
+msgstr "Packetia ei voida käynnistää kirjautumisen yhteydessä"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "Pooleli ülekande ajal polnud võimalik seadme nime muuta"
+msgstr "Laitetta ei voi nimetä uudelleen siirron aikana"
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr "Vigane port"
+msgstr "Portti ei kelpaa"
 
 #: src/window.rs:845
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
-"Valitud staatline port „{}“ pole kasutatav. Proovi mõnda muud porti, mille "
-"number on suurem, kui 1024."
+"Valittu staattinen portti \"{}\" ei ole käytettävissä. Yritä muuta porttia, "
+"joka on yli 1024."
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "S_obib"
+msgstr "_Ok"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "Allalaadimiste kaustale puudub ligipääs"
+msgstr "Ei pääsyä latauskansioon"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "Vali kaust"
+msgstr "Valitse kansio"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "Packet soovib töötada taustal"
+msgstr "Packet haluaa toimia taustalla"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr "Lisamoodul on paigaldatud"
+msgstr "Laajennus asennettu"
 
 #: src/window.rs:1064
 msgid "Done"
 msgstr "Valmis"
 
 #: src/window.rs:1080
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
-"Lisamooduli paigaldamine õnnetus, aga ta vajab toimimiseks järgmisi pakette: "
-"{}"
+"Laajennus asennettiin onnistuneesti, mutta sen toimintaan tarvitaan "
+"seuraavat paketit: {}"
 
 #: src/window.rs:1096
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
-"Pakettide nimed võivad distributsiooniti erineda, üksikasjalikumat teavet <a "
-"{}>leiad siit</a>."
+"Pakettien nimet voivat vaihdella jakelun mukaan, katso lisätietoja <a {}"
+">tästä linkistä</a>."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
-"Kui see on tehtud, siis käivita Nautilus uuesti (näiteks logid välja ja "
-"uuesti sisse) ning lisamoodul saab laaditud."
+"Kun se on tehty, käynnistä Nautilus uudelleen (esim. kirjautumalla ulos ja "
+"takaisin sisään), jotta laajennus latautuu."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr "Paigaldamine ei õnnestunud"
+msgstr "Asennus epäonnistui"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr "Sulge"
+msgstr "Sulje"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
-"Lisamooduli paigaldamine ei õnnestunud. Palun kontrolli, et järgnev kaust on "
-"olemas ja Packet saab sealt faile lugeda:"
+"Laajennuksen asentaminen epäonnistui. Varmista, että seuraava hakemisto on "
+"olemassa ja Packetilla on siihen käyttöoikeus:"
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
-msgstr "Logi on kopeeritud lõikelauale"
+msgstr "Loki kopioitiin leikepöydälle"
 
 #: src/window.rs:1506
 msgid "Ready"
 msgstr "Valmis"
 
 #: src/window.rs:1513
+#, rust-format
 msgid "Visible as {:?}"
-msgstr "Nähtav kui {:?}"
+msgstr "Näkyy nimellä {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr "Nähtamatu"
+msgstr "Näkymätön"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr "Ükski uus seade ei saa enam faile jagada"
+msgstr "Uudet laitteet eivät voi jakaa tiedostoja kanssasi"
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr "Ühendus on katkestatud"
+msgstr "Yhteys katkaistu"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Ühenda WiFi võrku ja lülita Bluetooth sisse"
+msgstr "Yhdistä Wi‑Fi-verkkoon ja ota Bluetooth käyttöön"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "Ühenda WiFi-võrkku"
+msgstr "Yhdistä Wi‑Fi-verkkoon"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "Lülita Bluetooth sisse"
+msgstr "Ota Bluetooth käyttöön"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr "Faile polnud võimalik avada"
+msgstr "Tiedostoja ei voitu avata"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "Saada Packetiga"
+msgstr "Lähetä Packetilla"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Failide mugav ja lihtne jagamine"
+msgstr "Jaa tiedostoja helposti"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr ""
-"Gnome;GTK;Quick;Nearby;Share;jaga;jagamine;failid;võrk;lähedal;läheduses;"
+msgstr "Gnome;GTK;Quick;Nearby;Share;jako;jaa;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "Akna laius"
+msgstr "Ikkunan leveys"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "Akna kõrgus"
+msgstr "Ikkunan korkeus"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "Akna maksimaalne vaade"
+msgstr "Ikkuna maksimoitu"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "Seadme nimi"
+msgstr "Laitteen nimi"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "Seadme nähtavus"
+msgstr "Laitteen näkyvyys"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Allalaadimiste kaust"
+msgstr "Latauskansio"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -581,39 +591,23 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Saada ja võta vastu faile traadita võrgus Quick Share'i liidestusega "
-"Androidi seadmetes või seadmeis, kus Packet on paigaldatud."
+"Lähetä ja vastaanota tiedostoja langattomasti Android-laitteiden kanssa "
+"käyttämällä Quick Share -toimintoa tai toiselle laitteelle, johon on "
+"asennettu Packet."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"Packet eeldab, et Bluetooth on kasutusel ja seade on ühendatud WiFi võrku, "
-"kus mDNS toimib."
+"Packet vaatii Bluetoothin olevan käytössä ja laitteiden olevan yhdistettyinä "
+"samaan Wi-Fi-verkkoon, jossa on mDNS-tuki."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "Saadetud jagamispäring"
+msgstr "Lähetetty jakopyyntö"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Vastuvõetud jagamispäring"
-
-#~ msgid "Copy error report"
-#~ msgstr "Kopeeri veaaruanne"
-
-#~ msgid "Copied error report to clipboard"
-#~ msgstr "Veateade on kopeeritud lõikelauale"
-
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "{} fail"
-#~ msgstr[1] "{} faili"
-
-#~ msgid "Home Page"
-#~ msgstr "Avaleht"
-
-#~ msgid "Unimplemented"
-#~ msgstr "Pole implementeeritud"
+msgstr "Vastaanotettu jakopyyntö"
