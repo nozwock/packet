@@ -8,59 +8,49 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-09 06:44+0000\n"
+"PO-Revision-Date: 2025-06-17 09:25+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/packet/main/et/"
-">\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/packet/main/et/>"
+"\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.12.1\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Üldised"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Klaviatuuri kiirklahvid"
+msgstr "Näita klaviatuuri kiirklahve"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Abiteave"
+msgstr "Näita abiteavet"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Eelistused"
+msgstr "Ava eelistused"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Välju"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Eelistused"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Abiteave"
+msgstr "_Abiteave"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -83,10 +73,8 @@ msgid "Setting up Packet…"
 msgstr "Packet on seadistamisel…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy Log"
-msgstr "Kopeeri"
+msgstr "Kopeeri logi"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -187,11 +175,11 @@ msgstr "Täiendavad seadistused"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Nautiluse lisamoodul"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Lõiming Nautiluse failimenüüga"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -239,7 +227,7 @@ msgstr "Priit Jõerüüt 2025"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Laadin logisid..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -247,7 +235,7 @@ msgstr "Sarnased projektid"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Logide laadimine ei õnnestunud"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -417,7 +405,7 @@ msgstr[1] "Saatsin {} faili"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Nautiluse lisamooduli uuendamine ei õnnestunud"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -461,49 +449,55 @@ msgstr "Packet soovib töötada taustal"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Lisamoodul on paigaldatud"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Valmis"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Lisamooduli paigaldamine õnnetus, aga ta vajab toimimiseks järgmisi pakette: "
+"{}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Pakettide nimed võivad distributsiooniti erineda, üksikasjalikumat teavet <a "
+"{}>leiad siit</a>."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Kui see on tehtud, siis käivita Nautilus uuesti (näiteks logid välja ja "
+"uuesti sisse) ning lisamoodul saab laaditud."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Paigaldamine ei õnnestunud"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Sulge"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Lisamooduli paigaldamine ei õnnestunud. Palun kontrolli, et järgnev kaust on "
+"olemas ja Packet saab sealt faile lugeda:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Kopeeri lõikelauale"
+msgstr "Logi on kopeeritud lõikelauale"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -542,10 +536,8 @@ msgid "Couldn't open files"
 msgstr "Faile polnud võimalik avada"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Packet on seadistamisel…"
+msgstr "Saada Packetiga"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
