@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-17 12:49+0000\n"
+"PO-Revision-Date: 2025-06-18 18:01+0000\n"
 "Last-Translator: Onni Mäkitalo <makitalo.onni@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/packet/main/fi/>"
 "\n"
@@ -27,7 +27,7 @@ msgstr "Yleiset"
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Pikanäppäimet"
+msgstr "Näytä pikanäppäimet"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
@@ -50,7 +50,7 @@ msgstr "_Asetukset"
 
 #: data/resources/ui/window.blp:12
 msgid "_Help"
-msgstr "_Apua"
+msgstr "_Ohje"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -179,7 +179,7 @@ msgstr "Nautiluksen laajennus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr "Integroi nautiluksen tiedostovalikkoon"
+msgstr "Integroi Nautiluksen tiedostovalikkoon"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr "Vatmista, että laite näkyy kaikille lähellä oleville"
+msgstr "Varmista, että laite näkyy kaikille lähellä oleville"
 
 #: data/resources/ui/window.blp:587
 msgid ""
@@ -268,7 +268,7 @@ msgstr "Poista"
 #, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} tiedosto"
+msgstr[0] "{} tiedoston"
 msgstr[1] "{} tiedostoa"
 
 #: src/widgets/receive_transfer.rs:23
@@ -290,7 +290,7 @@ msgstr "Vastaanotetaan"
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Peruuta"
+msgstr "Peru"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
@@ -352,7 +352,7 @@ msgstr "Yhteys katkesi yllättäen"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Lähettääjä perui siirron"
+msgstr "Lähettäjä perui siirron"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
@@ -441,7 +441,7 @@ msgstr ""
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "_Ok"
+msgstr "_OK"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
@@ -511,7 +511,7 @@ msgstr "Loki kopioitiin leikepöydälle"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr "Valmis"
+msgstr "Valmiina"
 
 #: src/window.rs:1513
 #, rust-format
