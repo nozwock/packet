@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-15 04:33+0000\n"
+"PO-Revision-Date: 2025-06-20 13:01+0000\n"
 "Last-Translator: Ega <ega8642@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/packet/main/"
 "id/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
@@ -70,7 +70,7 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr ""
+msgstr "Menyiapkan Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
@@ -78,7 +78,7 @@ msgstr "Salin Log"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr ""
+msgstr "Tidak dapat disiapkan"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
@@ -91,7 +91,7 @@ msgstr "Coba Lagi"
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr ""
+msgstr "Halaman Utama"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
@@ -164,7 +164,7 @@ msgstr "Perbolehkan untuk jalan di latar belakang"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Otomatis Mulai"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
@@ -204,16 +204,21 @@ msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
+"Pastikan kedua perangkat terhubung ke jaringan Wi-Fi yang sama dan nyalakan "
+"Bluetooth"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
+"Pastikan perangkat diatur agar dapat dilihat oleh semua perangkat terdekat"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
+"Untuk perangkat Android, coba buka halaman <b>Quick Share</b> dalam aplikasi "
+"<b>Files by Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
@@ -288,7 +293,7 @@ msgstr "Batal"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr ""
+msgstr "Transfer Masuk"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
@@ -341,7 +346,7 @@ msgstr "Sekitar {} lagi"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr ""
+msgstr "Terputus secara tidak diinginkan"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
@@ -389,7 +394,7 @@ msgstr "Coba lagi"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr ""
+msgstr "Permintaan Terkirim"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
@@ -403,7 +408,7 @@ msgstr[0] "Terkirim {} berkas"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Tidak dapat memperbarui pengaya Nautilus"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
@@ -415,18 +420,18 @@ msgstr "Packet tidak dapat jalan pada saat log masuk"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr ""
+msgstr "Tidak dapat mengubah nama perangkat saat transfer masih aktif"
 
 #: src/window.rs:841
 msgid "Invalid Port"
 msgstr "Porta tidak valid"
 
 #: src/window.rs:845
-#, fuzzy, rust-format
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
-msgstr "Porta \"{}\" yang dipilih tidak tersedia. Coba porta lain diatas 1024."
+msgstr "Porta statis \"{}\" tidak tersedia. Coba porta lain diatas 1024."
 
 #: src/window.rs:853
 msgid "_Ok"
@@ -450,7 +455,7 @@ msgstr "Pengaya Terinstal"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Selesai"
 
 #: src/window.rs:1080
 #, rust-format
@@ -458,6 +463,8 @@ msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Pengaya berhasil diinstal, tetapi membutuhkan beberapa paket berikut untuk "
+"berfungsi: {}"
 
 #: src/window.rs:1096
 #, rust-format
@@ -465,6 +472,8 @@ msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Nama paket kemungkinan beragam pada setiap distribusi, kunjungi <a {}>this "
+"link</a> untuk detail lanjut."
 
 #: src/window.rs:1111
 msgid ""
@@ -474,17 +483,19 @@ msgstr ""
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Instalasi Gagal"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Instalasi pengaya gagal. Pastikan direktori berikut ada dan dapat diakses "
+"oleh Packet:"
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
@@ -521,34 +532,34 @@ msgstr "Sambungkan ke Wi-Fi"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr ""
+msgstr "Nyalakan Bluetooth"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr ""
+msgstr "Tidak dapat membuka berkas"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr ""
+msgstr "Kirim dengan Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr ""
+msgstr "Kirim berkas secara mudah"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr ""
+msgstr "Gnome;GTK;Quick;Nearby;Share;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr ""
+msgstr "Lebar jendela"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr ""
+msgstr "Tinggi jendela"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
