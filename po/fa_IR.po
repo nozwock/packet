@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the packet package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-05-30 21:24+0330\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-06-28 13:04+0000\n"
+"Last-Translator: Arman Salimi <bobarmansalimi@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/packet/main/fa/>"
+"\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 #, fuzzy
@@ -50,7 +50,7 @@ msgstr "تنظیمات"
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "خارج شدن"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
@@ -84,7 +84,7 @@ msgstr "راه‌اندازی بسته…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr ""
+msgstr "کپی کردن لاگ"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -113,7 +113,7 @@ msgstr "افزودن فایل ها"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "صفحه فایل‌های انتخاب شده"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -165,7 +165,7 @@ msgstr "انتخاب پوشه دانلود"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "اجرا در پس‌زمینه"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
@@ -173,7 +173,7 @@ msgstr ""
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "شروع خودکار"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
@@ -346,7 +346,7 @@ msgstr "درخواست شده"
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} میخواهد {} را به اشتراک بگذارد"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
@@ -377,7 +377,7 @@ msgstr "باز"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "\"{}\" دریافت شد"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet نمی‌تواند در پس‌زمینه اجرا شود"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
@@ -457,7 +457,7 @@ msgstr "انتخاب پوشه"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet می‌خواهد در پس‌زمینه اجرا شود"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
@@ -491,7 +491,7 @@ msgstr ""
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: src/window.rs:1139
 msgid ""
@@ -542,10 +542,8 @@ msgid "Couldn't open files"
 msgstr "فایل‌ها باز نشدند"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "راه‌اندازی بسته…"
+msgstr "فرستادن با Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
