@@ -8,59 +8,52 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-09 13:31+0000\n"
-"Last-Translator: luca <luchiluc@live.it>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/packet/main/it/"
-">\n"
+"PO-Revision-Date: 2025-07-25 14:04+0000\n"
+"Last-Translator: Dawid Weglarz <dawid.weglarz95@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/packet/main/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Generale"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Scorciatoie da tastiera"
+msgstr "_Mostra le scorciatoie"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Aiuto"
+msgstr "Mostra l'aiuto"
 
 #: data/resources/ui/shortcuts.blp:24
 #, fuzzy
 #| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Preferenze"
+msgstr "Apre le preferenze"
 
 #: data/resources/ui/shortcuts.blp:29
+#, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Uscita"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
 msgstr "_Preferenze"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Aiuto"
+msgstr "_Aiuto"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -83,12 +76,11 @@ msgid "Setting up Packet…"
 msgstr "Preparazione di Packet…"
 
 #: data/resources/ui/window.blp:71
+#, fuzzy
 msgid "Copy Log"
-msgstr ""
+msgstr "Copia il registro"
 
 #: data/resources/ui/window.blp:85
-#, fuzzy
-#| msgid "Couldn't open files"
 msgid "Couldn't Set Up"
 msgstr "Configurazione non riuscita"
 
@@ -110,13 +102,12 @@ msgid "Add, or drop a file to send"
 msgstr "Aggiungi o rilascia un file da inviare"
 
 #: data/resources/ui/window.blp:148
-#, fuzzy
 msgid "Add Files"
-msgstr "Aggiungi file"
+msgstr "Aggiungi i file"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Pagina file selezionati"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -167,33 +158,35 @@ msgid "Pick download folder"
 msgstr "Scegli la cartella di download"
 
 #: data/resources/ui/window.blp:453
+#, fuzzy
 msgid "Run in Background"
-msgstr ""
+msgstr "Esegui in background"
 
 #: data/resources/ui/window.blp:454
+#, fuzzy
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Permetti l'esecuzione in background"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Avvio automatico"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Avvio automatico al login"
 
 #: data/resources/ui/window.blp:464
-#, fuzzy
 msgid "Advanced"
 msgstr "Avanzate"
 
 #: data/resources/ui/window.blp:467
+#, fuzzy
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Plugin di Nautilus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Integrazione con il menu dei file di Nautilus"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -201,7 +194,6 @@ msgstr "Porta di rete statica"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
-#, fuzzy
 msgid "For whitelisting through a firewall"
 msgstr "Per consentire l'app tramite un firewall"
 
@@ -228,7 +220,6 @@ msgstr ""
 "dispositivi nelle vicinanze"
 
 #: data/resources/ui/window.blp:587
-#, fuzzy
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -242,8 +233,9 @@ msgid "translator-credits"
 msgstr "Lorenzo Mirabella"
 
 #: src/application.rs:258
+#, fuzzy
 msgid "Loading logs..."
-msgstr ""
+msgstr "Caricamento registri..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -251,7 +243,7 @@ msgstr "Progetti Simili"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Impossibile recuperare i registri"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -314,10 +306,8 @@ msgid "Incoming Transfer"
 msgstr "Trasferimento in arrivo"
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "In arrivo"
+msgstr "Ricezione..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
@@ -344,10 +334,8 @@ msgid "Code: {}"
 msgstr "Codice: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "Richiesto"
+msgstr "Richiesta scaduta"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
@@ -385,11 +373,11 @@ msgstr "Apri"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "Ricevuto \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -425,15 +413,15 @@ msgstr[1] "Inviati {} files"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Impossibile aggiornare il plugin Nautilus"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet non può essere eseguito in background"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet non può essere eseguito al login"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
@@ -444,13 +432,12 @@ msgid "Invalid Port"
 msgstr "Porta non valida"
 
 #: src/window.rs:845
-#, fuzzy
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
-"La porta statica \"{}\" scelta non è disponibile. Prova una porta diversa "
-"sopra 1024."
+"La porta statica scelta “{}” non è disponibile. Prova un'altra porta "
+"superiore a 1024."
 
 #: src/window.rs:853
 msgid "_Ok"
@@ -466,47 +453,55 @@ msgstr "Scegli una cartella"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet vorrebbe eseguirsi in background"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Plugin installato"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Fatto"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Il plugin è stato installato correttamente, ma richiede i seguenti pacchetti "
+"per funzionare: {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"I nomi dei pacchetti possono variare a seconda della distribuzione, visita "
+"<a {}>questo link</a> per i dettagli."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Una volta fatto questo, riavvia Nautilus (per esempio facendo logout e "
+"rientrando) per caricare il plugin."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installazione non riuscita"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"L'installazione del plugin è fallita. Assicurati che le seguenti directory "
+"esistano e siano accessibili da Packet:"
 
 #: src/window.rs:1238
 #, fuzzy
