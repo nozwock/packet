@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-13 16:02+0000\n"
-"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
+"PO-Revision-Date: 2025-08-17 17:02+0000\n"
+"Last-Translator: Micro Wvae <micro.mail88@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/packet/main/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
@@ -58,7 +58,7 @@ msgstr "_Skróty klawiszowe"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "O programie"
+msgstr "O aplikacji_ Packet"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -66,11 +66,11 @@ msgstr "O programie"
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr "Udostępnianie"
+msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Ustawienia…"
+msgstr "Konfigurowanie Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
@@ -78,11 +78,11 @@ msgstr "Skopiuj dziennik"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Nie można ustawić"
+msgstr "Nie można skonfigurować"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Wystąpił problem podczas ustawiania programu"
+msgstr "Wystąpił problem podczas konfigurowania Packet"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
@@ -103,7 +103,7 @@ msgstr "Dodaj pliki"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr "Wybrano stronę z plikami"
+msgstr "Wybrana strona z plikami"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -143,11 +143,11 @@ msgstr "Widoczność"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Czy inni widzą to urządzenie"
+msgstr "Widoczność urządzenia u innych"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Katalog pobierań"
+msgstr "Katalog pobranych"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
@@ -222,7 +222,7 @@ msgstr ""
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "Tłumacze"
+msgstr "Adam Lewicki, Marcel Mrówka"
 
 #: src/application.rs:258
 msgid "Loading logs..."
@@ -230,7 +230,7 @@ msgstr "Ładowanie dzienników..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "Podobny projekt"
+msgstr "Podobne projekty"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
@@ -258,7 +258,7 @@ msgstr[2] "minut"
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "sekundy"
+msgstr[0] "sekunda"
 msgstr[1] "sekundy"
 msgstr[2] "sekund"
 
@@ -277,7 +277,7 @@ msgstr[2] "{} plików"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Odnośnik"
+msgstr "Łącze"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
@@ -396,7 +396,7 @@ msgstr "Powtórz"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Wymagany"
+msgstr "Żądany"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
@@ -415,11 +415,11 @@ msgstr "Nie można zaktualizować wtyczki programu Pliki"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr "Udostępnianie nie może działać w tle"
+msgstr "Packet nie może działać w tle"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr "Udostępnianie nie może być uruchomione po zalogowaniu"
+msgstr "Packet nie może być uruchomiony po zalogowaniu"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
@@ -439,7 +439,7 @@ msgstr ""
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr "Ok"
+msgstr "_Ok"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
@@ -451,7 +451,7 @@ msgstr "Wybierz katalog"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr "Udostępnianie chce działać w tle"
+msgstr "Packet chce działać w tle"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
@@ -474,7 +474,7 @@ msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
-"Nazwa pakietów może zależeć od dystrybucji, odwiedź <a {}>this link</a>, aby "
+"Nazwa pakietów może zależeć od dystrybucji, odwiedź <a {}>tę stornę</a>, aby "
 "uzyskać więcej szczegółów."
 
 #: src/window.rs:1111
@@ -499,7 +499,7 @@ msgid ""
 "accessible by Packet:"
 msgstr ""
 "Błąd podczas instalacji. Upewnij się, że żądany katalog istnieje, oraz jest "
-"dostępny przez program Udostępnianie:"
+"dostępny przez program Packet:"
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
@@ -519,7 +519,7 @@ msgstr "Niewidoczne"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr "Żadne nowe urządzenia nie mogą Ci udostępnić"
+msgstr "Żadne nowe urządzenia nie mogą Ci udostępniać"
 
 #: src/window.rs:1530
 msgid "Disconnected"
@@ -543,7 +543,7 @@ msgstr "Nie można otworzyć plików"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
 msgid "Send with Packet"
-msgstr "Wyślij za pomocą programu Udostępnianie"
+msgstr "Wyślij za pomocą programu Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -553,7 +553,9 @@ msgstr "Udostępniaj pliki z łatwością"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "GNOME;GTK;Quick;Nearby;Share;"
+msgstr ""
+"GNOME;GTK;Quick;Nearby;Share;Gnome;Szybkie;Szybko;W "
+"pobliżu;Udostępnianie;Udostępnij;Przesyłanie;Prześlij;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
@@ -587,7 +589,7 @@ msgid ""
 "another device with Packet installed."
 msgstr ""
 "Wysyłaj i odbieraj pliki bezprzewodowo z urządzeń z Androidem za pomocą "
-"szybkiego udostępnienia lub innego urządzenia z zainstalowanym programem."
+"szybkiego udostępnienia lub innego urządzenia z zainstalowanym Packetem."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
