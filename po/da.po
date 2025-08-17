@@ -8,58 +8,48 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-09 06:44+0000\n"
-"Last-Translator: Peter stevens <peterstevens77@gmail.com>\n"
+"PO-Revision-Date: 2025-07-01 12:01+0000\n"
+"Last-Translator: Sebastian Tirsgaard Larsen <sebtirsgaard@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/packet/main/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Generalt"
+msgstr "Generel"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Tastatur Genveje"
+msgstr "Vis Tastatur Genveje"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Hjælp"
+msgstr "Vis Hjælp"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Indstillinger"
+msgstr "Åben præference"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Luk ned"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Indstillinger"
+msgstr "_Præferencer"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Hjælp"
+msgstr "_Hjælp"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -83,7 +73,7 @@ msgstr "Opsætning af Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr ""
+msgstr "Kopilog"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -184,11 +174,11 @@ msgstr "Advanceret"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Nautilus-plugin"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Integrer med Nautilus fil menuen"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -212,362 +202,376 @@ msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
+"Vær sikker på at begge endheder er tilsluttet på samme Wi-FI nætværk og har "
+"bluetooth slået til"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
+"Vær sikker på at enheden er sat til at være synlig for alle enheder i "
+"nærheden"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
+"For en android enhed, prøv at åben <b>Quick Share</b> page in the <b>Files "
+"by Google</b> app"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr ""
+msgstr "Sebastian Tirsgaard Larsen (ZorroDKK)"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Indlæser logfiler..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr ""
+msgstr "Tilsvarende projekter"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Kunne ikke hente loggene"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr ""
+msgstr "Ukendt enhed"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "time"
+msgstr[1] "timer"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minut"
+msgstr[1] "minutter"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "sekund"
+msgstr[1] "sekunder"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{} Fil"
+msgstr[1] "{} Filer"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr ""
+msgstr "Modtager"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr ""
+msgstr "Annuller"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr ""
+msgstr "Indgående overførsel"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr ""
+msgstr "Modtager..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr ""
+msgstr "Afvise"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr ""
+msgstr "Godkend"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fil"
+msgstr[1] "Filer"
 
 #: src/widgets/receive_transfer.rs:327
 msgid "Preview ({})"
-msgstr ""
+msgstr "forhåndsvisning"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
 msgid "Code: {}"
-msgstr ""
+msgstr "Kode: {}"
 
 #: src/widgets/receive_transfer.rs:404
 msgid "Request timed out"
-msgstr ""
+msgstr "Anmodningen udløb"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} vil gerne dele {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
 msgid "About {} left"
-msgstr ""
+msgstr "omkring {} tilbage"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr ""
+msgstr "Uventet afbrydelse"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr ""
+msgstr "Overførsel afbrudt af afsender"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopier til udklipsholder"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr ""
+msgstr "Gem tekst som fil"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr ""
+msgstr "Åben"
 
 #: src/widgets/receive_transfer.rs:759
 msgid "Received \"{}\""
-msgstr ""
+msgstr "modtaget \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Kopi"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{} Fil modtaget"
+msgstr[1] "{} Filer modtaget"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr ""
+msgstr "Ikke tilgængelig"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr ""
+msgstr "Kø"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr ""
+msgstr "prøv igen"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr ""
+msgstr "anmodet"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr ""
+msgstr "Fejlet"
 
 #: src/widgets/recipient_card.rs:542
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "sendt {} fil"
+msgstr[1] "sendt {} filer"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "kunne ikke opdatere Nautilus plugin"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "Packet kunne ikke køre i baggrunden"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "Packet kunne ikke køres ved login"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr ""
+msgstr "Kan ikke omdøbe enhed imens der er en aktiv overførsel"
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr ""
+msgstr "Ugyldig port"
 
 #: src/window.rs:845
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
+"Den valgte statiske port \"{}\" er ikke tilgængelig. Prøv en anden port over "
+"1024."
 
 #: src/window.rs:853
 msgid "_Ok"
-msgstr ""
+msgstr "_Ok"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr ""
+msgstr "Kan ikke tilgå Downloads mappe"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr ""
+msgstr "Vælg mappe"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "Packet vil gerne køre i baggrunden"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Plugin er installeret"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Færdig"
 
 #: src/window.rs:1080
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"Plugin'et var installeret succesfuldt, men kræver den følgende pakke for at "
+"fungere: {}"
 
 #: src/window.rs:1096
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Pakkenavne kan variere afhængigt af distributionen. Besøg <a {}>dette link</"
+"a> for yderligere oplysninger."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Når det er gjort, skal du genstarte Nautilus (f.eks. ved at logge ud og ind "
+"igen) for at indlæse plugin'et."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Installationen fejlet"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Luk"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Plugin-installation fejlede. Sørg for, at følgende mappe findes og er "
+"tilgængelig for Packet:"
 
 #: src/window.rs:1238
 msgid "Copied log to clipboard"
-msgstr ""
+msgstr "Kopieret log til udklipsholder"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr ""
+msgstr "Klar"
 
 #: src/window.rs:1513
 msgid "Visible as {:?}"
-msgstr ""
+msgstr "Synlig som {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr ""
+msgstr "Usynlig"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr ""
+msgstr "Ingen nye enheder kan dele med dig"
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr ""
+msgstr "Afbrudt"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr ""
+msgstr "tilslut til Wi-Fi og tænd for bluetooth"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr ""
+msgstr "Tilslut til Wi-Fi"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr ""
+msgstr "Tænd for bluetooth"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr ""
+msgstr "Kunne ikke åbne filer"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Opsætning af Packet…"
+msgstr "Send med Packet…"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr ""
+msgstr "Send filer let"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr ""
+msgstr "Gnome;GTK;Quick;Nearby;Share;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr ""
+msgstr "Vinduesbredde"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr ""
+msgstr "vindueshøjde"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr ""
+msgstr "Vinduets maksimerede tilstand"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr ""
+msgstr "Enheds navn"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr ""
+msgstr "Enheds synlighed"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr ""
+msgstr "Downloads mappe"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -575,21 +579,25 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
+"Send og modtag filer trådløst med Android enheder med brug af Quick share "
+"eller andre enheder med Packet installeret"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
+"Pakken kræver, at Bluetooth er aktiveret, og at enhederne er tilsluttet til "
+"et Wi-Fi-netværk med mDNS."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr ""
+msgstr "Sendt delingsanmodning"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr ""
+msgstr "Modtaget delingsanmodning"
 
 #~ msgid "Copy error report"
 #~ msgstr "Kopier fejlreport"
