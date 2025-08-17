@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-11 16:48+0000\n"
-"Last-Translator: syu <76390419+driedpampas@users.noreply.github.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/packet/main/ro/"
-">\n"
+"PO-Revision-Date: 2025-07-21 22:03+0000\n"
+"Last-Translator: Valyn Tyler <valyntyler@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/packet/main/ro/>"
+"\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
@@ -26,25 +26,19 @@ msgid "General"
 msgstr "General"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Comenzi rapide de la tastatură"
+msgstr "Afișează comenzi rapide"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Ajutor"
+msgstr "Afișează ajutor"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "_Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "_Preferințe"
+msgstr "Deschide meniul de preferințe"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
@@ -56,10 +50,8 @@ msgid "_Preferences"
 msgstr "_Preferințe"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Ajutor"
+msgstr "_Ajutor"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
@@ -79,7 +71,7 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Se configurează Packet…"
+msgstr "În curs de configurare…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
@@ -87,11 +79,11 @@ msgstr "Copiază jurnalul"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Configurarea nu a reușit"
+msgstr "Configurare a eșuat"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "A fost întâmpinată o eroare în timpul configurării Packet"
+msgstr "Aplicația a întâmpinată eroare în timpul configurării"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
@@ -112,7 +104,7 @@ msgstr "Adaugă fișiere"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Pagina de fișiere selectate"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -124,7 +116,7 @@ msgstr "Trimite"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr ""
+msgstr "Alege destinatari"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
@@ -140,7 +132,7 @@ msgstr "Preferințe"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
@@ -164,15 +156,15 @@ msgstr "Alege un dosar pentru descărcări"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Rulează pe fundal"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Permite rularea pe fundal"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Auto-start"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
@@ -192,16 +184,16 @@ msgstr ""
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr ""
+msgstr "Port de rețea static"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "Pentru activarea printr-un firewall"
+msgstr "Pentru a permitere prin firewall"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr ""
+msgstr "Număr port"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
@@ -212,35 +204,39 @@ msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
+"Asigură-te că ambele dispozitive sunt conectate la aceeași rețea Wi-Fi și că "
+"funția Bluetooth este pornită"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
+"Asigură-te că dispozitivul este setat ca vizibil pentru dispozitivele din "
+"apropiere"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"Pentru un dispozitiv Android, încearcă să deschizi pagina <b>Quick Share</b> "
-"din aplicația <b>Files by Google</b>"
+"Pentru dispozitive Android, caută pagina <b>Quick Share</b> din aplicația "
+"<b>Files by Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr ""
+msgstr "credite-traducători"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Se încarcă jurnalele..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr ""
+msgstr "Proiecte Similare"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Preluarea jurnalelor a eșuat"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -250,20 +246,23 @@ msgstr "Dispozitiv necunoscut"
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "oră"
+msgstr[1] "ore"
+msgstr[2] "ore"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minut"
+msgstr[1] "minute"
+msgstr[2] "minute"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "secundă"
+msgstr[1] "secunde"
+msgstr[2] "secunde"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
@@ -274,8 +273,9 @@ msgstr ""
 #: src/window.rs:1624
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "fișier"
+msgstr[1] "fișiere"
+msgstr[2] "fișiere"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
@@ -318,8 +318,9 @@ msgstr ""
 #: src/widgets/receive_transfer.rs:308
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "fișier"
+msgstr[1] "fișiere"
+msgstr[2] "fișiere"
 
 #: src/widgets/receive_transfer.rs:327
 msgid "Preview ({})"
@@ -379,8 +380,9 @@ msgstr ""
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "fișier primit"
+msgstr[1] "fișiere primite"
+msgstr[2] "fișiere primite"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
@@ -405,8 +407,9 @@ msgstr ""
 #: src/widgets/recipient_card.rs:542
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "fișier trimis"
+msgstr[1] "fișiere trimise"
+msgstr[2] "fișiere trimise"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
