@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-06 07:39+0000\n"
-"Last-Translator: puple-banananana <elisha.schiff@gmail.com>\n"
+"PO-Revision-Date: 2025-07-25 14:04+0000\n"
+"Last-Translator: Thorin Oakenshield King under the Mountain "
+"<nikajo5712@kissgy.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/packet/main/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -17,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "קיצורי דרך"
 
 #: data/resources/ui/shortcuts.blp:19
 #, fuzzy
@@ -46,11 +47,11 @@ msgstr "העדפות"
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "יציאה"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr ""
+msgstr "העדפות"
 
 #: data/resources/ui/window.blp:12
 #, fuzzy
@@ -60,11 +61,11 @@ msgstr "עזרה"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "קיצורי מקלדת"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr ""
+msgstr "אודות"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -72,15 +73,15 @@ msgstr ""
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
-msgstr ""
+msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr ""
+msgstr "מגדירים את Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr ""
+msgstr "העתק את הלוג"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -88,7 +89,7 @@ msgstr "הגדרה ראשונית נכשלה"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "קרתה תקלה בזמן הגדרת Packet"
+msgstr "קרתה תקלה בזמן הגדרת התוכנה"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
@@ -97,11 +98,11 @@ msgstr "נסה שוב"
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr ""
+msgstr "עמוד ראשי"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr ""
+msgstr "לחץ או גרור קובץ לשליחה"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
@@ -109,7 +110,7 @@ msgstr "הוסף קבצים"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "בחר עמודים מהקבצים"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
@@ -129,7 +130,7 @@ msgstr "מאתר מכשירים…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr ""
+msgstr "לא רואה את המכשיר השני?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
@@ -137,11 +138,11 @@ msgstr "העדפות"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr ""
+msgstr "שם המכשיר"
 
 #: data/resources/ui/window.blp:431
 #, fuzzy
@@ -150,56 +151,56 @@ msgstr "ראות"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr ""
+msgstr "האם מכשירים אחרים יוכלו לראות את המכשיר הזה"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr ""
+msgstr "תיקיית הורדות"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr ""
+msgstr "בחר תקיית הורדות"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "פעל ברקע"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "אשר לתוכנה לפעול ברקע"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "הפעלה אוטומטית"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "התחל אוטומטית בהדלקת המחשב"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr ""
+msgstr "מתקדם"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "תוסף נאוטילוס"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "השתלב עם תפריט הקבצים של נאוטילוס"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr ""
+msgstr "יציאת רשת סטטית"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr ""
+msgstr "להוספה לרשימה המותרת דרך חומת אש"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr ""
+msgstr "מספר הפורט"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
@@ -210,12 +211,12 @@ msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"אנא וודא ששני המשירים מחוברים לאותה רשת ה-Wi-Fi וש-Bluetoth פועל בשני "
+"אנא וודא ששני המכשירים מחוברים לאותה רשת ה-Wi-Fi וש-Bluetooth פועל בשני "
 "המכשירים"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr ""
+msgstr "ודא שהמכשיר מוגדר כך שיהיה גלוי לכל המכשירים באזור"
 
 #: data/resources/ui/window.blp:587
 msgid ""
@@ -226,11 +227,11 @@ msgstr ""
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr ""
+msgstr "Thorin24"
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "טוען לוגים..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -238,12 +239,12 @@ msgstr "פרוייקטים דומים"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "נכשל באחזור הלוגים"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "מכשיר שאינו ידוע"
+msgstr "מכשיר לא מוכר"
 
 #: src/utils.rs:291
 msgid "hour"
@@ -285,47 +286,49 @@ msgstr[3] "קבצים"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr ""
+msgstr "קישור"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr ""
+msgstr "טקסט"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr ""
+msgstr "מקבל"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr ""
+msgstr "בטל"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr ""
+msgstr "העברה נכנסת"
 
 #: src/widgets/receive_transfer.rs:194
 msgid "Receiving..."
-msgstr ""
+msgstr "מקבל..."
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr ""
+msgstr "דחה קבלה"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr ""
+msgstr "קבל"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "קובץ"
+msgstr[1] "קבצים"
+msgstr[2] "קבצים"
+msgstr[3] "קבצים"
 
 #: src/widgets/receive_transfer.rs:327
 msgid "Preview ({})"

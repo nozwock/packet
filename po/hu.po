@@ -8,66 +8,57 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-07-11 11:01+0000\n"
-"Last-Translator: kuci-JK <jankucera254@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/packet/main/cs/>\n"
-"Language: cs\n"
+"PO-Revision-Date: 2025-07-08 15:01+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/packet/main/hu/"
+">\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Obecné"
+msgstr "Általános"
 
 #: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Klávesové Zkratky"
+msgstr "Gyorsbillentyűk megjelenítése"
 
 #: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Zobrazit nápovědu"
+msgstr "Súgó párbeszédablak megjelenítése"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Předvolby"
+msgstr "Beállítások megnyitása"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Ukončit"
+msgstr "Kilépés"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
-msgstr "_Předvolby"
+msgstr "_Beállítások"
 
 #: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
 msgid "_Help"
-msgstr "Nápověda"
+msgstr "_Súgó"
 
 #: data/resources/ui/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Klávesové Zkratky"
+msgstr "_Billentyűparancsok"
 
 #: data/resources/ui/window.blp:22
 msgid "_About Packet"
-msgstr "_O Packet"
+msgstr "A Packet _névjegye"
 
 #. Translators: The name should remain untranslated
 #: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
@@ -79,217 +70,216 @@ msgstr "Packet"
 
 #: data/resources/ui/window.blp:52
 msgid "Setting up Packet…"
-msgstr "Nastavování Packet…"
+msgstr "A Packet beállítása…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr ""
+msgstr "Napló másolása"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
-msgstr "Nastavení se nepovedlo"
+msgstr "A beállítás nem sikerült"
 
 #: data/resources/ui/window.blp:86
 msgid "An error occurred while trying to setup Packet"
-msgstr "Při nastavení programu Packet byla zjištěna chyba"
+msgstr "Hiba történt a Packet beállítása során"
 
 #: data/resources/ui/window.blp:91
 msgid "Try Again"
-msgstr "Zkusit znovu"
+msgstr "Újrapróbálkozás"
 
 #: data/resources/ui/window.blp:120
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
-msgstr "Hlavní Stránka"
+msgstr "Főoldal"
 
 #: data/resources/ui/window.blp:141
 msgid "Add, or drop a file to send"
-msgstr "Přidejte, nebo přetáhněte soubor k odeslání"
+msgstr "Adja hozzá vagy dobja ide a küldendő fájlokat"
 
 #: data/resources/ui/window.blp:148
 msgid "Add Files"
-msgstr "Přidat Soubory"
+msgstr "Fájlok hozzáadása"
 
 #: data/resources/ui/window.blp:163
 msgid "Selected Files Page"
-msgstr ""
+msgstr "Kiválasztott fájlok oldala"
 
 #: data/resources/ui/window.blp:203
 msgid "Add File"
-msgstr "Přidat Soubor"
+msgstr "Fájl hozzáadása"
 
 #: data/resources/ui/window.blp:298
 msgid "Send"
-msgstr "Odeslat"
+msgstr "Küldés"
 
 #: data/resources/ui/window.blp:321
 msgid "Select Recipients"
-msgstr "Vybrat Příjemce"
+msgstr "Címzettek kiválasztása"
 
 #: data/resources/ui/window.blp:391
 msgid "Looking for devices…"
-msgstr "Hledání zařízení…"
+msgstr "Eszközök keresése…"
 
 #: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
 msgid "Can't see the other device?"
-msgstr "Nevidíte další zařízení?"
+msgstr "Nem látja a másik eszközt?"
 
 #: data/resources/ui/window.blp:418
 msgid "Preferences"
-msgstr "Předvolby"
+msgstr "Beállítások"
 
 #: data/resources/ui/window.blp:423
 msgid "General"
-msgstr "Obecné"
+msgstr "Általános"
 
 #: data/resources/ui/window.blp:426
 msgid "Device Name"
-msgstr "Jméno Zařízení"
+msgstr "Eszköz neve"
 
 #: data/resources/ui/window.blp:431
 msgid "Visibility"
-msgstr "Viditelnost"
+msgstr "Láthatóság"
 
 #: data/resources/ui/window.blp:432
 msgid "Whether others can see this device"
-msgstr "Zda lze vidět toto zařízení"
+msgstr "Mások láthatják-e ezt az eszközt"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Složka Stažení"
+msgstr "Letöltések mappa"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
-msgstr "Vybrat složku stažení"
+msgstr "Válasszon letöltési mappát"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr ""
+msgstr "Futtatás a háttérben"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
-msgstr ""
+msgstr "Háttérben való futtatás engedélyezése"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr ""
+msgstr "Automatikus indítás"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
-msgstr ""
+msgstr "Automatikus indítás bejelentkezéskor"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Pokročilé"
+msgstr "Speciális"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Nautilus-bővítmény"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Integráció a Nautilis fájlmenüjével"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
-msgstr "Statický Síťový Port"
+msgstr "Statikus hálózati port"
 
 #. Translators: For whitelisting of the app.
 #: data/resources/ui/window.blp:476
 msgid "For whitelisting through a firewall"
-msgstr "Pro umístění programu do whitelistu"
+msgstr "A tűzfalon keresztüli fehérlistázáshoz"
 
 #: data/resources/ui/window.blp:481
 msgid "Port Number"
-msgstr "Číslo Portu"
+msgstr "Portszám"
 
 #: data/resources/ui/window.blp:490
 msgid "Help"
-msgstr "Nápověda"
+msgstr "Súgó"
 
 #: data/resources/ui/window.blp:541
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Ujištěte se že obě zařízení jsou na stejné Wi-Fi síti a mají zapnuté "
-"Bluetooth"
+"Győződjön meg róla, hogy mindkét eszköz ugyanahhoz a Wi-Fi hálózathoz "
+"kapcsolódik, és hogy a Bluetooth be van kapcsolva"
 
 #: data/resources/ui/window.blp:564
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr "Ujištěte se že je vaše zařízení viditelné všemi zařízeními"
+msgstr ""
+"Győződjön meg róla, hogy az eszköz úgy van beállítva, hogy az összes közeli "
+"eszköz számára látható"
 
 #: data/resources/ui/window.blp:587
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"Na zařízení Android, zkuste otevřít <b>Quick Share</b> v aplikaci <b>Soubory "
-"od Googlu</b>"
+"Androidos eszközön próbálja meg kinyitni a <b>Quick Share</b> oldalt a "
+"<b>Files by Google</b> alkalmazásban"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.rs:253
 msgid "translator-credits"
-msgstr "maggiethemagpie"
+msgstr "Meskó Balázs <mesko dot balazs at fsf dot hu>, 2025."
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Naplók betöltése…"
 
 #: src/application.rs:262
 msgid "Similar Projects"
-msgstr "Podobné Projekty"
+msgstr "Hasonló projektek"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "A naplók lekérése sikertelen"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
 msgid "Unknown device"
-msgstr "Neznámé zařízení"
+msgstr "Ismeretlen eszköz"
 
 #: src/utils.rs:291
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "hodina"
-msgstr[1] "hodiny"
-msgstr[2] "hodin"
+msgstr[0] "óra"
+msgstr[1] "óra"
 
 #: src/utils.rs:293 src/utils.rs:303
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "minuta"
-msgstr[1] "minuty"
-msgstr[2] "minut"
+msgstr[0] "perc"
+msgstr[1] "perc"
 
 #: src/utils.rs:305 src/utils.rs:308
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "sekunda"
-msgstr[1] "sekundy"
-msgstr[2] "sekund"
+msgstr[0] "másodperc"
+msgstr[1] "másodperc"
 
 #: src/widgets/file_card.rs:116
 msgid "Remove"
-msgstr "Odstranit"
+msgstr "Eltávolítás"
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
 #: src/window.rs:1624
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "Soubor"
-msgstr[1] "Soubory"
-msgstr[2] "Souborů"
+msgstr[0] "{} fájl"
+msgstr[1] "{} fájl"
 
 #: src/widgets/receive_transfer.rs:23
 msgid "Link"
-msgstr "Odkaz"
+msgstr "Hivatkozás"
 
 #: src/widgets/receive_transfer.rs:24
 msgid "Text"
-msgstr "Text"
+msgstr "Szöveg"
 
 #: src/widgets/receive_transfer.rs:25
 msgid "Wi-Fi"
@@ -297,155 +287,159 @@ msgstr "Wi-Fi"
 
 #: src/widgets/receive_transfer.rs:64
 msgid "Receiving"
-msgstr "Získávání"
+msgstr "Fogadás"
 
 #: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
 #: src/widgets/recipient_card.rs:310
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr "Mégse"
 
 #: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
 msgid "Incoming Transfer"
-msgstr "Příchozí Přenos"
+msgstr "Bejövő átküldés"
 
 #: src/widgets/receive_transfer.rs:194
-#, fuzzy
-#| msgid "Receiving"
 msgid "Receiving..."
-msgstr "Získávání"
+msgstr "Fogadás…"
 
 #: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
 msgid "Decline"
-msgstr "Zamítnout"
+msgstr "Elutasítás"
 
 #: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
 msgid "Accept"
-msgstr "Příjmout"
+msgstr "Elfogadás"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
 #: src/widgets/receive_transfer.rs:308
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] "{} soubor ({})"
-msgstr[1] "{} soubory ({})"
-msgstr[2] "{} souborů ({})"
+msgstr[0] "{} fájl ({})"
+msgstr[1] "{} fájl ({})"
 
 #: src/widgets/receive_transfer.rs:327
+#, rust-format
 msgid "Preview ({})"
-msgstr "Náhled ({})"
+msgstr "Előnézet ({})"
 
 #. Translators: This is the pin-code for the transfer
 #: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#, rust-format
 msgid "Code: {}"
 msgstr "Kód: {}"
 
 #: src/widgets/receive_transfer.rs:404
-#, fuzzy
-#| msgid "Requested"
 msgid "Request timed out"
-msgstr "Vyžádáno"
+msgstr "A kérés időtúllépésre futott"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
 #: src/widgets/receive_transfer.rs:417
+#, rust-format
 msgid "{} wants to share {}"
-msgstr ""
+msgstr "{} ezt szeretné megosztani: {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
 #: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#, rust-format
 msgid "About {} left"
-msgstr "Zbývá zhruba {}"
+msgstr "Nagyjából {} van hátra"
 
 #: src/widgets/receive_transfer.rs:519
 msgid "Unexpected dissconnection"
-msgstr "Neočekávané odpojení"
+msgstr "Váratlan szétkapcsolódás"
 
 #: src/widgets/receive_transfer.rs:552
 msgid "Transfer cancelled by sender"
-msgstr "Přenos zrušen odesílatelem"
+msgstr "A küldő elutasította az átküldést"
 
 #: src/widgets/receive_transfer.rs:599
 msgid "Copy to clipboard"
-msgstr "Zkopírovat do schránky"
+msgstr "Másolás a vágólapra"
 
 #: src/widgets/receive_transfer.rs:607
 msgid "Save text as file"
-msgstr "Uložit text jako soubor"
+msgstr "Szöveg mentése fájlként"
 
 #: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
 #: src/widgets/receive_transfer.rs:813
 msgid "Open"
-msgstr "Otevřít"
+msgstr "Megnyitás"
 
 #: src/widgets/receive_transfer.rs:759
+#, rust-format
 msgid "Received \"{}\""
-msgstr ""
+msgstr "Fogadva: „{}”"
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr ""
+msgstr "Másolás"
 
 #: src/widgets/receive_transfer.rs:789
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] "{} soubor příjat"
-msgstr[1] "{} soubory přijaty"
-msgstr[2] "{} souborů přijato"
+msgstr[0] "{} fájl fogadva"
+msgstr[1] "{} fájl fogadva"
 
 #: src/widgets/recipient_card.rs:221
 msgid "Unavailable"
-msgstr "Nedostupné"
+msgstr "Nem érhető el"
 
 #: src/widgets/recipient_card.rs:244
 msgid "Queued"
-msgstr "V řadě"
+msgstr "Sorba állítva"
 
 #: src/widgets/recipient_card.rs:291
 msgid "Retry"
-msgstr "Zopakovat pokus"
+msgstr "Újra"
 
 #: src/widgets/recipient_card.rs:436
 msgid "Requested"
-msgstr "Vyžádáno"
+msgstr "Kérve"
 
 #: src/widgets/recipient_card.rs:499
 msgid "Failed"
-msgstr "Selhalo"
+msgstr "Sikertelen"
 
 #: src/widgets/recipient_card.rs:542
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] "Odeslán {} soubor"
-msgstr[1] "Odeslány {} soubory"
-msgstr[2] "Odesláno {} souborů"
+msgstr[0] "{} fájl elküldve"
+msgstr[1] "{} fájl elküldve"
 
 #: src/window.rs:507
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "A Nautilis-bővítmény nem frissíthető"
 
 #: src/window.rs:599 src/window.rs:985
 msgid "Packet cannot run in the background"
-msgstr ""
+msgstr "A Packet nem tud a háttérben futni"
 
 #: src/window.rs:635
 msgid "Packet cannot run at login"
-msgstr ""
+msgstr "A Packet nem tud indításkor elindulni"
 
 #: src/window.rs:700
 msgid "Can't rename device during an active transfer"
-msgstr "Při přenosu nelze přejmenovat zařízení"
+msgstr "Az eszköz nem nevezhető át aktív átvitel közben"
 
 #: src/window.rs:841
 msgid "Invalid Port"
-msgstr "Neplatný Port"
+msgstr "Érvénytelen port"
 
 #: src/window.rs:845
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
-msgstr "Vybraný statický port \"{}\" není dostupný. Zkuste jiný port nad 1024."
+msgstr ""
+"A választott statikus port nem érhető el: „{}”. Válasszon egy másik 1024 "
+"feletti portot."
 
 #: src/window.rs:853
 msgid "_Ok"
@@ -453,138 +447,145 @@ msgstr "_Ok"
 
 #: src/window.rs:901
 msgid "Can't access Downloads folder"
-msgstr "Nelze přistoupit do složky Stažené"
+msgstr "A Letöltések mappa nem érhető el"
 
 #: src/window.rs:902
 msgid "Pick Folder"
-msgstr "Vybrat Složku"
+msgstr "Válasszon mappát"
 
 #: src/window.rs:929
 msgid "Packet wants to run in the background"
-msgstr ""
+msgstr "A Packet a háttérben szeretne futni"
 
 #: src/window.rs:1060
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Bővítmény telepítve"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr ""
+msgstr "Kész"
 
 #: src/window.rs:1080
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
+"A bővítmény sikeresen telepítve, de a működéséhez a következő csomagok "
+"szükségesek: {}"
 
 #: src/window.rs:1096
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"A csomagok nevei disztribúciónként eltérőek lehetnek, a részletekért keresse "
+"fel <a {}>ezt a hivatkozást</a>."
 
 #: src/window.rs:1111
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"Ha ez megvan, indítsa újra a bővítmény betöltéséhez Nautilust (például "
+"jelentkezzen ki, majd be)."
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "A telepítés sikertelen"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Bezárás"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"A bővítmény telepítése sikertelen. Győződjön meg róla, hogy a következő "
+"könyvtár létezik, és a Packet számára elérhető:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Zkopírovat do schránky"
+msgstr "Napló a vágólapra másolva"
 
 #: src/window.rs:1506
 msgid "Ready"
-msgstr "Připraveno"
+msgstr "Kész"
 
 #: src/window.rs:1513
+#, rust-format
 msgid "Visible as {:?}"
-msgstr "Viditelné jako {:?}"
+msgstr "Ekként látható: {:?}"
 
 #: src/window.rs:1519
 msgid "Invisible"
-msgstr "Neviditelné"
+msgstr "Láthatatlan"
 
 #: src/window.rs:1525
 msgid "No new devices can share with you"
-msgstr "Žádné další zařízení s vámi sdílet nemohou"
+msgstr "Nincsenek új eszközök, amelyekkel megoszthatna"
 
 #: src/window.rs:1530
 msgid "Disconnected"
-msgstr "Odpojeno"
+msgstr "Kapcsolat bontva"
 
 #: src/window.rs:1536
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Připojte se k Wi-Fi a zapněte Bluetooth"
+msgstr "Kapcsolódjon a Wi-Fihez, és kapcsolja be a Blueotooth-t"
 
 #: src/window.rs:1539
 msgid "Connect to Wi-Fi"
-msgstr "Připojte se k Wi-Fi"
+msgstr "Kapcsolódjon a Wi-Fihez"
 
 #: src/window.rs:1542
 msgid "Turn on Bluetooth"
-msgstr "Zapněte Bluetooth"
+msgstr "Kapcsolja be a Bluetooth-t"
 
 #: src/window.rs:1615
 msgid "Couldn't open files"
-msgstr "Nepovedlo se otevřít soubory"
+msgstr "A fájlok nem nyithatóak meg"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Nastavování Packet…"
+msgstr "Küldés a Packettel"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Jednodušše sdílejte soubory"
+msgstr "Fájlok megosztása könnyedén"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;GTK;Quick;Nearby;Share;Sdílení;"
+msgstr "Gnome;Gtk;Gyors;Közeli;Megosztás;"
 
 #. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
-msgstr "Šířka okna"
+msgstr "Ablak szélessége"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:11
 msgid "Window height"
-msgstr "Výška okna"
+msgstr "Ablak magassága"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "Stav maximalizace"
+msgstr "Ablak maximalizálási állapota"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
-msgstr "Název zařízení"
+msgstr "Eszköz neve"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:23
 msgid "Device visibility"
-msgstr "Viditelnost zařízení"
+msgstr "Eszköz láthatósága"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Složka pro stažení"
+msgstr "Letöltési mappa"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
@@ -592,35 +593,22 @@ msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Sdílejte a obdržujte bezdrátově soubory s zařízeními Android přes Quick "
-"Share nebo s ostatními zařízeními s aplikací Packet."
+"Küldjön és fogadjon fájlokat vezeték nélkül az androidos eszközével a Gyors "
+"megosztás használatával, vagy egy másik Packetet használó eszközzel."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
-msgstr "Packet vyžaduje zapnuté Bluetooth a sdílené Wi-Fi připojení s mDNS."
+msgstr ""
+"A Packet használatához engedélyezett Bluetooth szükséges, és az eszközöknek "
+"egy mDNS-t támogató Wi-Fi hálózathoz kell kapcsolódniuk."
 
 #. Trasnlators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "Odesláno vyžádání k sdílení"
+msgstr "Megosztási kérés küldve"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Obdrženo vyžádání o sdílení"
-
-#~ msgid "Copy error report"
-#~ msgstr "Zkopírovat nahlášenou chybu"
-
-#~ msgid "Copied error report to clipboard"
-#~ msgstr "Hlášení o chybě zkopírováno do schránky"
-
-#, fuzzy
-#~| msgid "{} file ({})"
-#~| msgid_plural "{} files ({})"
-#~ msgid "{} file"
-#~ msgid_plural "{} files"
-#~ msgstr[0] "{} soubor ({})"
-#~ msgstr[1] "{} soubory ({})"
-#~ msgstr[2] "{} souborů ({})"
+msgstr "Megosztási kérés fogadva"

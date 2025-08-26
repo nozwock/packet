@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-12 11:06+0000\n"
-"Last-Translator: NickSkier <nikita.vasiliev.02@gmail.com>\n"
+"PO-Revision-Date: 2025-06-22 19:01+0000\n"
+"Last-Translator: Aleksandr Melman <alexmelman88@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/packet/main/ru/>"
 "\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
@@ -28,17 +28,17 @@ msgstr "Общие"
 #: data/resources/ui/shortcuts.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Показать Комбинации клавиш"
+msgstr "Показать комбинации клавиш"
 
 #: data/resources/ui/shortcuts.blp:19
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Показать Справку"
+msgstr "Показать справку"
 
 #: data/resources/ui/shortcuts.blp:24
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Открыть Настройки"
+msgstr "Открыть настройки"
 
 #: data/resources/ui/shortcuts.blp:29
 msgctxt "shortcut window"
@@ -75,7 +75,7 @@ msgstr "Подготовка Packet…"
 
 #: data/resources/ui/window.blp:71
 msgid "Copy Log"
-msgstr "Скопировать Логи"
+msgstr "Копировать журнал"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -148,7 +148,7 @@ msgstr "Видят ли другие это устройство"
 
 #: data/resources/ui/window.blp:436
 msgid "Downloads Folder"
-msgstr "Папка загрузок"
+msgstr "Папка Загрузки"
 
 #: data/resources/ui/window.blp:442
 msgid "Pick download folder"
@@ -156,7 +156,7 @@ msgstr "Выберите папку загрузок"
 
 #: data/resources/ui/window.blp:453
 msgid "Run in Background"
-msgstr "Запускать в фоне"
+msgstr "Запуск в фоне"
 
 #: data/resources/ui/window.blp:454
 msgid "Allow running in the background"
@@ -164,7 +164,7 @@ msgstr "Разрешить запуск в фоне"
 
 #: data/resources/ui/window.blp:458
 msgid "Auto Start"
-msgstr "Авто запуск"
+msgstr "Автозапуск"
 
 #: data/resources/ui/window.blp:459
 msgid "Start automatically at login"
@@ -172,15 +172,15 @@ msgstr "Запускать при входе в систему"
 
 #: data/resources/ui/window.blp:464
 msgid "Advanced"
-msgstr "Продвинутые"
+msgstr "Расширенные"
 
 #: data/resources/ui/window.blp:467
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Плагин Nautilus"
 
 #: data/resources/ui/window.blp:468
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Интеграция с файловым меню Nautilus"
 
 #: data/resources/ui/window.blp:474
 msgid "Static Network Port"
@@ -231,7 +231,7 @@ msgstr ""
 
 #: src/application.rs:258
 msgid "Loading logs..."
-msgstr ""
+msgstr "Загрузка журналов..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -239,7 +239,7 @@ msgstr "Похожие проекты"
 
 #: src/application.rs:282 src/window.rs:1231
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Не удалось получить журналы"
 
 #: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
 #: src/widgets/recipient_card.rs:147
@@ -378,7 +378,7 @@ msgstr "Получено \"{}\""
 
 #: src/widgets/receive_transfer.rs:774
 msgid "Copy"
-msgstr "Скопировать"
+msgstr "Копировать"
 
 #: src/widgets/receive_transfer.rs:789
 msgid "{} file received"
@@ -464,7 +464,7 @@ msgstr "Плагин установлен"
 
 #: src/window.rs:1064
 msgid "Done"
-msgstr "Готово"
+msgstr "Сделано"
 
 #: src/window.rs:1080
 msgid ""
@@ -478,8 +478,8 @@ msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
-"Имена пакетов могут варьироваться в зависимости от дистрибутива, посетите <a "
-"{}> эту ссылку </a> для получения подробной информации."
+"Имена пакетов могут варьироваться в зависимости от дистрибутива, перейдите "
+"по <a {}>этой ссылке</a> для получения подробной информации."
 
 #: src/window.rs:1111
 msgid ""
@@ -491,23 +491,23 @@ msgstr ""
 
 #: src/window.rs:1121
 msgid "Installation Failed"
-msgstr ""
+msgstr "Сбой в установке"
 
 #: src/window.rs:1125
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: src/window.rs:1139
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Не удалось установить плагин. Убедитесь, что следующий каталог существует и "
+"доступен для Packet:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Копировать в буфер обмена"
+msgstr "Журнал скопирован в буфер обмена"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -546,10 +546,8 @@ msgid "Couldn't open files"
 msgstr "Не удалось открыть файлы"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Подготовка Packet…"
+msgstr "Отправить через Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
@@ -584,7 +582,7 @@ msgstr "Видимость устройства"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Папка загрузок"
+msgstr "Папка для загрузки"
 
 #. Trasnlators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
