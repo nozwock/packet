@@ -1,7 +1,7 @@
 project(
   'packet',
   'rust',
-  version: '0.5.3',
+  version: '0.5.4',
   meson_version: '>= 0.59',
   license: 'GPL-3.0-or-later',
 )
