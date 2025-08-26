@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.5.4" date="2025-08-26">
+    <description translatable="no">
+      <p>Translations</p>
+      <ul>
+        <li>Added Hindi translation</li>
+        <li>Updated Chinese (Traditional Han script) translation</li>
+        <li>Updated Persian translation</li>
+        <li>Updated Italian translation</li>
+        <li>Updated Polish translation</li>
+        <li>Updated Hebrew translation</li>
+        <li>Updated Hungarian translation</li>
+        <li>Updated Czech translation</li>
+        <li>Updated Romanian translation</li>
+        <li>Updated Russian translation</li>
+        <li>Updated Danish translation</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.5.3" date="2025-06-17">
     <description translatable="no">
       <p>Fixes</p>
