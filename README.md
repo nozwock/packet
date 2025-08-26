@@ -1,3 +1,22 @@
+## 🔨 Building and Installing
+
+To build and install `packet` using [Meson](https://mesonbuild.com/) and [Ninja](https://ninja-build.org/):
+
+```bash
+# Set up the build directory
+meson setup builddir
+
+# Compile the project
+meson compile -C builddir
+
+# Install the binary and resources (requires sudo)
+sudo meson install -C builddir
+
+#Once installed, you can run the application with:
+packet
+#After installation, the packet binary is available system-wide.
+
+
 # <img src="data/icons/io.github.nozwock.Packet.svg" /> Packet
 
 A partial implementation of Google's Quick Share protocol that lets you send and receive files wirelessly from Android devices using Quick Share, or another device with Packet.
