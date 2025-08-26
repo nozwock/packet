@@ -10,6 +10,7 @@
 /.flatpak/
 /vendor
 /.vscode
+.idea
 
 /subprojects/blueprint-compiler
 

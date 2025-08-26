@@ -72,6 +72,11 @@ mod imp {
 
         fn startup(&self) {
             debug!("GtkApplication<PacketApplication>::startup");
+            
+            // Restrict GDK to only use the macOS backend to avoid X11/Wayland dependencies
+            #[cfg(target_os = "macos")]
+            gdk::set_allowed_backends("macos");
+            
             self.parent_startup();
             let app = self.obj();
 
