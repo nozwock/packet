@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-07-25 14:04+0000\n"
-"Last-Translator: Dawid Weglarz <dawid.weglarz95@gmail.com>\n"
+"PO-Revision-Date: 2025-09-02 10:02+0000\n"
+"Last-Translator: Giacomo Bragagnolo <giacomo.bragagnolo.02@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/packet/main/it/>"
 "\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: data/resources/ui/shortcuts.blp:11
 msgctxt "shortcut window"
@@ -35,17 +35,14 @@ msgid "Show Help"
 msgstr "Mostra l'aiuto"
 
 #: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
 msgctxt "shortcut window"
 msgid "Open Preferences"
-msgstr "Apre le preferenze"
+msgstr "Apri le impostazioni"
 
 #: data/resources/ui/shortcuts.blp:29
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Uscita"
+msgstr "Esci"
 
 #: data/resources/ui/window.blp:7
 msgid "_Preferences"
@@ -76,9 +73,8 @@ msgid "Setting up Packet…"
 msgstr "Preparazione di Packet…"
 
 #: data/resources/ui/window.blp:71
-#, fuzzy
 msgid "Copy Log"
-msgstr "Copia il registro"
+msgstr "Copia il log"
 
 #: data/resources/ui/window.blp:85
 msgid "Couldn't Set Up"
@@ -233,9 +229,8 @@ msgid "translator-credits"
 msgstr "Lorenzo Mirabella"
 
 #: src/application.rs:258
-#, fuzzy
 msgid "Loading logs..."
-msgstr "Caricamento registri..."
+msgstr "Caricamento log..."
 
 #: src/application.rs:262
 msgid "Similar Projects"
@@ -504,10 +499,8 @@ msgstr ""
 "esistano e siano accessibili da Packet:"
 
 #: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
 msgid "Copied log to clipboard"
-msgstr "Copia negli appunti"
+msgstr "Log copiato negli appunti"
 
 #: src/window.rs:1506
 msgid "Ready"
@@ -546,10 +539,8 @@ msgid "Couldn't open files"
 msgstr "Non è stato possibile aprire i file"
 
 #: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
 msgid "Send with Packet"
-msgstr "Preparazione di Packet…"
+msgstr "Invia con Packet..."
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
