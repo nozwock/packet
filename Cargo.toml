@@ -38,7 +38,6 @@ zbus = "5.7.1"
 futures-lite = "2.6.0"
 ashpd = { version = "0.11.0", default-features = false, features = [
     "async-std",
-    "gtk4",
 ] }
 futures-timer = "3.0.3"
 tokio-util = "0.7.15"

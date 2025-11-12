@@ -922,7 +922,6 @@ impl PacketApplicationWindow {
         let imp = self.imp();
 
         let response = Background::request()
-            .identifier(ashpd::WindowIdentifier::from_native(&self.native().unwrap()).await)
             .auto_start(self.imp().settings.boolean("auto-start"))
             .command(["packet", "--background"])
             .dbus_activatable(false)
