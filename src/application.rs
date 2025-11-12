@@ -17,7 +17,10 @@ mod imp {
 
     use super::*;
     use glib::WeakRef;
-    use std::cell::{Cell, OnceCell};
+    use std::{
+        cell::{Cell, OnceCell},
+        ops::ControlFlow,
+    };
 
     #[derive(Debug, better_default::Default)]
     pub struct PacketApplication {
@@ -151,7 +154,7 @@ mod imp {
             Ok(())
         }
 
-        fn handle_local_options(&self, options: &glib::VariantDict) -> glib::ExitCode {
+        fn handle_local_options(&self, options: &glib::VariantDict) -> ControlFlow<glib::ExitCode> {
             self.obj().handle_command_line(options);
             self.parent_handle_local_options(options)
         }

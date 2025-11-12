@@ -688,8 +688,7 @@ pub fn present_receive_transfer_ui(
                                         .save_text_file_future(Some(&win))
                                         .await
                                         .unwrap()
-                                        .0
-                                        .unwrap();
+                                        .0;
 
                                     let text_bytes = text.into_bytes();
                                     file.create_readwrite_future(

@@ -306,7 +306,8 @@ mod imp {
 glib::wrapper! {
     pub struct PacketApplicationWindow(ObjectSubclass<imp::PacketApplicationWindow>)
         @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow,
-        @implements gio::ActionMap, gio::ActionGroup, gtk::Root;
+        @implements gio::ActionGroup, gio::ActionMap, gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget,
+        gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 
 impl PacketApplicationWindow {
