@@ -1,0 +1,33 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+    Adw.ShortcutsSection {
+        title: C_("shortcut window", "General");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Show Help");
+            action-name: "win.help";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Open Menu");
+            accelerator: "F10";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Open Preferences");
+            action-name: "win.preferences";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Close or Hide Window");
+            action-name: "window.close";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Quit");
+            action-name: "app.quit";
+        }
+    }
+}
