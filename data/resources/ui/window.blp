@@ -488,7 +488,9 @@ Adw.Dialog help_dialog {
 
     Adw.ToolbarView {
         [top]
-        Adw.HeaderBar {}
+        Adw.HeaderBar {
+            show-title: false;
+        }
 
         ScrolledWindow {
             hscrollbar-policy: never;
@@ -499,9 +501,9 @@ Adw.Dialog help_dialog {
                 maximum-size: 360;
                 tightening-threshold: 360;
                 margin-top: 12;
-                margin-bottom: 24;
-                margin-start: 32;
-                margin-end: 32;
+                margin-bottom: 48;
+                margin-start: 48;
+                margin-end: 48;
 
                 Box {
                     orientation: vertical;
