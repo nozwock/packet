@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 14:10+0530\n"
+"POT-Creation-Date: 2025-11-12 18:12+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,154 +60,162 @@ msgid "_About Packet"
 msgstr ""
 
 #. Translators: The name should remain untranslated
-#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:64
+#: data/resources/ui/window.blp:141 src/application.rs:238 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
 msgstr ""
 
-#: data/resources/ui/window.blp:52
+#: data/resources/ui/window.blp:45
+msgid "About"
+msgstr ""
+
+#: data/resources/ui/window.blp:53
 msgid "Setting up Packet…"
 msgstr ""
 
-#: data/resources/ui/window.blp:71
+#: data/resources/ui/window.blp:72
 msgid "Copy Log"
 msgstr ""
 
-#: data/resources/ui/window.blp:85
+#: data/resources/ui/window.blp:86
 msgid "Couldn't Set Up"
 msgstr ""
 
-#: data/resources/ui/window.blp:86
+#: data/resources/ui/window.blp:87
 msgid "An error occurred while trying to setup Packet"
 msgstr ""
 
-#: data/resources/ui/window.blp:91
+#: data/resources/ui/window.blp:92
 msgid "Try Again"
 msgstr ""
 
-#: data/resources/ui/window.blp:120
+#: data/resources/ui/window.blp:121
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
 msgstr ""
 
-#: data/resources/ui/window.blp:141
+#: data/resources/ui/window.blp:142
 msgid "Add, or drop a file to send"
 msgstr ""
 
-#: data/resources/ui/window.blp:148
+#: data/resources/ui/window.blp:149
 msgid "Add Files"
 msgstr ""
 
-#: data/resources/ui/window.blp:163
+#: data/resources/ui/window.blp:164
 msgid "Selected Files Page"
 msgstr ""
 
-#: data/resources/ui/window.blp:203
+#: data/resources/ui/window.blp:204
 msgid "Add File"
 msgstr ""
 
-#: data/resources/ui/window.blp:298
-msgid "Send"
+#: data/resources/ui/window.blp:293
+msgid "Send To…"
 msgstr ""
 
-#: data/resources/ui/window.blp:321
+#: data/resources/ui/window.blp:316
 msgid "Select Recipients"
 msgstr ""
 
-#: data/resources/ui/window.blp:391
+#: data/resources/ui/window.blp:339
+msgid "Refresh"
+msgstr ""
+
+#: data/resources/ui/window.blp:387
 msgid "Looking for devices…"
 msgstr ""
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+#: data/resources/ui/window.blp:395 data/resources/ui/window.blp:514
 msgid "Can't see the other device?"
 msgstr ""
 
-#: data/resources/ui/window.blp:418
+#: data/resources/ui/window.blp:414
 msgid "Preferences"
 msgstr ""
 
-#: data/resources/ui/window.blp:423
+#: data/resources/ui/window.blp:419
 msgid "General"
 msgstr ""
 
-#: data/resources/ui/window.blp:426
+#: data/resources/ui/window.blp:422
 msgid "Device Name"
 msgstr ""
 
-#: data/resources/ui/window.blp:431
+#: data/resources/ui/window.blp:427
 msgid "Visibility"
 msgstr ""
 
-#: data/resources/ui/window.blp:432
+#: data/resources/ui/window.blp:428
 msgid "Whether others can see this device"
 msgstr ""
 
-#: data/resources/ui/window.blp:436
+#: data/resources/ui/window.blp:432
 msgid "Downloads Folder"
 msgstr ""
 
-#: data/resources/ui/window.blp:442
+#: data/resources/ui/window.blp:438
 msgid "Pick download folder"
 msgstr ""
 
-#: data/resources/ui/window.blp:453
+#: data/resources/ui/window.blp:449
 msgid "Run in Background"
 msgstr ""
 
-#: data/resources/ui/window.blp:454
+#: data/resources/ui/window.blp:450
 msgid "Allow running in the background"
 msgstr ""
 
-#: data/resources/ui/window.blp:458
+#: data/resources/ui/window.blp:454
 msgid "Auto Start"
 msgstr ""
 
-#: data/resources/ui/window.blp:459
+#: data/resources/ui/window.blp:455
 msgid "Start automatically at login"
 msgstr ""
 
-#: data/resources/ui/window.blp:464
+#: data/resources/ui/window.blp:460
 msgid "Advanced"
 msgstr ""
 
-#: data/resources/ui/window.blp:467
+#: data/resources/ui/window.blp:463
 msgid "Nautilus Plugin"
 msgstr ""
 
-#: data/resources/ui/window.blp:468
+#: data/resources/ui/window.blp:464
 msgid "Integrate with Nautilus file menu"
 msgstr ""
 
-#: data/resources/ui/window.blp:474
+#: data/resources/ui/window.blp:470
 msgid "Static Network Port"
 msgstr ""
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:476
+#: data/resources/ui/window.blp:472
 msgid "For whitelisting through a firewall"
 msgstr ""
 
-#: data/resources/ui/window.blp:481
+#: data/resources/ui/window.blp:477
 msgid "Port Number"
 msgstr ""
 
-#: data/resources/ui/window.blp:490
+#: data/resources/ui/window.blp:486
 msgid "Help"
 msgstr ""
 
-#: data/resources/ui/window.blp:541
+#: data/resources/ui/window.blp:539
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
 
-#: data/resources/ui/window.blp:564
+#: data/resources/ui/window.blp:562
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
 
-#: data/resources/ui/window.blp:587
+#: data/resources/ui/window.blp:585
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -226,7 +234,7 @@ msgstr ""
 msgid "Similar Projects"
 msgstr ""
 
-#: src/application.rs:282 src/window.rs:1231
+#: src/application.rs:282 src/window.rs:1234
 msgid "Failed to retrieve the logs"
 msgstr ""
 
@@ -259,7 +267,7 @@ msgstr ""
 
 #. Translators: An e.g. "4 Files"
 #: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1624
+#: src/window.rs:1623
 #, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
@@ -409,7 +417,7 @@ msgstr[1] ""
 msgid "Couldn't update the Nautilus plugin"
 msgstr ""
 
-#: src/window.rs:599 src/window.rs:985
+#: src/window.rs:599 src/window.rs:988
 msgid "Packet cannot run in the background"
 msgstr ""
 
@@ -448,90 +456,90 @@ msgstr ""
 msgid "Packet wants to run in the background"
 msgstr ""
 
-#: src/window.rs:1060
+#: src/window.rs:1063
 msgid "Plugin Installed"
 msgstr ""
 
-#: src/window.rs:1064
+#: src/window.rs:1067
 msgid "Done"
 msgstr ""
 
-#: src/window.rs:1080
+#: src/window.rs:1083
 #, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
 
-#: src/window.rs:1096
+#: src/window.rs:1099
 #, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
 
-#: src/window.rs:1111
+#: src/window.rs:1114
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
 
-#: src/window.rs:1121
+#: src/window.rs:1124
 msgid "Installation Failed"
 msgstr ""
 
-#: src/window.rs:1125
+#: src/window.rs:1128
 msgid "Close"
 msgstr ""
 
-#: src/window.rs:1139
+#: src/window.rs:1142
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
 
-#: src/window.rs:1238
+#: src/window.rs:1241
 msgid "Copied log to clipboard"
 msgstr ""
 
-#: src/window.rs:1506
+#: src/window.rs:1505
 msgid "Ready"
 msgstr ""
 
-#: src/window.rs:1513
+#: src/window.rs:1512
 #, rust-format
 msgid "Visible as {:?}"
 msgstr ""
 
-#: src/window.rs:1519
+#: src/window.rs:1518
 msgid "Invisible"
 msgstr ""
 
-#: src/window.rs:1525
+#: src/window.rs:1524
 msgid "No new devices can share with you"
 msgstr ""
 
-#: src/window.rs:1530
+#: src/window.rs:1529
 msgid "Disconnected"
 msgstr ""
 
-#: src/window.rs:1536
+#: src/window.rs:1535
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:1539
+#: src/window.rs:1538
 msgid "Connect to Wi-Fi"
 msgstr ""
 
-#: src/window.rs:1542
+#: src/window.rs:1541
 msgid "Turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:1615
+#: src/window.rs:1614
 msgid "Couldn't open files"
 msgstr ""
 
-#: data/resources/plugins/packet_nautilus.py.in:113
+#: data/resources/plugins/packet_nautilus.py.in:120
 msgid "Send with Packet"
 msgstr ""
 
