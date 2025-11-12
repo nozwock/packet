@@ -1354,23 +1354,12 @@ impl PacketApplicationWindow {
                     let widget =
                         widgets::create_file_card(&imp.obj(), &imp.manage_files_model, model_item);
 
-                    // TODO: Set activatable/focusable to false since they're
-                    // not being used here.
-                    //
-                    // The rows are also adds unnecessary steps in keyboard
-                    // navigation.
-                    //
-                    // Setting parent's property like this seemingly makes the
-                    // process crash silently
-                    //
-                    // widget.connect_parent_notify(|obj| {
-                    //     if let Some(row) = obj.parent().and_downcast_ref::<gtk::ListBoxRow>() {
-                    //         row.set_focusable(false);
-                    //         row.set_activatable(false);
-                    //     }
-                    // });
+                    // TODO: Should focusable be false too since it adds unnecessary steps in keyboard navigation?
+                    let row = gtk::ListBoxRow::new();
+                    row.set_activatable(false);
+                    row.set_child(Some(&widget));
 
-                    widget.into()
+                    row.into()
                 }
             ),
         );
