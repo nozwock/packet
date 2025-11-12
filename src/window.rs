@@ -214,7 +214,7 @@ mod imp {
             obj.setup_connection_monitors();
             obj.setup_notification_actions_monitor();
             obj.setup_rqs_service();
-            obj.request_background();
+            obj.request_background_at_start();
         }
     }
 
@@ -965,12 +965,15 @@ impl PacketApplicationWindow {
         }
     }
 
-    fn request_background(&self) {
+    fn request_background_at_start(&self) {
         glib::spawn_future_local(clone!(
             #[weak(rename_to = this)]
             self,
             async move {
                 let is_run_in_background = this.imp().settings.boolean("run-in-background");
+                if !is_run_in_background {
+                    return;
+                }
                 if let Some(response) = this.portal_request_background().await {
                     tracing::debug!(?response, "Background request successful");
 
@@ -981,7 +984,7 @@ impl PacketApplicationWindow {
                             app.imp().start_in_background.replace(false);
                         }
                     }
-                } else if is_run_in_background {
+                } else {
                     this.add_toast(&gettext("Packet cannot run in the background"));
                 }
             }
