@@ -385,10 +385,11 @@ pub fn present_receive_transfer_ui(
                         ),
                     );
 
-                    // Timeout: auto-decline after 10 seconds
+                    // TODO: Maybe make this configurable?
+                    // Timeout: auto-decline after 1 minute
                     // Since we can't know if the user has simply closed the notification,
                     // we can't use it as a decline response unfortunately. The solution is
-                    // to have a 10s timeout for incoming requests.
+                    // to have a 1min timeout for incoming requests.
                     glib::spawn_future_local(clone!(
                         #[weak]
                         win,
@@ -398,7 +399,7 @@ pub fn present_receive_transfer_ui(
                         auto_decline_ctk,
                         async move {
                             tokio::select! {
-                                _ = futures_timer::Delay::new(Duration::from_secs(10)) => {
+                                _ = futures_timer::Delay::new(Duration::from_mins(1)) => {
                                     if receive_state.user_action().is_none() {
                                         receive_state.set_user_action(Some(UserAction::ConsentDecline));
                                         win.imp().toast_overlay.add_toast(adw::Toast::new(&gettext("Request timed out")));
