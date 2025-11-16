@@ -138,6 +138,7 @@ pub fn present_receive_transfer_ui(
             .label(device_name)
             .halign(gtk::Align::Center)
             .css_classes(["title-4"])
+            .ellipsize(gtk::pango::EllipsizeMode::End)
             .build();
         device_name_box.append(&device_label);
 

@@ -205,6 +205,7 @@ pub fn create_recipient_card(
         .halign(gtk::Align::Start)
         .wrap(true)
         .css_classes(["title-4"])
+        .ellipsize(gtk::pango::EllipsizeMode::End)
         .build();
     model_item
         .bind_property("device-name", &title_label, "label")
