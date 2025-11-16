@@ -107,208 +107,203 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                 child: Adw.ToolbarView {
                     extend-content-to-top-edge: true;
 
-                    Box {
-                        orientation: vertical;
-                        hexpand: true;
-                        vexpand: true;
+                    [bottom]
+                    Adw.Clamp {
+                        maximum-size: 550;
 
-                        Box main_box {
+                        Box bottom_bar {
                             orientation: vertical;
-                            hexpand: true;
-                            vexpand: true;
+                            valign: end;
 
-                            Adw.NavigationView main_nav_view {
-                                Adw.NavigationPage {
-                                    title: _("Main Page");
-                                    tag: "main_nav_page";
+                            Box {
+                                margin-top: 18;
+                                margin-bottom: 18;
+                                margin-start: 24;
+                                margin-end: 24;
+                                hexpand: true;
 
-                                    child: Adw.ToolbarView {
-                                        [top]
-                                        Adw.HeaderBar {
-                                            show-title: false;
-
-                                            [end]
-                                            MenuButton {
-                                                icon-name: "open-menu-symbolic";
-                                                menu-model: primary_menu;
-                                                tooltip-text: _("Main Menu");
-                                                primary: true;
-                                            }
-                                        }
-
-                                        Adw.StatusPage main_nav_content {
-                                            vexpand: true;
-                                            hexpand: true;
-                                            icon-name: "io.github.nozwock.Packet";
-                                            title: _("Packet");
-                                            description: _("Add, or drop a file to send");
-
-                                            styles [
-                                                "icon-dropshadow",
-                                            ]
-
-                                            child: Button main_add_files_button {
-                                                label: _("Add Files");
-                                                margin-top: 24;
-                                                halign: center;
-
-                                                styles [
-                                                    "pill",
-                                                    "suggested-action",
-                                                    "accent",
-                                                ]
-                                            };
-                                        }
-                                    };
-                                }
-
-                                Adw.NavigationPage {
-                                    title: _("Selected Files Page");
-                                    tag: "manage_files_nav_page";
-
-                                    child: Adw.ToolbarView {
-                                        [top]
-                                        Adw.HeaderBar {
-                                            show-title: false;
-
-                                            [end]
-                                            MenuButton {
-                                                icon-name: "open-menu-symbolic";
-                                                menu-model: primary_menu;
-                                                tooltip-text: _("Main Menu");
-                                                primary: true;
-                                            }
-                                        }
-
-                                        Box manage_files_nav_content {
-                                            orientation: vertical;
-                                            hexpand: true;
-                                            vexpand: true;
-
-                                            ScrolledWindow {
-                                                hscrollbar-policy: never;
-                                                vexpand: true;
-                                                hexpand: true;
-
-                                                Adw.Clamp {
-                                                    maximum-size: 550;
-
-                                                    Adw.PreferencesGroup manage_files_header {
-                                                        // Internal
-                                                        title: "1 File";
-                                                        margin-top: 24;
-                                                        margin-bottom: 24;
-                                                        margin-start: 24;
-                                                        margin-end: 24;
-
-                                                        [header-suffix]
-                                                        Button manage_files_add_files_button {
-                                                            Adw.ButtonContent {
-                                                                label: _("Add File");
-                                                                icon-name: "list-add-symbolic";
-                                                            }
-
-                                                            styles [
-                                                                "flat",
-                                                            ]
-                                                        }
-
-                                                        ListBox manage_files_listbox {
-                                                            selection-mode: none;
-
-                                                            styles [
-                                                                "boxed-list",
-                                                            ]
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    };
-                                }
-                            }
-                        }
-
-                        Adw.Clamp {
-                            maximum-size: 550;
-
-                            Box bottom_bar {
-                                orientation: vertical;
-                                valign: end;
-
-                                Box {
-                                    margin-top: 18;
-                                    margin-bottom: 18;
-                                    margin-start: 24;
-                                    margin-end: 24;
+                                Box bottom_bar_status {
+                                    // internal
+                                    orientation: vertical;
+                                    halign: center;
                                     hexpand: true;
+                                    spacing: 4;
 
-                                    Box bottom_bar_status {
+                                    Box bottom_bar_status_top {
                                         // internal
-                                        orientation: vertical;
                                         halign: center;
-                                        hexpand: true;
-                                        spacing: 4;
+                                        spacing: 8;
 
-                                        Box bottom_bar_status_top {
+                                        Image bottom_bar_image {
                                             // internal
-                                            halign: center;
-                                            spacing: 8;
-
-                                            Image bottom_bar_image {
-                                                // internal
-                                                icon-name: "network-available-symbolic";
-                                                pixel-size: 24;
-
-                                                styles [
-                                                    "accent",
-                                                ]
-                                            }
-
-                                            Label bottom_bar_title {
-                                                // internal
-                                                label: "Ready";
-
-                                                styles [
-                                                    "title-4",
-                                                    "accent",
-                                                ]
-                                            }
-                                        }
-
-                                        Label bottom_bar_caption {
-                                            // internal
-                                            label: "Visible as \"{}\"";
-                                            ellipsize: end;
+                                            icon-name: "network-available-symbolic";
+                                            pixel-size: 24;
 
                                             styles [
-                                                "dimmed",
+                                                "accent",
+                                            ]
+                                        }
+
+                                        Label bottom_bar_title {
+                                            // internal
+                                            label: "Ready";
+
+                                            styles [
+                                                "title-4",
+                                                "accent",
                                             ]
                                         }
                                     }
 
-                                    Adw.Bin bottom_bar_spacer {
-                                        visible: false;
-                                        hexpand: true;
-                                    }
-
-                                    Button manage_files_send_button {
-                                        label: _("Send To…");
-                                        visible: false;
-                                        halign: center;
-                                        valign: center;
-                                        margin-start: 8;
-                                        height-request: 42;
+                                    Label bottom_bar_caption {
+                                        // internal
+                                        label: "Visible as \"{}\"";
+                                        ellipsize: end;
 
                                         styles [
-                                            "suggested-action",
-                                            "pill",
+                                            "dimmed",
                                         ]
                                     }
+                                }
+
+                                Adw.Bin bottom_bar_spacer {
+                                    visible: false;
+                                    hexpand: true;
+                                }
+
+                                Button manage_files_send_button {
+                                    label: _("Send To…");
+                                    visible: false;
+                                    halign: center;
+                                    valign: center;
+                                    margin-start: 8;
+                                    height-request: 42;
+
+                                    styles [
+                                        "suggested-action",
+                                        "pill",
+                                    ]
                                 }
                             }
                         }
                     }
+
+                    content: Box main_box {
+                        orientation: vertical;
+                        hexpand: true;
+                        vexpand: true;
+
+                        Adw.NavigationView main_nav_view {
+                            Adw.NavigationPage {
+                                title: _("Main Page");
+                                tag: "main_nav_page";
+
+                                child: Adw.ToolbarView {
+                                    [top]
+                                    Adw.HeaderBar {
+                                        show-title: false;
+
+                                        [end]
+                                        MenuButton {
+                                            icon-name: "open-menu-symbolic";
+                                            menu-model: primary_menu;
+                                            tooltip-text: _("Main Menu");
+                                            primary: true;
+                                        }
+                                    }
+
+                                    Adw.StatusPage main_nav_content {
+                                        vexpand: true;
+                                        hexpand: true;
+                                        icon-name: "io.github.nozwock.Packet";
+                                        title: _("Packet");
+                                        description: _("Add, or drop a file to send");
+
+                                        styles [
+                                            "icon-dropshadow",
+                                        ]
+
+                                        child: Button main_add_files_button {
+                                            label: _("Add Files");
+                                            margin-top: 24;
+                                            halign: center;
+
+                                            styles [
+                                                "pill",
+                                                "suggested-action",
+                                                "accent",
+                                            ]
+                                        };
+                                    }
+                                };
+                            }
+
+                            Adw.NavigationPage {
+                                title: _("Selected Files Page");
+                                tag: "manage_files_nav_page";
+
+                                child: Adw.ToolbarView {
+                                    [top]
+                                    Adw.HeaderBar {
+                                        show-title: false;
+
+                                        [end]
+                                        MenuButton {
+                                            icon-name: "open-menu-symbolic";
+                                            menu-model: primary_menu;
+                                            tooltip-text: _("Main Menu");
+                                            primary: true;
+                                        }
+                                    }
+
+                                    Box manage_files_nav_content {
+                                        orientation: vertical;
+                                        hexpand: true;
+                                        vexpand: true;
+
+                                        ScrolledWindow {
+                                            hscrollbar-policy: never;
+                                            vexpand: true;
+                                            hexpand: true;
+
+                                            Adw.Clamp {
+                                                maximum-size: 550;
+
+                                                Adw.PreferencesGroup manage_files_header {
+                                                    // Internal
+                                                    title: "1 File";
+                                                    margin-top: 24;
+                                                    margin-bottom: 24;
+                                                    margin-start: 24;
+                                                    margin-end: 24;
+
+                                                    [header-suffix]
+                                                    Button manage_files_add_files_button {
+                                                        Adw.ButtonContent {
+                                                            label: _("Add File");
+                                                            icon-name: "list-add-symbolic";
+                                                        }
+
+                                                        styles [
+                                                            "flat",
+                                                        ]
+                                                    }
+
+                                                    ListBox manage_files_listbox {
+                                                        selection-mode: none;
+
+                                                        styles [
+                                                            "boxed-list",
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                };
+                            }
+                        }
+                    };
                 };
             }
         }
