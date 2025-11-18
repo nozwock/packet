@@ -24,7 +24,10 @@ use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
-use crate::utils::{strip_user_home_prefix, with_signals_blocked, xdg_download_with_fallback};
+use crate::utils::{
+    find_child_by_name, find_widget_by_name, strip_user_home_prefix, with_signals_blocked,
+    xdg_download_with_fallback,
+};
 use crate::{monitors, tokio_runtime, widgets};
 
 #[derive(Debug)]
@@ -93,6 +96,8 @@ mod imp {
         pub bottom_bar_status: TemplateChild<gtk::Box>,
         #[template_child]
         pub bottom_bar_status_top: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub bottom_bar_visibility_dropdown: TemplateChild<gtk::DropDown>,
 
         #[template_child]
         pub device_name_entry: TemplateChild<adw::EntryRow>,
@@ -1689,6 +1694,29 @@ impl PacketApplicationWindow {
 
     fn setup_bottom_bar(&self) {
         let imp = self.imp();
+
+        let bottom_bar_visibility_dropdown = imp.bottom_bar_visibility_dropdown.get();
+        let stack = find_widget_by_name(&bottom_bar_visibility_dropdown, "GtkStack").unwrap();
+        stack.set_visible(false);
+        let button =
+            find_widget_by_name(&bottom_bar_visibility_dropdown, "GtkToggleButton").unwrap();
+        button.add_css_class("flat");
+
+        bottom_bar_visibility_dropdown
+            .bind_property("selected", &imp.device_visibility_switch.get(), "active")
+            .sync_create()
+            .transform_to(|_, n: u32| Some(n == 0))
+            .transform_from(|_, b: bool| if b { Some(0u32) } else { Some(1) })
+            .build();
+
+        bottom_bar_visibility_dropdown.connect_selected_item_notify(clone!(
+            #[weak]
+            imp,
+            move |obj| {
+                imp.obj()
+                    .bottom_bar_status_indicator_ui_update(obj.selected() == 0);
+            }
+        ));
 
         // Switch bottom bar layout b/w "Selected Files" page and other pages
         imp.main_nav_view.connect_visible_page_notify(clone!(

@@ -8,7 +8,14 @@ use std::{
 
 use ashpd::desktop::notification::Notification;
 use gettextrs::ngettext;
-use gtk::glib::{self};
+use gtk::{
+    Widget,
+    glib::{
+        self, Object,
+        object::{Cast, IsA},
+    },
+    prelude::WidgetExt,
+};
 
 #[macro_export]
 macro_rules! impl_deref_for_newtype {
@@ -309,4 +316,29 @@ impl fmt::Display for HumanReadable {
             }
         }
     }
+}
+
+pub fn find_child_by_name<C: IsA<Widget>, W: Clone + IsA<Object> + IsA<Widget>>(
+    parent: &W,
+    name: &str,
+) -> Option<C> {
+    find_widget_by_name(parent, name).and_then(|widget| widget.downcast().ok())
+}
+
+pub fn find_widget_by_name<W: Clone + IsA<Object> + IsA<Widget>>(
+    parent: &W,
+    name: impl AsRef<str>,
+) -> Option<Widget> {
+    for child in parent.observe_children().into_iter().flat_map(|it| it.ok()) {
+        if let Ok(widget) = child.downcast::<gtk::Widget>() {
+            if dbg!(widget.widget_name().to_string()) == name.as_ref() {
+                return Some(widget);
+            } else {
+                if let Some(widget) = find_widget_by_name(&widget, name.as_ref()) {
+                    return Some(widget);
+                }
+            }
+        }
+    }
+    None
 }
