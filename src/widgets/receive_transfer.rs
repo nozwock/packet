@@ -789,7 +789,18 @@ pub fn present_receive_transfer_ui(
                         dialog.present(Some(&win));
                     } else {
                         // Received Files
+                        let files = event_msg.files().unwrap();
                         let file_count = event_msg.files().unwrap().len();
+
+                        // Update "Recent" list (recently-used.xbel)
+                        let recent_manager = gtk::RecentManager::default();
+                        let filename = dirs::home_dir().unwrap().join(".local/share/recently-used.xbel").to_string_lossy().to_string();
+                        dbg!(std::fs::read_to_string(dbg!(&filename)));
+                        recent_manager.set_property("filename", &filename);
+                        dbg!(recent_manager.filename());
+                        for uri in files.iter().map(|p| gio::File::for_path(p).uri().to_string()) {
+                            dbg!(recent_manager.add_item(&dbg!(uri)));
+                        }
 
                         let body = formatx!(
                             ngettext(

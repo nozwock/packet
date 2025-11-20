@@ -11,6 +11,7 @@
     "finish-args": [
         "--talk-name=org.kde.StatusNotifierWatcher",
         "--filesystem=home/.local/share/nautilus-python/extensions",
+        "--filesystem=home/.local/share/recently-used.xbel",
         "--allow=bluetooth",
         "--share=network",
         "--filesystem=xdg-download",
