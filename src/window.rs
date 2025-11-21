@@ -19,6 +19,7 @@ use tokio_util::sync::CancellationToken;
 use crate::application::PacketApplication;
 use crate::config::{APP_ID, PROFILE};
 use crate::constants::packet_log_path;
+use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
@@ -49,7 +50,7 @@ mod imp {
 
     use tokio::sync::Mutex;
 
-    use crate::utils::remove_notification;
+    use crate::{ext::MessageExt, utils::remove_notification};
 
     use super::*;
 
@@ -247,8 +248,7 @@ mod imp {
                     .event()
                     .unwrap()
                     .msg
-                    .as_client()
-                    .expect("Cached TransferMessage is only of type User")
+                    .as_client_unchecked()
                     .state
                     .as_ref()
                     .unwrap_or(&TransferState::Initial)
@@ -1784,8 +1784,7 @@ impl PacketApplicationWindow {
                 .event()
                 .unwrap()
                 .msg
-                .as_client()
-                .unwrap()
+                .as_client_unchecked()
                 .state
                 .as_ref()
                 .unwrap_or(&rqs_lib::TransferState::Initial)
@@ -2139,7 +2138,7 @@ impl PacketApplicationWindow {
                         tracing::debug!(event = ?channel_message, "Received event on UI thread");
 
                         let id = &channel_message.id;
-                        let client_msg = channel_message.msg.as_client().unwrap();
+                        let client_msg = channel_message.msg.as_client_unchecked();
 
                         use rqs_lib::TransferState;
                         match client_msg

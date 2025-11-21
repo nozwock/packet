@@ -7,7 +7,7 @@ use rqs_lib::hdl::{
     info::{TransferPayload, TransferPayloadKind},
 };
 
-use crate::{impl_deref_for_newtype, utils};
+use crate::{ext::MessageExt, impl_deref_for_newtype, utils};
 
 #[derive(Debug, Clone, Default, glib::Boxed)]
 #[boxed_type(name = "StateBoxed")]
@@ -39,8 +39,7 @@ impl_deref_for_newtype!(ChannelMessage, rqs_lib::channel::ChannelMessage);
 impl ChannelMessage {
     pub fn device_name(&self) -> String {
         self.msg
-            .as_client()
-            .unwrap()
+            .as_client_unchecked()
             .metadata
             .as_ref()
             .and_then(|meta| meta.source.as_ref())
@@ -50,8 +49,7 @@ impl ChannelMessage {
 
     pub fn files(&self) -> Option<&Vec<String>> {
         self.msg
-            .as_client()
-            .unwrap()
+            .as_client_unchecked()
             .metadata
             .as_ref()
             .and_then(|it| match &it.payload {
@@ -62,8 +60,7 @@ impl ChannelMessage {
 
     pub fn text_preview(&self) -> Option<String> {
         self.msg
-            .as_client()
-            .unwrap()
+            .as_client_unchecked()
             .metadata
             .as_ref()
             .and_then(|meta| meta.payload_preview.clone())
@@ -71,8 +68,7 @@ impl ChannelMessage {
 
     pub fn is_text_type(&self) -> bool {
         self.msg
-            .as_client()
-            .unwrap()
+            .as_client_unchecked()
             .metadata
             .as_ref()
             .map(|meta| match meta.payload_kind {
@@ -86,8 +82,7 @@ impl ChannelMessage {
 
     pub fn transferred_text_data(&self) -> Option<(String, TextPayloadType)> {
         self.msg
-            .as_client()
-            .unwrap()
+            .as_client_unchecked()
             .metadata
             .as_ref()
             .and_then(|meta| match &meta.payload {

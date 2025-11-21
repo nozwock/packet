@@ -13,6 +13,7 @@ use rqs_lib::hdl::TextPayloadType;
 use tokio_util::sync::CancellationToken;
 
 use crate::{
+    ext::MessageExt,
     objects::{self, UserAction},
     utils::{remove_notification, spawn_notification},
     window::PacketApplicationWindow,
@@ -55,7 +56,10 @@ pub fn present_receive_transfer_ui(
     notification_id: String,
     auto_decline_ctk: CancellationToken,
 ) {
-    let init_id = receive_state.event().unwrap().id.clone();
+    let event = receive_state
+        .event()
+        .expect("ReceiveTransferState.event must be set");
+    let init_id = event.id.clone();
     let win = win.clone();
 
     // Progress dialog
@@ -94,7 +98,7 @@ pub fn present_receive_transfer_ui(
         .build();
     progress_stack.add_named(&progress_files_box, Some("progress_files"));
 
-    let device_name = receive_state.event().unwrap().device_name();
+    let device_name = event.device_name();
     let device_name_box = create_device_name_box(&device_name);
     device_name_box.set_margin_bottom(4);
     progress_files_box.append(&device_name_box);
@@ -169,7 +173,9 @@ pub fn present_receive_transfer_ui(
                 auto_decline_ctk.cancel();
             }
 
-            let event = receive_state.event().unwrap();
+            let event = receive_state
+                .event()
+                .expect("ReceiveTransferState.event must be set");
             match receive_state.user_action() {
                 Some(UserAction::ConsentAccept) => {
                     consent_dialog.close();
@@ -257,8 +263,9 @@ pub fn present_receive_transfer_ui(
         move |receive_state| {
             use rqs_lib::TransferState;
 
-            let event_msg = receive_state.event().expect("Property setter isn't nullable");
-            let client_msg = event_msg.msg.as_client().unwrap();
+            let event_msg = receive_state.event().expect("ReceiveTransferState.event must be set");
+            let client_msg = event_msg.msg.as_client_unchecked();
+            let metadata = client_msg.metadata.as_ref().unwrap();
 
             match client_msg.state.clone().unwrap_or(TransferState::Initial) {
                 TransferState::Initial => {}
@@ -295,7 +302,7 @@ pub fn present_receive_transfer_ui(
                     let device_name_box = create_device_name_box(&device_name);
                     info_box.append(&device_name_box);
 
-                    let total_bytes = client_msg.metadata.as_ref().unwrap().total_bytes;
+                    let total_bytes = metadata.total_bytes;
                     let transfer_size = human_bytes::human_bytes(total_bytes as f64);
 
                     if let Some(files) = event_msg.files() {
@@ -346,10 +353,9 @@ pub fn present_receive_transfer_ui(
                                 client_msg
                                     .metadata
                                     .as_ref()
-                                    .unwrap()
-                                    .pin_code
-                                    .clone()
-                                    .unwrap_or_default()
+                                    .map(|it| it.pin_code.as_ref().map(|it| it.as_str()))
+                                    .flatten()
+                                    .unwrap_or("???")
                             )
                             .unwrap_or_else(|_| "badly formatted locale string".into()),
                         )
@@ -462,7 +468,7 @@ pub fn present_receive_transfer_ui(
 
                     // TODO: show a progress dialog for both but with a delay?
                     // Create Progress bar dialog
-                    let total_bytes = client_msg.metadata.as_ref().unwrap().total_bytes;
+                    let total_bytes = metadata.total_bytes;
                     receive_state
                         .imp()
                         .eta

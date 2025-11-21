@@ -100,7 +100,12 @@ pub fn create_file_card(
     root_box.append(&file_avatar);
 
     let filename_label = gtk::Label::builder()
-        .label(model_item.basename().unwrap().to_string_lossy())
+        .label(
+            model_item
+                .basename()
+                .expect("Derived GFile from uri/path should be valid")
+                .to_string_lossy(),
+        )
         .xalign(0.)
         .hexpand(true)
         .wrap(true)

@@ -1,4 +1,5 @@
 use crate::{
+    ext::MessageExt,
     objects::{self, TransferState, send_transfer::SendRequestState},
     tokio_runtime,
     window::PacketApplicationWindow,
@@ -11,7 +12,7 @@ use gettextrs::{gettext, ngettext};
 use gtk::{gio, glib, glib::clone};
 use rqs_lib::channel::{ChannelMessage, MessageClient};
 
-fn get_model_item_from_listbox<T>(
+fn get_model_item_from_listbox_row<T>(
     model: &gio::ListStore,
     list_box: &gtk::ListBox,
     row: &gtk::ListBoxRow,
@@ -44,7 +45,7 @@ where
 {
     let mut pos = 0;
     while let Some(x) = model.item(pos) {
-        if x.downcast_ref::<T>().unwrap() == model_item {
+        if x.downcast_ref::<T>()? == model_item {
             break;
         }
         pos = pos + 1;
@@ -61,8 +62,8 @@ pub fn handle_recipient_card_clicked(
     let imp = win.imp();
 
     let model_item =
-        get_model_item_from_listbox::<SendRequestState>(&imp.recipient_model, list_box, row)
-            .unwrap();
+        get_model_item_from_listbox_row::<SendRequestState>(&imp.recipient_model, list_box, row)
+            .expect("Index should be valid since model and ListBox are related");
 
     emit_send_files(win, &model_item);
 
@@ -94,12 +95,16 @@ fn emit_send_files(win: &PacketApplicationWindow, model_item: &SendRequestState)
     tokio_runtime().spawn(clone!(
         #[weak(rename_to = file_sender)]
         imp.file_sender,
+        // #[weak]
+        // model_item,
         async move {
+            // FIXME: Set Failed state on Err and update UI on Failed state change
+            // model_item.set_transfer_state(TransferState::Failed);
             file_sender
                 .lock()
                 .await
                 .as_mut()
-                .unwrap()
+                .expect("RQS .file_sender must be set")
                 .send(rqs_lib::SendInfo {
                     id: endpoint_info.id.clone(),
                     name: endpoint_info
@@ -401,7 +406,7 @@ pub fn create_recipient_card(
             let eta_estimator = model_item.imp().eta.as_ref();
 
             if let Some(event_msg) = model_item.event() {
-                let client_msg = event_msg.msg.as_client().unwrap();
+                let client_msg = event_msg.msg.as_client_unchecked();
                 let state = client_msg.state.as_ref().unwrap_or(&RqsState::Initial);
 
                 match state {
@@ -444,10 +449,9 @@ pub fn create_recipient_card(
                                 client_msg
                                     .metadata
                                     .as_ref()
-                                    .unwrap()
-                                    .pin_code
-                                    .clone()
-                                    .unwrap()
+                                    .map(|it| it.pin_code.as_ref().map(|it| it.as_str()))
+                                    .flatten()
+                                    .unwrap_or("???")
                             )
                             .unwrap_or_else(|_| "badly formatted locale string".into()),
                         );

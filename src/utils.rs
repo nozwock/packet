@@ -124,10 +124,10 @@ pub fn remove_notification(id: String) {
 }
 
 pub fn strip_user_home_prefix<P: AsRef<Path>>(path: P) -> PathBuf {
-    if let Some(home) = dirs::home_dir() {
-        if path.as_ref().starts_with(&home) {
-            return PathBuf::from("~").join(path.as_ref().strip_prefix(&home).unwrap());
-        }
+    if let Some(home) = dirs::home_dir()
+        && let Ok(stripped) = path.as_ref().strip_prefix(&home)
+    {
+        return PathBuf::from("~").join(stripped);
     }
 
     path.as_ref().into()
