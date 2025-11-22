@@ -19,6 +19,7 @@ use tokio_util::sync::CancellationToken;
 use crate::application::PacketApplication;
 use crate::config::{APP_ID, PROFILE};
 use crate::constants::packet_log_path;
+use crate::dbus;
 use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
@@ -171,6 +172,7 @@ mod imp {
         pub is_mdns_discovery_on: Rc<Cell<bool>>,
 
         pub looping_async_tasks: RefCell<Vec<LoopingTaskHandle>>,
+        pub dbus_async_tasks: RefCell<Vec<LoopingTaskHandle>>,
 
         pub is_background_allowed: Cell<bool>,
         pub should_quit: Cell<bool>,
@@ -216,6 +218,7 @@ mod imp {
             obj.setup_notification_actions_monitor();
             obj.setup_rqs_service();
             obj.request_background_at_start();
+            obj.setup_dbus_api();
         }
     }
 
@@ -265,9 +268,16 @@ mod imp {
 
             // Abort all looping tasks before closing
             tracing::info!(
-                count = self.looping_async_tasks.borrow().len(),
+                rqs_tasks = self.looping_async_tasks.borrow().len(),
+                dbus_tasks = self.dbus_async_tasks.borrow().len(),
                 "Cancelling looping tasks"
             );
+            while let Some(join_handle) = self.dbus_async_tasks.borrow_mut().pop() {
+                match join_handle {
+                    LoopingTaskHandle::Tokio(join_handle) => join_handle.abort(),
+                    LoopingTaskHandle::Glib(join_handle) => join_handle.abort(),
+                }
+            }
             while let Some(join_handle) = self.looping_async_tasks.borrow_mut().pop() {
                 match join_handle {
                     LoopingTaskHandle::Tokio(join_handle) => join_handle.abort(),
@@ -1847,6 +1857,70 @@ impl PacketApplicationWindow {
         ));
 
         handle
+    }
+
+    fn setup_dbus_api(&self) {
+        let obj = self.clone();
+
+        let inner = async move || -> anyhow::Result<()> {
+            let imp = obj.imp();
+
+            _ = dbus::create_connection(imp.settings.boolean("device-visibility")).await?;
+
+            let handle = glib::spawn_future_local(clone!(
+                #[weak]
+                imp,
+                async move {
+                    // IMPORTANT: Keep notice of get() and get_mut() so that it doesn't lead to deadlock
+                    let mut visibility_rx = {
+                        let iface_ref = dbus::packet_iface().await;
+                        iface_ref
+                            .get()
+                            .await
+                            .visibility_rx
+                            .clone()
+                            .lock_owned()
+                            .await
+                    };
+
+                    while let Some(extern_visibility) = visibility_rx.recv().await {
+                        _ = imp
+                            .settings
+                            .set_boolean("device-visibility", extern_visibility)
+                            .inspect_err(|err| tracing::warn!(%err));
+                    }
+                }
+            ));
+            imp.dbus_async_tasks
+                .borrow_mut()
+                .push(LoopingTaskHandle::Glib(handle));
+
+            imp.settings
+                .connect_changed(Some("device-visibility"), move |settings, key| {
+                    let key = key.to_string();
+                    glib::spawn_future_local(clone!(
+                        #[weak]
+                        settings,
+                        async move {
+                            let iface_ref = dbus::packet_iface().await;
+                            let mut iface = iface_ref.get_mut().await;
+                            iface.visibility = settings.boolean(&key);
+                            _ = iface
+                                .device_visibility_changed(iface_ref.signal_emitter())
+                                .await
+                                .inspect_err(|err| tracing::warn!(%err));
+                        }
+                    ));
+                });
+
+            Ok(())
+        };
+
+        glib::spawn_future_local(async move {
+            _ = inner()
+                .await
+                .inspect_err(|err| tracing::error!(%err, "Failed to setup DBus API"));
+        });
     }
 
     fn setup_connection_monitors(&self) {
