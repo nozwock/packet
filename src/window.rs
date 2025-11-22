@@ -1505,6 +1505,24 @@ impl PacketApplicationWindow {
         ));
     }
 
+    async fn on_visibility_changed(&self, visibility: bool) {
+        let imp = self.imp();
+
+        self.bottom_bar_status_indicator_ui_update(visibility);
+
+        if let Some(rqs) = imp.rqs.lock().await.as_mut() {
+            let visibility = if visibility {
+                rqs_lib::Visibility::Visible
+            } else {
+                rqs_lib::Visibility::Invisible
+            };
+
+            rqs.change_visibility(visibility);
+        } else {
+            tracing::warn!("Couldn't set device visibility due RQS not being set");
+        }
+    }
+
     fn bottom_bar_status_indicator_ui_update(&self, is_visible: bool) {
         let imp = self.imp();
 
@@ -1588,23 +1606,15 @@ impl PacketApplicationWindow {
             #[weak]
             imp,
             move |obj| {
-                imp.obj()
-                    .bottom_bar_status_indicator_ui_update(obj.is_active());
-
-                let visibility = if obj.is_active() {
-                    rqs_lib::Visibility::Visible
-                } else {
-                    rqs_lib::Visibility::Invisible
-                };
-
-                glib::spawn_future_local(async move {
-                    imp.rqs
-                        .lock()
-                        .await
-                        .as_mut()
-                        .unwrap()
-                        .change_visibility(visibility);
-                });
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    imp,
+                    #[weak]
+                    obj,
+                    async move {
+                        imp.obj().on_visibility_changed(obj.is_active()).await;
+                    }
+                ));
             }
         ));
     }
