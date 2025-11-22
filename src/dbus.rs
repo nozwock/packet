@@ -10,6 +10,7 @@ use crate::config::{DBUS_API_NAME, DBUS_API_PATH};
 
 #[derive(Debug)]
 pub struct Packet {
+    pub device_name: String,
     pub visibility: bool,
     visibility_tx: Arc<Mutex<Sender<bool>>>,
     pub visibility_rx: Arc<Mutex<Receiver<bool>>>,
@@ -17,6 +18,11 @@ pub struct Packet {
 
 #[zbus::interface(name = "io.github.nozwock.Packet1")]
 impl Packet {
+    #[zbus(property)]
+    pub async fn device_name(&self) -> &str {
+        &self.device_name
+    }
+
     #[zbus(property)]
     pub async fn device_visibility(&self) -> bool {
         self.visibility
@@ -42,7 +48,10 @@ pub async fn get_connection() -> Option<Connection> {
     CONNECTION.lock().await.as_ref().cloned()
 }
 
-pub async fn create_connection(visibility: bool) -> anyhow::Result<Connection> {
+pub async fn create_connection(
+    device_name: String,
+    visibility: bool,
+) -> anyhow::Result<Connection> {
     let mut conn_guard = CONNECTION.lock().await;
 
     if let Some(conn) = conn_guard.as_ref() {
@@ -54,7 +63,8 @@ pub async fn create_connection(visibility: bool) -> anyhow::Result<Connection> {
             .serve_at(
                 DBUS_API_PATH,
                 Packet {
-                    visibility: visibility,
+                    device_name,
+                    visibility,
                     visibility_tx: Arc::new(Mutex::new(tx)),
                     visibility_rx: Arc::new(Mutex::new(rx)),
                 },

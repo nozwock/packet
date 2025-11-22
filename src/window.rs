@@ -1875,7 +1875,11 @@ impl PacketApplicationWindow {
         let inner = async move || -> anyhow::Result<()> {
             let imp = obj.imp();
 
-            _ = dbus::create_connection(imp.settings.boolean("device-visibility")).await?;
+            _ = dbus::create_connection(
+                obj.get_device_name_state().as_str().to_string(),
+                imp.settings.boolean("device-visibility"),
+            )
+            .await?;
 
             let handle = glib::spawn_future_local(clone!(
                 #[weak]
@@ -1906,21 +1910,37 @@ impl PacketApplicationWindow {
                 .push(LoopingTaskHandle::Glib(handle));
 
             imp.settings
-                .connect_changed(Some("device-visibility"), move |settings, key| {
-                    let key = key.to_string();
-                    glib::spawn_future_local(clone!(
-                        #[weak]
-                        settings,
-                        async move {
-                            let iface_ref = dbus::packet_iface().await;
-                            let mut iface = iface_ref.get_mut().await;
-                            iface.visibility = settings.boolean(&key);
-                            _ = iface
-                                .device_visibility_changed(iface_ref.signal_emitter())
-                                .await
-                                .inspect_err(|err| tracing::warn!(%err));
-                        }
-                    ));
+                .connect_changed(None, move |settings, key| match key {
+                    "device-visibility" | "device-name" => {
+                        let key = key.to_string();
+                        glib::spawn_future_local(clone!(
+                            #[weak]
+                            settings,
+                            async move {
+                                let iface_ref = dbus::packet_iface().await;
+                                let mut iface = iface_ref.get_mut().await;
+                                match key.as_str() {
+                                    "device-name" => {
+                                        iface.device_name =
+                                            settings.string(&key).as_str().to_string();
+                                        _ = iface
+                                            .device_name_changed(iface_ref.signal_emitter())
+                                            .await
+                                            .inspect_err(|err| tracing::warn!(%err));
+                                    }
+                                    "device-visibility" => {
+                                        iface.visibility = settings.boolean(&key);
+                                        _ = iface
+                                            .device_visibility_changed(iface_ref.signal_emitter())
+                                            .await
+                                            .inspect_err(|err| tracing::warn!(%err));
+                                    }
+                                    _ => {}
+                                }
+                            }
+                        ));
+                    }
+                    _ => {}
                 });
 
             Ok(())
