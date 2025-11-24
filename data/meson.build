@@ -104,7 +104,7 @@ service_conf = configuration_data()
 service_conf.set('app-id', api_id)
 service_conf.set('bindir', bindir)
 configure_file(
-    input: '@0@.service.in'.format(base_id),
+    input: '@0@.service.in'.format(base_id + '.Api'),
     output: '@0@.service'.format(api_id),
     configuration: service_conf,
     install: true,
