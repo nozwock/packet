@@ -223,16 +223,30 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                                             "icon-dropshadow",
                                         ]
 
-                                        child: Button main_add_files_button {
-                                            label: _("Add Files");
+                                        child: Box {
+                                            orientation: vertical;
+                                            spacing: 12;
                                             margin-top: 24;
                                             halign: center;
 
-                                            styles [
-                                                "pill",
-                                                "suggested-action",
-                                                "accent",
-                                            ]
+                                            Button main_add_files_button {
+                                                label: _("Add Files");
+
+                                                styles [
+                                                    "pill",
+                                                    "suggested-action",
+                                                    "accent",
+                                                ]
+                                            }
+
+                                            Button main_share_text_button {
+                                                label: _("Share Text");
+
+                                                styles [
+                                                    "pill",
+                                                    "flat",
+                                                ]
+                                            }
                                         };
                                     }
                                 };
@@ -597,6 +611,76 @@ Adw.Dialog help_dialog {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+Adw.Dialog share_text_dialog {
+    title: _("Share Text");
+    content-width: 400;
+    content-height: 300;
+
+    Adw.ToolbarView {
+        top-bar-style: flat;
+
+        [top]
+        Adw.HeaderBar {
+            [start]
+            Button paste_text_button {
+                icon-name: "edit-paste-symbolic";
+                tooltip-text: _("Paste from clipboard");
+
+                styles [
+                    "circular",
+                    "flat",
+                ]
+            }
+
+            [end]
+            Button send_text_button {
+                label: _("Send");
+                sensitive: false;
+
+                styles [
+                    "suggested-action",
+                ]
+            }
+        }
+
+        Box {
+            orientation: vertical;
+            margin-top: 12;
+            margin-bottom: 12;
+            margin-start: 12;
+            margin-end: 12;
+            spacing: 6;
+
+            Frame {
+                vexpand: true;
+
+                ScrolledWindow {
+                    vexpand: true;
+
+                    TextView share_text_view {
+                        top-margin: 12;
+                        bottom-margin: 12;
+                        left-margin: 12;
+                        right-margin: 12;
+                        wrap-mode: word;
+                        accepts-tab: false;
+                    }
+                }
+            }
+
+            Label share_text_counter {
+                halign: end;
+                label: "0 / 100,000";
+
+                styles [
+                    "caption",
+                    "dim-label",
+                ]
             }
         }
     }

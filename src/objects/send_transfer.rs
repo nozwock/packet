@@ -122,6 +122,7 @@ pub mod imp {
     pub struct SendTransferState {
         pub eta: Rc<RefCell<utils::DataTransferEta>>,
         pub files: Rc<RefCell<Vec<String>>>,
+        pub pending_text: Rc<RefCell<Option<(String, rqs_lib::TextPayloadType)>>>,
 
         #[property(get, set)]
         transfer_state: RefCell<TransferState>,
@@ -160,6 +161,7 @@ impl SendRequestState {
         obj.set_device_name(self.device_name());
         *obj.imp().eta.borrow_mut() = self.imp().eta.borrow().clone();
         *obj.imp().files.borrow_mut() = self.imp().files.borrow().clone();
+        *obj.imp().pending_text.borrow_mut() = self.imp().pending_text.borrow().clone();
 
         obj
     }

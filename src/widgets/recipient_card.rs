@@ -76,6 +76,14 @@ fn emit_send_files(win: &PacketApplicationWindow, model_item: &SendRequestState)
 
     let endpoint_info = model_item.endpoint_info();
     let files_to_send = model_item.imp().files.borrow().clone();
+    let pending_text = model_item.imp().pending_text.borrow().clone();
+
+    // Determine payload type
+    let outbound_payload = if let Some((text, text_type)) = pending_text {
+        rqs_lib::OutboundPayload::Text { text, text_type }
+    } else {
+        rqs_lib::OutboundPayload::Files(files_to_send)
+    };
 
     // Only one transfer at a time is supported by the protocol
     // Whether it be receiving or sending
@@ -116,7 +124,7 @@ fn emit_send_files(win: &PacketApplicationWindow, model_item: &SendRequestState)
                         endpoint_info.ip.clone().unwrap_or_default(),
                         endpoint_info.port.clone().unwrap_or_default()
                     ),
-                    ob: rqs_lib::OutboundPayload::Files(files_to_send),
+                    ob: outbound_payload,
                 })
                 .await
                 .unwrap();
@@ -135,14 +143,49 @@ pub fn create_recipient_card(
     if init_model_state.is_some() {
         model_item.set_device_name(model_item.endpoint_info().name.clone().unwrap_or_default());
 
-        let files_to_send = imp
-            .manage_files_model
-            .iter::<gio::File>()
-            .filter_map(|it| it.ok())
-            .filter_map(|it| it.path())
-            .map(|it| it.to_string_lossy().to_string())
-            .collect::<Vec<_>>();
-        *model_item.imp().files.borrow_mut() = files_to_send;
+        // Check if we're sending text or files
+        let pending_text = imp.pending_text.borrow().clone();
+        if let Some((text, text_type)) = pending_text {
+            // Sending text
+            *model_item.imp().pending_text.borrow_mut() = Some((text.clone(), text_type));
+
+            let eta_estimator = &model_item.imp().eta;
+            eta_estimator
+                .borrow_mut()
+                .prepare_for_new_transfer(Some(text.len()));
+        } else {
+            // Sending files
+            let files_to_send = imp
+                .manage_files_model
+                .iter::<gio::File>()
+                .filter_map(|it| it.ok())
+                .filter_map(|it| it.path())
+                .map(|it| it.to_string_lossy().to_string())
+                .collect::<Vec<_>>();
+            *model_item.imp().files.borrow_mut() = files_to_send;
+
+            let eta_estimator = &model_item.imp().eta;
+            if eta_estimator.borrow().total_len == 0 {
+                let total_size = imp
+                    .manage_files_model
+                    .iter::<gio::File>()
+                    .filter_map(|it| it.ok())
+                    .filter_map(|it| {
+                        it.query_info(
+                            gio::FILE_ATTRIBUTE_STANDARD_SIZE,
+                            gio::FileQueryInfoFlags::NONE,
+                            None::<&gio::Cancellable>,
+                        )
+                        .ok()
+                    })
+                    .map(|it| it.size() as usize)
+                    .fold(0, |acc, x| acc + x);
+
+                eta_estimator
+                    .borrow_mut()
+                    .prepare_for_new_transfer(Some(total_size));
+            }
+        }
 
         if model_item.endpoint_info().present.is_some() {
             let title = model_item
@@ -151,28 +194,6 @@ pub fn create_recipient_card(
                 .clone()
                 .unwrap_or(gettext("Unknown device").into());
             model_item.set_device_name(title.clone());
-        }
-
-        let eta_estimator = &model_item.imp().eta;
-        if eta_estimator.borrow().total_len == 0 {
-            let total_size = imp
-                .manage_files_model
-                .iter::<gio::File>()
-                .filter_map(|it| it.ok())
-                .filter_map(|it| {
-                    it.query_info(
-                        gio::FILE_ATTRIBUTE_STANDARD_SIZE,
-                        gio::FileQueryInfoFlags::NONE,
-                        None::<&gio::Cancellable>,
-                    )
-                    .ok()
-                })
-                .map(|it| it.size() as usize)
-                .fold(0, |acc, x| acc + x);
-
-            eta_estimator
-                .borrow_mut()
-                .prepare_for_new_transfer(Some(total_size));
         }
     }
 
@@ -542,12 +563,16 @@ pub fn create_recipient_card(
                         pincode_label.set_visible(false);
 
                         let finished_text = {
-                            let file_count = model_item.imp().files.borrow().len();
-                            formatx!(
-                                ngettext("Sent {} file", "Sent {} files", file_count as u32),
-                                file_count
-                            )
-                            .unwrap_or_else(|_| "badly formatted locale string".into())
+                            if model_item.imp().pending_text.borrow().is_some() {
+                                gettext("Text sent")
+                            } else {
+                                let file_count = model_item.imp().files.borrow().len();
+                                formatx!(
+                                    ngettext("Sent {} file", "Sent {} files", file_count as u32),
+                                    file_count
+                                )
+                                .unwrap_or_else(|_| "badly formatted locale string".into())
+                            }
                         };
 
                         result_label.set_visible(true);

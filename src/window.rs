@@ -40,6 +40,14 @@ pub struct ReceiveTransferCache {
     pub auto_decline_ctk: CancellationToken,
 }
 
+/// Simple URL detection heuristic
+fn is_likely_url(text: &str) -> bool {
+    let trimmed = text.trim();
+    trimmed.starts_with("http://")
+        || trimmed.starts_with("https://")
+        || trimmed.starts_with("www.")
+}
+
 mod imp {
     use std::{
         cell::{Cell, RefCell},
@@ -125,6 +133,19 @@ mod imp {
         pub main_nav_content: TemplateChild<adw::StatusPage>,
         #[template_child]
         pub main_add_files_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub main_share_text_button: TemplateChild<gtk::Button>,
+
+        #[template_child]
+        pub share_text_dialog: TemplateChild<adw::Dialog>,
+        #[template_child]
+        pub paste_text_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub send_text_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub share_text_view: TemplateChild<gtk::TextView>,
+        #[template_child]
+        pub share_text_counter: TemplateChild<gtk::Label>,
 
         #[template_child]
         pub manage_files_nav_content: TemplateChild<gtk::Box>,
@@ -180,6 +201,8 @@ mod imp {
         pub should_quit: Cell<bool>,
 
         pub is_recipients_dialog_opened: Cell<bool>,
+
+        pub pending_text: RefCell<Option<(String, rqs_lib::TextPayloadType)>>,
 
         pub nautilus_plugin: NautilusPlugin,
 
@@ -1172,6 +1195,7 @@ impl PacketApplicationWindow {
         self.setup_main_page();
         self.setup_manage_files_page();
         self.setup_recipient_page();
+        self.setup_share_text_page();
     }
 
     fn present_plugin_success_dialog(&self) {
@@ -1486,6 +1510,8 @@ impl PacketApplicationWindow {
             move |_| {
                 imp.is_recipients_dialog_opened.set(false);
                 imp.obj().stop_mdns_discovery();
+                // Clear pending text when dialog closes
+                *imp.pending_text.borrow_mut() = None;
             }
         ));
     }
@@ -1606,6 +1632,89 @@ impl PacketApplicationWindow {
 
                 imp.obj().stop_mdns_discovery();
                 imp.obj().start_mdns_discovery(None);
+            }
+        ));
+    }
+
+    fn setup_share_text_page(&self) {
+        let imp = self.imp();
+
+        // Maximum characters allowed for text sharing
+        const MAX_TEXT_CHARS: i32 = 100_000;
+
+        // Open share text dialog
+        imp.main_share_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                imp.share_text_view.buffer().set_text("");
+                imp.send_text_button.set_sensitive(false);
+                imp.share_text_counter.set_label(&format!("0 / {}", MAX_TEXT_CHARS));
+                imp.share_text_counter.remove_css_class("error");
+                imp.share_text_dialog.present(Some(imp.obj().as_ref()));
+            }
+        ));
+
+        // Paste from clipboard
+        imp.paste_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                let clipboard = imp.obj().clipboard();
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    imp,
+                    async move {
+                        if let Ok(text) = clipboard.read_text_future().await {
+                            if let Some(text) = text {
+                                imp.share_text_view.buffer().set_text(&text);
+                            }
+                        }
+                    }
+                ));
+            }
+        ));
+
+        // Enable/disable send button based on text content and length
+        imp.share_text_view.buffer().connect_changed(clone!(
+            #[weak]
+            imp,
+            move |buffer| {
+                let char_count = buffer.char_count();
+                let is_valid = char_count > 0 && char_count <= MAX_TEXT_CHARS;
+
+                imp.send_text_button.set_sensitive(is_valid);
+                imp.share_text_counter.set_label(&format!("{} / {}", char_count, MAX_TEXT_CHARS));
+
+                if char_count > MAX_TEXT_CHARS {
+                    imp.share_text_counter.add_css_class("error");
+                } else {
+                    imp.share_text_counter.remove_css_class("error");
+                }
+            }
+        ));
+
+        // Send text
+        imp.send_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                let buffer = imp.share_text_view.buffer();
+                let text = buffer.text(&buffer.start_iter(), &buffer.end_iter(), false);
+                let text_str = text.to_string();
+
+                // Detect if it's a URL
+                let text_type = if is_likely_url(&text_str) {
+                    rqs_lib::TextPayloadType::Url
+                } else {
+                    rqs_lib::TextPayloadType::Text
+                };
+
+                // Store pending text
+                *imp.pending_text.borrow_mut() = Some((text_str, text_type));
+
+                imp.share_text_dialog.close();
+                imp.obj().present_recipients_dialog();
             }
         ));
     }

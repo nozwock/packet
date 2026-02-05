@@ -11,6 +11,15 @@
 /vendor
 /.vscode
 
+# Flatpak build outputs
+/.flatpak-builder/
+/flatpak_build_dir/
+/repo/
+*.flatpak
+
+# Build logs
+*.log
+
 /subprojects/blueprint-compiler
 
 # Python
