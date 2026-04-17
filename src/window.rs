@@ -1139,7 +1139,7 @@ impl PacketApplicationWindow {
             imp,
             async move {
                 let tray = crate::tray::Tray { tx: tx };
-                let handle = if ashpd::is_sandboxed().await {
+                let handle = if ashpd::is_sandboxed() {
                     tray.spawn_without_dbus_name().await
                 } else {
                     tray.spawn().await

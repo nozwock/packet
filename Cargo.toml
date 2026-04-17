@@ -8,8 +8,8 @@ lto = true
 
 [dependencies]
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
-gtk = { version = "0.10", package = "gtk4", features = ["v4_20"] }
-adw = { version = "0.8", package = "libadwaita", features = ["v1_8"] }
+gtk = { version = "0.11", package = "gtk4", features = ["v4_22"] }
+adw = { version = "0.9", package = "libadwaita", features = ["v1_9"] }
 tracing = "0.1.37"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 rqs_lib = { git = "https://github.com/nozwock/rquickshare.git", rev = "17702edc9f8b0d1e67c50f125e03ca3f8c291f3c", default-features = false, features = [
@@ -36,9 +36,11 @@ human_bytes = { version = "0.4.3", default-features = false }
 port_scanner = "0.1.5"
 zbus = "5.7.1"
 futures-lite = "2.6.0"
-ashpd = { version = "0.12", default-features = false, features = [
-    "async-std",
+ashpd = { version = "0.13", default-features = false, features = [
+    "async-io",
     "gtk4",
+    "notification",
+    "background",
 ] }
 futures-timer = "3.0.3"
 tokio-util = "0.7.15"
