@@ -8,8 +8,7 @@
         <li>Replaced deprecated GtkShortcutsWindow with AdwShortcutsDialog.</li>
         <li>Increased auto-decline timeout from 10 secs to 1 min.</li>
         <li>Added tray icon support using KStatusNotifierItem for compatibility with other desktop environments.</li>
-        <li>Added a DBus API for setting visibility and device name externally.
-        https://github.com/nozwock/packet/issues/94</li>
+        <li>Added a DBus API for setting visibility and device name externally. nozwock/packet#94</li>
       </ul>
       <p>Translations</p>
       <ul>
