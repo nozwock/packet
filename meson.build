@@ -48,6 +48,8 @@ else
   application_id = base_id
 endif
 
+api_id = application_id + '.Api'
+
 meson.add_dist_script(
   'build-aux/dist-vendor.sh',
   meson.project_build_root() / 'meson-dist' / meson.project_name()
