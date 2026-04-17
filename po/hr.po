@@ -1,15 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
+# Croatian translation for packet.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the packet package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Milo Ivir <mail@milotype.de>, 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-11-08 14:30+0100\n"
+"POT-Creation-Date: 2025-11-16 21:06+0530\n"
+"PO-Revision-Date: 2026-01-21 13:22+0100\n"
 "Last-Translator: Milo Ivir <mail@mivirtype.de>\n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -20,27 +19,32 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.8\n"
 
-#: data/resources/ui/shortcuts.blp:11
+#: data/resources/ui/shortcuts-dialog.blp:6
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Općenito"
 
-#: data/resources/ui/shortcuts.blp:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Prikaži prečace"
-
-#: data/resources/ui/shortcuts.blp:19
+#: data/resources/ui/shortcuts-dialog.blp:9
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Prikaži pomoć"
 
-#: data/resources/ui/shortcuts.blp:24
+#: data/resources/ui/shortcuts-dialog.blp:14
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "Otvori izbornik"
+
+#: data/resources/ui/shortcuts-dialog.blp:19
 msgctxt "shortcut window"
 msgid "Open Preferences"
 msgstr "Otvori postavke"
 
-#: data/resources/ui/shortcuts.blp:29
+#: data/resources/ui/shortcuts-dialog.blp:24
+msgctxt "shortcut window"
+msgid "Close or Hide Window"
+msgstr "Zatvori ili sakrij prozor"
+
+#: data/resources/ui/shortcuts-dialog.blp:29
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Zatvori aplikaciju"
@@ -62,144 +66,157 @@ msgid "_About Packet"
 msgstr "_O aplikaciji Packet"
 
 #. Translators: The name should remain untranslated
-#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:64
+#: data/resources/ui/window.blp:219 src/application.rs:249 src/main.rs:57
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
 msgstr "Packet"
 
-#: data/resources/ui/window.blp:52
+#: data/resources/ui/window.blp:45
+msgid "About"
+msgstr "Informacije"
+
+#: data/resources/ui/window.blp:53
 msgid "Setting up Packet…"
 msgstr "Postavljanje aplikacije Packet …"
 
-#: data/resources/ui/window.blp:71
+#: data/resources/ui/window.blp:72
 msgid "Copy Log"
 msgstr "Kopiraj zapisnik"
 
-#: data/resources/ui/window.blp:85
+#: data/resources/ui/window.blp:79 data/resources/ui/window.blp:210
+#: data/resources/ui/window.blp:254
+msgid "Main Menu"
+msgstr "Glavni izbornik"
+
+#: data/resources/ui/window.blp:87
 msgid "Couldn't Set Up"
 msgstr "Nije bilo moguće postaviti"
 
-#: data/resources/ui/window.blp:86
+#: data/resources/ui/window.blp:88
 msgid "An error occurred while trying to setup Packet"
 msgstr "Došlo je do greške prilikom pokušaja postavljanja aplikacje Packet"
 
-#: data/resources/ui/window.blp:91
+#: data/resources/ui/window.blp:93
 msgid "Try Again"
 msgstr "Pokušaj ponovo"
 
-#: data/resources/ui/window.blp:120
+#: data/resources/ui/window.blp:175
+msgid "Send To…"
+msgstr "Pošalji na …"
+
+#: data/resources/ui/window.blp:198
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
 msgstr "Glavna stranica"
 
-#: data/resources/ui/window.blp:141
+#: data/resources/ui/window.blp:220
 msgid "Add, or drop a file to send"
 msgstr "Dodaj ili ispusti datoteke za slanje"
 
-#: data/resources/ui/window.blp:148
+#: data/resources/ui/window.blp:227
 msgid "Add Files"
 msgstr "Dodaj datoteke"
 
-#: data/resources/ui/window.blp:163
+#: data/resources/ui/window.blp:242
 msgid "Selected Files Page"
 msgstr "Stranica odabranih datoteka"
 
-#: data/resources/ui/window.blp:203
+#: data/resources/ui/window.blp:283
 msgid "Add File"
 msgstr "Dodaj datoteku"
 
-#: data/resources/ui/window.blp:298
-msgid "Send"
-msgstr "Pošalji"
-
-#: data/resources/ui/window.blp:321
+#: data/resources/ui/window.blp:314
 msgid "Select Recipients"
 msgstr "Odaberi primatelja"
 
-#: data/resources/ui/window.blp:391
+#: data/resources/ui/window.blp:337
+msgid "Refresh"
+msgstr "Osvježi"
+
+#: data/resources/ui/window.blp:385
 msgid "Looking for devices…"
 msgstr "Traženje uređaja …"
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+#: data/resources/ui/window.blp:393 data/resources/ui/window.blp:512
 msgid "Can't see the other device?"
 msgstr "Ne vidiš drugi uređaj?"
 
-#: data/resources/ui/window.blp:418
+#: data/resources/ui/window.blp:412
 msgid "Preferences"
 msgstr "Postavke"
 
-#: data/resources/ui/window.blp:423
+#: data/resources/ui/window.blp:417
 msgid "General"
 msgstr "Općenito"
 
-#: data/resources/ui/window.blp:426
+#: data/resources/ui/window.blp:420
 msgid "Device Name"
 msgstr "Ime uređaja"
 
-#: data/resources/ui/window.blp:431
+#: data/resources/ui/window.blp:425
 msgid "Visibility"
 msgstr "Vidljivost"
 
-#: data/resources/ui/window.blp:432
+#: data/resources/ui/window.blp:426
 msgid "Whether others can see this device"
 msgstr "Mogu li drugi vidjeti ovaj uređaj"
 
-#: data/resources/ui/window.blp:436
+#: data/resources/ui/window.blp:430
 msgid "Downloads Folder"
 msgstr "Mapa za preuzimanja"
 
-#: data/resources/ui/window.blp:442
+#: data/resources/ui/window.blp:436
 msgid "Pick download folder"
 msgstr "Odaberi mapu za preuzimanja"
 
-#: data/resources/ui/window.blp:453
+#: data/resources/ui/window.blp:447
 msgid "Run in Background"
 msgstr "Pokreni u pozadini"
 
-#: data/resources/ui/window.blp:454
+#: data/resources/ui/window.blp:448
 msgid "Allow running in the background"
 msgstr "Dozvoli pokretanje u pozadini."
 
-#: data/resources/ui/window.blp:458
+#: data/resources/ui/window.blp:452
 msgid "Auto Start"
 msgstr "Automatsko pokretanje"
 
-#: data/resources/ui/window.blp:459
+#: data/resources/ui/window.blp:453
 msgid "Start automatically at login"
 msgstr "Pokreni automatski prilikom prijave"
 
-#: data/resources/ui/window.blp:464
+#: data/resources/ui/window.blp:458
 msgid "Advanced"
 msgstr "Napredno"
 
-#: data/resources/ui/window.blp:467
+#: data/resources/ui/window.blp:461
 msgid "Nautilus Plugin"
 msgstr "Dodatak Nautilus"
 
-#: data/resources/ui/window.blp:468
+#: data/resources/ui/window.blp:462
 msgid "Integrate with Nautilus file menu"
 msgstr "Integriraj se s Nautilus izbornikom datoteka"
 
-#: data/resources/ui/window.blp:474
+#: data/resources/ui/window.blp:468
 msgid "Static Network Port"
 msgstr "Statički mrežni priključak"
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:476
+#: data/resources/ui/window.blp:470
 msgid "For whitelisting through a firewall"
 msgstr "Za stavljanje na popis dopuštenih kroz vatrozid"
 
-#: data/resources/ui/window.blp:481
+#: data/resources/ui/window.blp:475
 msgid "Port Number"
 msgstr "Broj priključka"
 
-#: data/resources/ui/window.blp:490
+#: data/resources/ui/window.blp:484
 msgid "Help"
 msgstr "Pomoć"
 
-#: data/resources/ui/window.blp:541
+#: data/resources/ui/window.blp:537
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
@@ -207,12 +224,12 @@ msgstr ""
 "Provjeri jesu li oba uređaja povezana na istu Wi-Fi mrežu i imaju li "
 "uključen Bluetooth"
 
-#: data/resources/ui/window.blp:564
+#: data/resources/ui/window.blp:560
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
 "Provjeri je li uređaj postavljen tako da je vidljiv svim uređajima u blizini"
 
-#: data/resources/ui/window.blp:587
+#: data/resources/ui/window.blp:583
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -221,19 +238,19 @@ msgstr ""
 "<b>Files by Google</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:253
+#: src/application.rs:264
 msgid "translator-credits"
 msgstr "Milo Ivir <mail@milotype.de>"
 
-#: src/application.rs:258
+#: src/application.rs:269
 msgid "Loading logs..."
 msgstr "Učitavanje zapisnika …"
 
-#: src/application.rs:262
+#: src/application.rs:273
 msgid "Similar Projects"
 msgstr "Slični projekti"
 
-#: src/application.rs:282 src/window.rs:1231
+#: src/application.rs:293 src/window.rs:1235
 msgid "Failed to retrieve the logs"
 msgstr "Neuspjelo dohvaćanje zapisnika"
 
@@ -268,7 +285,7 @@ msgid "Remove"
 msgstr "Ukloni"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
+#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:424
 #: src/window.rs:1624
 #, rust-format
 msgid "{} File"
@@ -293,29 +310,29 @@ msgstr "Wi-Fi"
 msgid "Receiving"
 msgstr "Primanje"
 
-#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
-#: src/widgets/recipient_card.rs:310
+#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:200
+#: src/widgets/recipient_card.rs:311
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
+#: src/widgets/receive_transfer.rs:149 src/widgets/receive_transfer.rs:445
 msgid "Incoming Transfer"
 msgstr "Dolazni prijenos"
 
-#: src/widgets/receive_transfer.rs:194
+#: src/widgets/receive_transfer.rs:195
 msgid "Receiving..."
 msgstr "Primanje …"
 
-#: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
+#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:452
 msgid "Decline"
 msgstr "Odbij"
 
-#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
+#: src/widgets/receive_transfer.rs:278 src/widgets/receive_transfer.rs:456
 msgid "Accept"
 msgstr "Prihvati"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
-#: src/widgets/receive_transfer.rs:308
+#: src/widgets/receive_transfer.rs:309
 #, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
@@ -323,67 +340,67 @@ msgstr[0] "{} datoteka ({})"
 msgstr[1] "{} datoteke ({})"
 msgstr[2] "{} datoteka ({})"
 
-#: src/widgets/receive_transfer.rs:327
+#: src/widgets/receive_transfer.rs:328
 #, rust-format
 msgid "Preview ({})"
 msgstr "Pregled ({})"
 
 #. Translators: This is the pin-code for the transfer
-#: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#: src/widgets/receive_transfer.rs:344 src/widgets/recipient_card.rs:443
 #, rust-format
 msgid "Code: {}"
 msgstr "Kod: {}"
 
-#: src/widgets/receive_transfer.rs:404
+#: src/widgets/receive_transfer.rs:406
 msgid "Request timed out"
 msgstr "Vrijeme zahtjeva je isteklo"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
-#: src/widgets/receive_transfer.rs:417
+#: src/widgets/receive_transfer.rs:419
 #, rust-format
 msgid "{} wants to share {}"
 msgstr "{} želi dijeliti {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
-#: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#: src/widgets/receive_transfer.rs:496 src/widgets/recipient_card.rs:474
 #, rust-format
 msgid "About {} left"
 msgstr "Preostalo je oko {}"
 
-#: src/widgets/receive_transfer.rs:519
+#: src/widgets/receive_transfer.rs:521
 msgid "Unexpected dissconnection"
 msgstr "Neočekivani prekid veze"
 
-#: src/widgets/receive_transfer.rs:552
+#: src/widgets/receive_transfer.rs:554
 msgid "Transfer cancelled by sender"
 msgstr "Pošiljatelj je prekinuo prijenos"
 
-#: src/widgets/receive_transfer.rs:599
+#: src/widgets/receive_transfer.rs:601
 msgid "Copy to clipboard"
 msgstr "Kopiraj u međuspremnik"
 
-#: src/widgets/receive_transfer.rs:607
+#: src/widgets/receive_transfer.rs:609
 msgid "Save text as file"
 msgstr "Spremi tekst kao datoteku"
 
-#: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
-#: src/widgets/receive_transfer.rs:813
+#: src/widgets/receive_transfer.rs:666 src/widgets/receive_transfer.rs:808
+#: src/widgets/receive_transfer.rs:814
 msgid "Open"
 msgstr "Otvori"
 
-#: src/widgets/receive_transfer.rs:759
+#: src/widgets/receive_transfer.rs:760
 #, rust-format
 msgid "Received \"{}\""
 msgstr "Primljeno „{}“"
 
-#: src/widgets/receive_transfer.rs:774
+#: src/widgets/receive_transfer.rs:775
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: src/widgets/receive_transfer.rs:789
+#: src/widgets/receive_transfer.rs:790
 #, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
@@ -391,27 +408,27 @@ msgstr[0] "Primljena je {} datoteka"
 msgstr[1] "Primljene su {} datoteke"
 msgstr[2] "Primljeno je {} datoteka"
 
-#: src/widgets/recipient_card.rs:221
+#: src/widgets/recipient_card.rs:222
 msgid "Unavailable"
 msgstr "Nedostupno"
 
-#: src/widgets/recipient_card.rs:244
+#: src/widgets/recipient_card.rs:245
 msgid "Queued"
 msgstr "Red čekanja"
 
-#: src/widgets/recipient_card.rs:291
+#: src/widgets/recipient_card.rs:292
 msgid "Retry"
 msgstr "Pokušaj ponovo"
 
-#: src/widgets/recipient_card.rs:436
+#: src/widgets/recipient_card.rs:437
 msgid "Requested"
 msgstr "Zatraženo"
 
-#: src/widgets/recipient_card.rs:499
+#: src/widgets/recipient_card.rs:500
 msgid "Failed"
 msgstr "Neuspjelo"
 
-#: src/widgets/recipient_card.rs:542
+#: src/widgets/recipient_card.rs:543
 #, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
@@ -419,27 +436,27 @@ msgstr[0] "Pošalji {} datoteku"
 msgstr[1] "Pošalji {} datoteke"
 msgstr[2] "Pošalji {} datoteka"
 
-#: src/window.rs:507
+#: src/window.rs:508
 msgid "Couldn't update the Nautilus plugin"
 msgstr "Nije bilo moguće aktualizirati dodatak Nautilus"
 
-#: src/window.rs:599 src/window.rs:985
+#: src/window.rs:600 src/window.rs:989
 msgid "Packet cannot run in the background"
 msgstr "Packet ne može raditi u pozadini"
 
-#: src/window.rs:635
+#: src/window.rs:636
 msgid "Packet cannot run at login"
 msgstr "Packet ne može raditi prilikom prijave"
 
-#: src/window.rs:700
+#: src/window.rs:701
 msgid "Can't rename device during an active transfer"
 msgstr "Nije moguće preimenovati uređaj tijekom aktivnog prijenosa"
 
-#: src/window.rs:841
+#: src/window.rs:842
 msgid "Invalid Port"
 msgstr "Nevažeći priključak"
 
-#: src/window.rs:845
+#: src/window.rs:846
 #, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
@@ -448,31 +465,31 @@ msgstr ""
 "Odabrani statički priključak „{}“ nije dostupan. Pokušaj s jednim drugim "
 "priključkom iznad 1024."
 
-#: src/window.rs:853
+#: src/window.rs:854
 msgid "_Ok"
 msgstr "_U redu"
 
-#: src/window.rs:901
+#: src/window.rs:902
 msgid "Can't access Downloads folder"
 msgstr "Nije moguće pristupiti mapi „Preuzimanja“"
 
-#: src/window.rs:902
+#: src/window.rs:903
 msgid "Pick Folder"
 msgstr "Odaberi mapu"
 
-#: src/window.rs:929
+#: src/window.rs:930
 msgid "Packet wants to run in the background"
 msgstr "Packet želi raditi u pozadini"
 
-#: src/window.rs:1060
+#: src/window.rs:1064
 msgid "Plugin Installed"
 msgstr "Dodatak je instaliran"
 
-#: src/window.rs:1064
+#: src/window.rs:1068
 msgid "Done"
 msgstr "Gotovo"
 
-#: src/window.rs:1080
+#: src/window.rs:1084
 #, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
@@ -481,7 +498,7 @@ msgstr ""
 "Dodatak je uspješno instaliran, ali da bi funkcionirao treba sljedeće "
 "pakete: {}"
 
-#: src/window.rs:1096
+#: src/window.rs:1100
 #, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
@@ -490,7 +507,7 @@ msgstr ""
 "Imena paketa se mogu razlikovati ovisno o distribuciji, posjeti <a {}>ovu "
 "poveznicu</a> za detalje."
 
-#: src/window.rs:1111
+#: src/window.rs:1115
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
@@ -498,15 +515,15 @@ msgstr ""
 "Nakon što to učiniš, ponovo pokreni Nautilus (npr. odjavom i ponovnim "
 "uključivanjem) kako bi se dodatak učitao."
 
-#: src/window.rs:1121
+#: src/window.rs:1125
 msgid "Installation Failed"
 msgstr "Instalacija nije uspjela"
 
-#: src/window.rs:1125
+#: src/window.rs:1129
 msgid "Close"
 msgstr "Zatvori"
 
-#: src/window.rs:1139
+#: src/window.rs:1143
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
@@ -514,7 +531,7 @@ msgstr ""
 "Instalacija dodatka nije uspjela. Provjeri postoji li sljedeći direktorij i "
 "može li mu se pristupiti putem aplikacije Packet:"
 
-#: src/window.rs:1238
+#: src/window.rs:1242
 msgid "Copied log to clipboard"
 msgstr "Zapis je kopiran u međuspremnik"
 
@@ -555,7 +572,7 @@ msgstr "Uključi Bluetooth"
 msgid "Couldn't open files"
 msgstr "Nije bilo moguće otvoriti datoteke"
 
-#: data/resources/plugins/packet_nautilus.py.in:113
+#: data/resources/plugins/packet_nautilus.py.in:120
 msgid "Send with Packet"
 msgstr "Pošalji s aplikacijom Packet"
 
