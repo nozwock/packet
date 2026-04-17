@@ -2,12 +2,15 @@ data/resources/ui/shortcuts-dialog.blp
 data/resources/ui/window.blp
 src/application.rs
 src/constants.rs
+src/dbus.rs
+src/ext.rs
 src/main.rs
 src/monitors.rs
 src/objects/mod.rs
 src/objects/receive_transfer.rs
 src/objects/send_transfer.rs
 src/plugins.rs
+src/tray.rs
 src/utils.rs
 src/widgets/file_card.rs
 src/widgets/mod.rs
