@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.6.0" date="2026-04-18">
+    <description translatable="no">
+      <p>Changes</p>
+      <ul>
+        <li>Updated libadwaita to 1.9.</li>
+        <li>Replaced deprecated GtkShortcutsWindow with AdwShortcutsDialog.</li>
+        <li>Increased auto-decline timeout from 10 secs to 1 min.</li>
+        <li>Added tray icon support using KStatusNotifierItem for compatibility with other desktop environments.</li>
+        <li>Added a DBus API for setting visibility and device name externally.
+        https://github.com/nozwock/packet/issues/94</li>
+      </ul>
+      <p>Translations</p>
+      <ul>
+        <li>Added Croatian translation</li>
+        <li>Updated Italian translation</li>
+        <li>Updated Polish translation</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.5.4" date="2025-08-26">
     <description translatable="no">
       <p>Translations</p>
