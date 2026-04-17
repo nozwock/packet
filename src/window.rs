@@ -10,7 +10,7 @@ use ashpd::desktop::notification::NotificationProxy;
 use formatx::formatx;
 use futures_lite::StreamExt;
 use gettextrs::{gettext, ngettext};
-use gtk::gio::FILE_ATTRIBUTE_STANDARD_SIZE;
+use gtk::gio::{FILE_ATTRIBUTE_STANDARD_SIZE, FileQueryInfoFlags};
 use gtk::glib::clone;
 use gtk::{gdk, gio, glib};
 use tokio::sync::watch;
@@ -18,7 +18,7 @@ use tokio_util::sync::CancellationToken;
 
 use crate::application::PacketApplication;
 use crate::config::{APP_ID, PROFILE};
-use crate::constants::packet_log_path;
+use crate::constants::{XDP_XATTR_HOST_PATH, packet_log_path};
 use crate::dbus;
 use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
@@ -66,6 +66,17 @@ mod imp {
 
         #[template_child]
         pub help_dialog: TemplateChild<adw::Dialog>,
+
+        #[template_child]
+        pub folder_permission_dialog: TemplateChild<adw::Dialog>,
+        // #[template_child]
+        // pub folder_permission_picture: TemplateChild<gtk::Picture>,
+        #[template_child]
+        pub folder_permission_text_view: TemplateChild<gtk::TextView>,
+        #[template_child]
+        pub copy_folder_command_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub view_flatpak_permissions_button: TemplateChild<gtk::Button>,
 
         #[template_child]
         pub root_stack: TemplateChild<gtk::Stack>,
@@ -1054,6 +1065,14 @@ impl PacketApplicationWindow {
                     )
                     .await
                 {
+                    let fileinfo = file
+                        .query_info(
+                            XDP_XATTR_HOST_PATH,
+                            FileQueryInfoFlags::NONE,
+                            gio::Cancellable::NONE,
+                        )
+                        .unwrap();
+
                     // TODO: Maybe format the display path in the preferences?
                     // `Sandbox: Music` or `Music` instead of `/run/user/1000/_/Music` (for mounted paths)
                     // This would require storing the display string in gschema however
@@ -1072,6 +1091,9 @@ impl PacketApplicationWindow {
                     // Leaving this note here so as to not base our logic on this wrong behaviour.
                     let folder_path = file.path().unwrap();
 
+                    let host_path = fileinfo.attribute_as_string(XDP_XATTR_HOST_PATH);
+                    tracing::info!(path = ?file.path(), ?host_path, host_path_exists = std::fs::exists(host_path.as_ref().map(|it| it.as_str()).unwrap_or_default()).unwrap_or_default());
+
                     let display_path = strip_user_home_prefix(&folder_path);
 
                     tracing::debug!(
@@ -1079,6 +1101,26 @@ impl PacketApplicationWindow {
                         ?display_path,
                         "Selected custom downloads folder"
                     );
+
+                    match host_path {
+                        Some(host_path) => {
+                            imp.folder_permission_dialog.present(
+                                imp.obj()
+                                    .root()
+                                    .and_downcast_ref::<PacketApplicationWindow>(),
+                            );
+                            imp.folder_permission_text_view.set_buffer(Some(
+                                &gtk::TextBuffer::builder()
+                                    .text(format!(
+                                "flatpak override --user --filesystem={} io.github.nozwock.Packet",
+                                snailquote::escape(&host_path)
+                            ))
+                                    .build(),
+                            ));
+                        }
+                        // When the path is a host path and when GetHostPaths isn't available in portals' impl
+                        None => {}
+                    };
 
                     imp.download_folder_row
                         .set_subtitle(&display_path.to_string_lossy());
@@ -1176,6 +1218,43 @@ impl PacketApplicationWindow {
     }
 
     fn setup_ui(&self) {
+        let imp = self.imp();
+
+        // imp.folder_permission_picture
+        //     .set_resource(Some("/io/github/nozwock/Packet/pictures/permission.svg"));
+
+        imp.view_flatpak_permissions_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                gtk::UriLauncher::new(
+                    "https://docs.flatpak.org/en/latest/sandbox-permissions.html",
+                )
+                .launch(
+                    imp.obj()
+                        .root()
+                        .and_downcast_ref::<adw::ApplicationWindow>(),
+                    None::<gio::Cancellable>.as_ref(),
+                    |_err| {},
+                );
+            }
+        ));
+
+        let clipboard = self.clipboard();
+        imp.copy_folder_command_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                let text_view = imp.folder_permission_text_view.get();
+                let text = text_view.buffer().text(
+                    &text_view.buffer().start_iter(),
+                    &text_view.buffer().end_iter(),
+                    false,
+                );
+                clipboard.set_text(&text);
+            }
+        ));
+
         self.setup_bottom_bar();
 
         self.setup_status_pages();

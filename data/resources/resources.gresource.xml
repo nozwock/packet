@@ -18,5 +18,8 @@
     <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/eye-looking-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/radiowaves-1-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/horizontal-arrows-long-x-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/external-link-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">pictures/permission.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/external-devices-symbolic.svg</file>
   </gresource>
 </gresources>

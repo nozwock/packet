@@ -46,6 +46,7 @@ futures-timer = "3.0.3"
 tokio-util = "0.7.15"
 tracing-appender = "0.2.3"
 const-str = "0.7.0"
+snailquote = "0.3.1"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 ksni = { version = "0.3", default-features = false, features = ["async-io"] }

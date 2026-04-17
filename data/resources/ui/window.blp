@@ -601,3 +601,159 @@ Adw.Dialog help_dialog {
         }
     }
 }
+
+Adw.Dialog folder_permission_dialog {
+    follows-content-size: true;
+
+    Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+            show-title: false;
+        }
+
+        ScrolledWindow {
+            hscrollbar-policy: never;
+            propagate-natural-height: true;
+            propagate-natural-width: true;
+
+            Adw.Clamp {
+                margin-top: 24;
+                margin-bottom: 24;
+                margin-start: 24;
+                margin-end: 24;
+                maximum-size: 520;
+                tightening-threshold: 520;
+
+                Box {
+                    orientation: vertical;
+                    spacing: 24;
+
+                    Box {
+                        orientation: vertical;
+                        spacing: 12;
+
+                        Image {
+                            icon-name: "external-devices-symbolic";
+                            pixel-size: 96;
+                            margin-bottom: 12;
+
+                            styles [
+                                "dimmed",
+                            ]
+                        }
+
+                        Label {
+                            label: _("Permission Needed");
+                            wrap: true;
+
+                            styles [
+                                "title-1",
+                            ]
+                        }
+
+                        Label {
+                            label: _("To set a custom folder permanently, run this command in a terminal. This will allow Packet to have static access to it. After running the command, restart Packet.");
+                            justify: center;
+                            wrap: true;
+                            use-markup: true;
+                        }
+                    }
+
+                    Box {
+                        orientation: vertical;
+                        spacing: 8;
+
+                        Box {
+                            halign: end;
+                            spacing: 12;
+
+                            Button {
+                                halign: end;
+
+                                styles [
+                                    "flat",
+                                ]
+
+                                Adw.ButtonContent {
+                                    label: _("Copy Path");
+                                    icon-name: "edit-copy-symbolic";
+                                }
+                            }
+
+                            Button copy_folder_command_button {
+                                halign: end;
+
+                                styles [
+                                    "flat",
+                                ]
+
+                                Adw.ButtonContent {
+                                    label: _("Copy Command");
+                                    icon-name: "edit-copy-symbolic";
+                                }
+                            }
+                        }
+
+                        Frame {
+                            ScrolledWindow {
+                                TextView folder_permission_text_view {
+                                    top-margin: 12;
+                                    bottom-margin: 12;
+                                    left-margin: 12;
+                                    right-margin: 12;
+                                    editable: false;
+                                    cursor-visible: false;
+                                    monospace: true;
+                                    wrap-mode: word_char;
+                                }
+                            }
+                        }
+
+                        Label {
+                            label: _("Paste by pressing Ctrl+Shift+V in terminal, then press Enter");
+                            wrap: true;
+                            justify: center;
+
+                            styles [
+                                "dimmed",
+                            ]
+                        }
+                    }
+
+                    Adw.PreferencesGroup {
+                        title: _("What it does");
+
+                        [header-suffix]
+                        Button view_flatpak_permissions_button {
+                            icon-name: "external-link-symbolic";
+
+                            styles [
+                                "flat",
+                            ]
+                        }
+
+                        Adw.ActionRow {
+                            [prefix]
+                            Image {
+                                icon-name: "system-users-symbolic";
+                            }
+
+                            title: _("--user");
+                            subtitle: _("Set permission for your account only");
+                        }
+
+                        Adw.ActionRow {
+                            [prefix]
+                            Image {
+                                icon-name: "drive-harddisk-symbolic";
+                            }
+
+                            title: _("--filesystem");
+                            subtitle: _("Grant static access to the given path on the host filesystem");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
