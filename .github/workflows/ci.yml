@@ -34,9 +34,6 @@ jobs:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
-          toolchain: stable
-          override: true
           components: rustfmt
       - name: Create blank versions of configured file
         run: echo -e "" >> src/config.rs
