@@ -17,6 +17,7 @@ pub trait Plugin {
 
 pub trait FileBasedPlugin: Plugin {
     fn plugin_files(&self) -> &[PathBuf];
+    fn install_dirs_unchecked(&self) -> Vec<PathBuf>;
     fn install_dir(&self) -> Option<PathBuf>;
     /// It's the path to show to the user for troubleshooting purposes.
     fn help_install_dir() -> &'static str;
@@ -115,7 +116,7 @@ impl FileBasedPlugin for NautilusPlugin {
         self.files.as_slice()
     }
 
-    fn install_dir(&self) -> Option<PathBuf> {
+    fn install_dirs_unchecked(&self) -> Vec<PathBuf> {
         let mut base_dirs = xdg_data_dirs();
 
         // In some package formats (like nixpkg), the paths that we're looking into for the nautilus-python directory
@@ -125,6 +126,9 @@ impl FileBasedPlugin for NautilusPlugin {
         // Here is a snippet where the package maintainers are manually symlinking the plugin script to the required
         // directory since the app is not able to figure it out by itself.
         // https://github.com/NixOS/nixpkgs/pull/416076/files#diff-2b073efb0973697970f4ba24dec07b65f7aea950aa3f48ba4f2d4a92827ac998R74-R76
+        //
+        // The maintainers may just be setting it by themselves so that the plugin files are managed by the package
+        // manager and can get cleaned up on uninstall.
         base_dirs.insert(0, PathBuf::from(DATADIR));
 
         // https://gitlab.gnome.org/GNOME/nautilus-python/-/tree/master#running-extensions
@@ -137,9 +141,16 @@ impl FileBasedPlugin for NautilusPlugin {
             base_dirs.insert(0, home.join(".local/share"));
         }
 
+        base_dirs.dedup();
         base_dirs
             .into_iter()
             .map(|it| it.join("nautilus-python/extensions"))
+            .collect()
+    }
+
+    fn install_dir(&self) -> Option<PathBuf> {
+        self.install_dirs_unchecked()
+            .into_iter()
             .find(|it| it.is_dir())
     }
 

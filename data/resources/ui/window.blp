@@ -460,6 +460,15 @@ Adw.PreferencesDialog preferences_dialog {
             Adw.SwitchRow nautilus_plugin_switch {
                 title: _("Nautilus Plugin");
                 subtitle: _("Integrate with Nautilus file menu");
+
+                [suffix]
+                Image nautilus_plugin_external_managed_icon {
+                    // visible: internal
+                    icon-name: "exclamation-mark-symbolic";
+                    tooltip-text: _("Externally managed plugin");
+                    // Aligned according to the Switch/Image pair in the AdwExpanderRow
+                    margin-start: 3;
+                }
             }
         }
 

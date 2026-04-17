@@ -116,6 +116,8 @@ mod imp {
         pub nautilus_plugin_switch: TemplateChild<adw::SwitchRow>,
         pub nautilus_plugin_switch_handler_id: RefCell<Option<glib::SignalHandlerId>>,
         #[template_child]
+        pub nautilus_plugin_external_managed_icon: TemplateChild<gtk::Image>,
+        #[template_child]
         pub tray_icon_group: TemplateChild<adw::PreferencesGroup>,
         #[template_child]
         pub tray_icon_switch: TemplateChild<adw::SwitchRow>,
@@ -507,6 +509,9 @@ impl PacketApplicationWindow {
                 device_name_entry.set_text(device_name);
             }
         }
+
+        // Check for externally managed plugin
+        // Partially install is considered externally managed
 
         if imp.settings.boolean("enable-nautilus-plugin") {
             // Update plugin
