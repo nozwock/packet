@@ -20,6 +20,7 @@ use tracing_subscriber::EnvFilter;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::util::SubscriberInitExt;
 
+use crate::config::APP_ID;
 use crate::constants::packet_log_path;
 
 use self::application::PacketApplication;
@@ -62,6 +63,12 @@ fn main() -> glib::ExitCode {
 
     let res = gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file");
     gio::resources_register(&res);
+
+    tokio_runtime().block_on(async move {
+        if let Err(err) = ashpd::register_host_app(APP_ID.try_into().unwrap()).await {
+            tracing::warn!("Failed to register host app: {err}");
+        }
+    });
 
     let app = PacketApplication::default();
     app.run()
