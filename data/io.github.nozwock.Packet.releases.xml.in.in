@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.6.1" date="2026-04-18">
+    <description translatable="no">
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed inconsistent XDG autostart desktop file for native builds.</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.6.0" date="2026-04-18">
     <description translatable="no">
       <p>Changes</p>
