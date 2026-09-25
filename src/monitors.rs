@@ -27,9 +27,10 @@ async fn find_adapter_path(conn: &zbus::Connection) -> zbus::Result<OwnedObjectP
         .collect();
     adapters.sort_by(|a, b| a.as_str().cmp(b.as_str()));
 
-    adapters.into_iter().next().ok_or_else(|| {
-        zbus::Error::Failure("No Bluetooth adapter found".to_string())
-    })
+    adapters
+        .into_iter()
+        .next()
+        .ok_or_else(|| zbus::Error::Failure("No Bluetooth adapter found".to_string()))
 }
 
 pub async fn spawn_bluetooth_power_monitor_task(
@@ -37,8 +38,7 @@ pub async fn spawn_bluetooth_power_monitor_task(
     sender: watch::Sender<bool>,
 ) -> zbus::Result<()> {
     let adapter_path = find_adapter_path(&conn).await?;
-    let proxy =
-        zbus::Proxy::new(&conn, "org.bluez", adapter_path, BLUEZ_ADAPTER_INTERFACE).await?;
+    let proxy = zbus::Proxy::new(&conn, "org.bluez", adapter_path, BLUEZ_ADAPTER_INTERFACE).await?;
 
     let mut property_stream = proxy.receive_property_changed::<bool>("Powered").await;
     while let Some(event) = property_stream.next().await {
@@ -52,8 +52,7 @@ pub async fn spawn_bluetooth_power_monitor_task(
 
 pub async fn is_bluetooth_powered(conn: &zbus::Connection) -> zbus::Result<bool> {
     let adapter_path = find_adapter_path(conn).await?;
-    let proxy =
-        zbus::Proxy::new(conn, "org.bluez", adapter_path, BLUEZ_ADAPTER_INTERFACE).await?;
+    let proxy = zbus::Proxy::new(conn, "org.bluez", adapter_path, BLUEZ_ADAPTER_INTERFACE).await?;
 
     let value: bool = proxy.get_property("Powered").await?;
 
