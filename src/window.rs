@@ -1158,15 +1158,14 @@ impl PacketApplicationWindow {
             imp,
             async move {
                 let tray = crate::tray::Tray { tx: tx };
-                let handle = if ashpd::is_sandboxed() {
-                    tray.spawn_without_dbus_name().await
-                } else {
-                    tray.spawn().await
-                }
-                .inspect_err(
-                    |err| tracing::warn!(%err, "Failed to setup KStatusNotifierItem tray icon"),
-                )
-                .ok();
+                let handle = tray
+                    .disable_dbus_name(ashpd::is_sandboxed())
+                    .spawn()
+                    .await
+                    .inspect_err(
+                        |err| tracing::warn!(%err, "Failed to setup KStatusNotifierItem tray icon"),
+                    )
+                    .ok();
                 *imp.tray_icon_handle.borrow_mut() = handle;
             }
         ));
