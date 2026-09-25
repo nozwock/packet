@@ -65,13 +65,13 @@ pub fn handle_recipient_card_clicked(
         get_model_item_from_listbox_row::<SendRequestState>(&imp.recipient_model, list_box, row)
             .expect("Index should be valid since model and ListBox are related");
 
-    emit_send_files(win, &model_item);
+    emit_send_request(win, &model_item);
 
     // Only reset this on Cancelled
     row.set_activatable(false);
 }
 
-fn emit_send_files(win: &PacketApplicationWindow, model_item: &SendRequestState) {
+fn emit_send_request(win: &PacketApplicationWindow, model_item: &SendRequestState) {
     let imp = win.imp();
 
     let endpoint_info = model_item.endpoint_info();
@@ -100,18 +100,18 @@ fn emit_send_files(win: &PacketApplicationWindow, model_item: &SendRequestState)
     }
 
     tokio_runtime().spawn(clone!(
-        #[weak(rename_to = file_sender)]
-        imp.file_sender,
+        #[weak(rename_to = payload_sender)]
+        imp.payload_sender,
         // #[weak]
         // model_item,
         async move {
             // FIXME: Set Failed state on Err and update UI on Failed state change
             // model_item.set_transfer_state(TransferState::Failed);
-            file_sender
+            payload_sender
                 .lock()
                 .await
                 .as_mut()
-                .expect("RQS .file_sender must be set")
+                .expect("RQS .payload_sender must be set")
                 .send(rqs_lib::SendInfo {
                     id: endpoint_info.id.clone(),
                     name: endpoint_info
@@ -323,7 +323,7 @@ pub fn create_recipient_card(
         #[weak]
         model_item,
         move |_button| {
-            emit_send_files(&imp.obj(), &model_item);
+            emit_send_request(&imp.obj(), &model_item);
         }
     ));
 

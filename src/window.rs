@@ -186,7 +186,7 @@ mod imp {
 
         // RQS State
         pub rqs: Arc<Mutex<Option<rqs_lib::RQS>>>,
-        pub file_sender: Arc<Mutex<Option<tokio::sync::mpsc::Sender<rqs_lib::SendInfo>>>>,
+        pub payload_sender: Arc<Mutex<Option<tokio::sync::mpsc::Sender<rqs_lib::SendInfo>>>>,
         pub ble_receiver: Arc<Mutex<Option<tokio::sync::broadcast::Receiver<()>>>>,
         pub mdns_discovery_broadcast_tx:
             Arc<Mutex<Option<tokio::sync::broadcast::Sender<rqs_lib::EndpointInfo>>>>,
@@ -2389,8 +2389,8 @@ impl PacketApplicationWindow {
                     *imp.mdns_discovery_broadcast_tx.lock().await =
                         Some(mdns_discovery_broadcast_tx);
 
-                    let (file_sender, ble_receiver) = run_result?;
-                    *imp.file_sender.lock().await = Some(file_sender);
+                    let (payload_sender, ble_receiver) = run_result?;
+                    *imp.payload_sender.lock().await = Some(payload_sender);
                     *imp.ble_receiver.lock().await = Some(ble_receiver);
 
                     imp.root_stack.get().set_visible_child_name("main_page");
