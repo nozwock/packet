@@ -127,6 +127,8 @@ mod imp {
         #[template_child]
         pub main_box: TemplateChild<gtk::Box>,
         #[template_child]
+        pub main_nav_page: TemplateChild<adw::NavigationPage>,
+        #[template_child]
         pub main_nav_content: TemplateChild<adw::StatusPage>,
         #[template_child]
         pub main_add_files_button: TemplateChild<gtk::Button>,
@@ -1440,6 +1442,59 @@ impl PacketApplicationWindow {
                 false
             }
         ));
+
+        // Ctrl+V on main page
+        let key_controller = gtk::EventControllerKey::new();
+        key_controller.connect_key_pressed(clone!(
+            #[weak]
+            imp,
+            #[upgrade_or]
+            glib::Propagation::Proceed,
+            move |_, key, _, modifier| {
+                let is_ctrl_v = (key == gdk::Key::v || key == gdk::Key::V)
+                    && modifier.contains(gdk::ModifierType::CONTROL_MASK)
+                    && !modifier.contains(gdk::ModifierType::ALT_MASK);
+
+                if !is_ctrl_v {
+                    return glib::Propagation::Proceed;
+                }
+
+                let clipboard = imp.obj().clipboard();
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    imp,
+                    async move {
+                        let formats = clipboard.formats();
+                        if (formats.contains_type(gdk::FileList::static_type())
+                            || formats.contain_mime_type("text/uri-list")
+                            || formats.contain_mime_type("x-special/gnome-copied-files"))
+                            && let Ok(value) = clipboard
+                                .read_value_future(
+                                    gdk::FileList::static_type(),
+                                    glib::Priority::default(),
+                                )
+                                .await
+                            && let Ok(file_list) = value.get::<gdk::FileList>()
+                        {
+                            imp.manage_files_model.remove_all();
+                            imp.obj().handle_added_files_to_send(
+                                &imp.manage_files_model,
+                                file_list.files(),
+                            );
+                        } else if let Some(text) = clipboard.read_text_future().await.ok().flatten()
+                            && !text.is_empty()
+                        {
+                            imp.share_text_view.buffer().set_text(&text);
+                            imp.main_nav_view.push_by_tag("share_text_nav_page");
+                            imp.share_text_view.grab_focus();
+                        }
+                    }
+                ));
+
+                return glib::Propagation::Stop;
+            }
+        ));
+        imp.main_nav_page.add_controller(key_controller);
     }
 
     fn setup_manage_files_page(&self) {
