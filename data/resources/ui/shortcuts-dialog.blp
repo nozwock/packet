@@ -3,6 +3,20 @@ using Adw 1;
 
 Adw.ShortcutsDialog shortcuts_dialog {
     Adw.ShortcutsSection {
+        title: C_("shortcut window", "Actions");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Send To…");
+            accelerator: "<Primary>Return";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut window", "Paste");
+            accelerator: "<Primary>v";
+        }
+    }
+
+    Adw.ShortcutsSection {
         title: C_("shortcut window", "General");
 
         Adw.ShortcutsItem {
@@ -21,13 +35,8 @@ Adw.ShortcutsDialog shortcuts_dialog {
         }
 
         Adw.ShortcutsItem {
-            title: C_("shortcut window", "Send To…");
-            accelerator: "<Primary>Return";
-        }
-
-        Adw.ShortcutsItem {
-            title: C_("shortcut window", "Paste");
-            accelerator: "<Primary>v";
+            title: C_("shortcut window", "Shortcuts");
+            action-name: "app.shortcuts";
         }
 
         Adw.ShortcutsItem {
