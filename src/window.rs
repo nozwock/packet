@@ -24,7 +24,9 @@ use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
-use crate::utils::{strip_user_home_prefix, with_signals_blocked, xdg_download_with_fallback};
+use crate::utils::{
+    is_url, strip_user_home_prefix, with_signals_blocked, xdg_download_with_fallback,
+};
 use crate::{monitors, tokio_runtime, widgets};
 
 #[derive(Debug)]
@@ -126,6 +128,21 @@ mod imp {
         pub main_nav_content: TemplateChild<adw::StatusPage>,
         #[template_child]
         pub main_add_files_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub main_share_text_button: TemplateChild<gtk::Button>,
+
+        #[template_child]
+        pub share_text_dialog: TemplateChild<adw::Dialog>,
+        #[template_child]
+        pub paste_text_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub send_text_button: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub share_text_view: TemplateChild<gtk::TextView>,
+        #[template_child]
+        pub share_text_counter: TemplateChild<gtk::Label>,
+
+        pub send_text: RefCell<Option<(String, rqs_lib::TextPayloadType)>>,
 
         #[template_child]
         pub manage_files_nav_content: TemplateChild<gtk::Box>,
@@ -169,7 +186,7 @@ mod imp {
 
         // RQS State
         pub rqs: Arc<Mutex<Option<rqs_lib::RQS>>>,
-        pub file_sender: Arc<Mutex<Option<tokio::sync::mpsc::Sender<rqs_lib::SendInfo>>>>,
+        pub payload_sender: Arc<Mutex<Option<tokio::sync::mpsc::Sender<rqs_lib::SendInfo>>>>,
         pub ble_receiver: Arc<Mutex<Option<tokio::sync::broadcast::Receiver<()>>>>,
         pub mdns_discovery_broadcast_tx:
             Arc<Mutex<Option<tokio::sync::broadcast::Sender<rqs_lib::EndpointInfo>>>>,
@@ -1182,6 +1199,7 @@ impl PacketApplicationWindow {
         self.setup_main_page();
         self.setup_manage_files_page();
         self.setup_recipient_page();
+        self.setup_share_text_dialog();
     }
 
     fn present_plugin_success_dialog(&self) {
@@ -1496,6 +1514,7 @@ impl PacketApplicationWindow {
             move |_| {
                 imp.is_recipients_dialog_opened.set(false);
                 imp.obj().stop_mdns_discovery();
+                *imp.send_text.borrow_mut() = None;
             }
         ));
     }
@@ -1636,6 +1655,86 @@ impl PacketApplicationWindow {
         } else {
             tracing::warn!("Couldn't set device visibility due RQS not being set");
         }
+    }
+
+    fn setup_share_text_dialog(&self) {
+        let imp = self.imp();
+
+        // Maximum limit for sharing text
+        const MAX_TEXT_CHARS: i32 = 100_000;
+
+        imp.main_share_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                imp.share_text_view.buffer().set_text("");
+                imp.send_text_button.set_sensitive(false);
+                imp.share_text_counter
+                    .set_label(&format!("0 / {}", MAX_TEXT_CHARS));
+                imp.share_text_counter.remove_css_class("error");
+                imp.share_text_dialog.present(Some(imp.obj().as_ref()));
+            }
+        ));
+
+        imp.paste_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                let clipboard = imp.obj().clipboard();
+                glib::spawn_future_local(clone!(
+                    #[weak]
+                    imp,
+                    async move {
+                        if let Some(text) = clipboard.read_text_future().await.ok().flatten() {
+                            imp.share_text_view.buffer().set_text(&text);
+                        }
+                    }
+                ));
+            }
+        ));
+
+        // TextView buffer validation
+        imp.share_text_view.buffer().connect_changed(clone!(
+            #[weak]
+            imp,
+            move |buffer| {
+                let char_count = buffer.char_count();
+                let is_valid = char_count > 0 && char_count <= MAX_TEXT_CHARS;
+
+                imp.send_text_button.set_sensitive(is_valid);
+                imp.share_text_counter
+                    .set_label(&format!("{} / {}", char_count, MAX_TEXT_CHARS));
+
+                if char_count > MAX_TEXT_CHARS {
+                    imp.share_text_counter.add_css_class("error");
+                } else {
+                    imp.share_text_counter.remove_css_class("error");
+                }
+            }
+        ));
+
+        // Send text to...
+        imp.send_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                let buffer = imp.share_text_view.buffer();
+                let text = buffer
+                    .text(&buffer.start_iter(), &buffer.end_iter(), false)
+                    .to_string();
+
+                let text_type = if is_url(&text) {
+                    rqs_lib::TextPayloadType::Url
+                } else {
+                    rqs_lib::TextPayloadType::Text
+                };
+
+                *imp.send_text.borrow_mut() = Some((text, text_type));
+
+                imp.share_text_dialog.close();
+                imp.obj().present_recipients_dialog();
+            }
+        ));
     }
 
     fn bottom_bar_status_indicator_ui_update(&self, is_visible: bool) {
@@ -2290,8 +2389,8 @@ impl PacketApplicationWindow {
                     *imp.mdns_discovery_broadcast_tx.lock().await =
                         Some(mdns_discovery_broadcast_tx);
 
-                    let (file_sender, ble_receiver) = run_result?;
-                    *imp.file_sender.lock().await = Some(file_sender);
+                    let (payload_sender, ble_receiver) = run_result?;
+                    *imp.payload_sender.lock().await = Some(payload_sender);
                     *imp.ble_receiver.lock().await = Some(ble_receiver);
 
                     imp.root_stack.get().set_visible_child_name("main_page");
