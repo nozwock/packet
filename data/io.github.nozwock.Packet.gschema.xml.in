@@ -3,7 +3,7 @@
   <schema path="/io/github/nozwock/Packet/" id="@app-id@" gettext-domain="@gettext-package@">
     <key name="window-width" type="i">
       <default>360</default>
-      <!-- Trasnlators: The gschema strings won't be used in the app directly and aren't a priority -->
+      <!-- Translators: The gschema strings won't be used in the app directly and aren't a priority -->
       <summary>Window width</summary>
     </key>
     <key name="window-height" type="i">

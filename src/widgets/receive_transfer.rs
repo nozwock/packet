@@ -524,7 +524,7 @@ pub fn present_receive_transfer_ui(
                             consent_dialog.close();
                         }
 
-                        let body = gettext("Unexpected dissconnection");
+                        let body = gettext("Unexpected disconnection");
 
                         spawn_notification(
                             notification_id.clone(),

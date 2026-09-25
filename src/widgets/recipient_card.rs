@@ -240,7 +240,7 @@ pub fn create_recipient_card(
         .wrap(true)
         .visible(false)
         .build();
-    let unavailibility_label = gtk::Label::builder()
+    let unavailability_label = gtk::Label::builder()
         .halign(gtk::Align::Start)
         .wrap(true)
         .label(&gettext("Unavailable"))
@@ -255,7 +255,7 @@ pub fn create_recipient_card(
         .build();
     main_box.append(&title_label);
     main_box.append(&result_label);
-    main_box.append(&unavailibility_label);
+    main_box.append(&unavailability_label);
     main_box.append(&pincode_label);
 
     model_item.connect_transfer_state_notify(clone!(
@@ -386,7 +386,7 @@ pub fn create_recipient_card(
         #[weak]
         retry_button,
         #[weak]
-        unavailibility_label,
+        unavailability_label,
         move |model_item| {
             let imp = win.imp();
             let is_idle_card = model_item.transfer_state() == TransferState::AwaitingConsentOrIdle;
@@ -401,10 +401,10 @@ pub fn create_recipient_card(
             let endpoint_info = model_item.endpoint_info();
             if endpoint_info.present.is_none() {
                 retry_button.set_sensitive(false);
-                unavailibility_label.set_visible(is_idle_card);
+                unavailability_label.set_visible(is_idle_card);
             } else {
                 retry_button.set_sensitive(true);
-                unavailibility_label.set_visible(false);
+                unavailability_label.set_visible(false);
 
                 // Update device name on re-connection
                 let title = endpoint_info
@@ -451,7 +451,7 @@ pub fn create_recipient_card(
                         );
                         set_row_activatable(model_item, listbox_row.as_ref(), false);
 
-                        unavailibility_label.set_visible(false);
+                        unavailability_label.set_visible(false);
                         retry_button.set_visible(false);
 
                         cancel_transfer_button.set_sensitive(true);
@@ -482,7 +482,7 @@ pub fn create_recipient_card(
 
                         cancel_transfer_button.set_visible(true);
                         result_label.set_visible(false);
-                        unavailibility_label.set_visible(false);
+                        unavailability_label.set_visible(false);
                         pincode_label.set_visible(false);
                         retry_button.set_visible(false);
 
@@ -514,7 +514,7 @@ pub fn create_recipient_card(
                         progress_bar.set_visible(false);
                         cancel_transfer_button.set_visible(false);
                         eta_label.set_visible(false);
-                        unavailibility_label.set_visible(false);
+                        unavailability_label.set_visible(false);
                         pincode_label.set_visible(false);
 
                         retry_button.set_visible(true);
@@ -545,7 +545,7 @@ pub fn create_recipient_card(
                         retry_button.set_visible(false);
                         pincode_label.set_visible(false);
 
-                        unavailibility_label
+                        unavailability_label
                             .set_visible(model_item.endpoint_info().present.is_none());
 
                         model_item.set_event(None::<objects::ChannelMessage>);
@@ -557,7 +557,7 @@ pub fn create_recipient_card(
                         progress_bar.set_visible(false);
                         eta_label.set_visible(false);
                         retry_button.set_visible(false);
-                        unavailibility_label.set_visible(false);
+                        unavailability_label.set_visible(false);
                         pincode_label.set_visible(false);
 
                         let finished_text = {

@@ -6,7 +6,7 @@
   <name>Packet</name>
   <summary>Share files easily</summary>
   <description>
-    <!-- Trasnlators: The metainfo strings are for Flathub and aren't a priority -->
+    <!-- Translators: The metainfo strings are for Flathub and aren't a priority -->
     <p>Send and receive files wirelessly with Android devices using Quick Share or another device with Packet installed.</p>
     <p>Packet requires Bluetooth to be enabled and the devices to be connected to a Wi-Fi network with mDNS.</p>
   </description>
@@ -14,7 +14,7 @@
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/nozwock/packet/blob/main/data/resources/screenshots/banner-screenshot.png?raw=true</image>
-      <!-- Trasnlators: These are captions for the screenshots on Flathub -->
+      <!-- Translators: These are captions for the screenshots on Flathub -->
       <caption>Sent Share Request</caption>
     </screenshot>
     <screenshot>
