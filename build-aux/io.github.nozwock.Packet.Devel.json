@@ -82,7 +82,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "tag": "v0.20.4"
+                    "tag": "v0.22.2"
                 }
             ]
         },
