@@ -1310,6 +1310,7 @@ impl PacketApplicationWindow {
             // Bring the app window to focus
             self.present();
 
+            imp.manage_files_model.remove_all();
             let success = self.handle_added_files_to_send(
                 &imp.manage_files_model,
                 files
