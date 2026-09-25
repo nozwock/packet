@@ -1744,6 +1744,27 @@ impl PacketApplicationWindow {
                 }
             }
         ));
+
+        // Ctrl+Return
+        let key_controller = gtk::EventControllerKey::new();
+        key_controller.connect_key_pressed(clone!(
+            #[weak]
+            imp,
+            #[upgrade_or]
+            glib::Propagation::Proceed,
+            move |_, key, _, modifier| {
+                if (key == gdk::Key::Return || key == gdk::Key::KP_Enter)
+                    && modifier.contains(gdk::ModifierType::CONTROL_MASK)
+                {
+                    if imp.bottom_bar_send_button.is_sensitive() {
+                        imp.bottom_bar_send_button.emit_clicked();
+                        return glib::Propagation::Stop;
+                    }
+                }
+                glib::Propagation::Proceed
+            }
+        ));
+        imp.share_text_view.add_controller(key_controller);
     }
 
     fn bottom_bar_status_indicator_ui_update(&self, is_visible: bool) {
