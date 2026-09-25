@@ -14,7 +14,7 @@ async fn find_adapter_path(conn: &zbus::Connection) -> zbus::Result<OwnedObjectP
         .build()
         .await?;
 
-    let mut adapters: Vec<OwnedObjectPath> = object_manager
+    object_manager
         .get_managed_objects()
         .await?
         .into_iter()
@@ -24,12 +24,7 @@ async fn find_adapter_path(conn: &zbus::Connection) -> zbus::Result<OwnedObjectP
                 .any(|interface| interface.as_str() == BLUEZ_ADAPTER_INTERFACE)
         })
         .map(|(path, _)| path)
-        .collect();
-    adapters.sort_by(|a, b| a.as_str().cmp(b.as_str()));
-
-    adapters
-        .into_iter()
-        .next()
+        .min_by(|a, b| a.as_str().cmp(b.as_str()))
         .ok_or_else(|| zbus::Error::Failure("No Bluetooth adapter found".to_string()))
 }
 
