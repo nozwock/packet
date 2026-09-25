@@ -171,7 +171,7 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
                                     hexpand: true;
                                 }
 
-                                Button manage_files_send_button {
+                                Button bottom_bar_send_button {
                                     label: _("Send To…");
                                     visible: false;
                                     halign: center;
@@ -306,6 +306,130 @@ template $PacketApplicationWindow: Adw.ApplicationWindow {
 
                                                         styles [
                                                             "boxed-list",
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                };
+                            }
+
+                            Adw.NavigationPage {
+                                title: _("Share Text");
+                                tag: "share_text_nav_page";
+
+                                child: Adw.ToolbarView {
+                                    [top]
+                                    Adw.HeaderBar {
+                                        show-title: false;
+
+                                        [end]
+                                        MenuButton {
+                                            icon-name: "open-menu-symbolic";
+                                            menu-model: primary_menu;
+                                            tooltip-text: _("Main Menu");
+                                            primary: true;
+                                        }
+                                    }
+
+                                    Box {
+                                        orientation: vertical;
+                                        hexpand: true;
+                                        vexpand: true;
+
+                                        ScrolledWindow {
+                                            hscrollbar-policy: never;
+                                            vexpand: true;
+                                            hexpand: true;
+
+                                            Adw.Clamp {
+                                                maximum-size: 550;
+
+                                                Box {
+                                                    orientation: vertical;
+                                                    margin-top: 24;
+                                                    margin-bottom: 24;
+                                                    margin-start: 24;
+                                                    margin-end: 24;
+                                                    spacing: 12;
+
+                                                    Box {
+                                                        orientation: vertical;
+
+                                                        styles [
+                                                            "card",
+                                                        ]
+
+                                                        Frame {
+                                                            margin-top: 6;
+                                                            margin-start: 6;
+                                                            margin-end: 6;
+
+                                                            ScrolledWindow {
+                                                                min-content-height: 220;
+                                                                vexpand: true;
+                                                                hscrollbar-policy: never;
+
+                                                                TextView share_text_view {
+                                                                    top-margin: 14;
+                                                                    bottom-margin: 14;
+                                                                    left-margin: 14;
+                                                                    right-margin: 14;
+                                                                    wrap-mode: word_char;
+                                                                    accepts-tab: false;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        Box {
+                                                            margin-top: 6;
+                                                            margin-bottom: 6;
+                                                            margin-start: 12;
+                                                            margin-end: 12;
+                                                            spacing: 6;
+
+                                                            Button paste_text_button {
+                                                                icon-name: "edit-paste-symbolic";
+                                                                tooltip-text: _("Paste from clipboard");
+
+                                                                styles [
+                                                                    "flat",
+                                                                ]
+                                                            }
+
+                                                            Button clear_text_button {
+                                                                icon-name: "edit-clear-symbolic";
+                                                                tooltip-text: _("Clear text");
+                                                                sensitive: false;
+
+                                                                styles [
+                                                                    "flat",
+                                                                ]
+                                                            }
+
+                                                            Adw.Bin {
+                                                                hexpand: true;
+                                                            }
+
+                                                            Label share_text_counter {
+                                                                valign: center;
+
+                                                                styles [
+                                                                    "caption",
+                                                                    "dim-label",
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+
+                                                    Label {
+                                                        label: _("Enter or paste text, or links to send");
+                                                        halign: center;
+
+                                                        styles [
+                                                            "caption",
+                                                            "dim-label",
                                                         ]
                                                     }
                                                 }
@@ -609,73 +733,6 @@ Adw.Dialog help_dialog {
                         }
                     }
                 }
-            }
-        }
-    }
-}
-
-Adw.Dialog share_text_dialog {
-    title: _("Share Text");
-    content-width: 400;
-    content-height: 300;
-
-    Adw.ToolbarView {
-        [top]
-        Adw.HeaderBar {
-            [start]
-            Button paste_text_button {
-                icon-name: "edit-paste-symbolic";
-                tooltip-text: _("Paste from clipboard");
-
-                styles [
-                    "circular",
-                    "flat",
-                ]
-            }
-
-            [end]
-            Button send_text_button {
-                label: _("Send To…");
-                sensitive: false;
-
-                styles [
-                    "suggested-action",
-                ]
-            }
-        }
-
-        Box {
-            orientation: vertical;
-            margin-top: 6;
-            margin-bottom: 12;
-            margin-start: 12;
-            margin-end: 12;
-            spacing: 6;
-
-            Frame {
-                vexpand: true;
-
-                ScrolledWindow {
-                    vexpand: true;
-
-                    TextView share_text_view {
-                        top-margin: 12;
-                        bottom-margin: 12;
-                        left-margin: 12;
-                        right-margin: 12;
-                        wrap-mode: word;
-                        accepts-tab: false;
-                    }
-                }
-            }
-
-            Label share_text_counter {
-                halign: end;
-
-                styles [
-                    "caption",
-                    "dim-label",
-                ]
             }
         }
     }

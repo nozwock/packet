@@ -95,6 +95,8 @@ mod imp {
         pub bottom_bar_status: TemplateChild<gtk::Box>,
         #[template_child]
         pub bottom_bar_status_top: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub bottom_bar_send_button: TemplateChild<gtk::Button>,
 
         #[template_child]
         pub device_name_entry: TemplateChild<adw::EntryRow>,
@@ -132,11 +134,9 @@ mod imp {
         pub main_share_text_button: TemplateChild<gtk::Button>,
 
         #[template_child]
-        pub share_text_dialog: TemplateChild<adw::Dialog>,
-        #[template_child]
         pub paste_text_button: TemplateChild<gtk::Button>,
         #[template_child]
-        pub send_text_button: TemplateChild<gtk::Button>,
+        pub clear_text_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub share_text_view: TemplateChild<gtk::TextView>,
         #[template_child]
@@ -150,8 +150,6 @@ mod imp {
         pub manage_files_header: TemplateChild<adw::PreferencesGroup>,
         #[template_child]
         pub manage_files_add_files_button: TemplateChild<gtk::Button>,
-        #[template_child]
-        pub manage_files_send_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub manage_files_listbox: TemplateChild<gtk::ListBox>,
         #[default(gio::ListStore::new::<gio::File>())]
@@ -347,6 +345,8 @@ glib::wrapper! {
 }
 
 impl PacketApplicationWindow {
+    pub const MAX_TEXT_PAYLOAD_CHARS: i32 = 100_000;
+
     pub fn new(app: &PacketApplication) -> Self {
         glib::Object::builder().property("application", app).build()
     }
@@ -1199,7 +1199,7 @@ impl PacketApplicationWindow {
         self.setup_main_page();
         self.setup_manage_files_page();
         self.setup_recipient_page();
-        self.setup_share_text_dialog();
+        self.setup_share_text_page();
     }
 
     fn present_plugin_success_dialog(&self) {
@@ -1452,10 +1452,27 @@ impl PacketApplicationWindow {
                 imp.obj().add_files_via_dialog();
             }
         ));
-        imp.manage_files_send_button.connect_clicked(clone!(
+        imp.bottom_bar_send_button.connect_clicked(clone!(
             #[weak]
             imp,
             move |_| {
+                if let Some(tag) = imp.main_nav_view.visible_page_tag()
+                    && tag == "share_text_nav_page"
+                {
+                    let buffer = imp.share_text_view.buffer();
+                    let text = buffer
+                        .text(&buffer.start_iter(), &buffer.end_iter(), false)
+                        .to_string();
+
+                    let text_type = if is_url(&text) {
+                        rqs_lib::TextPayloadType::Url
+                    } else {
+                        rqs_lib::TextPayloadType::Text
+                    };
+
+                    *imp.send_text.borrow_mut() = Some((text, text_type));
+                }
+
                 imp.obj().present_recipients_dialog();
             }
         ));
@@ -1657,22 +1674,20 @@ impl PacketApplicationWindow {
         }
     }
 
-    fn setup_share_text_dialog(&self) {
+    fn setup_share_text_page(&self) {
         let imp = self.imp();
-
-        // Maximum limit for sharing text
-        const MAX_TEXT_CHARS: i32 = 100_000;
 
         imp.main_share_text_button.connect_clicked(clone!(
             #[weak]
             imp,
             move |_| {
-                imp.share_text_view.buffer().set_text("");
-                imp.send_text_button.set_sensitive(false);
-                imp.share_text_counter
-                    .set_label(&format!("0 / {}", MAX_TEXT_CHARS));
-                imp.share_text_counter.remove_css_class("error");
-                imp.share_text_dialog.present(Some(imp.obj().as_ref()));
+                // Invoke callback on changed event to refresh state
+                imp.share_text_view
+                    .buffer()
+                    .emit_by_name::<()>("changed", &[]);
+
+                imp.main_nav_view.push_by_tag("share_text_nav_page");
+                imp.share_text_view.grab_focus();
             }
         ));
 
@@ -1693,46 +1708,40 @@ impl PacketApplicationWindow {
             }
         ));
 
+        imp.clear_text_button.connect_clicked(clone!(
+            #[weak]
+            imp,
+            move |_| {
+                imp.share_text_view.buffer().set_text("");
+                imp.share_text_view.grab_focus();
+            }
+        ));
+
         // TextView buffer validation
         imp.share_text_view.buffer().connect_changed(clone!(
             #[weak]
             imp,
             move |buffer| {
                 let char_count = buffer.char_count();
-                let is_valid = char_count > 0 && char_count <= MAX_TEXT_CHARS;
+                let is_valid = char_count > 0 && char_count <= Self::MAX_TEXT_PAYLOAD_CHARS;
 
-                imp.send_text_button.set_sensitive(is_valid);
-                imp.share_text_counter
-                    .set_label(&format!("{} / {}", char_count, MAX_TEXT_CHARS));
+                imp.clear_text_button.set_sensitive(char_count > 0);
+                if let Some(tag) = imp.main_nav_view.visible_page_tag()
+                    && tag == "share_text_nav_page"
+                {
+                    imp.bottom_bar_send_button.set_sensitive(is_valid);
+                }
+                imp.share_text_counter.set_label(&format!(
+                    "{} / {}",
+                    char_count,
+                    Self::MAX_TEXT_PAYLOAD_CHARS
+                ));
 
-                if char_count > MAX_TEXT_CHARS {
+                if char_count > Self::MAX_TEXT_PAYLOAD_CHARS {
                     imp.share_text_counter.add_css_class("error");
                 } else {
                     imp.share_text_counter.remove_css_class("error");
                 }
-            }
-        ));
-
-        // Send text to...
-        imp.send_text_button.connect_clicked(clone!(
-            #[weak]
-            imp,
-            move |_| {
-                let buffer = imp.share_text_view.buffer();
-                let text = buffer
-                    .text(&buffer.start_iter(), &buffer.end_iter(), false)
-                    .to_string();
-
-                let text_type = if is_url(&text) {
-                    rqs_lib::TextPayloadType::Url
-                } else {
-                    rqs_lib::TextPayloadType::Text
-                };
-
-                *imp.send_text.borrow_mut() = Some((text, text_type));
-
-                imp.share_text_dialog.close();
-                imp.obj().present_recipients_dialog();
             }
         ));
     }
@@ -1794,24 +1803,41 @@ impl PacketApplicationWindow {
             #[weak]
             imp,
             move |obj| {
-                if let Some(tag) = obj.visible_page_tag() {
-                    match tag.as_str() {
-                        "manage_files_nav_page" => {
-                            imp.bottom_bar_status.set_halign(gtk::Align::Start);
-                            imp.bottom_bar_status_top.set_halign(gtk::Align::Start);
-                            imp.bottom_bar_caption.set_xalign(0.);
-                            imp.bottom_bar_spacer.set_visible(true);
-                            imp.manage_files_send_button.set_visible(true);
-                        }
-                        _ => {
-                            imp.bottom_bar_status.set_halign(gtk::Align::Center);
-                            imp.bottom_bar_status_top.set_halign(gtk::Align::Center);
-                            imp.bottom_bar_caption.set_xalign(0.5);
-                            imp.bottom_bar_spacer.set_visible(false);
-                            imp.manage_files_send_button.set_visible(false);
-                        }
+                let Some(tag) = obj.visible_page_tag() else {
+                    return;
+                };
+
+                match tag.as_str() {
+                    "manage_files_nav_page" | "share_text_nav_page" => {
+                        imp.bottom_bar_status.set_halign(gtk::Align::Start);
+                        imp.bottom_bar_status_top.set_halign(gtk::Align::Start);
+                        imp.bottom_bar_caption.set_xalign(0.);
+                        imp.bottom_bar_spacer.set_visible(true);
+
+                        imp.bottom_bar_send_button.set_visible(true);
+                    }
+                    _ => {
+                        imp.bottom_bar_status.set_halign(gtk::Align::Center);
+                        imp.bottom_bar_status_top.set_halign(gtk::Align::Center);
+                        imp.bottom_bar_caption.set_xalign(0.5);
+                        imp.bottom_bar_spacer.set_visible(false);
+
+                        imp.bottom_bar_send_button.set_visible(false);
                     }
                 }
+
+                match tag.as_str() {
+                    "manage_files_nav_page" => {
+                        imp.bottom_bar_send_button.set_sensitive(true);
+                    }
+                    "share_text_nav_page" => {
+                        let char_count = imp.share_text_view.buffer().char_count();
+                        let is_valid = char_count > 0 && char_count <= Self::MAX_TEXT_PAYLOAD_CHARS;
+
+                        imp.bottom_bar_send_button.set_sensitive(is_valid);
+                    }
+                    _ => {}
+                };
             }
         ));
 
