@@ -265,7 +265,7 @@ pub fn present_receive_transfer_ui(
 
             let event_msg = receive_state.event().expect("ReceiveTransferState.event must be set");
             let client_msg = event_msg.msg.as_client_unchecked();
-            let metadata = client_msg.metadata.as_ref().unwrap();
+            let metadata = client_msg.metadata.as_ref();
 
             match client_msg.state.clone().unwrap_or(TransferState::Initial) {
                 TransferState::Initial => {}
@@ -302,8 +302,8 @@ pub fn present_receive_transfer_ui(
                     let device_name_box = create_device_name_box(&device_name);
                     info_box.append(&device_name_box);
 
-                    let total_bytes = metadata.total_bytes;
-                    let transfer_size = human_bytes::human_bytes(total_bytes as f64);
+                    let transfer_size = metadata
+                        .map_or("Unknown".into(), |it| human_bytes::human_bytes(it.total_bytes as f64));
 
                     if let Some(files) = event_msg.files() {
                         let file_count = files.len();
@@ -468,12 +468,12 @@ pub fn present_receive_transfer_ui(
 
                     // TODO: show a progress dialog for both but with a delay?
                     // Create Progress bar dialog
-                    let total_bytes = metadata.total_bytes;
+                    let total_bytes = metadata.map_or(None, |it| Some(it.total_bytes as usize));
                     receive_state
                         .imp()
                         .eta
                         .borrow_mut()
-                        .prepare_for_new_transfer(Some(total_bytes as usize));
+                        .prepare_for_new_transfer(total_bytes);
                     if event_msg.is_text_type() {
                         progress_stack.set_visible_child_name("progress_text");
                     }
