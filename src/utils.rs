@@ -29,6 +29,16 @@ macro_rules! impl_deref_for_newtype {
     };
 }
 
+pub fn is_url(text: &str) -> bool {
+    let trimmed = text.trim();
+
+    let mut finder = linkify::LinkFinder::new();
+    finder.kinds(&[linkify::LinkKind::Url]);
+    finder.spans(trimmed).next().is_some_and(|it| {
+        it.kind() == Some(&linkify::LinkKind::Url) && it.start() == 0 && it.end() == trimmed.len()
+    })
+}
+
 pub fn xdg_data_dirs() -> Vec<PathBuf> {
     std::env::var_os("XDG_DATA_DIRS")
         .and_then(|it| {
