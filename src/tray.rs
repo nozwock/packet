@@ -22,6 +22,16 @@ impl ksni::Tray for Tray {
     fn icon_name(&self) -> String {
         "io.github.nozwock.Packet-symbolic".into()
     }
+    // https://github.com/ubuntu/gnome-shell-extension-appindicator
+    // While the extension supporting tray icons on GNOME seem to be able to find the symbolic icon for the sandboxed
+    // app in `~/.var/app/{APP_ID}/data/icons/`, other desktop environments' (e.g. KDE Plasma) SNI implementation
+    // doesn't seem to able to do so. Pointing to the sandbox directory seems to allow the DE to find the tray icon.
+    fn icon_theme_path(&self) -> String {
+        gtk::glib::user_data_dir()
+            .join("icons")
+            .to_string_lossy()
+            .into()
+    }
     fn title(&self) -> String {
         gettext("Packet")
     }
