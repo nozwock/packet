@@ -651,15 +651,19 @@ impl PacketApplicationWindow {
                     #[weak]
                     switch,
                     async move {
+                        let is_run_in_background = switch.is_active();
+                        tracing::info!(
+                            is_active = is_run_in_background,
+                            "Setting run in background"
+                        );
+
+                        if !is_run_in_background {
+                            return;
+                        };
+
                         switch.set_sensitive(false);
 
                         {
-                            let is_run_in_background = switch.is_active();
-                            tracing::info!(
-                                is_active = is_run_in_background,
-                                "Setting run in background"
-                            );
-
                             let is_run_in_background_allowed = imp
                                 .obj()
                                 .portal_request_background(None)
