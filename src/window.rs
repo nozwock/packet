@@ -24,9 +24,7 @@ use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
-use crate::utils::{
-    is_url, strip_user_home_prefix, with_signals_blocked, xdg_download_with_fallback,
-};
+use crate::utils::{SignalBlockGuard, is_url, strip_user_home_prefix, xdg_download_with_fallback};
 use crate::{monitors, tokio_runtime, widgets};
 
 #[derive(Debug)]
@@ -457,8 +455,18 @@ impl PacketApplicationWindow {
         ]);
     }
 
-    fn add_toast(&self, msg: &str) {
-        self.imp().toast_overlay.add_toast(adw::Toast::new(msg));
+    fn add_toast_msg(&self, msg: &str) {
+        self.add_toast(adw::Toast::new(msg));
+    }
+
+    fn add_toast(&self, toast: adw::Toast) {
+        let imp = self.imp();
+
+        if imp.preferences_dialog.is_visible() {
+            imp.preferences_dialog.add_toast(toast);
+        } else {
+            imp.toast_overlay.add_toast(toast);
+        }
     }
 
     fn get_device_name_state(&self) -> glib::GString {
@@ -546,7 +554,7 @@ impl PacketApplicationWindow {
 
                     if !success {
                         imp.obj()
-                            .add_toast(&gettext("Couldn't update the Nautilus plugin"));
+                            .add_toast_msg(&gettext("Couldn't update the Nautilus plugin"));
                     }
                 }
             ));
@@ -590,15 +598,13 @@ impl PacketApplicationWindow {
                                 imp.obj().present_plugin_error_dialog(
                                         NautilusPlugin::help_install_dir(),
                                     );
-                                with_signals_blocked(
-                                    &[(
+                                {
+                                    let _g = SignalBlockGuard::new(
                                         &switch,
-                                        imp.nautilus_plugin_switch_handler_id.borrow().as_ref(),
-                                    )],
-                                    || {
-                                        switch.set_active(false);
-                                    },
-                                );
+                                        &imp.nautilus_plugin_switch_handler_id,
+                                    );
+                                    switch.set_active(false);
+                                }
                             }
                         }
 
@@ -645,25 +651,29 @@ impl PacketApplicationWindow {
                     #[weak]
                     switch,
                     async move {
+                        let is_run_in_background = switch.is_active();
+                        tracing::info!(
+                            is_active = is_run_in_background,
+                            "Setting run in background"
+                        );
+
+                        if !is_run_in_background {
+                            return;
+                        };
+
                         switch.set_sensitive(false);
 
                         {
-                            let is_run_in_background = switch.is_active();
-                            tracing::info!(
-                                is_active = is_run_in_background,
-                                "Setting run in background"
-                            );
-
                             let is_run_in_background_allowed = imp
                                 .obj()
-                                .portal_request_background()
+                                .portal_request_background(None)
                                 .await
                                 .map(|it| it.run_in_background())
                                 .unwrap_or_default();
 
                             if is_run_in_background && !is_run_in_background_allowed {
                                 imp.obj()
-                                    .add_toast(&gettext("Packet cannot run in the background"));
+                                    .add_toast_msg(&gettext("Packet cannot run in the background"));
                             }
                         }
 
@@ -693,13 +703,14 @@ impl PacketApplicationWindow {
 
                             let is_auto_start_allowed = imp
                                 .obj()
-                                .portal_request_background()
+                                .portal_request_background(Some(is_auto_start))
                                 .await
                                 .map(|it| it.auto_start())
                                 .unwrap_or_default();
 
                             if is_auto_start && !is_auto_start_allowed {
-                                imp.obj().add_toast(&gettext("Packet cannot run at login"));
+                                imp.obj()
+                                    .add_toast_msg(&gettext("Packet cannot run at login"));
                             }
                         }
 
@@ -761,13 +772,9 @@ impl PacketApplicationWindow {
 
                             tracing::debug!("Active transfers found, can't rename device name");
 
-                            imp.toast_overlay.add_toast(
-                                adw::Toast::builder()
-                                    .title(&gettext(
-                                        "Can't rename device during an active transfer",
-                                    ))
-                                    .build(),
-                            );
+                            this.add_toast_msg(&gettext(
+                                "Can't rename device during an active transfer",
+                            ));
                         }
                     }
 
@@ -963,7 +970,7 @@ impl PacketApplicationWindow {
                     .set_string("download-folder", fallback.to_str().unwrap())
                     .unwrap();
 
-                imp.toast_overlay.add_toast(
+                self.add_toast(
                     adw::Toast::builder()
                         .title(&gettext("Can't access Downloads folder"))
                         .button_label(&gettext("Pick Folder"))
@@ -985,22 +992,44 @@ impl PacketApplicationWindow {
         ));
     }
 
-    async fn portal_request_background(&self) -> Option<Background> {
+    async fn portal_request_background(&self, auto_start: Option<bool>) -> Option<Background> {
         let imp = self.imp();
 
-        let response = Background::request()
+        let mut request = Background::request()
             .identifier(ashpd::WindowIdentifier::from_native(&self.native().unwrap()).await)
-            .auto_start(self.imp().settings.boolean("auto-start"))
-            .command(["packet", "--background"])
-            .dbus_activatable(false)
-            .reason(gettext("Packet wants to run in the background").as_str())
-            .send()
-            .await
-            .and_then(|it| it.response());
+            .reason(gettext("Packet wants to run in the background").as_str());
+
+        if let Some(autostart) = auto_start {
+            request = request.auto_start(autostart);
+            if autostart {
+                request = request
+                    .command(["packet", "--background"])
+                    .dbus_activatable(false);
+            }
+        }
+
+        let response = request.send().await.and_then(|it| it.response());
 
         match response {
             Ok(response) => {
-                self.imp().is_background_allowed.replace(true);
+                self.imp()
+                    .is_background_allowed
+                    .replace(response.run_in_background());
+
+                if !response.run_in_background() {
+                    let _g = SignalBlockGuard::new(
+                        &*imp.run_in_background_switch,
+                        &imp.run_in_background_switch_handler_id,
+                    );
+                    _ = imp.settings.set_boolean("run-in-background", false);
+                }
+                if auto_start.is_some_and(|req| req && !response.auto_start()) {
+                    let _g = SignalBlockGuard::new(
+                        &*imp.auto_start_switch,
+                        &imp.auto_start_switch_handler_id,
+                    );
+                    _ = imp.settings.set_boolean("auto-start", false);
+                }
 
                 Some(response)
             }
@@ -1009,23 +1038,19 @@ impl PacketApplicationWindow {
 
                 imp.is_background_allowed.replace(false);
 
-                with_signals_blocked(
-                    &[
-                        (
-                            &imp.run_in_background_switch.get(),
-                            imp.run_in_background_switch_handler_id.borrow().as_ref(),
-                        ),
-                        (
-                            &imp.auto_start_switch.get(),
-                            imp.auto_start_switch_handler_id.borrow().as_ref(),
-                        ),
-                    ],
-                    || {
-                        // Reset preferences to false in case request fails
-                        _ = imp.settings.set_boolean("auto-start", false);
-                        _ = imp.settings.set_boolean("run-in-background", false);
-                    },
-                );
+                {
+                    let _g1 = SignalBlockGuard::new(
+                        &*imp.run_in_background_switch,
+                        &imp.run_in_background_switch_handler_id,
+                    );
+                    let _g2 = SignalBlockGuard::new(
+                        &*imp.auto_start_switch,
+                        &imp.auto_start_switch_handler_id,
+                    );
+
+                    _ = imp.settings.set_boolean("auto-start", false);
+                    _ = imp.settings.set_boolean("run-in-background", false);
+                }
 
                 None
             }
@@ -1033,26 +1058,21 @@ impl PacketApplicationWindow {
     }
 
     fn request_background_at_start(&self) {
+        let is_run_in_background = self.imp().settings.boolean("run-in-background");
+        if !is_run_in_background {
+            return;
+        }
+
         glib::spawn_future_local(clone!(
             #[weak(rename_to = this)]
             self,
             async move {
-                let is_run_in_background = this.imp().settings.boolean("run-in-background");
-                if !is_run_in_background {
-                    return;
-                }
-                if let Some(response) = this.portal_request_background().await {
+                if let Some(response) = this.portal_request_background(None).await
+                    && response.run_in_background()
+                {
                     tracing::debug!(?response, "Background request successful");
-
-                    if !response.auto_start() {
-                        if let Some(app) =
-                            this.application().and_downcast_ref::<PacketApplication>()
-                        {
-                            app.imp().start_in_background.replace(false);
-                        }
-                    }
                 } else {
-                    this.add_toast(&gettext("Packet cannot run in the background"));
+                    this.add_toast_msg(&gettext("Packet cannot run in the background"));
                 }
             }
         ));
@@ -1383,13 +1403,12 @@ impl PacketApplicationWindow {
                         match logs {
                             Ok(logs) => {
                                 clipboard.set_text(&logs);
-                                imp.toast_overlay.add_toast(adw::Toast::new(&gettext(
+                                imp.obj().add_toast(adw::Toast::new(&gettext(
                                     "Copied log to clipboard",
                                 )));
                             }
                             Err(err) => {
-                                imp.toast_overlay
-                                    .add_toast(adw::Toast::new(&err.to_string()));
+                                imp.obj().add_toast(adw::Toast::new(&err.to_string()));
                             }
                         };
 
@@ -1948,7 +1967,7 @@ impl PacketApplicationWindow {
         // TODO: Maybe don't show this if the only filtered out files
         // are the 0 byte sized
         if files.len() == 0 {
-            self.add_toast(&gettext("Couldn't open files"));
+            self.add_toast_msg(&gettext("Couldn't open files"));
 
             false
         } else {

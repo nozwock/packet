@@ -2,6 +2,7 @@ use std::{
     collections::VecDeque,
     fmt,
     io::Read,
+    panic::Location,
     path::{Path, PathBuf},
     time::{self},
 };
@@ -84,23 +85,40 @@ pub fn is_file_same(file1: impl AsRef<Path>, file2: impl AsRef<Path>) -> anyhow:
     Ok(true)
 }
 
-// TODO: Don't take option, callback should only be called if all signals are blocked
-pub fn with_signals_blocked<O, F>(blocks: &[(&O, Option<&glib::SignalHandlerId>)], f: F)
-where
-    O: glib::object::ObjectExt,
-    F: FnOnce(),
-{
-    for (widget, id) in blocks {
-        if let Some(id) = id {
+pub struct SignalBlockGuard<'a, O: glib::object::ObjectExt> {
+    widget: O,
+    id: Option<std::cell::Ref<'a, glib::SignalHandlerId>>,
+}
+
+impl<'a, O: glib::object::ObjectExt + Clone> SignalBlockGuard<'a, O> {
+    #[track_caller]
+    pub fn new(
+        widget: &O,
+        handler_id: &'a std::cell::RefCell<Option<glib::SignalHandlerId>>,
+    ) -> Self {
+        let id = std::cell::Ref::filter_map(handler_id.borrow(), |opt| opt.as_ref()).ok();
+        if let Some(id) = id.as_ref() {
             widget.block_signal(id);
+        } else {
+            let caller = Location::caller();
+            debug_assert!(
+                false,
+                "SignalHandlerId is not set before blocking signal at {caller}"
+            );
+            tracing::warn!("SignalHandlerId is not set before blocking signal at {caller}");
+        }
+
+        Self {
+            widget: widget.clone(),
+            id,
         }
     }
+}
 
-    f();
-
-    for (widget, id) in blocks {
-        if let Some(id) = id {
-            widget.unblock_signal(id);
+impl<O: glib::object::ObjectExt> Drop for SignalBlockGuard<'_, O> {
+    fn drop(&mut self) {
+        if let Some(id) = self.id.as_ref() {
+            self.widget.unblock_signal(id);
         }
     }
 }
