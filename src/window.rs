@@ -1048,19 +1048,8 @@ impl PacketApplicationWindow {
                 if !is_run_in_background {
                     return;
                 }
-                if let Some(response) = this
-                    .portal_request_background(Some(this.imp().settings.boolean("auto-start")))
-                    .await
-                {
+                if let Some(response) = this.portal_request_background(None).await {
                     tracing::debug!(?response, "Background request successful");
-
-                    if !response.auto_start() {
-                        if let Some(app) =
-                            this.application().and_downcast_ref::<PacketApplication>()
-                        {
-                            app.imp().start_in_background.replace(false);
-                        }
-                    }
                 } else {
                     this.add_toast(&gettext("Packet cannot run in the background"));
                 }
