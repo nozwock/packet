@@ -14,6 +14,8 @@ pub enum TrayMessage {
 }
 
 impl ksni::Tray for Tray {
+    const MENU_ON_ACTIVATE: bool = true;
+
     fn id(&self) -> String {
         APP_ID.into()
     }
