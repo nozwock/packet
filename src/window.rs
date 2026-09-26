@@ -24,9 +24,7 @@ use crate::ext::MessageExt;
 use crate::objects::{self, SendRequestState};
 use crate::objects::{TransferState, UserAction};
 use crate::plugins::{FileBasedPlugin, NautilusPlugin, Plugin};
-use crate::utils::{
-    is_url, strip_user_home_prefix, with_signals_blocked, xdg_download_with_fallback,
-};
+use crate::utils::{SignalBlockGuard, is_url, strip_user_home_prefix, xdg_download_with_fallback};
 use crate::{monitors, tokio_runtime, widgets};
 
 #[derive(Debug)]
@@ -600,15 +598,13 @@ impl PacketApplicationWindow {
                                 imp.obj().present_plugin_error_dialog(
                                         NautilusPlugin::help_install_dir(),
                                     );
-                                with_signals_blocked(
-                                    &[(
+                                {
+                                    let _g = SignalBlockGuard::new(
                                         &switch,
-                                        imp.nautilus_plugin_switch_handler_id.borrow().as_ref(),
-                                    )],
-                                    || {
-                                        switch.set_active(false);
-                                    },
-                                );
+                                        &imp.nautilus_plugin_switch_handler_id,
+                                    );
+                                    switch.set_active(false);
+                                }
                             }
                         }
 
@@ -1016,30 +1012,19 @@ impl PacketApplicationWindow {
                     .is_background_allowed
                     .replace(response.run_in_background());
 
-                let should_reset_run_in_background = !response.run_in_background();
-                let should_reset_auto_start =
-                    auto_start.is_some_and(|req| req && !response.auto_start());
-                if should_reset_run_in_background || should_reset_auto_start {
-                    with_signals_blocked(
-                        &[
-                            (
-                                &imp.run_in_background_switch.get(),
-                                imp.run_in_background_switch_handler_id.borrow().as_ref(),
-                            ),
-                            (
-                                &imp.auto_start_switch.get(),
-                                imp.auto_start_switch_handler_id.borrow().as_ref(),
-                            ),
-                        ],
-                        || {
-                            if should_reset_run_in_background {
-                                _ = imp.settings.set_boolean("run-in-background", false);
-                            }
-                            if should_reset_auto_start {
-                                _ = imp.settings.set_boolean("auto-start", false);
-                            }
-                        },
+                if !response.run_in_background() {
+                    let _g = SignalBlockGuard::new(
+                        &*imp.run_in_background_switch,
+                        &imp.run_in_background_switch_handler_id,
                     );
+                    _ = imp.settings.set_boolean("run-in-background", false);
+                }
+                if auto_start.is_some_and(|req| req && !response.auto_start()) {
+                    let _g = SignalBlockGuard::new(
+                        &*imp.auto_start_switch,
+                        &imp.auto_start_switch_handler_id,
+                    );
+                    _ = imp.settings.set_boolean("auto-start", false);
                 }
 
                 Some(response)
@@ -1049,23 +1034,19 @@ impl PacketApplicationWindow {
 
                 imp.is_background_allowed.replace(false);
 
-                with_signals_blocked(
-                    &[
-                        (
-                            &imp.run_in_background_switch.get(),
-                            imp.run_in_background_switch_handler_id.borrow().as_ref(),
-                        ),
-                        (
-                            &imp.auto_start_switch.get(),
-                            imp.auto_start_switch_handler_id.borrow().as_ref(),
-                        ),
-                    ],
-                    || {
-                        // Reset preferences to false in case request fails
-                        _ = imp.settings.set_boolean("auto-start", false);
-                        _ = imp.settings.set_boolean("run-in-background", false);
-                    },
-                );
+                {
+                    let _g1 = SignalBlockGuard::new(
+                        &*imp.run_in_background_switch,
+                        &imp.run_in_background_switch_handler_id,
+                    );
+                    let _g2 = SignalBlockGuard::new(
+                        &*imp.auto_start_switch,
+                        &imp.auto_start_switch_handler_id,
+                    );
+
+                    _ = imp.settings.set_boolean("auto-start", false);
+                    _ = imp.settings.set_boolean("run-in-background", false);
+                }
 
                 None
             }
