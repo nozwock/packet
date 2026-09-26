@@ -1040,14 +1040,15 @@ impl PacketApplicationWindow {
     }
 
     fn request_background_at_start(&self) {
+        let is_run_in_background = self.imp().settings.boolean("run-in-background");
+        if !is_run_in_background {
+            return;
+        }
+
         glib::spawn_future_local(clone!(
             #[weak(rename_to = this)]
             self,
             async move {
-                let is_run_in_background = this.imp().settings.boolean("run-in-background");
-                if !is_run_in_background {
-                    return;
-                }
                 if let Some(response) = this.portal_request_background(None).await {
                     tracing::debug!(?response, "Background request successful");
                 } else {
