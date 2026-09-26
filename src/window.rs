@@ -1016,6 +1016,32 @@ impl PacketApplicationWindow {
                     .is_background_allowed
                     .replace(response.run_in_background());
 
+                let should_reset_run_in_background = !response.run_in_background();
+                let should_reset_auto_start =
+                    auto_start.is_some_and(|req| req && !response.auto_start());
+                if should_reset_run_in_background || should_reset_auto_start {
+                    with_signals_blocked(
+                        &[
+                            (
+                                &imp.run_in_background_switch.get(),
+                                imp.run_in_background_switch_handler_id.borrow().as_ref(),
+                            ),
+                            (
+                                &imp.auto_start_switch.get(),
+                                imp.auto_start_switch_handler_id.borrow().as_ref(),
+                            ),
+                        ],
+                        || {
+                            if should_reset_run_in_background {
+                                _ = imp.settings.set_boolean("run-in-background", false);
+                            }
+                            if should_reset_auto_start {
+                                _ = imp.settings.set_boolean("auto-start", false);
+                            }
+                        },
+                    );
+                }
+
                 Some(response)
             }
             Err(err) => {
