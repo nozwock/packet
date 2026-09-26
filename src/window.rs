@@ -656,7 +656,7 @@ impl PacketApplicationWindow {
 
                             let is_run_in_background_allowed = imp
                                 .obj()
-                                .portal_request_background()
+                                .portal_request_background(None)
                                 .await
                                 .map(|it| it.run_in_background())
                                 .unwrap_or_default();
@@ -693,7 +693,7 @@ impl PacketApplicationWindow {
 
                             let is_auto_start_allowed = imp
                                 .obj()
-                                .portal_request_background()
+                                .portal_request_background(Some(is_auto_start))
                                 .await
                                 .map(|it| it.auto_start())
                                 .unwrap_or_default();
@@ -985,22 +985,29 @@ impl PacketApplicationWindow {
         ));
     }
 
-    async fn portal_request_background(&self) -> Option<Background> {
+    async fn portal_request_background(&self, auto_start: Option<bool>) -> Option<Background> {
         let imp = self.imp();
 
-        let response = Background::request()
+        let mut request = Background::request()
             .identifier(ashpd::WindowIdentifier::from_native(&self.native().unwrap()).await)
-            .auto_start(self.imp().settings.boolean("auto-start"))
-            .command(["packet", "--background"])
-            .dbus_activatable(false)
-            .reason(gettext("Packet wants to run in the background").as_str())
-            .send()
-            .await
-            .and_then(|it| it.response());
+            .reason(gettext("Packet wants to run in the background").as_str());
+
+        if let Some(autostart) = auto_start {
+            request = request.auto_start(autostart);
+            if autostart {
+                request = request
+                    .command(["packet", "--background"])
+                    .dbus_activatable(false);
+            }
+        }
+
+        let response = request.send().await.and_then(|it| it.response());
 
         match response {
             Ok(response) => {
-                self.imp().is_background_allowed.replace(true);
+                self.imp()
+                    .is_background_allowed
+                    .replace(response.run_in_background());
 
                 Some(response)
             }
@@ -1041,7 +1048,10 @@ impl PacketApplicationWindow {
                 if !is_run_in_background {
                     return;
                 }
-                if let Some(response) = this.portal_request_background().await {
+                if let Some(response) = this
+                    .portal_request_background(Some(this.imp().settings.boolean("auto-start")))
+                    .await
+                {
                     tracing::debug!(?response, "Background request successful");
 
                     if !response.auto_start() {
