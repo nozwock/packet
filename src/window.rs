@@ -1180,6 +1180,10 @@ impl PacketApplicationWindow {
                 let tray = crate::tray::Tray { tx: tx };
                 let handle = tray
                     .disable_dbus_name(ashpd::is_sandboxed())
+                    // Fixes missing tray icon when the app is launched early via autostart on some desktop
+                    // environments.
+                    // See https://github.com/nozwock/packet/issues/152
+                    .assume_sni_available(true)
                     .spawn()
                     .await
                     .inspect_err(
