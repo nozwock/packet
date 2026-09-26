@@ -457,8 +457,18 @@ impl PacketApplicationWindow {
         ]);
     }
 
-    fn add_toast(&self, msg: &str) {
-        self.imp().toast_overlay.add_toast(adw::Toast::new(msg));
+    fn add_toast_msg(&self, msg: &str) {
+        self.add_toast(adw::Toast::new(msg));
+    }
+
+    fn add_toast(&self, toast: adw::Toast) {
+        let imp = self.imp();
+
+        if imp.preferences_dialog.is_visible() {
+            imp.preferences_dialog.add_toast(toast);
+        } else {
+            imp.toast_overlay.add_toast(toast);
+        }
     }
 
     fn get_device_name_state(&self) -> glib::GString {
@@ -546,7 +556,7 @@ impl PacketApplicationWindow {
 
                     if !success {
                         imp.obj()
-                            .add_toast(&gettext("Couldn't update the Nautilus plugin"));
+                            .add_toast_msg(&gettext("Couldn't update the Nautilus plugin"));
                     }
                 }
             ));
@@ -663,7 +673,7 @@ impl PacketApplicationWindow {
 
                             if is_run_in_background && !is_run_in_background_allowed {
                                 imp.obj()
-                                    .add_toast(&gettext("Packet cannot run in the background"));
+                                    .add_toast_msg(&gettext("Packet cannot run in the background"));
                             }
                         }
 
@@ -699,7 +709,8 @@ impl PacketApplicationWindow {
                                 .unwrap_or_default();
 
                             if is_auto_start && !is_auto_start_allowed {
-                                imp.obj().add_toast(&gettext("Packet cannot run at login"));
+                                imp.obj()
+                                    .add_toast_msg(&gettext("Packet cannot run at login"));
                             }
                         }
 
@@ -761,13 +772,9 @@ impl PacketApplicationWindow {
 
                             tracing::debug!("Active transfers found, can't rename device name");
 
-                            imp.toast_overlay.add_toast(
-                                adw::Toast::builder()
-                                    .title(&gettext(
-                                        "Can't rename device during an active transfer",
-                                    ))
-                                    .build(),
-                            );
+                            this.add_toast_msg(&gettext(
+                                "Can't rename device during an active transfer",
+                            ));
                         }
                     }
 
@@ -963,7 +970,7 @@ impl PacketApplicationWindow {
                     .set_string("download-folder", fallback.to_str().unwrap())
                     .unwrap();
 
-                imp.toast_overlay.add_toast(
+                self.add_toast(
                     adw::Toast::builder()
                         .title(&gettext("Can't access Downloads folder"))
                         .button_label(&gettext("Pick Folder"))
@@ -1054,7 +1061,7 @@ impl PacketApplicationWindow {
                 {
                     tracing::debug!(?response, "Background request successful");
                 } else {
-                    this.add_toast(&gettext("Packet cannot run in the background"));
+                    this.add_toast_msg(&gettext("Packet cannot run in the background"));
                 }
             }
         ));
@@ -1385,13 +1392,12 @@ impl PacketApplicationWindow {
                         match logs {
                             Ok(logs) => {
                                 clipboard.set_text(&logs);
-                                imp.toast_overlay.add_toast(adw::Toast::new(&gettext(
+                                imp.obj().add_toast(adw::Toast::new(&gettext(
                                     "Copied log to clipboard",
                                 )));
                             }
                             Err(err) => {
-                                imp.toast_overlay
-                                    .add_toast(adw::Toast::new(&err.to_string()));
+                                imp.obj().add_toast(adw::Toast::new(&err.to_string()));
                             }
                         };
 
@@ -1950,7 +1956,7 @@ impl PacketApplicationWindow {
         // TODO: Maybe don't show this if the only filtered out files
         // are the 0 byte sized
         if files.len() == 0 {
-            self.add_toast(&gettext("Couldn't open files"));
+            self.add_toast_msg(&gettext("Couldn't open files"));
 
             false
         } else {
