@@ -473,7 +473,7 @@ pub fn present_receive_transfer_ui(
                         .imp()
                         .eta
                         .borrow_mut()
-                        .prepare_for_new_transfer(total_bytes);
+                        .reset_with(total_bytes);
                     if event_msg.is_text_type() {
                         progress_stack.set_visible_child_name("progress_text");
                     }
@@ -486,7 +486,7 @@ pub fn present_receive_transfer_ui(
                                     .imp()
                                     .eta
                                     .borrow_mut()
-                                    .step_with(meta.ack_bytes as usize);
+                                    .step_with(meta.ack_bytes);
 
                                 if meta.total_bytes > 0 {
                                     progress_bar.set_fraction(
@@ -505,9 +505,7 @@ pub fn present_receive_transfer_ui(
                                     .imp()
                                     .eta
                                     .borrow()
-                                    .get_estimate_string()
-                                    // Why does the estimate string has a random whitespace in the front
-                                    .trim()
+                                    .eta_fmt()
                             )
                             .unwrap_or_else(|_| "badly formatted locale string".into())
                         };

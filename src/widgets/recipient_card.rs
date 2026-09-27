@@ -148,9 +148,7 @@ pub fn create_recipient_card(
             *model_item.imp().text.borrow_mut() = Some((text.clone(), text_type));
 
             let eta_estimator = &model_item.imp().eta;
-            eta_estimator
-                .borrow_mut()
-                .prepare_for_new_transfer(Some(text.len()));
+            eta_estimator.borrow_mut().reset_with(Some(text.len()));
         } else {
             // Sending files
             let files_to_send = imp
@@ -179,9 +177,7 @@ pub fn create_recipient_card(
                     .map(|it| it.size() as usize)
                     .fold(0, |acc, x| acc + x);
 
-                eta_estimator
-                    .borrow_mut()
-                    .prepare_for_new_transfer(Some(total_size));
+                eta_estimator.borrow_mut().reset_with(Some(total_size));
             }
         }
 
@@ -475,7 +471,7 @@ pub fn create_recipient_card(
                             .unwrap_or_else(|_| "badly formatted locale string".into()),
                         );
 
-                        eta_estimator.borrow_mut().prepare_for_new_transfer(None);
+                        eta_estimator.borrow_mut().reset_with(None);
                     }
                     RqsState::SendingFiles => {
                         model_item.set_transfer_state(TransferState::OngoingTransfer);
@@ -488,16 +484,11 @@ pub fn create_recipient_card(
 
                         let eta_text = {
                             if let Some(metadata) = &client_msg.metadata {
-                                eta_estimator
-                                    .borrow_mut()
-                                    .step_with(metadata.ack_bytes as usize);
+                                eta_estimator.borrow_mut().step_with(metadata.ack_bytes);
                             }
 
-                            formatx!(
-                                gettext("About {} left"),
-                                eta_estimator.borrow().get_estimate_string().trim()
-                            )
-                            .unwrap_or_else(|_| "badly formatted locale string".into())
+                            formatx!(gettext("About {} left"), eta_estimator.borrow().eta_fmt())
+                                .unwrap_or_else(|_| "badly formatted locale string".into())
                         };
                         eta_label.set_visible(true);
                         eta_label.set_label(&eta_text);
