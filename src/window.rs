@@ -2162,6 +2162,31 @@ impl PacketApplicationWindow {
         true
     }
 
+    async fn is_no_file_being_received(&self) -> bool {
+        let imp = self.imp();
+        if let Some(receive_transfer) = imp.receive_transfer_cache.lock().await.as_ref()
+            && let Some(event) = receive_transfer.state.event()
+        {
+            use rqs_lib::TransferState;
+            match event
+                .msg
+                .as_client_unchecked()
+                .state
+                .as_ref()
+                .unwrap_or(&TransferState::Initial)
+            {
+                TransferState::Initial
+                | TransferState::Disconnected
+                | TransferState::Rejected
+                | TransferState::Cancelled
+                | TransferState::Finished => {}
+                _ => return false,
+            }
+        }
+
+        true
+    }
+
     fn restart_rqs_service(&self) -> glib::JoinHandle<()> {
         glib::spawn_future_local(clone!(
             #[weak(rename_to = this)]
@@ -2295,9 +2320,11 @@ impl PacketApplicationWindow {
     fn setup_connection_monitors(&self) {
         let imp = self.imp();
 
-        let (tx, mut network_rx) = watch::channel(false);
+        let initial_network_state = imp.network_monitor.is_network_available();
+        imp.network_state.set(initial_network_state);
+
         // Set initial state
-        _ = tx.send(imp.network_monitor.is_network_available());
+        let (tx, mut network_rx) = watch::channel(initial_network_state);
         imp.network_monitor
             .connect_network_changed(move |monitor, _| {
                 _ = tx.send(monitor.is_network_available());
@@ -2309,6 +2336,7 @@ impl PacketApplicationWindow {
             #[weak(rename_to = dbus_system_conn)]
             imp.dbus_system_conn,
             async move {
+                let imp = this.imp();
                 let conn = {
                     let conn = zbus::Connection::system().await;
                     *dbus_system_conn.borrow_mut() = conn.clone().ok();
@@ -2324,6 +2352,8 @@ impl PacketApplicationWindow {
                         tracing::warn!(fallback = false, "{err:#}",);
                     })
                     .unwrap_or_default();
+                imp.bluetooth_state.set(bluetooth_initial_state);
+
                 let (tx, mut bluetooth_rx) = watch::channel(bluetooth_initial_state);
                 glib::spawn_future(async move {
                     if let Err(err) = monitors::spawn_bluetooth_power_monitor_task(conn, tx)
@@ -2337,6 +2367,11 @@ impl PacketApplicationWindow {
                     };
                 });
 
+                // Update the bottom bar with the initial network and bluetooth states
+                this.bottom_bar_status_indicator_ui_update(
+                    imp.device_visibility_switch.is_active(),
+                );
+
                 glib::spawn_future_local(clone!(
                     #[weak]
                     this,
@@ -2348,24 +2383,70 @@ impl PacketApplicationWindow {
 
                         let imp = this.imp();
 
-                        imp.bluetooth_state.set(bluetooth_initial_state);
-
                         #[allow(unused)]
                         let mut is_state_changed = None;
+                        let mut restart_ctk: Option<CancellationToken> = None;
 
                         loop {
                             tokio::select! {
                                 _ = network_rx.changed() => {
-
                                     let v = *network_rx.borrow();
+                                    let prev = imp.network_state.get();
 
-                                    // Since we get spammed with network change events
-                                    // even though the state hasn't changed from before
+                                    // Since we get spammed with network change events even though the state hasn't
+                                    // changed from before
                                     //
                                     // This also helps keep the logs to a minimum
-                                    is_state_changed = (imp.network_state.get() != v).then_some(ChangedState::Network);
+                                    is_state_changed = (prev != v).then_some(ChangedState::Network);
+                                    imp.network_state.set(v);
 
-                                    imp.network_state.set(v) ;
+                                    // When network transitions from offline to online
+                                    if prev != v && !prev && v {
+                                        if let Some(ctk) = restart_ctk.take() {
+                                            ctk.cancel();
+                                        }
+
+                                        let ctk = CancellationToken::new();
+                                        restart_ctk = Some(ctk.clone());
+
+                                        glib::spawn_future_local(clone!(
+                                            #[weak]
+                                            this,
+                                            async move {
+                                                tokio::select! {
+                                                    _ = ctk.cancelled() => return,
+                                                    _ = glib::timeout_future_seconds(2) => {}
+                                                }
+
+                                                let mut deferred_once = false;
+                                                while !this.is_no_file_being_send()
+                                                    || !this.is_no_file_being_received().await
+                                                {
+                                                    if !deferred_once {
+                                                        tracing::info!(
+                                                            "Active transfer in progress; \
+                                                            deferring RQS restart until transfer completes"
+                                                        );
+                                                        deferred_once = true;
+                                                    }
+
+                                                    tokio::select! {
+                                                        _ = ctk.cancelled() => return,
+                                                        _ = glib::timeout_future_seconds(1) => {}
+                                                    }
+                                                }
+
+                                                tracing::info!(
+                                                    "Network reconnected; restarting RQS service"
+                                                );
+                                                _ = this.restart_rqs_service().await;
+
+                                                let was_discovery_on =
+                                                    this.imp().is_mdns_discovery_on.get();
+                                                this.start_mdns_discovery(Some(was_discovery_on));
+                                            }
+                                        ));
+                                    }
                                 }
                                 _ = bluetooth_rx.changed() => {
                                     is_state_changed = Some(ChangedState::Bluetooth);
