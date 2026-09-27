@@ -72,6 +72,16 @@ To use the Nautilus plugin, install the required packages:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on how to build, and run the project.
 
+## D-Bus API
+
+Packet exposes a session D-Bus interface for external integrations (e.g. desktop extensions, scripts), currently providing read-only configured device name and read/write device visibility:
+
+- **Service:** `io.github.nozwock.Packet.Api`
+- **Object Path:** `/io/github/nozwock/Packet`
+- **Interface:** `io.github.nozwock.Packet1`
+
+The interface can be introspected from a running instance of Packet using tools like [D-spy].
+
 ## Acknowledgments
 - [Dominik Baran][dominik] for creating the icon and working on the app's design.
 - [NearDrop][neardrop] for reverse-engineering the closed-source Quick Share implementation in Android's GMS.
@@ -80,6 +90,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on how to build, and run
 ## Code of Conduct
 Packet follows the [GNOME Code of Conduct][gnome-coc].
 
+[d-spy]: https://flathub.org/en/apps/org.gnome.dspy
 [poedit]: https://poedit.net/
 [gtranslator]: https://wiki.gnome.org/Apps/Gtranslator
 [nightly-build]: https://nightly.link/nozwock/packet/workflows/ci/main?preview
