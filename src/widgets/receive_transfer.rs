@@ -15,7 +15,7 @@ use tokio_util::sync::CancellationToken;
 use crate::{
     ext::MessageExt,
     objects::{self, UserAction},
-    utils::{remove_notification, spawn_notification},
+    utils::{remove_notification, setup_clickable_links, spawn_notification},
     window::PacketApplicationWindow,
 };
 
@@ -755,7 +755,9 @@ pub fn present_receive_transfer_ui(
                         } else {
                             &raw_text
                         };
-                        text_view.set_buffer(Some(&gtk::TextBuffer::builder().text(text).build()));
+
+                        text_view.buffer().set_text(text);
+                        _ = setup_clickable_links(&text_view);
 
                         spawn_notification(
                             notification_id.clone(),

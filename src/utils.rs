@@ -1,15 +1,21 @@
 use std::{
+    cell::RefCell,
     collections::VecDeque,
     fmt,
     io::Read,
     panic::Location,
     path::{Path, PathBuf},
-    time::{self},
+    rc::Rc,
+    time,
 };
 
+use adw::prelude::*;
 use ashpd::desktop::notification::Notification;
 use gettextrs::ngettext;
-use gtk::glib::{self};
+use gtk::{
+    gio,
+    glib::{self, clone},
+};
 
 #[macro_export]
 macro_rules! impl_deref_for_newtype {
@@ -337,4 +343,197 @@ impl fmt::Display for HumanReadable {
             }
         }
     }
+}
+
+fn update_link_tags(buffer: &gtk::TextBuffer, link_tag: &gtk::TextTag) {
+    let (start, end) = (buffer.start_iter(), buffer.end_iter());
+    // Clear all link tags
+    buffer.remove_tag(link_tag, &start, &end);
+
+    let text = buffer.text(&start, &end, false);
+
+    let mut finder = linkify::LinkFinder::new();
+    finder.kinds(&[linkify::LinkKind::Url]);
+
+    let mut char_offset = 0;
+    let mut byte_offset = 0;
+
+    for span in finder.spans(&text) {
+        if span.kind() != Some(&linkify::LinkKind::Url) {
+            continue;
+        }
+
+        char_offset += text[byte_offset..span.start()].chars().count();
+        let link_chars = text[span.start()..span.end()].chars().count();
+
+        if let Ok(start_offset) = i32::try_from(char_offset)
+            && let Ok(end_offset) = i32::try_from(char_offset + link_chars)
+        {
+            buffer.apply_tag(
+                link_tag,
+                &buffer.iter_at_offset(start_offset),
+                &buffer.iter_at_offset(end_offset),
+            );
+
+            char_offset += link_chars;
+            byte_offset = span.end();
+        }
+    }
+}
+
+fn connect_buffer_for_link_tags(
+    buffer: &gtk::TextBuffer,
+    active_buffer: &Rc<RefCell<Option<gtk::TextBuffer>>>,
+) {
+    if let Some(old_buf) = active_buffer.borrow_mut().take()
+        && let Some(tag) = old_buf.tag_table().lookup("url_link")
+    {
+        let (start, end) = (old_buf.start_iter(), old_buf.end_iter());
+        old_buf.remove_tag(&tag, &start, &end);
+    }
+
+    let link_tag = if let Some(tag) = buffer.tag_table().lookup("url_link") {
+        tag
+    } else {
+        let style_manager = adw::StyleManager::default();
+        let accent_color = style_manager.accent_color().to_rgba();
+
+        let link_tag = gtk::TextTag::builder()
+            .name("url_link")
+            .underline(gtk::pango::Underline::Single)
+            .foreground_rgba(&accent_color)
+            .underline_rgba(&accent_color)
+            .build();
+
+        _ = buffer.tag_table().add(&link_tag);
+        link_tag
+    };
+
+    update_link_tags(buffer, &link_tag);
+
+    *active_buffer.borrow_mut() = Some(buffer.clone());
+}
+
+pub type ClickableLinksCleanup = Box<dyn FnOnce()>;
+
+pub fn setup_clickable_links(text_view: &gtk::TextView) -> ClickableLinksCleanup {
+    if text_view.is_editable() {
+        debug_assert!(
+            false,
+            "setup_clickable_links is only supported on non-editable TextViews"
+        );
+        tracing::warn!("setup_clickable_links is only supported on non-editable TextViews");
+        return Box::new(|| {});
+    }
+
+    let active_buffer: Rc<RefCell<Option<gtk::TextBuffer>>> = Rc::new(RefCell::new(None));
+
+    connect_buffer_for_link_tags(&text_view.buffer(), &active_buffer);
+
+    let buffer_notify_id = text_view.connect_buffer_notify(clone!(
+        #[strong]
+        active_buffer,
+        move |text_view| {
+            connect_buffer_for_link_tags(&text_view.buffer(), &active_buffer);
+        }
+    ));
+
+    let click = gtk::GestureClick::new();
+    click.connect_released(clone!(
+        #[weak]
+        text_view,
+        move |gesture, n_press, x, y| {
+            if n_press != 1 || text_view.buffer().has_selection() {
+                return;
+            }
+
+            let (bx, by) =
+                text_view.window_to_buffer_coords(gtk::TextWindowType::Widget, x as i32, y as i32);
+
+            if let Some(link_tag) = text_view.buffer().tag_table().lookup("url_link")
+                && let Some(iter) = text_view.iter_at_location(bx, by)
+                && iter.has_tag(&link_tag)
+            {
+                let mut start = iter.clone();
+                if !start.starts_tag(Some(&link_tag)) {
+                    start.backward_to_tag_toggle(Some(&link_tag));
+                }
+                let mut end = iter.clone();
+                if !end.ends_tag(Some(&link_tag)) {
+                    end.forward_to_tag_toggle(Some(&link_tag));
+                }
+
+                let url = text_view.buffer().text(&start, &end, false);
+                let root = text_view.root();
+                let window = root.as_ref().and_then(|r| r.downcast_ref::<gtk::Window>());
+
+                let _ = gtk::UriLauncher::new(&url).launch(
+                    window,
+                    None::<gio::Cancellable>.as_ref(),
+                    |_| {},
+                );
+
+                gesture.set_state(gtk::EventSequenceState::Claimed);
+            }
+        }
+    ));
+    text_view.add_controller(click.clone());
+
+    // Change mouse cursor on hover
+    let motion = gtk::EventControllerMotion::new();
+    motion.connect_motion(clone!(
+        #[weak]
+        text_view,
+        move |_, x, y| {
+            let (bx, by) =
+                text_view.window_to_buffer_coords(gtk::TextWindowType::Widget, x as i32, y as i32);
+
+            let is_over_link = text_view
+                .buffer()
+                .tag_table()
+                .lookup("url_link")
+                .is_some_and(|link_tag| {
+                    text_view
+                        .iter_at_location(bx, by)
+                        .is_some_and(|iter| iter.has_tag(&link_tag))
+                });
+
+            if is_over_link {
+                text_view.set_cursor_from_name(Some("pointer"));
+            } else {
+                text_view.set_cursor_from_name(None);
+            }
+        }
+    ));
+    motion.connect_leave(clone!(
+        #[weak]
+        text_view,
+        move |_| {
+            text_view.set_cursor_from_name(None);
+        }
+    ));
+    text_view.add_controller(motion.clone());
+
+    let text_view = text_view.downgrade();
+    Box::new(clone!(
+        #[strong]
+        click,
+        #[strong]
+        motion,
+        move || {
+            if let Some(text_view) = text_view.upgrade() {
+                text_view.remove_controller(&click);
+                text_view.remove_controller(&motion);
+                text_view.disconnect(buffer_notify_id);
+                text_view.set_cursor_from_name(None);
+            }
+
+            if let Some(buf) = active_buffer.borrow_mut().take()
+                && let Some(tag) = buf.tag_table().lookup("url_link")
+            {
+                let (start, end) = (buf.start_iter(), buf.end_iter());
+                buf.remove_tag(&tag, &start, &end);
+            }
+        }
+    ))
 }
