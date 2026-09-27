@@ -13,6 +13,8 @@ mod utils;
 mod widgets;
 mod window;
 
+use std::env;
+
 use gettextrs::{LocaleCategory, gettext};
 use gtk::{gio, glib};
 use tracing::level_filters::LevelFilter;
@@ -61,7 +63,13 @@ fn main() -> glib::ExitCode {
 
     glib::set_application_name(&gettext("Packet"));
 
-    let res = gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file");
+    let res = env::var("MESON_DEVENV")
+        .map(|_| env::var("RESOURCE_FILE"))
+        .flatten()
+        .map(|path| gio::Resource::load(path).expect("Could not load gresource file"))
+        .unwrap_or_else(|_| {
+            gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file")
+        });
     gio::resources_register(&res);
 
     tokio_runtime().block_on(async move {

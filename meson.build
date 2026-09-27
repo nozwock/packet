@@ -64,6 +64,13 @@ if get_option('profile') == 'development'
   run_command('cp', '-f', 'hooks/pre-commit.hook', '.git/hooks/pre-commit', check: false)
 endif
 
+devenv = environment()
+devenv.prepend('PATH', meson.project_build_root() / 'src')
+devenv.prepend('XDG_DATA_DIRS', meson.project_build_root() / 'data')
+devenv.set('MESON_DEVENV', '1')
+devenv.set('RESOURCE_FILE', meson.project_build_root() / 'data' / 'resources' / 'resources.gresource')
+meson.add_devenv(devenv)
+
 subdir('data')
 subdir('po')
 subdir('src')
