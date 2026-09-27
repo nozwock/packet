@@ -650,8 +650,7 @@ pub fn present_receive_transfer_ui(
                             .right_margin(12)
                             .editable(false)
                             .cursor_visible(false)
-                            .monospace(true)
-                            .wrap_mode(gtk::WrapMode::Word)
+                            .wrap_mode(gtk::WrapMode::WordChar)
                             .build();
 
                         let text_view_frame = gtk::Frame::builder()
