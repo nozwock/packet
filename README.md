@@ -21,9 +21,17 @@ Nightly Flatpak builds are available from [here][nightly-build].
 Since only the Wi-Fi LAN medium is implemented, Packet requires Bluetooth to be enabled and the devices to be connected to a Wi-Fi network with mDNS.
 
 ## Translations
+
+<!--
 If you'd like to help translate Packet to your native language, you can do so using the [Weblate][translation-platform] platform.
 
 [![Translation status][translation-status-widget]][translation-platform]
+-->
+
+Weblate is no longer available as the project was permanently deleted (nozwock/packet#116), but you can still contribute translations locally:
+
+1. Edit an existing translation in [`po/`](po/) (sync it with [`po/packet.pot`](po/packet.pot) using your editor's "Update from POT" feature if needed), or create a new one from the template using a gettext PO editor such as [Poedit] or [Gtranslator].
+2. Submit your changes by opening a Pull Request, or attach the `.po` file in a new issue and it will be committed on your behalf.
 
 ## FAQ
 
@@ -72,6 +80,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on how to build, and run
 ## Code of Conduct
 Packet follows the [GNOME Code of Conduct][gnome-coc].
 
+[poedit]: https://poedit.net/
+[gtranslator]: https://wiki.gnome.org/Apps/Gtranslator
 [nightly-build]: https://nightly.link/nozwock/packet/workflows/ci/main?preview
 [translation-platform]: https://hosted.weblate.org/engage/packet/
 [translation-status-widget]: https://hosted.weblate.org/widget/packet/multi-auto.svg
