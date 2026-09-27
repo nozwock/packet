@@ -60,33 +60,9 @@ To use the Nautilus plugin, install the required packages:
 - Fedora Silverblue (rpm-ostree):\
 `rpm-ostree install python3-dbus nautilus-python`
 
-## Build
-The project uses [meson] for its build system. You can build the project either natively or in a flatpak environment.
+## Building
 
-- Build and run via [meson]:
-    ```
-    # Build
-    meson setup build_dir
-    meson compile -C build_dir
-
-    # Run
-    meson devenv -C build_dir packet
-
-    # Install & Run
-    sudo meson install -C build_dir --no-rebuild
-    packet
-    ```
-- Build and run via flatpak:
-    ```
-    # Build
-    flatpak-builder --user flatpak_build_dir \
-        build-aux/io.github.nozwock.Packet.Devel.json
-
-    # Run
-    flatpak-builder --run flatpak_build_dir \
-        build-aux/io.github.nozwock.Packet.Devel.json \
-        packet
-    ```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on how to build, and run the project.
 
 ## Acknowledgments
 - [Dominik Baran][dominik] for creating the icon and working on the app's design.
@@ -105,4 +81,3 @@ Packet follows the [GNOME Code of Conduct][gnome-coc].
 [flathub]: https://flathub.org/apps/details/io.github.nozwock.Packet
 [flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Installs&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
 [gnome-coc]: https://conduct.gnome.org/
-[meson]: https://mesonbuild.com/
