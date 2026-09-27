@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.7.0" date="2026-09-28">
+    <description translatable="no">
+      <p>Changes</p>
+      <ul>
+        <li>Added support for sending and receiving plain text and web links (by @Wingdom).</li>
+        <li>Added support for pasting files and text with Ctrl+V on the main page.</li>
+        <li>Added Ctrl+Return shortcut to quickly send text.</li>
+        <li>Updated shortcuts dialog.</li>
+      </ul>
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed transfer ETA calculation and duration formatting.</li>
+        <li>Fixed device not being discoverable after waking from sleep.</li>
+        <li>Improved Bluetooth adapter detection reliability (by @mnoukhov).</li>
+        <li>Fixed tray icon visibility and click handling on KDE Plasma.</li>
+        <li>Fixed background running and autostart permissions resetting on launch.</li>
+        <li>Fixed crash when a connection drops while receiving data.</li>
+        <li>Fixed in-app notifications appearing behind the preferences window.</li>
+        <li>Fixed file list not clearing when adding files via the Nautilus plugin.</li>
+      </ul>
+      <p>Translations</p>
+      <ul>
+        <li>Updated Portuguese (Brazil) translation by @emiliopedrollo.</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.6.1" date="2026-04-18">
     <description translatable="no">
       <p>Fixes</p>
