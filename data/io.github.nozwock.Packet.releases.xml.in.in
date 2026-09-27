@@ -4,7 +4,8 @@
     <description translatable="no">
       <p>Changes</p>
       <ul>
-        <li>Added support for sending and receiving plain text and web links (by @Wingdom).</li>
+        <li>Added support for sending plain text and web links (by @Wingdom).</li>
+        <li>Made links clickable in received text.</li>
         <li>Added support for pasting files and text with Ctrl+V on the main page.</li>
         <li>Added Ctrl+Return shortcut to quickly send text.</li>
         <li>Updated shortcuts dialog.</li>
