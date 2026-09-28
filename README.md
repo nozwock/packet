@@ -17,6 +17,10 @@ A partial implementation of Google's Quick Share protocol that lets you send and
 #### Nightly
 Nightly Flatpak builds are available from [here][nightly-build].
 
+---
+
+Third-party packages are also available on the [AUR] and [nixpkgs].
+
 ## Requirements
 Since only the Wi-Fi LAN medium is implemented, Packet requires Bluetooth to be enabled and the devices to be connected to a Wi-Fi network with mDNS.
 
@@ -99,6 +103,8 @@ Packet follows the [GNOME Code of Conduct][gnome-coc].
 [dominik]: https://gitlab.gnome.org/wallaby
 [neardrop]: https://github.com/grishka/NearDrop/
 [rquickshare]: https://github.com/Martichou/rquickshare/
+[nixpkgs]: https://search.nixos.org/packages?query=packet#show=packet
+[aur]: https://aur.archlinux.org/packages/packet
 [flathub]: https://flathub.org/apps/details/io.github.nozwock.Packet
 [flathub-installs-badge]: https://img.shields.io/badge/dynamic/json?label=Installs&url=https%3A%2F%2Fflathub.org%2Fapi%2Fv2%2Fstats%2Fio.github.nozwock.Packet&query=%24.installs_total&logo=flathub&color=007ec6
 [gnome-coc]: https://conduct.gnome.org/
