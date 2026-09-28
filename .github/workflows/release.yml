@@ -1,34 +1,22 @@
+name: Release
+
 on:
   workflow_dispatch:
   push:
     tags:
       - "*"
 
-name: Vendored Release
+permissions:
+  contents: write
 
 jobs:
-  vendored-release:
+  release:
     if: startsWith(github.ref, 'refs/tags/')
-    name: Vendored Release
+    name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Install cargo-vendor-filterer
-        run: cargo install cargo-vendor-filterer
-      - name: Create vendored sources
-        run: build-aux/dist-vendor.sh ../ src
-        shell: bash
-      - name: Archive repository
-        run: git archive --format tar HEAD > packet-${{ github.ref_name }}.tar
-      - name: Add vendored sources and cargo config to tarball
-        run: tar -rf packet-${{ github.ref_name }}.tar .cargo vendor
-      - name: Compress tarball
-        run: xz -z packet-${{ github.ref_name }}.tar
-      - name: Generate checksum
-        run: sha256sum packet-${{ github.ref_name }}.tar.xz > packet-${{ github.ref_name }}.tar.xz.sha256sum
       - name: Install xmllint & pandoc
         run: sudo apt-get update && sudo apt-get install -y libxml2-utils pandoc
       - name: Extract release notes
@@ -47,11 +35,36 @@ jobs:
           else
             echo "RELEASE_NOTES=" >> "$GITHUB_ENV"
           fi
-      - name: Release
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           body: ${{ env.RELEASE_NOTES }}
           prerelease: ${{ contains(github.ref, 'beta') }}
+
+  vendored-release:
+    if: startsWith(github.ref, 'refs/tags/')
+    name: Vendored Release
+    needs: [release]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install cargo-vendor-filterer
+        run: cargo install cargo-vendor-filterer
+      - name: Create vendored sources
+        run: build-aux/dist-vendor.sh ../ src
+        shell: bash
+      - name: Archive repository
+        run: git archive --format tar HEAD > packet-${{ github.ref_name }}.tar
+      - name: Add vendored sources and cargo config to tarball
+        run: tar -rf packet-${{ github.ref_name }}.tar .cargo vendor
+      - name: Compress tarball
+        run: xz -z packet-${{ github.ref_name }}.tar
+      - name: Generate checksum
+        run: sha256sum packet-${{ github.ref_name }}.tar.xz > packet-${{ github.ref_name }}.tar.xz.sha256sum
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
           files: |
             packet-${{ github.ref_name }}.tar.xz
             packet-${{ github.ref_name }}.tar.xz.sha256sum
