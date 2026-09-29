@@ -2384,6 +2384,8 @@ impl PacketApplicationWindow {
                         let imp = this.imp();
 
                         let mut restart_ctk: Option<CancellationToken> = None;
+                        // To prevent unnecessary RQS restart since the initial state seems to always be false.
+                        let mut was_online_once = initial_network_state;
 
                         loop {
                             #[allow(unused)]
@@ -2402,7 +2404,7 @@ impl PacketApplicationWindow {
                                     imp.network_state.set(v);
 
                                     // When network transitions from offline to online
-                                    if prev != v && !prev && v {
+                                    if was_online_once && prev != v && !prev && v {
                                         if let Some(ctk) = restart_ctk.take() {
                                             ctk.cancel();
                                         }
@@ -2447,6 +2449,10 @@ impl PacketApplicationWindow {
                                                 this.start_mdns_discovery(Some(was_discovery_on));
                                             }
                                         ));
+                                    }
+
+                                    if v {
+                                        was_online_once = true;
                                     }
                                 }
                                 Ok(_) = bluetooth_rx.changed() => {
