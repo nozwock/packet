@@ -2383,14 +2383,15 @@ impl PacketApplicationWindow {
 
                         let imp = this.imp();
 
-                        #[allow(unused)]
-                        let mut is_state_changed = None;
                         let mut restart_ctk: Option<CancellationToken> = None;
 
                         loop {
+                            #[allow(unused)]
+                            let mut is_state_changed = None;
+
                             tokio::select! {
-                                _ = network_rx.changed() => {
-                                    let v = *network_rx.borrow();
+                                Ok(_) = network_rx.changed() => {
+                                    let v = *network_rx.borrow_and_update();
                                     let prev = imp.network_state.get();
 
                                     // Since we get spammed with network change events even though the state hasn't
@@ -2448,20 +2449,29 @@ impl PacketApplicationWindow {
                                         ));
                                     }
                                 }
-                                _ = bluetooth_rx.changed() => {
-                                    is_state_changed = Some(ChangedState::Bluetooth);
+                                Ok(_) = bluetooth_rx.changed() => {
+                                    let v = *bluetooth_rx.borrow_and_update();
+                                    let prev = imp.bluetooth_state.get();
 
-                                    imp.bluetooth_state.set(*bluetooth_rx.borrow());
-                                    tracing::info!(bluetooth_state = imp.bluetooth_state.get(), "Bluetooth powered state changed");
+                                    is_state_changed = (prev != v).then_some(ChangedState::Bluetooth);
+                                    imp.bluetooth_state.set(v);
                                 }
                             };
 
-                            if is_state_changed.is_some() {
-                                if let Some(ChangedState::Network) = is_state_changed {
-                                    tracing::info!(
-                                        network_state = imp.network_state.get(),
-                                        "Network state changed"
-                                    );
+                            if let Some(changed_state) = is_state_changed {
+                                match changed_state {
+                                    ChangedState::Network => {
+                                        tracing::info!(
+                                            network_state = imp.network_state.get(),
+                                            "Network state changed"
+                                        );
+                                    }
+                                    ChangedState::Bluetooth => {
+                                        tracing::info!(
+                                            bluetooth_state = imp.bluetooth_state.get(),
+                                            "Bluetooth powered state changed"
+                                        );
+                                    }
                                 }
 
                                 this.bottom_bar_status_indicator_ui_update(
