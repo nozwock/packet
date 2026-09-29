@@ -41,9 +41,17 @@ fn main() -> glib::ExitCode {
     };
 
     let stdout_layer = tracing_subscriber::fmt::layer().with_line_number(true);
-    let (file_writer, _file_guard) = tracing_appender::non_blocking(
-        fs_err::File::create(packet_log_path()).expect("Couldn't create the log file"),
-    );
+    let log_path = packet_log_path();
+    if let Some(parent) = log_path.parent() {
+        _ = fs_err::create_dir_all(parent);
+    }
+    let log_writer = rolling_file::BasicRollingFileAppender::new(
+        log_path,
+        rolling_file::RollingConditionBasic::new().max_size(constants::MAX_LOG_FILE_SIZE),
+        1,
+    )
+    .expect("Couldn't create the log file");
+    let (file_writer, _file_guard) = tracing_appender::non_blocking(log_writer);
     let file_layer = tracing_subscriber::fmt::layer()
         .with_writer(file_writer)
         .with_line_number(true)
