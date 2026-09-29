@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.7.1" date="2026-09-29">
+    <description translatable="no">
+      <p>Changes</p>
+      <ul>
+        <li>Added log file rotation to limit total log file size to 50 MiB.</li>
+      </ul>
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed high CPU usage and infinite log spam when no Bluetooth adapter is present.</li>
+        <li>Added monitoring of Bluetooth adapter additions and removals.</li>
+        <li>Fixed redundant service restart on application launch caused by initial offline network state.</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.7.0" date="2026-09-28">
     <description translatable="no">
       <p>Changes</p>
