@@ -138,7 +138,11 @@ pub fn spawn_notification(id: String, notification: Notification) {
             // older portals (e.g. xdg-desktop-portal 1.18) reject the whole
             // notification if it's present.
             let notification = if proxy.version() < 2 {
-                notification.display_hint([])
+                notification
+                    .markup_body(None)
+                    .sound::<&std::fs::File>(None)
+                    .display_hint([])
+                    .category(None)
             } else {
                 notification
             };
