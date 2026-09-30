@@ -127,19 +127,61 @@ impl<O: glib::object::ObjectExt> Drop for SignalBlockGuard<'_, O> {
         }
     }
 }
-
 pub fn spawn_notification(id: String, notification: Notification) {
     glib::spawn_future_local(async move {
-        _ = async move || -> anyhow::Result<()> {
+        let result = async move || -> anyhow::Result<()> {
             use ashpd::desktop::notification::*;
             let proxy = NotificationProxy::new().await?;
-
             proxy.add_notification(&id, notification).await?;
-
             Ok(())
-        }()
-        .await;
+        }().await;
+        if let Err(err) = result {
+            tracing::warn!(%err, "Failed to send notification");
+        }
     });
+}
+
+pub fn spawn_notification_with_display_hint_fallback<F>(id: String, build_notification: F)
+where
+    F: Fn(bool) -> Notification + 'static,
+{
+    glib::spawn_future_local(async move {
+        let result = async move || -> anyhow::Result<()> {
+            use ashpd::desktop::notification::NotificationProxy;
+            let proxy = NotificationProxy::new().await?;
+            match proxy.add_notification(&id, build_notification(true)).await {
+                Ok(()) => Ok(()),
+                Err(err) if is_invalid_argument(&err) => {
+                    tracing::warn!(%err, "Notification portal rejected display hints; retrying without them");
+                    proxy.add_notification(&id, build_notification(false)).await?;
+                    Ok(())
+                }
+                Err(err) => Err(err.into()),
+            }
+        }().await;
+        if let Err(err) = result {
+            tracing::warn!(%err, "Failed to send notification");
+        }
+    });
+}
+
+fn is_invalid_argument(err: &ashpd::Error) -> bool {
+    matches!(err, ashpd::Error::Portal(ashpd::PortalError::InvalidArgument(_)))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_invalid_argument;
+
+    #[test]
+    fn retries_display_hint_only_for_invalid_argument() {
+        assert!(is_invalid_argument(&ashpd::Error::Portal(
+            ashpd::PortalError::InvalidArgument("unknown display-hint key".into())
+        )));
+        assert!(!is_invalid_argument(&ashpd::Error::Portal(
+            ashpd::PortalError::Failed("portal unavailable".into())
+        )));
+    }
 }
 
 pub fn remove_notification(id: String) {
