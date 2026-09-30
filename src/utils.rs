@@ -130,7 +130,7 @@ impl<O: glib::object::ObjectExt> Drop for SignalBlockGuard<'_, O> {
 
 pub fn spawn_notification(id: String, notification: Notification) {
     glib::spawn_future_local(async move {
-        _ = async move || -> anyhow::Result<()> {
+        if let Err(err) = async move || -> anyhow::Result<()> {
             use ashpd::desktop::notification::*;
             let proxy = NotificationProxy::new().await?;
 
@@ -147,7 +147,10 @@ pub fn spawn_notification(id: String, notification: Notification) {
 
             Ok(())
         }()
-        .await;
+        .await
+        {
+            tracing::warn!(%err, "Failed to show notification");
+        }
     });
 }
 
