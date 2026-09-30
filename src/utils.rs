@@ -134,6 +134,15 @@ pub fn spawn_notification(id: String, notification: Notification) {
             use ashpd::desktop::notification::*;
             let proxy = NotificationProxy::new().await?;
 
+            // `display-hint` was added in version 2 of the portal interface,
+            // older portals (e.g. xdg-desktop-portal 1.18) reject the whole
+            // notification if it's present.
+            let notification = if proxy.version() < 2 {
+                notification.display_hint([])
+            } else {
+                notification
+            };
+
             proxy.add_notification(&id, notification).await?;
 
             Ok(())
