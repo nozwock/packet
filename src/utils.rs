@@ -136,7 +136,7 @@ pub fn spawn_notification(id: String, notification: Notification) {
 
             // `display-hint` and some other keys were added in version 2 of
             // the portal interface, older portals (e.g. xdg-desktop-portal
-            // 1.18) reject the whole notification if it's present.
+            // 1.18) reject the whole notification if they are present.
             //
             // Keys `icon.file-descriptor` and `buttons.purposes` can't be
             // unset due to API restriction.
