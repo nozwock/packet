@@ -130,15 +130,34 @@ impl<O: glib::object::ObjectExt> Drop for SignalBlockGuard<'_, O> {
 
 pub fn spawn_notification(id: String, notification: Notification) {
     glib::spawn_future_local(async move {
-        _ = async move || -> anyhow::Result<()> {
+        if let Err(err) = async move || -> anyhow::Result<()> {
             use ashpd::desktop::notification::*;
             let proxy = NotificationProxy::new().await?;
+
+            // `display-hint` and some other keys were added in version 2 of
+            // the portal interface, older portals (e.g. xdg-desktop-portal
+            // 1.18) reject the whole notification if they are present.
+            //
+            // Keys `icon.file-descriptor` and `buttons.purposes` can't be
+            // unset due to API restriction.
+            let notification = if proxy.version() < 2 {
+                notification
+                    .markup_body(None)
+                    .sound::<&std::fs::File>(None)
+                    .display_hint([])
+                    .category(None)
+            } else {
+                notification
+            };
 
             proxy.add_notification(&id, notification).await?;
 
             Ok(())
         }()
-        .await;
+        .await
+        {
+            tracing::warn!(%err, "Failed to show notification");
+        }
     });
 }
 
