@@ -15,7 +15,7 @@ use tokio_util::sync::CancellationToken;
 use crate::{
     ext::MessageExt,
     objects::{self, UserAction},
-    utils::{remove_notification, setup_clickable_links, spawn_notification},
+    utils::{remove_notification, setup_clickable_links, spawn_notification, spawn_notification_with_display_hint_fallback},
     window::PacketApplicationWindow,
 };
 
@@ -98,7 +98,7 @@ pub fn present_receive_transfer_ui(
         .build();
     progress_stack.add_named(&progress_files_box, Some("progress_files"));
 
-    let device_name = event.device_name();
+                    let device_name = event.device_name();
     let device_name_box = create_device_name_box(&device_name);
     device_name_box.set_margin_bottom(4);
     progress_files_box.append(&device_name_box);
@@ -195,19 +195,21 @@ pub fn present_receive_transfer_ui(
                         .unwrap();
 
                     // Update the notification
-                    spawn_notification(
+                    let device_name = event.device_name();
+                    spawn_notification_with_display_hint_fallback(
                         notification_id.clone(),
-                        Notification::new(&event.device_name())
-                            .body(gettext("Receiving...").as_str())
-                            .priority(Priority::High)
-                            .display_hint([DisplayHint::Persistent])
-                            .default_action(None)
-                            .button(ashpd::desktop::notification::Button::new(
-                                &gettext("Cancel"),
-                                "transfer-cancel",
-                            )),
+                        move |include_display_hint| {
+                            Notification::new(&device_name)
+                                .body(gettext("Receiving...").as_str())
+                                .priority(Priority::High)
+                                .display_hint(include_display_hint.then_some(DisplayHint::Persistent))
+                                .default_action(None)
+                                .button(ashpd::desktop::notification::Button::new(
+                                    &gettext("Cancel"),
+                                    "transfer-cancel",
+                                ))
+                        },
                     );
-
                     // Spawn progress dialog
                     progress_dialog.present(Some(&win));
                 }
@@ -446,22 +448,24 @@ pub fn present_receive_transfer_ui(
                     // There will only be one request at a time anyways
                     // And, we'll also need to close the notification on exit
                     // or it'll persist otherwise
-                    spawn_notification(
+                    let notification_body = body;
+                    spawn_notification_with_display_hint_fallback(
                         notification_id.clone(),
-                        Notification::new(&gettext("Incoming Transfer"))
-                            .default_action("accept")
-                            .body(body.as_str())
-                            .priority(Priority::High)
-                            // Persistent doesn't work (the close button is still there), atleast with gnome portal
-                            .display_hint([DisplayHint::Persistent])
-                            .button(ashpd::desktop::notification::Button::new(
-                                &gettext("Decline"),
-                                "consent-decline",
-                            ))
-                            .button(ashpd::desktop::notification::Button::new(
-                                &gettext("Accept"),
-                                "consent-accept",
-                            )),
+                        move |include_display_hint| {
+                            Notification::new(&gettext("Incoming Transfer"))
+                                .default_action("accept")
+                                .body(notification_body.as_str())
+                                .priority(Priority::High)
+                                .display_hint(include_display_hint.then_some(DisplayHint::Persistent))
+                                .button(ashpd::desktop::notification::Button::new(
+                                    &gettext("Decline"),
+                                    "consent-decline",
+                                ))
+                                .button(ashpd::desktop::notification::Button::new(
+                                    &gettext("Accept"),
+                                    "consent-accept",
+                                ))
+                        },
                     );
 
                     consent_dialog.present(Some(&win));
@@ -757,29 +761,34 @@ pub fn present_receive_transfer_ui(
                         text_view.buffer().set_text(text);
                         _ = setup_clickable_links(&text_view);
 
-                        spawn_notification(
+                        let notification_device_name = event_msg.device_name();
+                        let notification_text = text.to_owned();
+                        let notification_body = formatx!(
+                            gettext("Received \"{}\""),
+                            if text.len() > 48 {
+                                format!("{}{}", &text[..48], "...")
+                            } else {
+                                text.into()
+                            }
+                        )
+                        .unwrap_or_default();
+                        spawn_notification_with_display_hint_fallback(
                             notification_id.clone(),
-                            Notification::new(&event_msg.device_name())
-                                .body(
-                                    formatx!(
-                                        gettext("Received \"{}\""),
-                                        if text.len() > 48 {
-                                            format!("{}{}", &text[..48], "...")
-                                        } else {
-                                            text.into()
-                                        }
+                            move |include_display_hint| {
+                                Notification::new(&notification_device_name)
+                                    .body(notification_body.as_str())
+                                    .priority(Priority::High)
+                                    .display_hint(include_display_hint.then_some(DisplayHint::ShowAsNew))
+                                    .default_action("copy-text")
+                                    .default_action_target(notification_text.as_str())
+                                    .button(
+                                        ashpd::desktop::notification::Button::new(
+                                            &gettext("Copy"),
+                                            "copy-text",
+                                        )
+                                        .target(notification_text.as_str()),
                                     )
-                                    .unwrap_or_default()
-                                    .as_str()
-                                )
-                                .priority(Priority::High)
-                                .display_hint([DisplayHint::ShowAsNew])
-                                .default_action("copy-text")
-                                .default_action_target(text)
-                                .button(
-                                    ashpd::desktop::notification::Button::new(&gettext("Copy"), "copy-text")
-                                        .target(text)
-                                )
+                            },
                         );
 
                         // FIXME: Redo the Wi-Fi view when we've more info such as the Wi-Fi security type
@@ -801,18 +810,26 @@ pub fn present_receive_transfer_ui(
                             .unwrap_or_else(|_| "badly formatted locale string".into());
 
                         let target = win.imp().settings.string("download-folder");
-                        spawn_notification(
+                        let notification_device_name = event_msg.device_name();
+                        let notification_body = body.clone();
+                        let notification_target = target.clone();
+                        spawn_notification_with_display_hint_fallback(
                             notification_id.clone(),
-                            Notification::new(&event_msg.device_name())
-                                .body(body.as_str())
-                                .priority(Priority::High)
-                                .display_hint([DisplayHint::ShowAsNew])
-                                .default_action("open-folder")
-                                .default_action_target(target.as_str())
-                                .button(
-                                    ashpd::desktop::notification::Button::new(&gettext("Open"), "open-folder")
-                                        .target(target.as_str())
-                                )
+                            move |include_display_hint| {
+                                Notification::new(&notification_device_name)
+                                    .body(notification_body.as_str())
+                                    .priority(Priority::High)
+                                    .display_hint(include_display_hint.then_some(DisplayHint::ShowAsNew))
+                                    .default_action("open-folder")
+                                    .default_action_target(notification_target.as_str())
+                                    .button(
+                                        ashpd::desktop::notification::Button::new(
+                                            &gettext("Open"),
+                                            "open-folder",
+                                        )
+                                        .target(notification_target.as_str()),
+                                    )
+                            },
                         );
                         let toast = adw::Toast::builder()
                             .title(&body)
