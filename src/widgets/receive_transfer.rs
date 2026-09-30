@@ -98,7 +98,7 @@ pub fn present_receive_transfer_ui(
         .build();
     progress_stack.add_named(&progress_files_box, Some("progress_files"));
 
-                    let device_name = event.device_name();
+    let device_name = event.device_name();
     let device_name_box = create_device_name_box(&device_name);
     device_name_box.set_margin_bottom(4);
     progress_files_box.append(&device_name_box);
