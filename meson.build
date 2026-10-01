@@ -69,6 +69,7 @@ devenv.prepend('PATH', meson.project_build_root() / 'src')
 devenv.prepend('XDG_DATA_DIRS', meson.project_build_root() / 'data')
 devenv.set('MESON_DEVENV', '1')
 devenv.set('RESOURCE_FILE', meson.project_build_root() / 'data' / 'resources' / 'resources.gresource')
+devenv.set('UI_RESOURCE_FILE', meson.project_build_root() / 'src' / 'ui-resources.gresource')
 meson.add_devenv(devenv)
 
 subdir('data')

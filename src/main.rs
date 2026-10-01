@@ -26,7 +26,7 @@ use crate::config::APP_ID;
 use crate::constants::packet_log_path;
 
 use self::application::Application;
-use self::config::{GETTEXT_PACKAGE, LOCALEDIR, RESOURCES_FILE};
+use self::config::{GETTEXT_PACKAGE, LOCALEDIR, RESOURCES_FILE, UI_RESOURCES_FILE};
 
 fn main() -> glib::ExitCode {
     let env_filter = if std::env::var_os("RUST_LOG").is_none() {
@@ -71,14 +71,19 @@ fn main() -> glib::ExitCode {
 
     glib::set_application_name(&gettext("Packet"));
 
-    let res = env::var("MESON_DEVENV")
-        .map(|_| env::var("RESOURCE_FILE"))
-        .flatten()
-        .map(|path| gio::Resource::load(path).expect("Could not load gresource file"))
-        .unwrap_or_else(|_| {
-            gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file")
-        });
-    gio::resources_register(&res);
+    for (res_env, res_path) in [
+        ("RESOURCE_FILE", RESOURCES_FILE),
+        ("UI_RESOURCE_FILE", UI_RESOURCES_FILE),
+    ] {
+        let res = env::var("MESON_DEVENV")
+            .ok()
+            .and_then(|_| env::var(res_env).ok())
+            .map(|path| gio::Resource::load(&path).expect("Could not load gresource file"))
+            .unwrap_or_else(|| {
+                gio::Resource::load(res_path).expect("Could not load gresource file")
+            });
+        gio::resources_register(&res);
+    }
 
     tokio_runtime().block_on(async move {
         if let Err(err) = ashpd::register_host_app(APP_ID.try_into().unwrap()).await {

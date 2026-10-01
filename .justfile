@@ -3,6 +3,14 @@ set ignore-comments
 default:
     @just --list
 
+blp_resources_path := source_directory() / "src" / "ui-blueprint-resources.in"
+
+blp:
+    echo -e "# List of Blueprint files to compile.\n# Run 'just blp' to update this file." > {{ blp_resources_path }}
+    fd --base-directory src/ \
+        --ignore-file ../.gitignore \
+        -tf --extension blp \
+        '.*' >> {{ blp_resources_path }}
 
 # Generate packet.pot
 pot: potfiles
@@ -34,7 +42,7 @@ potfiles:
     # https://github.com/sharkdp/fd
 
     # For some reason, gitignore aren't respected when a pattern arg is included
-    fd --ignore-file .gitignore -tf --extension blp '.*' "data/resources" > {{ potfiles_path }}
+    fd --ignore-file .gitignore -tf --extension blp '.*' src > {{ potfiles_path }}
     fd --ignore-file .gitignore -tf --extension rs '.*' src >> {{ potfiles_path }}
 
     cat <<EOF >> {{ potfiles_path }}

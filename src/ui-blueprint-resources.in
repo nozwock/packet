@@ -1,0 +1,4 @@
+# List of Blueprint files to compile.
+# Run 'just blp' to update this file.
+shortcuts-dialog.blp
+window.blp

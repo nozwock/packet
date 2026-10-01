@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/nozwock/Packet/">
+    <file compressed="true" preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
+  </gresource>
+  <gresource prefix="/io/github/nozwock/Packet/ui/">@UI_FILES@
+  </gresource>
+</gresources>
