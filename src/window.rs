@@ -1516,6 +1516,34 @@ impl PacketApplicationWindow {
                                 &imp.manage_files_model,
                                 file_list.files(),
                             );
+                        } else if formats.contain_mime_type("image/png")
+                            || formats.contain_mime_type("image/jpeg")
+                            || formats.contain_mime_type("image/tiff")
+                            || formats.contain_mime_type("image/webp")
+                            || formats.contain_mime_type("image/bmp")
+                        {
+                            match clipboard.read_texture_future().await {
+                                Ok(Some(texture)) => {
+                                    let path = Self::clipboard_image_temp_path();
+                                    if let Err(err) = texture.save_to_png(&path) {
+                                        tracing::warn!(%err, "Failed to save pasted image");
+                                        imp.obj().add_toast_msg(&gettext(
+                                            "Couldn't read image from clipboard",
+                                        ));
+                                    } else {
+                                        imp.manage_files_model.remove_all();
+                                        imp.obj().handle_added_files_to_send(
+                                            &imp.manage_files_model,
+                                            vec![gio::File::for_path(&path)],
+                                        );
+                                    }
+                                }
+                                Ok(None) | Err(_) => {
+                                    imp.obj().add_toast_msg(&gettext(
+                                        "Couldn't read image from clipboard",
+                                    ));
+                                }
+                            }
                         } else if let Some(text) = clipboard.read_text_future().await.ok().flatten()
                             && !text.is_empty()
                         {
@@ -2087,6 +2115,19 @@ impl PacketApplicationWindow {
 
         let is_already_in_model = already_included_count == files_len;
         (filtered_files, is_already_in_model)
+    }
+
+    fn clipboard_image_temp_path() -> PathBuf {
+        let dir = std::env::temp_dir();
+        let path = dir.join("Pasted image.png");
+        if !path.exists() {
+            return path;
+        }
+
+        (2..)
+            .map(|n| dir.join(format!("Pasted image ({n}).png")))
+            .find(|it| !it.exists())
+            .unwrap_or(path)
     }
 
     fn start_mdns_discovery(&self, force: Option<bool>) {
