@@ -1,3 +1,5 @@
+pub(crate) mod toast;
+
 use std::{
     cell::RefCell,
     fmt,
