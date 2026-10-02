@@ -381,11 +381,6 @@ impl Window {
     }
 
     fn save_app_state(&self) -> Result<(), glib::BoolError> {
-        let imp = self.imp();
-
-        imp.settings
-            .set_string("device-name", imp.device_name_entry.text().as_str())?;
-
         Ok(())
     }
 
