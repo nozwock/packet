@@ -1516,7 +1516,9 @@ impl PacketApplicationWindow {
                                 &imp.manage_files_model,
                                 file_list.files(),
                             );
-                        } else if let Ok(Some(texture)) = clipboard.read_texture_future().await {
+                        } else if formats.contains_type(gdk::Texture::static_type())
+                            && let Ok(Some(texture)) = clipboard.read_texture_future().await
+                        {
                             // Don't need cleanup since it's always the same path.
                             let path = std::env::temp_dir().join("Pasted image.png");
                             if texture.save_to_png(&path).is_ok() {
