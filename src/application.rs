@@ -23,7 +23,7 @@ mod imp {
     };
 
     #[derive(Debug, better_default::Default)]
-    pub struct PacketApplication {
+    pub struct Application {
         pub window: OnceCell<WeakRef<Window>>,
 
         pub start_in_background: Cell<bool>,
@@ -33,17 +33,17 @@ mod imp {
     }
 
     #[glib::object_subclass]
-    impl ObjectSubclass for PacketApplication {
-        const NAME: &'static str = "PacketApplication";
-        type Type = super::PacketApplication;
+    impl ObjectSubclass for Application {
+        const NAME: &'static str = "Application";
+        type Type = super::Application;
         type ParentType = adw::Application;
     }
 
-    impl ObjectImpl for PacketApplication {}
+    impl ObjectImpl for Application {}
 
-    impl ApplicationImpl for PacketApplication {
+    impl ApplicationImpl for Application {
         fn activate(&self) {
-            debug!("GtkApplication<PacketApplication>::activate");
+            debug!("GtkApplication<Application>::activate");
             self.parent_activate();
             let app = self.obj();
 
@@ -74,7 +74,7 @@ mod imp {
         }
 
         fn startup(&self) {
-            debug!("GtkApplication<PacketApplication>::startup");
+            debug!("GtkApplication<Application>::startup");
             self.parent_startup();
             let app = self.obj();
 
@@ -160,22 +160,22 @@ mod imp {
         }
 
         fn shutdown(&self) {
-            debug!("GtkApplication<PacketApplication>::shutdown");
+            debug!("GtkApplication<Application>::shutdown");
             self.parent_shutdown();
         }
     }
 
-    impl GtkApplicationImpl for PacketApplication {}
-    impl AdwApplicationImpl for PacketApplication {}
+    impl GtkApplicationImpl for Application {}
+    impl AdwApplicationImpl for Application {}
 }
 
 glib::wrapper! {
-    pub struct PacketApplication(ObjectSubclass<imp::PacketApplication>)
+    pub struct Application(ObjectSubclass<imp::Application>)
         @extends gio::Application, gtk::Application, adw::Application,
         @implements gio::ActionMap, gio::ActionGroup;
 }
 
-impl PacketApplication {
+impl Application {
     fn main_window(&self) -> Window {
         self.imp().window.get().unwrap().upgrade().unwrap()
     }
@@ -327,7 +327,7 @@ impl PacketApplication {
     }
 }
 
-impl Default for PacketApplication {
+impl Default for Application {
     fn default() -> Self {
         glib::Object::builder()
             .property("application-id", APP_ID)

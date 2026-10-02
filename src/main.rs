@@ -25,7 +25,7 @@ use tracing_subscriber::util::SubscriberInitExt;
 use crate::config::APP_ID;
 use crate::constants::packet_log_path;
 
-use self::application::PacketApplication;
+use self::application::Application;
 use self::config::{GETTEXT_PACKAGE, LOCALEDIR, RESOURCES_FILE};
 
 fn main() -> glib::ExitCode {
@@ -86,7 +86,7 @@ fn main() -> glib::ExitCode {
         }
     });
 
-    let app = PacketApplication::default();
+    let app = Application::default();
     app.run()
 }
 

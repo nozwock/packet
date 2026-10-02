@@ -16,7 +16,7 @@ use gtk::{gdk, gio, glib};
 use tokio::sync::watch;
 use tokio_util::sync::CancellationToken;
 
-use crate::application::PacketApplication;
+use crate::application::Application;
 use crate::config::{APP_ID, PROFILE};
 use crate::constants::packet_log_path;
 use crate::dbus;
@@ -348,7 +348,7 @@ glib::wrapper! {
 impl Window {
     pub const MAX_TEXT_PAYLOAD_CHARS: i32 = 100_000;
 
-    pub fn new(app: &PacketApplication) -> Self {
+    pub fn new(app: &Application) -> Self {
         glib::Object::builder().property("application", app).build()
     }
 
