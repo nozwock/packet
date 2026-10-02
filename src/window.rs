@@ -1516,6 +1516,18 @@ impl PacketApplicationWindow {
                                 &imp.manage_files_model,
                                 file_list.files(),
                             );
+                        } else if formats.contains_type(gdk::Texture::static_type())
+                            && let Ok(Some(texture)) = clipboard.read_texture_future().await
+                        {
+                            // Don't need cleanup since it's always the same path.
+                            let path = std::env::temp_dir().join("Pasted image.png");
+                            if texture.save_to_png(&path).is_ok() {
+                                imp.manage_files_model.remove_all();
+                                imp.obj().handle_added_files_to_send(
+                                    &imp.manage_files_model,
+                                    vec![gio::File::for_path(&path)],
+                                );
+                            }
                         } else if let Some(text) = clipboard.read_text_future().await.ok().flatten()
                             && !text.is_empty()
                         {
