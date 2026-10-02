@@ -1517,18 +1517,8 @@ impl PacketApplicationWindow {
                                 file_list.files(),
                             );
                         } else if let Ok(Some(texture)) = clipboard.read_texture_future().await {
-                            let path = {
-                                let dir = std::env::temp_dir();
-                                let path = dir.join("Pasted image.png");
-                                if !path.exists() {
-                                    path
-                                } else {
-                                    (2..)
-                                        .map(|n| dir.join(format!("Pasted image ({n}).png")))
-                                        .find(|it| !it.exists())
-                                        .unwrap_or(path)
-                                }
-                            };
+                            // Don't need cleanup since it's always the same path.
+                            let path = std::env::temp_dir().join("Pasted image.png");
                             if texture.save_to_png(&path).is_ok() {
                                 imp.manage_files_model.remove_all();
                                 imp.obj().handle_added_files_to_send(
