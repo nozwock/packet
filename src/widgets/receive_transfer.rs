@@ -16,7 +16,7 @@ use crate::{
     ext::MessageExt,
     objects::{self, UserAction},
     utils::{remove_notification, setup_clickable_links, spawn_notification},
-    window::PacketApplicationWindow,
+    window::Window,
 };
 
 pub fn display_text_type(value: &TextPayloadType) -> String {
@@ -51,7 +51,7 @@ fn clean_preview_text_payload(s: &str) -> &str {
 // Rewriting receive UI for the 4rd time ;(
 // Using a chain of AlertDialog this time
 pub fn present_receive_transfer_ui(
-    win: &PacketApplicationWindow,
+    win: &Window,
     receive_state: &objects::ReceiveTransferState,
     notification_id: String,
     auto_decline_ctk: CancellationToken,

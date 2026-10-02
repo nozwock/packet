@@ -1,6 +1,6 @@
 use adw::prelude::*;
 
-use crate::window::PacketApplicationWindow;
+use crate::window::Window;
 
 // https://gitlab.gnome.org/World/fractal/-/blob/main/src/utils/toast.rs
 pub(crate) fn add_toast(widget: &gtk::Widget, toast: adw::Toast) {
@@ -10,7 +10,7 @@ pub(crate) fn add_toast(widget: &gtk::Widget, toast: adw::Toast) {
     {
         dialog.add_toast(toast);
     } else if let Some(root) = widget.root() {
-        if let Some(window) = root.downcast_ref::<PacketApplicationWindow>() {
+        if let Some(window) = root.downcast_ref::<Window>() {
             window.add_toast(toast);
         } else {
             panic!("Trying to display a toast when the parent doesn't support it");

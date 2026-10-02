@@ -9,7 +9,7 @@ use gtk::{gdk, gio, glib};
 use crate::config::{APP_ID, PKGDATADIR, PROFILE, VERSION};
 use crate::constants::packet_log_path;
 use crate::tokio_runtime;
-use crate::window::PacketApplicationWindow;
+use crate::window::Window;
 
 type AsyncChannel<T> = (async_channel::Sender<T>, async_channel::Receiver<T>);
 
@@ -24,7 +24,7 @@ mod imp {
 
     #[derive(Debug, better_default::Default)]
     pub struct PacketApplication {
-        pub window: OnceCell<WeakRef<PacketApplicationWindow>>,
+        pub window: OnceCell<WeakRef<Window>>,
 
         pub start_in_background: Cell<bool>,
 
@@ -53,7 +53,7 @@ mod imp {
                 return;
             }
 
-            let window = PacketApplicationWindow::new(&app);
+            let window = Window::new(&app);
             self.window
                 .set(window.downgrade())
                 .expect("Window already set.");
@@ -176,7 +176,7 @@ glib::wrapper! {
 }
 
 impl PacketApplication {
-    fn main_window(&self) -> PacketApplicationWindow {
+    fn main_window(&self) -> Window {
         self.imp().window.get().unwrap().upgrade().unwrap()
     }
 

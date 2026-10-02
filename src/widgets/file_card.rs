@@ -7,7 +7,7 @@ use gtk::{
     glib::{self, clone},
 };
 
-use crate::window::PacketApplicationWindow;
+use crate::window::Window;
 
 // These are the icons that Files/nautilus uses
 // https://gitlab.gnome.org/GNOME/adwaita-icon-theme/-/tree/master/Adwaita/scalable?ref_type=heads
@@ -72,11 +72,7 @@ pub fn get_mimetype_icon_name(file: &gio::File, symbolic: bool) -> Option<String
     Some(icon?)
 }
 
-pub fn create_file_card(
-    win: &PacketApplicationWindow,
-    model: &gio::ListStore,
-    model_item: &gio::File,
-) -> adw::Bin {
+pub fn create_file_card(win: &Window, model: &gio::ListStore, model_item: &gio::File) -> adw::Bin {
     let imp = win.imp();
 
     let root_bin = adw::Bin::new();

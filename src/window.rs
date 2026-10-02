@@ -58,7 +58,7 @@ mod imp {
 
     #[derive(gtk::CompositeTemplate, better_default::Default)]
     #[template(resource = "/io/github/nozwock/Packet/ui/window.ui")]
-    pub struct PacketApplicationWindow {
+    pub struct Window {
         #[default(gio::Settings::new(APP_ID))]
         pub settings: gio::Settings,
 
@@ -206,9 +206,9 @@ mod imp {
     }
 
     #[glib::object_subclass]
-    impl ObjectSubclass for PacketApplicationWindow {
-        const NAME: &'static str = "PacketApplicationWindow";
-        type Type = super::PacketApplicationWindow;
+    impl ObjectSubclass for Window {
+        const NAME: &'static str = "Window";
+        type Type = super::Window;
         type ParentType = adw::ApplicationWindow;
 
         fn class_init(klass: &mut Self::Class) {
@@ -221,7 +221,7 @@ mod imp {
         }
     }
 
-    impl ObjectImpl for PacketApplicationWindow {
+    impl ObjectImpl for Window {
         fn constructed(&self) {
             self.parent_constructed();
             let obj = self.obj();
@@ -247,8 +247,8 @@ mod imp {
         }
     }
 
-    impl WidgetImpl for PacketApplicationWindow {}
-    impl WindowImpl for PacketApplicationWindow {
+    impl WidgetImpl for Window {}
+    impl WindowImpl for Window {
         // Save window state on delete event
         fn close_request(&self) -> glib::Propagation {
             if self.is_background_allowed.get()
@@ -260,7 +260,7 @@ mod imp {
                 return glib::Propagation::Stop;
             }
 
-            tracing::debug!("GtkApplicationWindow<PacketApplicationWindow>::close");
+            tracing::debug!("GtkApplicationWindow<Window>::close");
 
             if let Err(err) = self.obj().save_window_size() {
                 tracing::warn!("Failed to save window state, {}", &err);
@@ -334,18 +334,18 @@ mod imp {
         }
     }
 
-    impl ApplicationWindowImpl for PacketApplicationWindow {}
-    impl AdwApplicationWindowImpl for PacketApplicationWindow {}
+    impl ApplicationWindowImpl for Window {}
+    impl AdwApplicationWindowImpl for Window {}
 }
 
 glib::wrapper! {
-    pub struct PacketApplicationWindow(ObjectSubclass<imp::PacketApplicationWindow>)
+    pub struct Window(ObjectSubclass<imp::Window>)
         @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow,
         @implements gio::ActionGroup, gio::ActionMap, gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget,
         gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 
-impl PacketApplicationWindow {
+impl Window {
     pub const MAX_TEXT_PAYLOAD_CHARS: i32 = 100_000;
 
     pub fn new(app: &PacketApplication) -> Self {
@@ -932,7 +932,7 @@ impl PacketApplicationWindow {
                     info_dialog.present(
                         imp.obj()
                             .root()
-                            .and_downcast_ref::<PacketApplicationWindow>(),
+                            .and_downcast_ref::<Window>(),
                     );
                 };
             }
@@ -1093,11 +1093,7 @@ impl PacketApplicationWindow {
             imp,
             async move {
                 if let Ok(file) = gtk::FileDialog::new()
-                    .select_folder_future(
-                        imp.obj()
-                            .root()
-                            .and_downcast_ref::<PacketApplicationWindow>(),
-                    )
+                    .select_folder_future(imp.obj().root().and_downcast_ref::<Window>())
                     .await
                 {
                     // TODO: Maybe format the display path in the preferences?
@@ -1213,7 +1209,7 @@ impl PacketApplicationWindow {
                         tray::TrayMessage::Quit => {
                             imp.should_quit.replace(true);
                             // FIXME: If preference window is opened, that window gets closed instead of
-                            // PacketApplicationWindow for some reason
+                            // Window for some reason
                             imp.obj().close();
                         }
                     }
@@ -1693,11 +1689,8 @@ impl PacketApplicationWindow {
             #[upgrade_or]
             true.into(),
             move |_| {
-                imp.help_dialog.present(
-                    imp.obj()
-                        .root()
-                        .and_downcast_ref::<PacketApplicationWindow>(),
-                );
+                imp.help_dialog
+                    .present(imp.obj().root().and_downcast_ref::<Window>());
 
                 true.into()
             }
@@ -2660,7 +2653,7 @@ impl PacketApplicationWindow {
             }
         ));
 
-        fn spawn_rqs_receiver_tasks(imp: &imp::PacketApplicationWindow) {
+        fn spawn_rqs_receiver_tasks(imp: &imp::Window) {
             let (tx, rx) = async_channel::bounded(1);
             let handle = tokio_runtime().spawn(clone!(
                 #[weak(rename_to = rqs)]

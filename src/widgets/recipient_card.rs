@@ -2,7 +2,7 @@ use crate::{
     ext::MessageExt,
     objects::{self, TransferState, send_transfer::SendRequestState},
     tokio_runtime,
-    window::PacketApplicationWindow,
+    window::Window,
 };
 
 use adw::prelude::*;
@@ -54,11 +54,7 @@ where
     list_box.row_at_index(pos as i32)
 }
 
-pub fn handle_recipient_card_clicked(
-    win: &PacketApplicationWindow,
-    list_box: &gtk::ListBox,
-    row: &gtk::ListBoxRow,
-) {
+pub fn handle_recipient_card_clicked(win: &Window, list_box: &gtk::ListBox, row: &gtk::ListBoxRow) {
     let imp = win.imp();
 
     let model_item =
@@ -71,7 +67,7 @@ pub fn handle_recipient_card_clicked(
     row.set_activatable(false);
 }
 
-fn emit_send_request(win: &PacketApplicationWindow, model_item: &SendRequestState) {
+fn emit_send_request(win: &Window, model_item: &SendRequestState) {
     let imp = win.imp();
 
     let endpoint_info = model_item.endpoint_info();
@@ -132,7 +128,7 @@ fn emit_send_request(win: &PacketApplicationWindow, model_item: &SendRequestStat
 }
 
 pub fn create_recipient_card(
-    win: &PacketApplicationWindow,
+    win: &Window,
     _model: &gio::ListStore,
     model_item: &SendRequestState,
     init_model_state: Option<()>,
