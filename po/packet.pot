@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-02 16:50+0530\n"
+"POT-Creation-Date: 2026-10-03 00:32+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,258 +18,256 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: data/resources/ui/shortcuts-dialog.blp:6
+#: src/shortcuts-dialog.blp:6
 msgctxt "shortcut window"
 msgid "Actions"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:9
+#: src/shortcuts-dialog.blp:9
 msgctxt "shortcut window"
 msgid "Send To…"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:14
+#: src/shortcuts-dialog.blp:14
 msgctxt "shortcut window"
 msgid "Paste"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:20
+#: src/shortcuts-dialog.blp:20
 msgctxt "shortcut window"
 msgid "General"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:23
+#: src/shortcuts-dialog.blp:23
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:28
+#: src/shortcuts-dialog.blp:28
 msgctxt "shortcut window"
 msgid "Open Menu"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:33
+#: src/shortcuts-dialog.blp:33
 msgctxt "shortcut window"
 msgid "Open Preferences"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:38
+#: src/shortcuts-dialog.blp:38
 msgctxt "shortcut window"
 msgid "Shortcuts"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:43
+#: src/shortcuts-dialog.blp:43
 msgctxt "shortcut window"
 msgid "Close or Hide Window"
 msgstr ""
 
-#: data/resources/ui/shortcuts-dialog.blp:48
+#: src/shortcuts-dialog.blp:48
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr ""
 
-#: data/resources/ui/window.blp:7
+#: src/window.blp:7
 msgid "_Preferences"
 msgstr ""
 
-#: data/resources/ui/window.blp:12
+#: src/window.blp:12
 msgid "_Help"
 msgstr ""
 
-#: data/resources/ui/window.blp:17
+#: src/window.blp:17
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
-#: data/resources/ui/window.blp:22
+#: src/window.blp:22
 msgid "_About Packet"
 msgstr ""
 
 #. Translators: The name should remain untranslated
-#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:64
-#: data/resources/ui/window.blp:219 src/application.rs:241 src/main.rs:72
-#: src/tray.rs:26 data/io.github.nozwock.Packet.desktop.in.in:2
+#: src/window.blp:38 src/window.blp:64 src/window.blp:219
+#: src/application.rs:241 src/main.rs:72 src/tray.rs:26
+#: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
 msgstr ""
 
-#: data/resources/ui/window.blp:45
+#: src/window.blp:45
 msgid "About"
 msgstr ""
 
-#: data/resources/ui/window.blp:53
+#: src/window.blp:53
 msgid "Setting up Packet…"
 msgstr ""
 
-#: data/resources/ui/window.blp:72
+#: src/window.blp:72
 msgid "Copy Log"
 msgstr ""
 
-#: data/resources/ui/window.blp:79 data/resources/ui/window.blp:210
-#: data/resources/ui/window.blp:266 data/resources/ui/window.blp:331
+#: src/window.blp:79 src/window.blp:210 src/window.blp:266 src/window.blp:331
 msgid "Main Menu"
 msgstr ""
 
-#: data/resources/ui/window.blp:87
+#: src/window.blp:87
 msgid "Couldn't Set Up"
 msgstr ""
 
-#: data/resources/ui/window.blp:88
+#: src/window.blp:88
 msgid "An error occurred while trying to setup Packet"
 msgstr ""
 
-#: data/resources/ui/window.blp:93
+#: src/window.blp:93
 msgid "Try Again"
 msgstr ""
 
-#: data/resources/ui/window.blp:175
+#: src/window.blp:175
 msgid "Send To…"
 msgstr ""
 
-#: data/resources/ui/window.blp:198
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+#: src/window.blp:198 data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
 msgstr ""
 
-#: data/resources/ui/window.blp:220
+#: src/window.blp:220
 msgid "Add, or drop a file to send"
 msgstr ""
 
-#: data/resources/ui/window.blp:232
+#: src/window.blp:232
 msgid "Add Files"
 msgstr ""
 
-#: data/resources/ui/window.blp:242 data/resources/ui/window.blp:319
+#: src/window.blp:242 src/window.blp:319
 msgid "Share Text"
 msgstr ""
 
-#: data/resources/ui/window.blp:254
+#: src/window.blp:254
 msgid "Selected Files Page"
 msgstr ""
 
-#: data/resources/ui/window.blp:295
+#: src/window.blp:295
 msgid "Add File"
 msgstr ""
 
-#: data/resources/ui/window.blp:394
+#: src/window.blp:394
 msgid "Paste from clipboard"
 msgstr ""
 
-#: data/resources/ui/window.blp:403
+#: src/window.blp:403
 msgid "Clear text"
 msgstr ""
 
-#: data/resources/ui/window.blp:427
+#: src/window.blp:427
 msgid "Enter or paste text, or links to send"
 msgstr ""
 
-#: data/resources/ui/window.blp:450
+#: src/window.blp:450
 msgid "Select Recipients"
 msgstr ""
 
-#: data/resources/ui/window.blp:473
+#: src/window.blp:473
 msgid "Refresh"
 msgstr ""
 
-#: data/resources/ui/window.blp:521
+#: src/window.blp:521
 msgid "Looking for devices…"
 msgstr ""
 
-#: data/resources/ui/window.blp:529 data/resources/ui/window.blp:656
+#: src/window.blp:529 src/window.blp:656
 msgid "Can't see the other device?"
 msgstr ""
 
-#: data/resources/ui/window.blp:548
+#: src/window.blp:548
 msgid "Preferences"
 msgstr ""
 
-#: data/resources/ui/window.blp:553
+#: src/window.blp:553
 msgid "General"
 msgstr ""
 
-#: data/resources/ui/window.blp:556
+#: src/window.blp:556
 msgid "Device Name"
 msgstr ""
 
-#: data/resources/ui/window.blp:561
+#: src/window.blp:561
 msgid "Visibility"
 msgstr ""
 
-#: data/resources/ui/window.blp:562
+#: src/window.blp:562
 msgid "Whether others can see this device"
 msgstr ""
 
-#: data/resources/ui/window.blp:566
+#: src/window.blp:566
 msgid "Downloads Folder"
 msgstr ""
 
-#: data/resources/ui/window.blp:572
+#: src/window.blp:572
 msgid "Pick download folder"
 msgstr ""
 
-#: data/resources/ui/window.blp:583
+#: src/window.blp:583
 msgid "Run in Background"
 msgstr ""
 
-#: data/resources/ui/window.blp:584
+#: src/window.blp:584
 msgid "Allow running in the background"
 msgstr ""
 
-#: data/resources/ui/window.blp:588
+#: src/window.blp:588
 msgid "Auto Start"
 msgstr ""
 
-#: data/resources/ui/window.blp:589
+#: src/window.blp:589
 msgid "Start automatically at login"
 msgstr ""
 
-#: data/resources/ui/window.blp:594
+#: src/window.blp:594
 msgid "Advanced"
 msgstr ""
 
-#: data/resources/ui/window.blp:597
+#: src/window.blp:597
 msgid "Nautilus Plugin"
 msgstr ""
 
-#: data/resources/ui/window.blp:598
+#: src/window.blp:598
 msgid "Integrate with Nautilus file menu"
 msgstr ""
 
-#: data/resources/ui/window.blp:605
+#: src/window.blp:605
 msgid "Tray Icon"
 msgstr ""
 
-#: data/resources/ui/window.blp:606
+#: src/window.blp:606
 msgid "Show tray icon in the system tray"
 msgstr ""
 
-#: data/resources/ui/window.blp:612
+#: src/window.blp:612
 msgid "Static Network Port"
 msgstr ""
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:614
+#: src/window.blp:614
 msgid "For whitelisting through a firewall"
 msgstr ""
 
-#: data/resources/ui/window.blp:619
+#: src/window.blp:619
 msgid "Port Number"
 msgstr ""
 
-#: data/resources/ui/window.blp:628
+#: src/window.blp:628
 msgid "Help"
 msgstr ""
 
-#: data/resources/ui/window.blp:681
+#: src/window.blp:681
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
 
-#: data/resources/ui/window.blp:704
+#: src/window.blp:704
 msgid "Make sure the device is set to be visible to all nearby devices"
 msgstr ""
 
-#: data/resources/ui/window.blp:727
+#: src/window.blp:727
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
@@ -288,12 +286,12 @@ msgstr ""
 msgid "Similar Projects"
 msgstr ""
 
-#: src/application.rs:285 src/window.rs:1411
+#: src/application.rs:285 src/window.rs:1402
 msgid "Failed to retrieve the logs"
 msgstr ""
 
-#: src/objects/send_transfer.rs:47 src/widgets/recipient_card.rs:120
-#: src/widgets/recipient_card.rs:189
+#: src/objects/send_transfer.rs:47 src/widgets/recipient_card.rs:116
+#: src/widgets/recipient_card.rs:185
 msgid "Unknown device"
 msgstr ""
 
@@ -328,13 +326,13 @@ msgid_plural "seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/widgets/file_card.rs:121
+#: src/widgets/file_card.rs:117
 msgid "Remove"
 msgstr ""
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:139 src/widgets/receive_transfer.rs:430
-#: src/window.rs:2010
+#: src/widgets/file_card.rs:135 src/widgets/receive_transfer.rs:430
+#: src/window.rs:1998
 #, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
@@ -358,7 +356,7 @@ msgid "Receiving"
 msgstr ""
 
 #: src/widgets/receive_transfer.rs:71 src/widgets/receive_transfer.rs:206
-#: src/widgets/recipient_card.rs:331
+#: src/widgets/recipient_card.rs:327
 msgid "Cancel"
 msgstr ""
 
@@ -392,7 +390,7 @@ msgid "Preview ({})"
 msgstr ""
 
 #. Translators: This is the pin-code for the transfer
-#: src/widgets/receive_transfer.rs:351 src/widgets/recipient_card.rs:463
+#: src/widgets/receive_transfer.rs:351 src/widgets/recipient_card.rs:459
 #, rust-format
 msgid "Code: {}"
 msgstr ""
@@ -411,7 +409,7 @@ msgstr ""
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
-#: src/widgets/receive_transfer.rs:502 src/widgets/recipient_card.rs:490
+#: src/widgets/receive_transfer.rs:502 src/widgets/recipient_card.rs:486
 #, rust-format
 msgid "About {} left"
 msgstr ""
@@ -448,164 +446,164 @@ msgid_plural "{} files received"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/widgets/recipient_card.rs:242
+#: src/widgets/recipient_card.rs:238
 msgid "Unavailable"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:265
+#: src/widgets/recipient_card.rs:261
 msgid "Queued"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:312
+#: src/widgets/recipient_card.rs:308
 msgid "Retry"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:457
+#: src/widgets/recipient_card.rs:453
 msgid "Requested"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:514
+#: src/widgets/recipient_card.rs:510
 msgid "Failed"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:557
+#: src/widgets/recipient_card.rs:553
 msgid "Link sent"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:559
+#: src/widgets/recipient_card.rs:555
 msgid "Text sent"
 msgstr ""
 
-#: src/widgets/recipient_card.rs:564
+#: src/widgets/recipient_card.rs:560
 #, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/window.rs:550
+#: src/window.rs:545
 msgid "Couldn't update the Nautilus plugin"
 msgstr ""
 
-#: src/window.rs:672 src/window.rs:1081
+#: src/window.rs:667 src/window.rs:1076
 msgid "Packet cannot run in the background"
 msgstr ""
 
-#: src/window.rs:712
+#: src/window.rs:707
 msgid "Packet cannot run at login"
 msgstr ""
 
-#: src/window.rs:778
+#: src/window.rs:773
 msgid "Can't rename device during an active transfer"
 msgstr ""
 
-#: src/window.rs:918
+#: src/window.rs:913
 msgid "Invalid Port"
 msgstr ""
 
-#: src/window.rs:922
+#: src/window.rs:917
 #, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
 
-#: src/window.rs:930
+#: src/window.rs:925
 msgid "_Ok"
 msgstr ""
 
-#: src/window.rs:979
+#: src/window.rs:974
 msgid "Can't access Downloads folder"
 msgstr ""
 
-#: src/window.rs:980
+#: src/window.rs:975
 msgid "Pick Folder"
 msgstr ""
 
-#: src/window.rs:1004
+#: src/window.rs:999
 msgid "Packet wants to run in the background"
 msgstr ""
 
-#: src/window.rs:1239
+#: src/window.rs:1230
 msgid "Plugin Installed"
 msgstr ""
 
-#: src/window.rs:1243
+#: src/window.rs:1234
 msgid "Done"
 msgstr ""
 
-#: src/window.rs:1259
+#: src/window.rs:1250
 #, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
 msgstr ""
 
-#: src/window.rs:1275
+#: src/window.rs:1266
 #, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
 
-#: src/window.rs:1290
+#: src/window.rs:1281
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
 
-#: src/window.rs:1300
+#: src/window.rs:1291
 msgid "Installation Failed"
 msgstr ""
 
-#: src/window.rs:1304
+#: src/window.rs:1295
 msgid "Close"
 msgstr ""
 
-#: src/window.rs:1318
+#: src/window.rs:1309
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
 
-#: src/window.rs:1420
+#: src/window.rs:1411
 msgid "Copied log to clipboard"
 msgstr ""
 
-#: src/window.rs:1880
+#: src/window.rs:1868
 msgid "Ready"
 msgstr ""
 
-#: src/window.rs:1887
+#: src/window.rs:1875
 #, rust-format
 msgid "Visible as {:?}"
 msgstr ""
 
-#: src/window.rs:1893
+#: src/window.rs:1881
 msgid "Invisible"
 msgstr ""
 
-#: src/window.rs:1899
+#: src/window.rs:1887
 msgid "No new devices can share with you"
 msgstr ""
 
-#: src/window.rs:1904
+#: src/window.rs:1892
 msgid "Disconnected"
 msgstr ""
 
-#: src/window.rs:1910
+#: src/window.rs:1898
 msgid "Connect to Wi-Fi and turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:1913
+#: src/window.rs:1901
 msgid "Connect to Wi-Fi"
 msgstr ""
 
-#: src/window.rs:1916
+#: src/window.rs:1904
 msgid "Turn on Bluetooth"
 msgstr ""
 
-#: src/window.rs:2000
+#: src/window.rs:1988
 msgid "Couldn't open files"
 msgstr ""
 

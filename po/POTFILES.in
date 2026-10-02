@@ -1,5 +1,5 @@
-data/resources/ui/shortcuts-dialog.blp
-data/resources/ui/window.blp
+src/shortcuts-dialog.blp
+src/window.blp
 src/application.rs
 src/constants.rs
 src/dbus.rs
