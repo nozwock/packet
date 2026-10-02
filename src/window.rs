@@ -1517,7 +1517,18 @@ impl PacketApplicationWindow {
                                 file_list.files(),
                             );
                         } else if let Ok(Some(texture)) = clipboard.read_texture_future().await {
-                            let path = Self::clipboard_image_temp_path();
+                            let path = {
+                                let dir = std::env::temp_dir();
+                                let path = dir.join("Pasted image.png");
+                                if !path.exists() {
+                                    path
+                                } else {
+                                    (2..)
+                                        .map(|n| dir.join(format!("Pasted image ({n}).png")))
+                                        .find(|it| !it.exists())
+                                        .unwrap_or(path)
+                                }
+                            };
                             if texture.save_to_png(&path).is_ok() {
                                 imp.manage_files_model.remove_all();
                                 imp.obj().handle_added_files_to_send(
@@ -2096,19 +2107,6 @@ impl PacketApplicationWindow {
 
         let is_already_in_model = already_included_count == files_len;
         (filtered_files, is_already_in_model)
-    }
-
-    fn clipboard_image_temp_path() -> PathBuf {
-        let dir = std::env::temp_dir();
-        let path = dir.join("Pasted image.png");
-        if !path.exists() {
-            return path;
-        }
-
-        (2..)
-            .map(|n| dir.join(format!("Pasted image ({n}).png")))
-            .find(|it| !it.exists())
-            .unwrap_or(path)
     }
 
     fn start_mdns_discovery(&self, force: Option<bool>) {
