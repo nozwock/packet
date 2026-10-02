@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <releases>
+  <release version="0.7.3" date="2026-10-2">
+    <description translatable="no">
+      <p>Changes</p>
+      <ul>
+        <li>Support pasting images from the clipboard(by @yannvillellas).</li>
+      </ul>
+      <p>Fixes</p>
+      <ul>
+        <li>Fixed toasts only being presented in the preferences dialog.</li>
+      </ul>
+    </description>
+  </release>
   <release version="0.7.2" date="2026-10-1">
     <description translatable="no">
       <p>Fixes</p>
