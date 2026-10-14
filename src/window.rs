@@ -17,7 +17,7 @@ use tokio::sync::watch;
 use tokio_util::sync::CancellationToken;
 
 use crate::application::Application;
-use crate::config::{APP_ID, PROFILE};
+use crate::config::{APP_ID, BINDIR, PROFILE};
 use crate::constants::packet_log_path;
 use crate::dbus;
 use crate::ext::MessageExt;
@@ -115,6 +115,8 @@ mod imp {
         #[template_child]
         pub auto_start_switch: TemplateChild<adw::SwitchRow>,
         pub auto_start_switch_handler_id: RefCell<Option<glib::SignalHandlerId>>,
+        #[template_child]
+        pub nautilus_plugin_group: TemplateChild<adw::PreferencesGroup>,
         #[template_child]
         pub nautilus_plugin_switch: TemplateChild<adw::SwitchRow>,
         pub nautilus_plugin_switch_handler_id: RefCell<Option<glib::SignalHandlerId>>,
@@ -466,6 +468,10 @@ impl Window {
 
     fn setup_preferences(&self) {
         let imp = self.imp();
+
+        let is_kde = std::env::var("XDG_CURRENT_DESKTOP")
+            .is_ok_and(|it| it.split(':').any(|de| de.eq_ignore_ascii_case("KDE")));
+        imp.nautilus_plugin_group.set_visible(!is_kde);
 
         imp.device_visibility_switch
             .set_active(imp.settings.boolean("device-visibility"));
@@ -1002,7 +1008,7 @@ impl Window {
             request = request.auto_start(autostart);
             if autostart {
                 request = request
-                    .command(["packet", "--background"])
+                    .command([&format!("{BINDIR}/packet"), "--background"])
                     .dbus_activatable(false);
             }
         }

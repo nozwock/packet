@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/allfiles;
+Actions=SendWithPacket;
+X-KDE-Priority=TopLevel
+
+[Desktop Action SendWithPacket]
+Name=Send with Packet
+Icon=@app-id@
+Exec=@bindir@/packet --send-files %F

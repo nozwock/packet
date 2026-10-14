@@ -85,6 +85,14 @@ fn main() -> glib::ExitCode {
         gio::resources_register(&res);
     }
 
+    // `packet --send-files <paths..>` hands the files over to the primary
+    // instance (D-Bus activating it if needed) and exits. Used by the Dolphin
+    // service menu.
+    let args = env::args().collect::<Vec<_>>();
+    if args.get(1).map(String::as_str) == Some("--send-files") {
+        return send_files_to_primary_instance(&args[2..]);
+    }
+
     tokio_runtime().block_on(async move {
         if let Err(err) = ashpd::register_host_app(APP_ID.try_into().unwrap()).await {
             tracing::warn!("Failed to register host app: {err}");
@@ -93,6 +101,52 @@ fn main() -> glib::ExitCode {
 
     let app = Application::default();
     app.run()
+}
+
+/// Calls the `send-files` action exported under `/<APP_ID Path>/Share`.
+/// See `dbus_register` in application.rs.
+fn send_files_to_primary_instance(paths: &[String]) -> glib::ExitCode {
+    use gtk::glib::prelude::*;
+
+    let files = paths
+        .iter()
+        .map(|it| std::path::absolute(it).unwrap_or_else(|_| it.into()))
+        .map(|it| it.to_string_lossy().into_owned())
+        .collect::<Vec<_>>();
+    if files.is_empty() {
+        tracing::error!("No files were passed to --send-files");
+        return glib::ExitCode::FAILURE;
+    }
+
+    let params = glib::Variant::tuple_from_iter([
+        "send-files".to_variant(),
+        vec![files.to_variant()].to_variant(),
+        std::collections::HashMap::<String, glib::Variant>::new().to_variant(),
+    ]);
+
+    let result = gio::bus_get_sync(gio::BusType::Session, gio::Cancellable::NONE).and_then(
+        |conn| {
+            conn.call_sync(
+                Some(APP_ID),
+                &format!("/{}/Share", APP_ID.replace('.', "/")),
+                "org.gtk.Actions",
+                "Activate",
+                Some(&params),
+                None,
+                gio::DBusCallFlags::NONE,
+                -1,
+                gio::Cancellable::NONE,
+            )
+        },
+    );
+
+    match result {
+        Ok(_) => glib::ExitCode::SUCCESS,
+        Err(err) => {
+            tracing::error!(%err, "Failed to send files to Packet over D-Bus");
+            glib::ExitCode::FAILURE
+        }
+    }
 }
 
 pub fn tokio_runtime() -> &'static tokio::runtime::Runtime {

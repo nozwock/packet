@@ -3,6 +3,7 @@ subdir('resources')
 # Desktop file
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
+desktop_conf.set('bindir', bindir)
 desktop_file = i18n.merge_file(
   type: 'desktop',
   input: configure_file(
@@ -109,4 +110,17 @@ configure_file(
     configuration: service_conf,
     install: true,
     install_dir: datadir / 'dbus-1' / 'services'
+)
+
+# Dolphin (KDE) service menu
+servicemenu_conf = configuration_data()
+servicemenu_conf.set('app-id', application_id)
+servicemenu_conf.set('bindir', bindir)
+configure_file(
+    input: '@0@.servicemenu.desktop.in'.format(base_id),
+    output: '@0@.servicemenu.desktop'.format(application_id),
+    configuration: servicemenu_conf,
+    install: true,
+    install_dir: datadir / 'kio' / 'servicemenus',
+    install_mode: 'rwxr-xr-x',
 )

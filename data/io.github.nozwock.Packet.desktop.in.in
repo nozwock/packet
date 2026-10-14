@@ -2,7 +2,7 @@
 Name=Packet
 Comment=Share files easily
 Type=Application
-Exec=packet
+Exec=@bindir@/packet
 Terminal=false
 Categories=GNOME;GTK;Utility;Network;
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
