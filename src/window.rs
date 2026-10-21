@@ -2352,35 +2352,45 @@ impl Window {
             imp.dbus_system_conn,
             async move {
                 let imp = this.imp();
-                let conn = {
-                    let conn = zbus::Connection::system().await;
-                    *dbus_system_conn.borrow_mut() = conn.clone().ok();
-                    conn.unwrap()
-                };
-
-                let bluetooth_initial_state = monitors::is_bluetooth_powered(&conn)
+                let conn = zbus::Connection::system()
                     .await
-                    .map_err(|err| {
-                        anyhow!(err).context("Failed to get initial Bluetooth powered state")
-                    })
                     .inspect_err(|err| {
-                        tracing::warn!(fallback = false, "{err:#}",);
+                        tracing::warn!(fallback = false, %err, "Failed to connect to system D-Bus");
                     })
-                    .unwrap_or_default();
+                    .ok();
+                *dbus_system_conn.borrow_mut() = conn.clone();
+
+                let bluetooth_initial_state = if let Some(conn) = &conn {
+                    monitors::is_bluetooth_powered(conn)
+                        .await
+                        .map_err(|err| {
+                            anyhow!(err).context("Failed to get initial Bluetooth powered state")
+                        })
+                        .inspect_err(|err| {
+                            tracing::warn!(fallback = false, "{err:#}",);
+                        })
+                        .unwrap_or_default()
+                } else {
+                    false
+                };
                 imp.bluetooth_state.set(bluetooth_initial_state);
 
                 let (tx, mut bluetooth_rx) = watch::channel(bluetooth_initial_state);
-                glib::spawn_future(async move {
-                    if let Err(err) = monitors::spawn_bluetooth_power_monitor_task(conn, tx)
-                        .await
-                        .map_err(|err| anyhow!(err))
-                    {
-                        tracing::error!(
-                            "{:#}",
-                            err.context("Failed to spawn the Bluetooth powered state monitor task")
-                        );
-                    };
-                });
+                if let Some(conn) = conn {
+                    glib::spawn_future(async move {
+                        if let Err(err) = monitors::spawn_bluetooth_power_monitor_task(conn, tx)
+                            .await
+                            .map_err(|err| anyhow!(err))
+                        {
+                            tracing::error!(
+                                "{:#}",
+                                err.context(
+                                    "Failed to spawn the Bluetooth powered state monitor task"
+                                )
+                            );
+                        };
+                    });
+                }
 
                 // Update the bottom bar with the initial network and bluetooth states
                 this.bottom_bar_status_indicator_ui_update(

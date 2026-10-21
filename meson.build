@@ -76,6 +76,29 @@ subdir('data')
 subdir('po')
 subdir('src')
 
+xvfb_run = find_program('xvfb-run', required: false)
+dbus_run_session = find_program('dbus-run-session', required: false)
+gdbus = find_program('gdbus', required: false)
+if xvfb_run.found() and dbus_run_session.found() and gdbus.found()
+  foreach bus_mode : ['unavailable', 'private']
+    test(
+      'startup-system-bus-' + bus_mode,
+      dbus_run_session,
+      args: [
+        '--', xvfb_run.full_path(), '-a', 'sh',
+        meson.project_source_root() / 'build-aux' / 'test-startup.sh',
+        meson.project_build_root() / 'data' / application_id + '.gschema.xml',
+        application_id, bus_mode,
+      ],
+      env: devenv,
+      depends: cargo_build,
+      timeout: 30,
+    )
+  endforeach
+else
+  message('Startup tests require xvfb-run, dbus-run-session and gdbus')
+endif
+
 gnome.post_install(
   gtk_update_icon_cache: true,
   glib_compile_schemas: true,

@@ -97,7 +97,7 @@ ui_resources = gnome.compile_resources(
   dependencies: [blueprints, ui_resources_xml],
 )
 
-custom_target(
+cargo_build = custom_target(
   'cargo-build',
   build_by_default: true,
   build_always_stale: true,

@@ -43,6 +43,14 @@ The project uses [meson] for its build system. You can build the project either 
       packet
   ```
 
+## Testing
+
+Run `meson test -C build_dir --print-errorlogs` after building. In addition to
+metadata validation, startup tests run when `xvfb-run`, `dbus-run-session` and
+`gdbus` are available. They start the application with isolated settings and
+private D-Bus sessions, checking both an unavailable system bus and a reachable
+bus without BlueZ. They do not require Bluetooth hardware or test file transfers.
+
 ## Configuration
 
 ### Visual Studio Code
