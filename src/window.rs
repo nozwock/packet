@@ -1066,7 +1066,11 @@ impl Window {
             #[weak(rename_to = this)]
             self,
             async move {
-                if let Some(response) = this.portal_request_background(None).await
+                // Pass the saved auto-start preference along: a Background request
+                // without it is treated by the portal as autostart=false, which
+                // removes the autostart entry on every regular launch.
+                let is_auto_start = this.imp().settings.boolean("auto-start");
+                if let Some(response) = this.portal_request_background(Some(is_auto_start)).await
                     && response.run_in_background()
                 {
                     tracing::debug!(?response, "Background request successful");
