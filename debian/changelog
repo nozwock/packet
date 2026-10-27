@@ -1,0 +1,5 @@
+packet (0.7.3-1) unstable; urgency=medium
+
+  * Initial Debian package release.
+
+ -- Fame <fame@famelinuxpc>  Sat, 24 Oct 2026 00:00:00 +0000

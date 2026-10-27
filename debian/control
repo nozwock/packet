@@ -1,0 +1,38 @@
+Source: packet
+Section: utils
+Priority: optional
+Maintainer: Fame <fame@famelinuxpc>
+Build-Depends: debhelper-compat (= 13),
+               meson (>= 0.59.0),
+               ninja-build,
+               libgtk-4-dev (>= 4.22.0),
+               libadwaita-1-dev (>= 1.9.0),
+               blueprint-compiler,
+               cargo,
+               rustc,
+               libglib2.0-dev,
+               gettext,
+               appstream,
+               desktop-file-utils,
+               pkg-config,
+               libgirepository1.0-dev,
+               libdbus-1-dev,
+               protobuf-compiler
+Standards-Version: 4.6.2
+Homepage: https://github.com/nozwock/packet
+Vcs-Browser: https://github.com/nozwock/packet
+Vcs-Git: https://github.com/nozwock/packet.git
+Rules-Requires-Root: no
+
+Package: packet
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libgtk-4-1 (>= 4.22.0),
+         libadwaita-1-0 (>= 1.9.0)
+Description: Quick Share client for Linux
+ Packet is a partial implementation of Google's Quick Share protocol
+ that lets you send and receive files wirelessly from Android devices
+ using Quick Share, or another device with Packet.
+ .
+ It uses GTK 4 and libadwaita for its user interface.

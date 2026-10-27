@@ -1,0 +1,13 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -75,9 +75,8 @@
+         ("RESOURCE_FILE", RESOURCES_FILE),
+         ("UI_RESOURCE_FILE", UI_RESOURCES_FILE),
+     ] {
+-        let res = env::var("MESON_DEVENV")
++        let res = env::var(res_env)
+             .ok()
+-            .and_then(|_| env::var(res_env).ok())
+             .map(|path| gio::Resource::load(&path).expect("Could not load gresource file"))
+             .unwrap_or_else(|| {
+                 gio::Resource::load(res_path).expect("Could not load gresource file")

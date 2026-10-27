@@ -1,0 +1,325 @@
+name: build
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]*'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  VERSION: ${{ inputs.version || (github.ref_type == 'tag' && github.ref_name || '') }}
+
+jobs:
+  deb:
+    name: "Debian Package (amd64)"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        run: |
+          if [ -z "$VERSION" ]; then
+            VERSION=$(grep -m1 "version:" meson.build | grep -o '[0-9.]*')
+          fi
+          VERSION=${VERSION#v}
+          echo "Building version $VERSION"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y devscripts debhelper-compat meson ninja-build libgtk-4-dev libadwaita-1-dev blueprint-compiler cargo rustc libglib2.0-dev gettext appstream desktop-file-utils pkg-config libgirepository1.0-dev libdbus-1-dev protobuf-compiler build-essential
+
+      - name: Install newer Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Set version in changelog
+        run: |
+          sed -i "1s/([0-9.]*-1)/(${VERSION}-1)/" debian/changelog
+
+      - name: Build Debian package
+        run: |
+          rustup default stable
+          TOOLCHAIN="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+          sudo ln -sf "$TOOLCHAIN/bin/rustc" /usr/bin/rustc
+          sudo ln -sf "$TOOLCHAIN/bin/cargo" /usr/bin/cargo
+          dpkg-buildpackage -us -uc -b
+
+      - name: Copy deb to workspace
+        run: |
+          cp ../packet_*.deb .
+
+      - name: Install and test deb package
+        run: |
+          sudo dpkg -i packet_*.deb
+          packet --help
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packet-deb
+          path: packet_*.deb
+
+  appimage:
+    name: "AppImage (amd64)"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        run: |
+          if [ -z "$VERSION" ]; then
+            VERSION=$(grep -m1 "version:" meson.build | grep -o '[0-9.]*')
+          fi
+          VERSION=${VERSION#v}
+          echo "Building version $VERSION"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y wget fuse libfuse2 meson ninja-build libgtk-4-dev libadwaita-1-dev blueprint-compiler cargo rustc libglib2.0-dev gettext appstream desktop-file-utils pkg-config libgirepository1.0-dev libdbus-1-dev protobuf-compiler
+
+      - name: Install newer Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Patch gresource path for AppImage
+        run: |
+          git apply patches/appimage-gresource-path.patch
+
+      - name: Build packet
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          rustup default stable
+          meson setup builddir --prefix=/usr --buildtype=release -Dprofile=default
+          ninja -C builddir
+          DESTDIR=$(pwd)/appdir ninja -C builddir install
+
+      - name: Bundle runtime libraries
+        run: |
+          mkdir -p appdir/usr/lib/x86_64-linux-gnu
+          ldd appdir/usr/bin/packet | awk '{print $3}' | grep '^/' | sort -u | while read lib; do
+            case "$lib" in
+              */ld-linux*|*libc.so.6|*libm.so.6|*libpthread*|*libdl.so.2|*librt.so.1) ;;
+              *) cp -L "$lib" appdir/usr/lib/x86_64-linux-gnu/ ;;
+            esac
+          done
+          mkdir -p appdir/usr/share/applications appdir/usr/share/metainfo appdir/usr/share/icons/hicolor/scalable/apps appdir/usr/share/icons/hicolor/symbolic/apps appdir/usr/share/glib-2.0/schemas
+          cp appdir/usr/share/applications/io.github.nozwock.Packet.desktop appdir/
+          cp appdir/usr/share/metainfo/io.github.nozwock.Packet.metainfo.xml appdir/usr/share/metainfo/packet.appdata.xml
+          cp appdir/usr/share/icons/hicolor/scalable/apps/io.github.nozwock.Packet.svg appdir/packet.svg
+          sed -i 's|Exec=.*|Exec=packet|' appdir/io.github.nozwock.Packet.desktop
+          sed -i 's|Icon=.*|Icon=packet|' appdir/io.github.nozwock.Packet.desktop
+          glib-compile-schemas appdir/usr/share/glib-2.0/schemas
+
+      - name: Create AppRun
+        run: |
+          cat > appdir/AppRun << 'EOF'
+          #!/bin/bash
+          set -e
+          HERE="$(dirname "$(readlink -f "$0")")"
+          export PATH="${HERE}/usr/bin:${PATH}"
+          export LD_LIBRARY_PATH="${HERE}/usr/lib:${HERE}/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}"
+          export XDG_DATA_DIRS="${HERE}/usr/share:${XDG_DATA_DIRS}"
+          export RESOURCE_FILE="${HERE}/usr/share/packet/resources.gresource"
+          export UI_RESOURCE_FILE="${HERE}/usr/share/packet/ui-resources.gresource"
+          export APPDIR="${HERE}"
+          exec "${HERE}/usr/bin/packet" "$@"
+          EOF
+          chmod +x appdir/AppRun
+
+      - name: Download appimagetool
+        run: |
+          wget -q https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool
+          chmod +x appimagetool
+
+      - name: Build AppImage
+        run: |
+          ARCH=x86_64 ./appimagetool --no-appstream appdir packet-x86_64.AppImage
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packet-appimage
+          path: packet-x86_64.AppImage
+
+  rpm:
+    name: "RPM Package (amd64)"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        run: |
+          if [ -z "$VERSION" ]; then
+            VERSION=$(grep -m1 "version:" meson.build | grep -o '[0-9.]*')
+          fi
+          VERSION=${VERSION#v}
+          echo "Building version $VERSION"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y rpm meson ninja-build libgtk-4-dev libadwaita-1-dev blueprint-compiler cargo rustc libglib2.0-dev gettext appstream desktop-file-utils pkg-config libgirepository1.0-dev libdbus-1-dev protobuf-compiler git
+
+      - name: Install newer Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Prepare RPM source
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          rustup default stable
+          mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          git archive --prefix=packet-${VERSION}/ HEAD | gzip > ~/rpmbuild/SOURCES/packet-${VERSION}.tar.gz
+          cp rpmbuild/SPECS/packet.spec ~/rpmbuild/SPECS/
+          sed -i "s/^Version:.*/Version: ${VERSION}/" ~/rpmbuild/SPECS/packet.spec
+
+      - name: Build RPM
+        run: |
+          rpmbuild -bb --nodeps ~/rpmbuild/SPECS/packet.spec
+
+      - name: Copy RPM to workspace
+        run: |
+          cp ~/rpmbuild/RPMS/x86_64/packet-*.rpm .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packet-rpm
+          path: packet-*.rpm
+
+  pacman:
+    name: "Pacman Package (amd64)"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        run: |
+          if [ -z "$VERSION" ]; then
+            VERSION=$(grep -m1 "version:" meson.build | grep -o '[0-9.]*')
+          fi
+          VERSION=${VERSION#v}
+          echo "Building version $VERSION"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Write PKGBUILD
+        run: |
+          cat > PKGBUILD << PKGBUILD_EOF
+          pkgname=packet
+          pkgver=${VERSION}
+          pkgrel=1
+          pkgdesc="Quick Share client for Linux"
+          arch=('x86_64')
+          url="https://github.com/nozwock/packet"
+          license=('GPL3')
+          depends=('gtk4' 'libadwaita' 'dbus' 'protobuf')
+          makedepends=('meson' 'ninja' 'cargo' 'rust' 'blueprint-compiler' 'glib2' 'gettext' 'appstream' 'desktop-file-utils' 'pkgconf' 'base-devel' 'sudo')
+          source=("packet-${VERSION}.tar.gz")
+          sha256sums=('SKIP')
+
+          build() {
+            cd "\${srcdir}/packet-${VERSION}"
+            export PATH="/root/.cargo/bin:$PATH"
+            meson setup builddir --prefix=/usr --buildtype=release
+            ninja -C builddir
+          }
+
+          package() {
+            cd "\${srcdir}/packet-${VERSION}"
+            DESTDIR="\${pkgdir}" ninja -C builddir install
+          }
+          PKGBUILD_EOF
+          mkdir -p distsrc
+          git archive --prefix=packet-${VERSION}/ HEAD | tar -x -C distsrc
+          tar -czf packet-${VERSION}.tar.gz -C distsrc packet-${VERSION}
+
+      - name: Build package in Arch container
+        run: |
+          docker run --rm -v "$PWD":/work -w /work \
+            -e VERSION="${VERSION}" \
+            archlinux:latest bash -c '
+            set -ex
+            pacman -Syu --noconfirm --needed base-devel sudo rust cargo meson ninja gtk4 libadwaita dbus protobuf blueprint-compiler glib2 gettext appstream desktop-file-utils pkgconf
+            useradd -m builduser
+            echo "builduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+            chown -R builduser:builduser /work
+            su builduser -c "cd /work && makepkg -f --syncdeps --noconfirm"
+            '
+          mv packet-*.pkg.tar.zst . 2>/dev/null || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packet-pacman
+          path: packet-*.pkg.tar.zst
+
+  release:
+    name: "Create Release"
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [deb, appimage, rpm, pacman]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Generate release notes
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "# Packet $TAG" > release_notes.md
+          echo "" >> release_notes.md
+          echo "Quick Share client for Linux. Send and receive files wirelessly from Android devices using Quick Share, or another device with Packet." >> release_notes.md
+          echo "" >> release_notes.md
+          echo "## Installation" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### AppImage (Universal)" >> release_notes.md
+          echo '```bash' >> release_notes.md
+          echo "chmod +x packet-x86_64.AppImage" >> release_notes.md
+          echo "./packet-x86_64.AppImage" >> release_notes.md
+          echo '```' >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### Debian/Ubuntu (26.04+)" >> release_notes.md
+          echo '```bash' >> release_notes.md
+          echo "sudo dpkg -i packet_*.deb" >> release_notes.md
+          echo "sudo apt-get install -f" >> release_notes.md
+          echo '```' >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### RPM (Fedora/RHEL/openSUSE)" >> release_notes.md
+          echo '```bash' >> release_notes.md
+          echo "sudo rpm -i packet-*.rpm" >> release_notes.md
+          echo '```' >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### Pacman (Arch/Manjaro)" >> release_notes.md
+          echo '```bash' >> release_notes.md
+          echo "sudo pacman -U packet-*.pkg.tar.zst" >> release_notes.md
+          echo '```' >> release_notes.md
+          echo "" >> release_notes.md
+          echo "## Requirements" >> release_notes.md
+          echo "- Bluetooth enabled" >> release_notes.md
+          echo "- Wi-Fi network with mDNS" >> release_notes.md
+          echo "" >> release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
