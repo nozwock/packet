@@ -114,11 +114,8 @@ fn emit_send_request(win: &Window, model_item: &SendRequestState) {
                         .name
                         .clone()
                         .unwrap_or(gettext("Unknown device")),
-                    addr: format!(
-                        "{}:{}",
-                        endpoint_info.ip.clone().unwrap_or_default(),
-                        endpoint_info.port.clone().unwrap_or_default()
-                    ),
+                    // `ip:port` on the LAN, otherwise the Bluetooth address
+                    addr: endpoint_info.send_address().unwrap_or_default(),
                     ob: outbound_payload,
                 })
                 .await
