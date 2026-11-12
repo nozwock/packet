@@ -12,7 +12,8 @@ gtk = { version = "0.11", package = "gtk4", features = ["v4_22"] }
 adw = { version = "0.9", package = "libadwaita", features = ["v1_9"] }
 tracing = "0.1.37"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-rqs_lib = { git = "https://github.com/nozwock/rquickshare.git", rev = "c9ac93f5584a4265e8da679ad689df5be1e80c6b", default-features = false, features = [
+# Fork adding the Bluetooth medium and Wi-Fi upgrade (branch `generic-transport`).
+rqs_lib = { git = "https://github.com/banne2266/rquickshare.git", rev = "e702dee968bb7391c49cb21f02096661402f2e9f", default-features = false, features = [
     "experimental",
 ] }
 better_default = "1.0.5"

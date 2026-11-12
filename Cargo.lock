@@ -1770,6 +1770,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "md-5"
+version = "0.10.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d89e7ee0cfbedfc4da3340218492196241d89eefb6dab27de5df917a6d2e78cf"
+dependencies = [
+ "cfg-if",
+ "digest",
+]
+
+[[package]]
 name = "mdns-sd"
 version = "0.10.4"
 source = "git+https://github.com/Martichou/mdns-sd?branch=unsolicited#c3d6ec2e173ac2cf8306943f70026c37c2ab1dd7"
@@ -2439,7 +2449,7 @@ dependencies = [
 [[package]]
 name = "rqs_lib"
 version = "0.11.5"
-source = "git+https://github.com/nozwock/rquickshare.git?rev=c9ac93f5584a4265e8da679ad689df5be1e80c6b#c9ac93f5584a4265e8da679ad689df5be1e80c6b"
+source = "git+https://github.com/banne2266/rquickshare.git?rev=e702dee968bb7391c49cb21f02096661402f2e9f#e702dee968bb7391c49cb21f02096661402f2e9f"
 dependencies = [
  "anyhow",
  "base64",
@@ -2454,7 +2464,9 @@ dependencies = [
  "hkdf",
  "hmac",
  "libaes",
+ "libc",
  "log",
+ "md-5",
  "mdns-sd",
  "mime_guess",
  "num-bigint",
