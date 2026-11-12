@@ -13,7 +13,7 @@ adw = { version = "0.9", package = "libadwaita", features = ["v1_9"] }
 tracing = "0.1.37"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 # Fork adding the Bluetooth medium and Wi-Fi upgrade (branch `generic-transport`).
-rqs_lib = { git = "https://github.com/banne2266/rquickshare.git", rev = "0649430eee52c03866e5fc58f06d383391da3a8c", default-features = false, features = [
+rqs_lib = { git = "https://github.com/banne2266/rquickshare.git", rev = "e702dee968bb7391c49cb21f02096661402f2e9f", default-features = false, features = [
     "experimental",
 ] }
 better_default = "1.0.5"
