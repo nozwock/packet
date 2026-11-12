@@ -15,6 +15,7 @@
         "--share=network",
         "--filesystem=xdg-download",
         "--system-talk-name=org.bluez",
+        "--system-talk-name=org.freedesktop.NetworkManager",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
