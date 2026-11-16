@@ -1,565 +1,657 @@
-# SOME DESCRIPTIVE TITLE.
+# Ukrainian translation for packet.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the packet package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SiriusCrain <umackanuk@robot.onaft.edu.ua>, 2025.
+# Димко <Dymkovych@proton.me>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: packet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-11 14:10+0530\n"
-"PO-Revision-Date: 2025-06-09 15:02+0000\n"
-"Last-Translator: SiriusCrain <umackanuk@robot.onaft.edu.ua>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/packet/main/uk/"
-">\n"
+"POT-Creation-Date: 2026-10-03 00:32+0530\n"
+"PO-Revision-Date: 2026-11-16 09:17+0200\n"
+"Last-Translator: Димко <Dymkovych@proton.me>\n"
+"Language-Team: Ukrainian\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Gtranslator 50.0\n"
 
-#: data/resources/ui/shortcuts.blp:11
-#, fuzzy
-#| msgid "General"
+#: src/shortcuts-dialog.blp:6
+msgctxt "shortcut window"
+msgid "Actions"
+msgstr "Дії"
+
+#: src/shortcuts-dialog.blp:9
+msgctxt "shortcut window"
+msgid "Send To…"
+msgstr "Надсилання…"
+
+#: src/shortcuts-dialog.blp:14
+msgctxt "shortcut window"
+msgid "Paste"
+msgstr "Вставлення"
+
+#: src/shortcuts-dialog.blp:20
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Загальні"
 
-#: data/resources/ui/shortcuts.blp:14
-#, fuzzy
-#| msgid "_Keyboard Shortcuts"
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "_Комбінації клавіш"
-
-#: data/resources/ui/shortcuts.blp:19
-#, fuzzy
-#| msgid "Help"
+#: src/shortcuts-dialog.blp:23
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Довідка"
 
-#: data/resources/ui/shortcuts.blp:24
-#, fuzzy
-#| msgid "Preferences"
+#: src/shortcuts-dialog.blp:28
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "Головне меню"
+
+#: src/shortcuts-dialog.blp:33
 msgctxt "shortcut window"
 msgid "Open Preferences"
 msgstr "Налаштування"
 
-#: data/resources/ui/shortcuts.blp:29
+#: src/shortcuts-dialog.blp:38
+msgctxt "shortcut window"
+msgid "Shortcuts"
+msgstr "Клавіатурні скорочення"
+
+#: src/shortcuts-dialog.blp:43
+msgctxt "shortcut window"
+msgid "Close or Hide Window"
+msgstr "Закриття або згортання вікна"
+
+#: src/shortcuts-dialog.blp:48
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Вийти"
 
-#: data/resources/ui/window.blp:7
+#: src/window.blp:7
 msgid "_Preferences"
 msgstr "_Налаштування"
 
-#: data/resources/ui/window.blp:12
-#, fuzzy
-#| msgid "Help"
+#: src/window.blp:12
 msgid "_Help"
-msgstr "Довідка"
+msgstr "_Довідка"
 
-#: data/resources/ui/window.blp:17
+#: src/window.blp:17
 msgid "_Keyboard Shortcuts"
-msgstr "_Комбінації клавіш"
+msgstr "_Клавіатурні скорочення"
 
-#: data/resources/ui/window.blp:22
+#: src/window.blp:22
 msgid "_About Packet"
-msgstr "_Про додаток"
+msgstr "_Про Packet"
 
 #. Translators: The name should remain untranslated
-#: data/resources/ui/window.blp:38 data/resources/ui/window.blp:63
-#: data/resources/ui/window.blp:140 src/application.rs:238 src/main.rs:57
+#: src/window.blp:38 src/window.blp:64 src/window.blp:219
+#: src/application.rs:241 src/main.rs:72 src/tray.rs:26
 #: data/io.github.nozwock.Packet.desktop.in.in:2
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:6
 msgid "Packet"
 msgstr "Packet"
 
-#: data/resources/ui/window.blp:52
+#: src/window.blp:45
+msgid "About"
+msgstr "Про програму"
+
+#: src/window.blp:53
 msgid "Setting up Packet…"
 msgstr "Підготовка Packet…"
 
-#: data/resources/ui/window.blp:71
-#, fuzzy
-#| msgid "Copy"
+#: src/window.blp:72
 msgid "Copy Log"
-msgstr "Скопіювати"
+msgstr "Скопіювати журнал"
 
-#: data/resources/ui/window.blp:85
+#: src/window.blp:79 src/window.blp:210 src/window.blp:266 src/window.blp:331
+msgid "Main Menu"
+msgstr "Головне меню"
+
+#: src/window.blp:87
 msgid "Couldn't Set Up"
-msgstr "Не вдалося налаштувати"
+msgstr "Не вдалося підготувати"
 
-#: data/resources/ui/window.blp:86
+#: src/window.blp:88
 msgid "An error occurred while trying to setup Packet"
-msgstr "Сталася помилка під час налаштування Packet"
+msgstr "Під час підготовки Packet сталася помилка"
 
-#: data/resources/ui/window.blp:91
+#: src/window.blp:93
 msgid "Try Again"
 msgstr "Спробувати ще раз"
 
-#: data/resources/ui/window.blp:120
-#: data/io.github.nozwock.Packet.metainfo.xml.in.in:22
+#: src/window.blp:175
+msgid "Send To…"
+msgstr "Надіслати…"
+
+#: src/window.blp:198 data/io.github.nozwock.Packet.metainfo.xml.in.in:22
 msgid "Main Page"
 msgstr "Головна сторінка"
 
-#: data/resources/ui/window.blp:141
+#: src/window.blp:220
 msgid "Add, or drop a file to send"
-msgstr "Додати або перетягніть файл для надсилання"
+msgstr "Додайте або перетягніть файл"
 
-#: data/resources/ui/window.blp:148
+#: src/window.blp:232
 msgid "Add Files"
 msgstr "Додати файли"
 
-#: data/resources/ui/window.blp:163
+#: src/window.blp:242 src/window.blp:319
+msgid "Share Text"
+msgstr "Ширити текст"
+
+#: src/window.blp:254
 msgid "Selected Files Page"
 msgstr "Сторінка вибраних файлів"
 
-#: data/resources/ui/window.blp:203
+#: src/window.blp:295
 msgid "Add File"
 msgstr "Додати файл"
 
-#: data/resources/ui/window.blp:298
-msgid "Send"
-msgstr "Надіслати"
+#: src/window.blp:394
+msgid "Paste from clipboard"
+msgstr "Вставити з буфера обміну"
 
-#: data/resources/ui/window.blp:321
+#: src/window.blp:403
+msgid "Clear text"
+msgstr "Очистити текст"
+
+#: src/window.blp:427
+msgid "Enter or paste text, or links to send"
+msgstr "Введіть або вставте текст чи посилання"
+
+#: src/window.blp:450
 msgid "Select Recipients"
-msgstr "Виберіть одержувачів"
+msgstr "Виберіть одержувача"
 
-#: data/resources/ui/window.blp:391
+#: src/window.blp:473
+msgid "Refresh"
+msgstr "Оновити"
+
+#: src/window.blp:521
 msgid "Looking for devices…"
 msgstr "Пошук пристроїв…"
 
-#: data/resources/ui/window.blp:399 data/resources/ui/window.blp:516
+#: src/window.blp:529 src/window.blp:656
 msgid "Can't see the other device?"
-msgstr "Не бачите інший пристрій?"
+msgstr "Не бачите потрібний пристрій?"
 
-#: data/resources/ui/window.blp:418
+#: src/window.blp:548
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: data/resources/ui/window.blp:423
+#: src/window.blp:553
 msgid "General"
-msgstr "Загальні"
+msgstr "Загальне"
 
-#: data/resources/ui/window.blp:426
+#: src/window.blp:556
 msgid "Device Name"
 msgstr "Назва пристрою"
 
-#: data/resources/ui/window.blp:431
+#: src/window.blp:561
 msgid "Visibility"
 msgstr "Видимість"
 
-#: data/resources/ui/window.blp:432
+#: src/window.blp:562
 msgid "Whether others can see this device"
-msgstr "Чи можуть інші бачити цей пристрій"
+msgstr "Дозвіл іншим бачити цей пристрій"
 
-#: data/resources/ui/window.blp:436
+#: src/window.blp:566
 msgid "Downloads Folder"
-msgstr "Папка завантажень"
+msgstr "Тека збереження"
 
-#: data/resources/ui/window.blp:442
+#: src/window.blp:572
 msgid "Pick download folder"
-msgstr "Виберіть папку для завантажень"
+msgstr "Вибрати теку для завантажень"
 
-#: data/resources/ui/window.blp:453
+#: src/window.blp:583
 msgid "Run in Background"
-msgstr "Запуск у фоновому режимі"
+msgstr "Робота у фоновому режимі"
 
-#: data/resources/ui/window.blp:454
+#: src/window.blp:584
 msgid "Allow running in the background"
-msgstr "Дозволити роботу у фоновому режимі"
+msgstr "Дозволити роботу у фоні"
 
-#: data/resources/ui/window.blp:458
+#: src/window.blp:588
 msgid "Auto Start"
 msgstr "Автозапуск"
 
-#: data/resources/ui/window.blp:459
+#: src/window.blp:589
 msgid "Start automatically at login"
-msgstr "Запускати автоматично під час входу"
+msgstr "Запускати під час входу в систему"
 
-#: data/resources/ui/window.blp:464
+#: src/window.blp:594
 msgid "Advanced"
-msgstr "Розширені"
+msgstr "Розширене"
 
-#: data/resources/ui/window.blp:467
+#: src/window.blp:597
 msgid "Nautilus Plugin"
-msgstr ""
+msgstr "Вбудовування в Nautilus"
 
-#: data/resources/ui/window.blp:468
+#: src/window.blp:598
 msgid "Integrate with Nautilus file menu"
-msgstr ""
+msgstr "Дія для контекстного меню файлів"
 
-#: data/resources/ui/window.blp:474
+#: src/window.blp:605
+msgid "Tray Icon"
+msgstr "Піктограма на панелі"
+
+#: src/window.blp:606
+msgid "Show tray icon in the system tray"
+msgstr "Показувати піктограму в області сповіщень"
+
+#: src/window.blp:612
 msgid "Static Network Port"
 msgstr "Статичний мережевий порт"
 
 #. Translators: For whitelisting of the app.
-#: data/resources/ui/window.blp:476
+#: src/window.blp:614
 msgid "For whitelisting through a firewall"
-msgstr "Для додавання до білого списку через брандмауер"
+msgstr "Для додавання до списку дозволених у брандмауері"
 
-#: data/resources/ui/window.blp:481
+#: src/window.blp:619
 msgid "Port Number"
 msgstr "Номер порту"
 
-#: data/resources/ui/window.blp:490
+#: src/window.blp:628
 msgid "Help"
 msgstr "Довідка"
 
-#: data/resources/ui/window.blp:541
+#: src/window.blp:681
 msgid ""
 "Make sure both devices are connected to the same Wi-Fi network and have "
 "Bluetooth turned on"
 msgstr ""
-"Переконайтеся, що обидва пристрої підключені до однієї мережі Wi-Fi та на "
-"них увімкнено Bluetooth"
+"Переконайтеся, що обидва пристрої підключені до однієї мережі Wi-Fi й на них "
+"увімкнено Bluetooth"
 
-#: data/resources/ui/window.blp:564
+#: src/window.blp:704
 msgid "Make sure the device is set to be visible to all nearby devices"
-msgstr ""
-"Переконайтеся що пристрій налаштовано на видимість для всіх пристроїв поблизу"
+msgstr "Переконайтеся, що пристрій видимий для всіх пристроїв поблизу"
 
-#: data/resources/ui/window.blp:587
+#: src/window.blp:727
 msgid ""
 "For an Android device, try opening the <b>Quick Share</b> page in the "
 "<b>Files by Google</b> app"
 msgstr ""
-"На пристрої з Android спробуйте відкрити сторінку <b>Швидкий доступ</b> у "
-"програмі <b>Файли</b> (FIles від Google)"
+"На пристрої Android відкрийте сторінку <b>Швидкий доступ</b> у "
+"<b>Налаштуваннях</b> або <b>Файлах</b>"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.rs:253
+#: src/application.rs:256
 msgid "translator-credits"
 msgstr ""
+"Umackanuk <umackanuk@robot.onaft.edu.ua>\n"
+"Димко <Dymkovych@proton.me>"
 
-#: src/application.rs:258
+#: src/application.rs:261
 msgid "Loading logs..."
-msgstr ""
+msgstr "Завантаження журналу…"
 
-#: src/application.rs:262
+#: src/application.rs:265
 msgid "Similar Projects"
-msgstr "Схожі проекти"
+msgstr "Схожі проєкти"
 
-#: src/application.rs:282 src/window.rs:1231
+#: src/application.rs:285 src/window.rs:1402
 msgid "Failed to retrieve the logs"
-msgstr ""
+msgstr "Не вдалося отримати журнал"
 
-#: src/objects/send_transfer.rs:48 src/widgets/recipient_card.rs:108
-#: src/widgets/recipient_card.rs:147
+#: src/objects/send_transfer.rs:47 src/widgets/recipient_card.rs:116
+#: src/widgets/recipient_card.rs:185
 msgid "Unknown device"
 msgstr "Невідомий пристрій"
 
-#: src/utils.rs:291
+#: src/tray.rs:32 src/widgets/receive_transfer.rs:669
+#: src/widgets/receive_transfer.rs:813 src/widgets/receive_transfer.rs:819
+msgid "Open"
+msgstr "Відкрити"
+
+#: src/tray.rs:40
+msgid "Exit"
+msgstr "Вихід"
+
+#: src/utils.rs:403
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: src/utils.rs:417 src/utils.rs:422
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "година"
 msgstr[1] "години"
 msgstr[2] "годин"
+msgstr[3] "година"
 
-#: src/utils.rs:293 src/utils.rs:303
+#: src/utils.rs:419 src/utils.rs:430 src/utils.rs:435
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "хвилина"
 msgstr[1] "хвилини"
 msgstr[2] "хвилин"
+msgstr[3] "хвилина"
 
-#: src/utils.rs:305 src/utils.rs:308
+#: src/utils.rs:432 src/utils.rs:438
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "секунда"
 msgstr[1] "секунди"
 msgstr[2] "секунд"
+msgstr[3] "секунда"
 
-#: src/widgets/file_card.rs:116
+#: src/widgets/file_card.rs:117
 msgid "Remove"
-msgstr "Видалити"
+msgstr "Прибрати"
 
 #. Translators: An e.g. "4 Files"
-#: src/widgets/file_card.rs:134 src/widgets/receive_transfer.rs:422
-#: src/window.rs:1624
+#: src/widgets/file_card.rs:135 src/widgets/receive_transfer.rs:430
+#: src/window.rs:1998
+#, rust-format
 msgid "{} File"
 msgid_plural "{} Files"
-msgstr[0] "{} Файл"
-msgstr[1] "{} Файли"
-msgstr[2] "{} Файлів"
+msgstr[0] "{} файл"
+msgstr[1] "{} файли"
+msgstr[2] "{} файлів"
+msgstr[3] "{} файл"
 
-#: src/widgets/receive_transfer.rs:23
+#: src/widgets/receive_transfer.rs:24
 msgid "Link"
 msgstr "Посилання"
 
-#: src/widgets/receive_transfer.rs:24
+#: src/widgets/receive_transfer.rs:25
 msgid "Text"
 msgstr "Текст"
 
-#: src/widgets/receive_transfer.rs:25
+#: src/widgets/receive_transfer.rs:26
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: src/widgets/receive_transfer.rs:64
+#: src/widgets/receive_transfer.rs:68
 msgid "Receiving"
 msgstr "Отримання"
 
-#: src/widgets/receive_transfer.rs:67 src/widgets/receive_transfer.rs:199
-#: src/widgets/recipient_card.rs:310
+#: src/widgets/receive_transfer.rs:71 src/widgets/receive_transfer.rs:206
+#: src/widgets/recipient_card.rs:327
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/widgets/receive_transfer.rs:148 src/widgets/receive_transfer.rs:443
+#: src/widgets/receive_transfer.rs:153 src/widgets/receive_transfer.rs:451
 msgid "Incoming Transfer"
-msgstr "Вхідний переказ"
+msgstr "Вхідне передавання"
 
-#: src/widgets/receive_transfer.rs:194
+#: src/widgets/receive_transfer.rs:201
 msgid "Receiving..."
 msgstr "Отримання..."
 
-#: src/widgets/receive_transfer.rs:276 src/widgets/receive_transfer.rs:450
+#: src/widgets/receive_transfer.rs:284 src/widgets/receive_transfer.rs:458
 msgid "Decline"
 msgstr "Відхилити"
 
-#: src/widgets/receive_transfer.rs:277 src/widgets/receive_transfer.rs:454
+#: src/widgets/receive_transfer.rs:285 src/widgets/receive_transfer.rs:462
 msgid "Accept"
 msgstr "Прийняти"
 
 #. Translators: An e.g. "6 Files (42.3MB)"
-#: src/widgets/receive_transfer.rs:308
+#: src/widgets/receive_transfer.rs:316
+#, rust-format
 msgid "{} file ({})"
 msgid_plural "{} files ({})"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{} файл ({})"
+msgstr[1] "{} файли ({})"
+msgstr[2] "{} файлів ({})"
+msgstr[3] "{} файл ({})"
 
-#: src/widgets/receive_transfer.rs:327
+#: src/widgets/receive_transfer.rs:335
+#, rust-format
 msgid "Preview ({})"
 msgstr "Перегляд ({})"
 
 #. Translators: This is the pin-code for the transfer
-#: src/widgets/receive_transfer.rs:343 src/widgets/recipient_card.rs:442
+#: src/widgets/receive_transfer.rs:351 src/widgets/recipient_card.rs:459
+#, rust-format
 msgid "Code: {}"
 msgstr "Код: {}"
 
-#: src/widgets/receive_transfer.rs:404
+#: src/widgets/receive_transfer.rs:412
 msgid "Request timed out"
-msgstr "Час очікування запиту минув"
+msgstr "Минув час на запит"
 
 #. Translators: This is when some device is sharing files or text
 #. e.g. (Someone's Phone wants to share 4 files)
 #. e.g. (Someone's Phone wants to share "lorem ipsum ...")
-#: src/widgets/receive_transfer.rs:417
+#: src/widgets/receive_transfer.rs:425
+#, rust-format
 msgid "{} wants to share {}"
 msgstr "{} хоче надіслати {}"
 
 #. Translators: {} will be replaced with an estimated remaining time string
 #. e.g. "About 4 minutes 32 seconds left"
-#: src/widgets/receive_transfer.rs:494 src/widgets/recipient_card.rs:473
+#: src/widgets/receive_transfer.rs:502 src/widgets/recipient_card.rs:486
+#, rust-format
 msgid "About {} left"
 msgstr "Залишилось приблизно {}"
 
-#: src/widgets/receive_transfer.rs:519
-msgid "Unexpected dissconnection"
-msgstr "Несподіване відключення"
+#: src/widgets/receive_transfer.rs:525
+msgid "Unexpected disconnection"
+msgstr "Несподіване роз’єднання"
 
-#: src/widgets/receive_transfer.rs:552
+#: src/widgets/receive_transfer.rs:558
 msgid "Transfer cancelled by sender"
-msgstr "Переказ скасовано відправником"
+msgstr "Відправник скасував передавання"
 
-#: src/widgets/receive_transfer.rs:599
+#: src/widgets/receive_transfer.rs:605
 msgid "Copy to clipboard"
 msgstr "Копіювати в буфер обміну"
 
-#: src/widgets/receive_transfer.rs:607
+#: src/widgets/receive_transfer.rs:613
 msgid "Save text as file"
-msgstr "Зберегти текст як файл"
+msgstr "Зберегти текст у файл"
 
-#: src/widgets/receive_transfer.rs:664 src/widgets/receive_transfer.rs:807
-#: src/widgets/receive_transfer.rs:813
-msgid "Open"
-msgstr "Відкрити"
-
-#: src/widgets/receive_transfer.rs:759
+#: src/widgets/receive_transfer.rs:765
+#, rust-format
 msgid "Received \"{}\""
-msgstr "Отримано \"{}\""
+msgstr "Отримано «{}»"
 
-#: src/widgets/receive_transfer.rs:774
+#: src/widgets/receive_transfer.rs:780
 msgid "Copy"
 msgstr "Скопіювати"
 
-#: src/widgets/receive_transfer.rs:789
+#: src/widgets/receive_transfer.rs:795
+#, rust-format
 msgid "{} file received"
 msgid_plural "{} files received"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Отримано {} файл"
+msgstr[1] "Отримано {} файли"
+msgstr[2] "Отримано {} файлів"
+msgstr[3] "Отримано {} файл"
 
-#: src/widgets/recipient_card.rs:221
+#: src/widgets/recipient_card.rs:238
 msgid "Unavailable"
 msgstr "Недоступно"
 
-#: src/widgets/recipient_card.rs:244
+#: src/widgets/recipient_card.rs:261
 msgid "Queued"
 msgstr "У черзі"
 
-#: src/widgets/recipient_card.rs:291
+#: src/widgets/recipient_card.rs:308
 msgid "Retry"
 msgstr "Повторити"
 
-#: src/widgets/recipient_card.rs:436
+#: src/widgets/recipient_card.rs:453
 msgid "Requested"
 msgstr "Запрошено"
 
-#: src/widgets/recipient_card.rs:499
+#: src/widgets/recipient_card.rs:510
 msgid "Failed"
 msgstr "Невдало"
 
-#: src/widgets/recipient_card.rs:542
+#: src/widgets/recipient_card.rs:553
+msgid "Link sent"
+msgstr "Посилання надіслано"
+
+#: src/widgets/recipient_card.rs:555
+msgid "Text sent"
+msgstr "Текст надіслано"
+
+#: src/widgets/recipient_card.rs:560
+#, rust-format
 msgid "Sent {} file"
 msgid_plural "Sent {} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Надіслано {} файл"
+msgstr[1] "Надіслано {} файли"
+msgstr[2] "Надіслано {} файлів"
+msgstr[3] "Надіслано {} файл"
 
-#: src/window.rs:507
+#: src/window.rs:545
 msgid "Couldn't update the Nautilus plugin"
-msgstr ""
+msgstr "Не вдалося оновити дію для Nautilus"
 
-#: src/window.rs:599 src/window.rs:985
+#: src/window.rs:667 src/window.rs:1076
 msgid "Packet cannot run in the background"
 msgstr "Packet не може працювати у фоновому режимі"
 
-#: src/window.rs:635
+#: src/window.rs:707
 msgid "Packet cannot run at login"
-msgstr "Packet не може бути запущений під час входу в систему"
+msgstr "Packet не може запускатися під час входу в систему"
 
-#: src/window.rs:700
+#: src/window.rs:773
 msgid "Can't rename device during an active transfer"
-msgstr "Неможливо перейменувати пристрій під час активного пересилання"
+msgstr "Не можна перейменовувати пристрій під час передавання даних"
 
-#: src/window.rs:841
+#: src/window.rs:913
 msgid "Invalid Port"
-msgstr "Неправильний порт"
+msgstr "Неприпустимий порт"
 
-#: src/window.rs:845
+#: src/window.rs:917
+#, rust-format
 msgid ""
 "The chosen static port \"{}\" is not available. Try a different port above "
 "1024."
 msgstr ""
+"Вибраний статичний порт «{}» недоступний. Спробуйте інший номер порту, "
+"більший за 1024."
 
-#: src/window.rs:853
+#: src/window.rs:925
 msgid "_Ok"
-msgstr "_Добре"
+msgstr "_Гаразд"
 
-#: src/window.rs:901
+#: src/window.rs:974
 msgid "Can't access Downloads folder"
-msgstr "Немає доступу до папки «Завантаження»"
+msgstr "Немає доступу до теки збереження"
 
-#: src/window.rs:902
+#: src/window.rs:975
 msgid "Pick Folder"
-msgstr "Виберіть папку"
+msgstr "Вибрати теку"
 
-#: src/window.rs:929
+#: src/window.rs:999
 msgid "Packet wants to run in the background"
-msgstr "Packet хоче працювати у фоновому режимі"
+msgstr "Packet запитує дозвіл на роботу у фоні"
 
-#: src/window.rs:1060
+#: src/window.rs:1230
 msgid "Plugin Installed"
-msgstr ""
+msgstr "Пов'язано"
 
-#: src/window.rs:1064
+#: src/window.rs:1234
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
-#: src/window.rs:1080
+#: src/window.rs:1250
+#, rust-format
 msgid ""
 "The plugin was installed successfully, but requires the following packages "
 "to function: {}"
-msgstr ""
+msgstr "Контекстну дію додано, але для її роботи потрібні такі пакунки: {}"
 
-#: src/window.rs:1096
+#: src/window.rs:1266
+#, rust-format
 msgid ""
 "Package names may vary by distribution, visit <a {}>this link</a> for "
 "details."
 msgstr ""
+"Назви пакунків можуть різнитися залежно від дистрибутива — докладніше за <a "
+"{}>посиланням</a>."
 
-#: src/window.rs:1111
+#: src/window.rs:1281
 msgid ""
 "Once that's done, restart Nautilus (e.g., by logging out and back in) to "
 "load the plugin."
 msgstr ""
+"А опісля перезапустіть Nautilus (або вийдіть із системи й увійдіть), щоб "
+"зміни набули чинності."
 
-#: src/window.rs:1121
+#: src/window.rs:1291
 msgid "Installation Failed"
-msgstr ""
+msgstr "Не вдалося встановити"
 
-#: src/window.rs:1125
+#: src/window.rs:1295
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
-#: src/window.rs:1139
+#: src/window.rs:1309
 msgid ""
 "Plugin installation failed. Make sure the following directory exists and is "
 "accessible by Packet:"
 msgstr ""
+"Не вдалося вбудувати дію в Nautilus. Переконайтеся, що вказана тека існує й "
+"Packet має до неї доступ:"
 
-#: src/window.rs:1238
-#, fuzzy
-#| msgid "Copy to clipboard"
+#: src/window.rs:1411
 msgid "Copied log to clipboard"
-msgstr "Копіювати в буфер обміну"
+msgstr "Журнал скопійовано в буфер обміну"
 
-#: src/window.rs:1506
+#: src/window.rs:1868
 msgid "Ready"
 msgstr "Готово"
 
-#: src/window.rs:1513
+#: src/window.rs:1875
+#, rust-format
 msgid "Visible as {:?}"
-msgstr ""
+msgstr "Видимий як {:?}"
 
-#: src/window.rs:1519
+#: src/window.rs:1881
 msgid "Invisible"
 msgstr "Невидимий"
 
-#: src/window.rs:1525
+#: src/window.rs:1887
 msgid "No new devices can share with you"
-msgstr "Жодні нові пристрої не можуть ділитися з вами"
+msgstr "Нові пристрої не зможуть надсилати вам файли"
 
-#: src/window.rs:1530
+#: src/window.rs:1892
 msgid "Disconnected"
-msgstr "Відключено"
+msgstr "Від’єднано"
 
-#: src/window.rs:1536
+#: src/window.rs:1898
 msgid "Connect to Wi-Fi and turn on Bluetooth"
-msgstr "Підключіться до Wi-Fi та увімкніть Bluetooth"
+msgstr "Підключіться до Wi-Fi й увімкніть Bluetooth"
 
-#: src/window.rs:1539
+#: src/window.rs:1901
 msgid "Connect to Wi-Fi"
 msgstr "Підключіться до Wi-Fi"
 
-#: src/window.rs:1542
+#: src/window.rs:1904
 msgid "Turn on Bluetooth"
 msgstr "Увімкніть Bluetooth"
 
-#: src/window.rs:1615
+#: src/window.rs:1988
 msgid "Couldn't open files"
 msgstr "Не вдалося відкрити файли"
 
-#: data/resources/plugins/packet_nautilus.py.in:113
-#, fuzzy
-#| msgid "Setting up Packet…"
+#: data/resources/plugins/packet_nautilus.py.in:120
 msgid "Send with Packet"
-msgstr "Підготовка Packet…"
+msgstr "Надіслати через Packet"
 
 #: data/io.github.nozwock.Packet.desktop.in.in:3
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:7
 msgid "Share files easily"
-msgstr "Легко обмінюйтеся файлами"
+msgstr "Простий обмін файлами"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.nozwock.Packet.desktop.in.in:9
 msgid "Gnome;GTK;Quick;Nearby;Share;"
-msgstr "Gnome;GTK;Quick;Nearby;Share;Швидка;Відправка;Обмін;Файлами;"
+msgstr "Gnome;GTK;Quick;Nearby;Share;Швидка;Відправка;Обмін;Надіслати;Файлами;"
 
-#. Trasnlators: The gschema strings won't be used in the app directly and aren't a priority
+#. Translators: The gschema strings won't be used in the app directly and aren't a priority
 #: data/io.github.nozwock.Packet.gschema.xml.in:7
 msgid "Window width"
 msgstr "Ширина вікна"
@@ -570,7 +662,7 @@ msgstr "Висота вікна"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:15
 msgid "Window maximized state"
-msgstr "Розгорнутий стан вікна"
+msgstr "Стан розгорнутого вікна"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:19
 msgid "Device name"
@@ -582,36 +674,30 @@ msgstr "Видимість пристрою"
 
 #: data/io.github.nozwock.Packet.gschema.xml.in:27
 msgid "Download folder"
-msgstr "Папка завантажень"
+msgstr "Тека збереження"
 
-#. Trasnlators: The metainfo strings are for Flathub and aren't a priority
+#. Translators: The metainfo strings are for Flathub and aren't a priority
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:10
 msgid ""
 "Send and receive files wirelessly with Android devices using Quick Share or "
 "another device with Packet installed."
 msgstr ""
-"Надсилайте та отримуйте файли по мережі з пристроями Android, використовуючи "
-"Quick Share, або інший пристрій із встановленим Packet."
+"Надсилайте й отримуйте файли мережею через Швидкий обмін на Android або "
+"напряму між пристроями з Packet."
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:11
 msgid ""
 "Packet requires Bluetooth to be enabled and the devices to be connected to a "
 "Wi-Fi network with mDNS."
 msgstr ""
-"Для Packet необхідний включений Bluetooth і mDNS для пошуку пристроїв, "
-"підключених до мережі Wi-Fi."
+"Для роботи Packet увімкніть Bluetooth і під’єднайте обидва пристрої до "
+"мережі Wi-Fi з підтримкою mDNS."
 
-#. Trasnlators: These are captions for the screenshots on Flathub
+#. Translators: These are captions for the screenshots on Flathub
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:18
 msgid "Sent Share Request"
-msgstr "Надіслано запит на обмін"
+msgstr "Надісланий запит на передачу"
 
 #: data/io.github.nozwock.Packet.metainfo.xml.in.in:26
 msgid "Received Share Request"
-msgstr "Отримано запит на передачу"
-
-#~ msgid "Copy error report"
-#~ msgstr "Копіювати звіт про помилку"
-
-#~ msgid "Copied error report to clipboard"
-#~ msgstr "Звіт про помилку скопійовано в буфер обміну"
+msgstr "Отриманий запит на передачу"
