@@ -20,6 +20,17 @@ def log(*vals: Any):
     print("Packet:", *vals, file=sys.stderr)
 
 
+def flatpak_location(ref: str) -> Path | None:
+    try:
+        info = subprocess.run(
+            ["flatpak", "info", "-l", ref], capture_output=True, check=True
+        )
+    except Exception:
+        return None
+
+    return Path(info.stdout.decode().strip())
+
+
 # TODO: Maybe have a separate gettext package for plugin scripts that gets
 # copied over alongside the script. Seems more robust?
 def init_i18n() -> gettext.NullTranslations | gettext.GNUTranslations:
@@ -33,17 +44,19 @@ def init_i18n() -> gettext.NullTranslations | gettext.GNUTranslations:
     ]
     (lang, enc) = locale.getlocale()
 
-    flatpak_info = None
-    try:
-        flatpak_info = subprocess.run(
-            ["flatpak", "info", "-l", APP_ID], capture_output=True, check=True
-        )
-    except Exception:
-        pass
+    app_location = flatpak_location(APP_ID)
+    if app_location:
+        locale_dirs.append(app_location / "files" / "share" / "locale")
 
-    if flatpak_info:
-        locale_dirs.append(
-            Path(flatpak_info.stdout.decode().strip()) / "files" / "share" / "locale"
+    # Flatpak moves translations into the `.Locale` extension, laid out as `<lang>/share/<lang>/LC_MESSAGES`.
+    # The app's `share/locale` only holds symlinks into the extension's mount point inside the sandbox, which
+    # don't resolve from the host, so each language directory of the extension is a locale dir of its own.
+    locale_extension_location = flatpak_location(f"{APP_ID}.Locale")
+    if locale_extension_location:
+        locale_dirs.extend(
+            lang_dir / "share"
+            for lang_dir in sorted((locale_extension_location / "files").iterdir())
+            if lang_dir.is_dir()
         )
 
     i18n = None
